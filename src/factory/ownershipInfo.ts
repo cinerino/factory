@@ -1,42 +1,63 @@
 import * as chevre from '@chevre/factory';
-import * as pecorino from '@pecorino/factory';
 
 import AccountType from './accountType';
 import { IOrganization } from './organization';
 import { IPerson } from './person';
 import { IProgramMembership, ProgramMembershipType } from './programMembership';
 
-export interface IAccount {
-    typeOf: pecorino.account.TypeOf;
+/**
+ * 口座タイプ
+ */
+export enum AccountGoodType {
+    /**
+     * 口座
+     */
+    Account = 'Account'
+}
+/**
+ * 口座インターフェース
+ */
+export interface IAccount<T extends AccountType> {
+    typeOf: AccountGoodType.Account;
     /**
      * 口座タイプ
      */
-    accountType: AccountType;
+    accountType: T;
     /**
      * 口座番号
      */
     accountNumber: string;
 }
 /**
+ * 予約インターフェース
+ */
+export interface IReservation<T extends chevre.reservationType> {
+    typeOf: T;
+    /**
+     * 予約ID
+     */
+    reservationId: string;
+}
+/**
  * 所有対象物のタイプ
  */
-export type IGoodType = chevre.reservationType | ProgramMembershipType | pecorino.account.TypeOf;
+export type IGoodType = chevre.reservationType | ProgramMembershipType | AccountGoodType;
 /**
  * 所有対象物インタエーフェース (Product or Service)
  */
 export type IGood<T extends IGoodType> =
     /**
+     * 口座タイプの場合
+     */
+    T extends AccountGoodType ? IAccount<AccountType> :
+    /**
      * 予約タイプの場合
      */
-    T extends chevre.reservationType ? chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent> :
+    T extends chevre.reservationType ? IReservation<T> :
     /**
      * 会員プログラムタイプの場合
      */
     T extends ProgramMembershipType ? IProgramMembership :
-    /**
-     * 口座タイプの場合
-     */
-    T extends pecorino.account.TypeOf ? IAccount :
     never;
 /**
  * 所有者インターフェース

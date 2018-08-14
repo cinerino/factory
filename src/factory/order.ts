@@ -2,7 +2,6 @@
  * 注文ファクトリー
  * 注文は、確定した注文取引の領収証に値するものです。
  */
-
 import * as chevre from '@chevre/factory';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
@@ -31,7 +30,6 @@ export interface IPaymentMethod<T extends PaymentMethodType> {
      */
     paymentMethodId: string;
 }
-
 /**
  * 割引インターフェース
  */
@@ -50,7 +48,6 @@ export interface IDiscount {
      */
     discountCurrency: string;
 }
-
 /**
  * 供給アイテムインターフェース
  */
@@ -64,7 +61,6 @@ export interface IOrderInquiryKey {
     confirmationNumber: number;
     telephone: string;
 }
-
 /**
  * offer interface
  * 供給インターフェース
@@ -82,7 +78,6 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOffer {
         name: string;
     };
 }
-
 /**
  * 販売者インターフェース
  */
@@ -95,14 +90,12 @@ export interface ISeller {
     telephone?: string;
     url?: string;
 }
-
 /**
  * 購入者インターフェース
  */
 export type ICustomer = IPerson & IContact & {
     name: string;
 };
-
 /**
  * 注文インターフェース
  */
@@ -173,43 +166,22 @@ export interface IOrder {
      */
     orderInquiryKey: IOrderInquiryKey;
 }
-
 /**
  * 注文検索条件インターフェース
  */
 export interface ISearchConditions {
     /**
-     * 販売者ID
-     * @deprecated use sellerIds
-     */
-    sellerId?: string;
-    /**
      * 販売者IDリスト
      */
     sellerIds?: string[];
-    /**
-     * 購入者会員番号
-     * @deprecated use customerMembershipNumbers
-     */
-    customerMembershipNumber?: string;
     /**
      * 購入者会員番号リスト
      */
     customerMembershipNumbers?: string[];
     /**
-     * 注文番号
-     * @deprecated use orderNumbers
-     */
-    orderNumber?: string;
-    /**
      * 注文番号リスト
      */
     orderNumbers?: string[];
-    /**
-     * 注文ステータス
-     * @deprecated use orderStatuses
-     */
-    orderStatus?: OrderStatus;
     /**
      * 注文ステータスリスト
      */
