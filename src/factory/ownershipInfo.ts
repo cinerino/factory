@@ -36,7 +36,11 @@ export interface IReservation<T extends chevre.reservationType> {
     /**
      * 予約ID
      */
-    reservationId: string;
+    id: string;
+    /**
+     * 予約番号
+     */
+    reservationNumber: string;
 }
 /**
  * 所有対象物のタイプ
