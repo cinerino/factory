@@ -1,4 +1,5 @@
 import * as chevre from '@chevre/factory';
+import * as pecorino from '@pecorino/factory';
 
 import AccountType from './accountType';
 import { IOrganization } from './organization';
@@ -64,6 +65,23 @@ export type IGood<T extends IGoodType> =
     T extends ProgramMembershipType ? IProgramMembership :
     never;
 /**
+ * 所有対象物インタエーフェース(対象物詳細有)
+ */
+export type IGoodWithDetail<T extends IGoodType> =
+    /**
+     * 口座タイプの場合
+     */
+    T extends AccountGoodType ? pecorino.account.IAccount<AccountType> :
+    /**
+     * 予約タイプの場合
+     */
+    T extends chevre.reservationType ? chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent> :
+    /**
+     * 会員プログラムタイプの場合
+     */
+    T extends ProgramMembershipType ? IProgramMembership :
+    never;
+/**
  * 所有者インターフェース
  */
 export type IOwner = IOrganization | IPerson;
@@ -71,7 +89,7 @@ export type OwnershipInfoType = 'OwnershipInfo';
 /**
  * 所有権インターフェース
  */
-export interface IOwnershipInfo<T extends IGoodType> {
+export interface IOwnershipInfo<T extends IGood<IGoodType> | IGoodWithDetail<IGoodType>> {
     /**
      * object type
      */
@@ -99,7 +117,7 @@ export interface IOwnershipInfo<T extends IGoodType> {
     /**
      * 所有対象物
      */
-    typeOfGood: IGood<T>;
+    typeOfGood: T;
 }
 /**
  * 所有権検索条件インターフェース
