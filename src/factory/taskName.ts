@@ -11,9 +11,9 @@ enum TaskName {
      */
     CancelCreditCard = 'cancelCreditCard',
     /**
-     * ポイント口座承認アクション取消
+     * 口座承認アクション取消
      */
-    CancelPoint = 'cancelPoint',
+    CancelAccount = 'cancelAccount',
     /**
      * ポイントインセンティブ承認アクション取消
      */
@@ -43,9 +43,9 @@ enum TaskName {
      */
     PayMocoin = 'payMocoin',
     /**
-     * ポイント支払
+     * 口座支払
      */
-    PayPoint = 'payPoint',
+    PayAccount = 'payAccount',
     /**
      * 注文配送
      */
@@ -55,9 +55,9 @@ enum TaskName {
      */
     RefundCreditCard = 'refundCreditCard',
     /**
-     * ポイント返金
+     * 口座返金
      */
-    RefundPoint = 'refundPoint',
+    RefundAccount = 'refundAccount',
     /**
      * ポイントインセンティブ付与
      */

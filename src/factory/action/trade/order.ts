@@ -20,9 +20,9 @@ export interface IPotentialActions {
      */
     payCreditCard?: IPayActionAttributes<PaymentMethodType.CreditCard>;
     /**
-     * ポイント決済実行アクションリスト
+     * 口座決済実行アクションリスト
      */
-    payPoint: IPayActionAttributes<PaymentMethodType.Point>[];
+    payAccount: IPayActionAttributes<PaymentMethodType.Account>[];
     /**
      * Mocoin決済実行アクションリスト
      */

@@ -1,6 +1,4 @@
-/**
- * 組織ファクトリー
- */
+import AccountType from './accountType';
 import IMultilingualString from './multilingualString';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
@@ -33,16 +31,6 @@ export interface ICreditCardPaymentAccepted {
      */
     gmoInfo: IGMOInfo;
 }
-export interface IPointPaymentAccepted {
-    /**
-     * 決済方法タイプ
-     */
-    paymentMethodType: PaymentMethodType.Point;
-    /**
-     * 口座番号
-     */
-    accountNumber: string;
-}
 export interface IMocoinPaymentAccepted {
     /**
      * 決済方法タイプ
@@ -53,13 +41,27 @@ export interface IMocoinPaymentAccepted {
      */
     accountNumber: string;
 }
+export interface IAccountPaymentAccepted<T extends AccountType> {
+    /**
+     * 決済方法タイプ
+     */
+    paymentMethodType: PaymentMethodType.Account;
+    /**
+     * 口座タイプ
+     */
+    accountType: T;
+    /**
+     * 口座番号
+     */
+    accountNumber: string;
+}
 /**
  * 利用可能決済インターフェース
  */
 export type IPaymentAccepted<T extends PaymentMethodType> =
+    T extends PaymentMethodType.Account ? IAccountPaymentAccepted<AccountType> :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentAccepted :
     T extends PaymentMethodType.Mocoin ? IMocoinPaymentAccepted :
-    T extends PaymentMethodType.Point ? IPointPaymentAccepted :
     never;
 
 /**

@@ -9,9 +9,9 @@ import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as PointAwardAuthorizeActionFactory from './factory/action/authorize/award/point';
 import * as ProgramMembershipOfferAuthorizeActionFactory from './factory/action/authorize/offer/programMembership';
 import * as SeatReservationOfferAuthorizeActionFactory from './factory/action/authorize/offer/seatReservation';
+import * as AuthorizeAccountPaymentActionFactory from './factory/action/authorize/paymentMethod/account';
 import * as CreditCardAuthorizeActionFactory from './factory/action/authorize/paymentMethod/creditCard';
 import * as MocoinAuthorizeActionFactory from './factory/action/authorize/paymentMethod/mocoin';
-import * as PointAuthorizeActionFactory from './factory/action/authorize/paymentMethod/point';
 import * as RegisterActionFactory from './factory/action/interact/register';
 import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
@@ -54,17 +54,17 @@ import * as PropertyValueFactory from './factory/propertyValue';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
 import { UnitCode } from './factory/unitCode';
 
+import * as CancelAccountTaskFactory from './factory/task/cancelAccount';
 import * as CancelCreditCardTaskFactory from './factory/task/cancelCreditCard';
-import * as CancelPointTaskFactory from './factory/task/cancelPoint';
 import * as CancelPointAwardTaskFactory from './factory/task/cancelPointAward';
 import * as CancelSeatReservationTaskFactory from './factory/task/cancelSeatReservation';
 import * as GivePointAwardTaskFactory from './factory/task/givePointAward';
+import * as PayAccountTaskFactory from './factory/task/payAccount';
 import * as PayCreditCardTaskFactory from './factory/task/payCreditCard';
 import * as PayMocoinTaskFactory from './factory/task/payMocoin';
-import * as PayPointTaskFactory from './factory/task/payPoint';
 import * as PlaceOrderTaskFactory from './factory/task/placeOrder';
+import * as RefundAccountTaskFactory from './factory/task/refundAccount';
 import * as RefundCreditCardTaskFactory from './factory/task/refundCreditCard';
-import * as RefundPointTaskFactory from './factory/task/refundPoint';
 import * as RegisterProgramMembershipTaskFactory from './factory/task/registerProgramMembership';
 import * as ReturnOrderTaskFactory from './factory/task/returnOrder';
 import * as ReturnPointAwardTaskFactory from './factory/task/returnPointAward';
@@ -110,10 +110,9 @@ export namespace action {
         }
         // tslint:disable-next-line:no-shadowed-variable
         export namespace paymentMethod {
+            export import account = AuthorizeAccountPaymentActionFactory;
             export import creditCard = CreditCardAuthorizeActionFactory;
             export import mocoin = MocoinAuthorizeActionFactory;
-            // tslint:disable-next-line:no-shadowed-variable
-            export import point = PointAuthorizeActionFactory;
         }
         export namespace discount {
         }
@@ -234,22 +233,22 @@ export import quantitativeValue = QuantitativeValueFactory;
 export namespace task {
     export import IAttributes = TaskFactory.IAttributes;
     export import ITask = TaskFactory.ITask;
+    export import cancelAccount = CancelAccountTaskFactory;
     export import cancelCreditCard = CancelCreditCardTaskFactory;
-    export import cancelPoint = CancelPointTaskFactory;
     export import cancelPointAward = CancelPointAwardTaskFactory;
     export import cancelSeatReservation = CancelSeatReservationTaskFactory;
     export import givePointAward = GivePointAwardTaskFactory;
     export import placeOrder = PlaceOrderTaskFactory;
+    export import refundAccount = RefundAccountTaskFactory;
     export import refundCreditCard = RefundCreditCardTaskFactory;
-    export import refundPoint = RefundPointTaskFactory;
     export import registerProgramMembership = RegisterProgramMembershipTaskFactory;
     export import returnOrder = ReturnOrderTaskFactory;
     export import returnPointAward = ReturnPointAwardTaskFactory;
     export import sendEmailMessage = SendEmailMessageTaskFactory;
     export import sendOrder = SendOrderTaskFactory;
+    export import payAccount = PayAccountTaskFactory;
     export import payCreditCard = PayCreditCardTaskFactory;
     export import payMocoin = PayMocoinTaskFactory;
-    export import payPoint = PayPointTaskFactory;
     export import unRegisterProgramMembership = UnRegisterProgramMembershipTaskFactory;
 }
 export import taskExecutionResult = TaskExecutionResultFactory;

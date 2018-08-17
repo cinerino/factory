@@ -66,7 +66,7 @@
   },
   "dependencies": {
     "@chevre/factory": "^1.0.0-alpha.4",
-    "@mocoin/factory": "0.0.0-alpha.7",
+    "@mocoin/factory": "0.0.0-alpha.10",
     "@motionpicture/gmo-service": "^4.2.1",
     "@pecorino/factory": "^1.0.0",
     "@waiter/factory": "^1.0.0",
