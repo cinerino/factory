@@ -22,7 +22,6 @@ npm install @cinerino/factory
 
 | Name    | Required | Value              | Purpose |
 |---------|----------|--------------------|---------|
-| `DEBUG` | false    | cinerino-factory:* | Debug   |
 
 ## License
 
