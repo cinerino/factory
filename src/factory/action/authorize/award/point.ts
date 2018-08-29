@@ -33,7 +33,7 @@ export interface IPurpose {
 }
 export type IError = any;
 /**
- * Pポイントインセンティブ承認アクション属性インターフェース
+ * ポイントインセンティブ承認アクション属性インターフェース
  */
 export interface IAttributes extends AuthorizeActionFactory.IAttributes<IObject, IResult> {
     typeOf: ActionType.AuthorizeAction;

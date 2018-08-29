@@ -12,6 +12,7 @@ import * as SeatReservationOfferAuthorizeActionFactory from './factory/action/au
 import * as AuthorizeAccountPaymentActionFactory from './factory/action/authorize/paymentMethod/account';
 import * as CreditCardAuthorizeActionFactory from './factory/action/authorize/paymentMethod/creditCard';
 import * as MocoinAuthorizeActionFactory from './factory/action/authorize/paymentMethod/mocoin';
+import * as CheckTokenActionFactory from './factory/action/check/token';
 import * as RegisterActionFactory from './factory/action/interact/register';
 import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
@@ -90,7 +91,6 @@ export import chevre = chevreFactory;
 export import pecorino = pecorinoFactory;
 export import errors = errors;
 export import errorCode = ErrorCode;
-
 export import actionStatusType = ActionStatusType;
 export import actionType = ActionType;
 export namespace action {
@@ -98,7 +98,6 @@ export namespace action {
     export import IAttributes = ActionFactory.IAttributes;
     export import IParticipant = ActionFactory.IParticipant;
     export import IPurpose = ActionFactory.IPurpose;
-
     export namespace authorize {
         // tslint:disable-next-line:no-shadowed-variable
         export import IAction = AuthorizeActionFactory.IAction;
@@ -123,7 +122,9 @@ export namespace action {
             export import seatReservation = SeatReservationOfferAuthorizeActionFactory;
         }
     }
-
+    export namespace check {
+        export import token = CheckTokenActionFactory;
+    }
     export namespace interact {
         export namespace register {
             // tslint:disable-next-line:no-shadowed-variable
@@ -142,14 +143,12 @@ export namespace action {
             export import programMembership = UnRegisterProgramMembershipActionFactory;
         }
     }
-
     export namespace trade {
         // tslint:disable-next-line:no-shadowed-variable
         export import order = OrderActionFactory;
         export import pay = PayActionFactory;
         export import refund = RefundActionFactory;
     }
-
     export namespace transfer {
         export namespace give {
             // tslint:disable-next-line:no-shadowed-variable
@@ -159,7 +158,6 @@ export namespace action {
             // tslint:disable-next-line:no-shadowed-variable
             export import pointAward = GivePointAwardActionFactory;
         }
-
         export namespace print {
             // tslint:disable-next-line:no-shadowed-variable
             export import IAction = PrintActionFactory.IAction;
@@ -168,7 +166,6 @@ export namespace action {
             export import IRecipient = PrintActionFactory.IRecipient;
             export import ticket = PrintTicketActionFactory;
         }
-
         /**
          * 返却アクション
          * returnはネームスペース名に使えないのでreturnAction
@@ -178,7 +175,6 @@ export namespace action {
             export import order = ReturnOrderActionFactory;
             export import pointAward = ReturnPointAwardActionFactory;
         }
-
         export namespace send {
             export namespace message {
                 export import email = SendEmailMessageActionFactory;
@@ -187,13 +183,11 @@ export namespace action {
             export import order = SendOrderActionFactory;
         }
     }
-
     export namespace consume {
         export namespace use {
         }
     }
 }
-
 export import accountType = AccountType;
 export namespace paymentMethod {
     export namespace paymentCard {
