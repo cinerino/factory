@@ -38,7 +38,6 @@ export interface IParentOrganization {
      */
     name: IMultilingualString;
 }
-
 export interface IOrganization extends OrganizationFactory.IOrganization {
     typeOf: OrganizationType.MovieTheater;
     /**
@@ -49,10 +48,6 @@ export interface IOrganization extends OrganizationFactory.IOrganization {
      * 劇場名称
      */
     name: IMultilingualString;
-    /**
-     * 枝番号
-     */
-    branchCode: string; // 劇場コード
     /**
      * 親組織
      */
@@ -69,4 +64,12 @@ export interface IOrganization extends OrganizationFactory.IOrganization {
      * 劇場ポータルサイトURL
      */
     url: URLFactory.IURL;
+}
+export interface ISearchConditions {
+    limit?: number;
+    page?: number;
+    /**
+     * 名称
+     */
+    name?: string;
 }

@@ -63,7 +63,6 @@ export type IPaymentAccepted<T extends PaymentMethodType> =
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentAccepted :
     T extends PaymentMethodType.Mocoin ? IMocoinPaymentAccepted :
     never;
-
 /**
  * 組織インターフェース
  */

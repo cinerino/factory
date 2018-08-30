@@ -52,7 +52,6 @@ export interface IDiscount {
  * 供給アイテムインターフェース
  */
 export type IItemOffered = chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent> | IProgramMembership;
-
 /**
  * 注文照会キーインターフェース
  */
@@ -170,6 +169,8 @@ export interface IOrder {
  * 注文検索条件インターフェース
  */
 export interface ISearchConditions {
+    limit?: number;
+    page?: number;
     /**
      * 販売者IDリスト
      */
@@ -201,5 +202,5 @@ export interface ISearchConditions {
     /**
      * どのイベントに対する予約を注文したか
      */
-    reservedEventIdentifiers?: string[];
+    reservedEventIds?: string[];
 }

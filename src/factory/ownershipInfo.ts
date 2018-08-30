@@ -123,6 +123,8 @@ export interface IOwnershipInfo<T extends IGood<IGoodType> | IGoodWithDetail<IGo
  * 所有権検索条件インターフェース
  */
 export interface ISearchConditions<T extends IGoodType> {
+    limit?: number;
+    page?: number;
     /**
      * 所有権識別子
      */
