@@ -11,7 +11,6 @@ import PaymentMethodType from './paymentMethodType';
 import { IContact, IPerson } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
-import { IProgramMembership } from './programMembership';
 
 /**
  * 決済方法イーターフェース
@@ -51,7 +50,7 @@ export interface IDiscount {
 /**
  * 供給アイテムインターフェース
  */
-export type IItemOffered = chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent> | IProgramMembership;
+export type IItemOffered = chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent>;
 /**
  * 注文照会キーインターフェース
  */

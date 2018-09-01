@@ -7,16 +7,13 @@ import * as pecorinoFactory from '@pecorino/factory';
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as PointAwardAuthorizeActionFactory from './factory/action/authorize/award/point';
-import * as ProgramMembershipOfferAuthorizeActionFactory from './factory/action/authorize/offer/programMembership';
 import * as SeatReservationOfferAuthorizeActionFactory from './factory/action/authorize/offer/seatReservation';
 import * as AuthorizeAccountPaymentActionFactory from './factory/action/authorize/paymentMethod/account';
 import * as CreditCardAuthorizeActionFactory from './factory/action/authorize/paymentMethod/creditCard';
 import * as MocoinAuthorizeActionFactory from './factory/action/authorize/paymentMethod/mocoin';
 import * as CheckTokenActionFactory from './factory/action/check/token';
 import * as RegisterActionFactory from './factory/action/interact/register';
-import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
-import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
 import * as OrderActionFactory from './factory/action/trade/order';
 import * as PayActionFactory from './factory/action/trade/pay';
 import * as RefundActionFactory from './factory/action/trade/refund';
@@ -55,6 +52,7 @@ import * as PropertyValueFactory from './factory/propertyValue';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
 import { UnitCode } from './factory/unitCode';
 
+import SortType from './factory/sortType';
 import * as CancelAccountTaskFactory from './factory/task/cancelAccount';
 import * as CancelCreditCardTaskFactory from './factory/task/cancelCreditCard';
 import * as CancelPointAwardTaskFactory from './factory/task/cancelPointAward';
@@ -66,12 +64,10 @@ import * as PayMocoinTaskFactory from './factory/task/payMocoin';
 import * as PlaceOrderTaskFactory from './factory/task/placeOrder';
 import * as RefundAccountTaskFactory from './factory/task/refundAccount';
 import * as RefundCreditCardTaskFactory from './factory/task/refundCreditCard';
-import * as RegisterProgramMembershipTaskFactory from './factory/task/registerProgramMembership';
 import * as ReturnOrderTaskFactory from './factory/task/returnOrder';
 import * as ReturnPointAwardTaskFactory from './factory/task/returnPointAward';
 import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
 import * as SendOrderTaskFactory from './factory/task/sendOrder';
-import * as UnRegisterProgramMembershipTaskFactory from './factory/task/unRegisterProgramMembership';
 
 import * as TaskFactory from './factory/task';
 import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
@@ -118,7 +114,6 @@ export namespace action {
         // tslint:disable-next-line:no-shadowed-variable
         export namespace offer {
             // tslint:disable-next-line:no-shadowed-variable
-            export import programMembership = ProgramMembershipOfferAuthorizeActionFactory;
             export import seatReservation = SeatReservationOfferAuthorizeActionFactory;
         }
     }
@@ -131,16 +126,12 @@ export namespace action {
             export import IAction = RegisterActionFactory.IAction;
             // tslint:disable-next-line:no-shadowed-variable
             export import IAttributes = RegisterActionFactory.IAttributes;
-            // tslint:disable-next-line:no-shadowed-variable
-            export import programMembership = RegisterProgramMembershipActionFactory;
         }
         export namespace unRegister {
             // tslint:disable-next-line:no-shadowed-variable
             export import IAction = UnRegisterActionFactory.IAction;
             // tslint:disable-next-line:no-shadowed-variable
             export import IAttributes = UnRegisterActionFactory.IAttributes;
-            // tslint:disable-next-line:no-shadowed-variable
-            export import programMembership = UnRegisterProgramMembershipActionFactory;
         }
     }
     export namespace trade {
@@ -224,6 +215,7 @@ export import personType = PersonType;
 export import programMembership = ProgramMembershipFactory;
 export import propertyValue = PropertyValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
+export import sortType = SortType;
 export namespace task {
     export import IAttributes = TaskFactory.IAttributes;
     export import ITask = TaskFactory.ITask;
@@ -235,7 +227,6 @@ export namespace task {
     export import placeOrder = PlaceOrderTaskFactory;
     export import refundAccount = RefundAccountTaskFactory;
     export import refundCreditCard = RefundCreditCardTaskFactory;
-    export import registerProgramMembership = RegisterProgramMembershipTaskFactory;
     export import returnOrder = ReturnOrderTaskFactory;
     export import returnPointAward = ReturnPointAwardTaskFactory;
     export import sendEmailMessage = SendEmailMessageTaskFactory;
@@ -243,7 +234,6 @@ export namespace task {
     export import payAccount = PayAccountTaskFactory;
     export import payCreditCard = PayCreditCardTaskFactory;
     export import payMocoin = PayMocoinTaskFactory;
-    export import unRegisterProgramMembership = UnRegisterProgramMembershipTaskFactory;
 }
 export import taskExecutionResult = TaskExecutionResultFactory;
 export import taskName = TaskName;
