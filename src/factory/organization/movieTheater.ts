@@ -2,6 +2,7 @@ import * as chevre from '@chevre/factory';
 import IMultilingualString from '../multilingualString';
 import * as OrganizationFactory from '../organization';
 import OrganizationType from '../organizationType';
+import SortType from '../sortType';
 import * as URLFactory from '../url';
 
 /**
@@ -65,9 +66,16 @@ export interface IOrganization extends OrganizationFactory.IOrganization {
      */
     url: URLFactory.IURL;
 }
+/**
+ * ソート条件インターフェース
+ */
+export interface ISortOrder {
+    'location.branchCode'?: SortType;
+}
 export interface ISearchConditions {
     limit?: number;
     page?: number;
+    sort?: ISortOrder;
     /**
      * 名称
      */

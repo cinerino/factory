@@ -11,6 +11,7 @@ import PaymentMethodType from './paymentMethodType';
 import { IContact, IPerson } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
+import SortType from './sortType';
 
 /**
  * 決済方法イーターフェース
@@ -165,11 +166,20 @@ export interface IOrder {
     orderInquiryKey: IOrderInquiryKey;
 }
 /**
+ * ソート条件インターフェース
+ */
+export interface ISortOrder {
+    orderDate?: SortType;
+    orderNumber?: SortType;
+    price?: SortType;
+}
+/**
  * 注文検索条件インターフェース
  */
 export interface ISearchConditions {
     limit?: number;
     page?: number;
+    sort?: ISortOrder;
     /**
      * 販売者IDリスト
      */

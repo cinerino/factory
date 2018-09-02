@@ -31,7 +31,6 @@ import ActionType from './factory/actionType';
 import AccountType from './factory/accountType';
 import * as ClientUserFactory from './factory/clientUser';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
-import * as MovieCreativeWorkFactory from './factory/creativeWork/movie';
 import CreativeWorkType from './factory/creativeWorkType';
 import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
@@ -190,7 +189,6 @@ export namespace creativeWork {
     export namespace message {
         export import email = EmailMessageFactory;
     }
-    export import movie = MovieCreativeWorkFactory;
 }
 export import creativeWorkType = CreativeWorkType;
 export type multilingualString = IMultilingualString;
