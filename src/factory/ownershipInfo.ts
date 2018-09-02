@@ -87,9 +87,9 @@ export interface IOwnershipInfo<T extends IGood<IGoodType> | IGoodWithDetail<IGo
      */
     typeOf: OwnershipInfoType;
     /**
-     * identifier
+     * 所有権ID
      */
-    // identifier: string;
+    id: string;
     /**
      * owned by whom
      */
@@ -169,6 +169,7 @@ export interface ISearchConditions<T extends IGoodType> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    ids?: string[];
     /**
      * 所有者
      */
