@@ -53,14 +53,6 @@ export interface IDiscount {
  */
 export type IItemOffered = chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent>;
 /**
- * 注文照会キーインターフェース
- */
-export interface IOrderInquiryKey {
-    theaterCode: string;
-    confirmationNumber: number;
-    telephone: string;
-}
-/**
  * offer interface
  * 供給インターフェース
  */
@@ -160,10 +152,6 @@ export interface IOrder {
      * Was the offer accepted as a gift for someone other than the buyer.
      */
     isGift: boolean;
-    /**
-     * key for inquiry (required)
-     */
-    orderInquiryKey: IOrderInquiryKey;
 }
 /**
  * ソート条件インターフェース
