@@ -1,8 +1,3 @@
-/**
- * paymentMethod factory
- * @namespace paymentMethod
- */
-
 import PaymentMethodType from './paymentMethodType';
 
 /**

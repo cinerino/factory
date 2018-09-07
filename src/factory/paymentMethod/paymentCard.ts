@@ -1,8 +1,3 @@
-/**
- * payment card factory
- * @namespace paymentMethod.paymentCard
- */
-
 import { IPaymentMethod } from '../paymentMethod';
 
 /**
