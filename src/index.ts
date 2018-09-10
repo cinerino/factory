@@ -199,7 +199,14 @@ export namespace offer {
 export import order = OrderFactory;
 export import orderStatus = OrderStatus;
 export namespace organization {
-    export import IOrganization = OrganizationFactory.IOrganization;
+    export type IAttributes<T extends OrganizationType> =
+        T extends OrganizationType.Corporation ? CorporationOrganizationFactory.IAttributes :
+        T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IAttributes :
+        never;
+    export type IOrganization<T extends OrganizationType> =
+        T extends OrganizationType.Corporation ? CorporationOrganizationFactory.IOrganization :
+        T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IOrganization :
+        never;
     export import IPaymentAccepted = OrganizationFactory.IPaymentAccepted;
     export import corporation = CorporationOrganizationFactory;
     export import movieTheater = MovieTheaterOrganizationFactory;

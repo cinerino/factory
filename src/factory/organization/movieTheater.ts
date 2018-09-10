@@ -39,12 +39,7 @@ export interface IParentOrganization {
      */
     name: IMultilingualString;
 }
-export interface IOrganization extends OrganizationFactory.IOrganization {
-    typeOf: OrganizationType.MovieTheater;
-    /**
-     * 組織識別子
-     */
-    identifier: string;
+export interface IAttributes extends OrganizationFactory.IAttributes<OrganizationType.MovieTheater> {
     /**
      * 劇場名称
      */
@@ -62,10 +57,11 @@ export interface IOrganization extends OrganizationFactory.IOrganization {
      */
     telephone: string;
     /**
-     * 劇場ポータルサイトURL
+     * 劇場サイトURL
      */
     url: URLFactory.IURL;
 }
+export type IOrganization = OrganizationFactory.IOrganization<IAttributes>;
 /**
  * ソート条件インターフェース
  */

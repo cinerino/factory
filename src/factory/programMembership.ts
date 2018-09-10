@@ -1,8 +1,8 @@
 import { IOffer } from './offer';
-import { IOrganization } from './organization';
+import * as OrganizationFactory from './organization';
+import OrganizationType from './organizationType';
 
 export type ProgramMembershipType = 'ProgramMembership';
-
 /**
  * 会員プログラム特典インターフェース
  */
@@ -12,7 +12,6 @@ export enum Award {
      */
     PointPayment = 'PointPayment'
 }
-
 /**
  * Used to describe membership in a loyalty programs
  * (e.g. "StarAliance"), traveler clubs (e.g. "AAA"), purchase clubs ("Safeway Club"), etc.
@@ -22,7 +21,7 @@ export interface IProgramMembership {
     /**
      * プログラムのホスト組織
      */
-    hostingOrganization?: IOrganization;
+    hostingOrganization?: OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>>;
     typeOf: ProgramMembershipType;
     /**
      * 会員番号

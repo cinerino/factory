@@ -63,18 +63,23 @@ export type IPaymentAccepted<T extends PaymentMethodType> =
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentAccepted :
     T extends PaymentMethodType.Mocoin ? IMocoinPaymentAccepted :
     never;
-/**
- * 組織インターフェース
- */
-export interface IOrganization {
-    id: string;
+export interface IAttributes<T extends OrganizationType> {
+    /**
+     * 組織タイプ
+     */
+    typeOf: T;
     identifier?: string;
     name: IMultilingualString;
     legalName?: IMultilingualString;
-    typeOf: OrganizationType;
     location?: any;
     telephone?: string;
     url?: URLFactory.IURL;
     image?: string;
     paymentAccepted?: IPaymentAccepted<PaymentMethodType>[];
 }
+/**
+ * 組織インターフェース
+ */
+export type IOrganization<T extends IAttributes<OrganizationType>> = T & {
+    id: string;
+};

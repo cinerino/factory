@@ -2,7 +2,8 @@ import * as chevre from '@chevre/factory';
 import * as pecorino from '@pecorino/factory';
 
 import AccountType from './accountType';
-import { IOrganization } from './organization';
+import * as OrganizationFactory from './organization';
+import OrganizationType from './organizationType';
 import { IPerson } from './person';
 import SortType from './sortType';
 
@@ -76,7 +77,7 @@ export type IGoodWithDetail<T extends IGoodType> =
 /**
  * 所有者インターフェース
  */
-export type IOwner = IOrganization | IPerson;
+export type IOwner = OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>> | IPerson;
 export type OwnershipInfoType = 'OwnershipInfo';
 /**
  * 所有権インターフェース
