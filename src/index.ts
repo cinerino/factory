@@ -57,6 +57,7 @@ import * as CancelCreditCardTaskFactory from './factory/task/cancelCreditCard';
 import * as CancelPointAwardTaskFactory from './factory/task/cancelPointAward';
 import * as CancelSeatReservationTaskFactory from './factory/task/cancelSeatReservation';
 import * as GivePointAwardTaskFactory from './factory/task/givePointAward';
+import * as ImportScreeningEventsTaskFactory from './factory/task/importScreeningEvents';
 import * as PayAccountTaskFactory from './factory/task/payAccount';
 import * as PayCreditCardTaskFactory from './factory/task/payCreditCard';
 import * as PayMocoinTaskFactory from './factory/task/payMocoin';
@@ -68,7 +69,6 @@ import * as ReturnPointAwardTaskFactory from './factory/task/returnPointAward';
 import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
 import * as SendOrderTaskFactory from './factory/task/sendOrder';
 
-import * as TaskFactory from './factory/task';
 import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
 import TaskName from './factory/taskName';
 import TaskStatus from './factory/taskStatus';
@@ -222,23 +222,60 @@ export import propertyValue = PropertyValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
 export import sortType = SortType;
 export namespace task {
-    export import IAttributes = TaskFactory.IAttributes;
-    export import ITask = TaskFactory.ITask;
-    export import cancelAccount = CancelAccountTaskFactory;
-    export import cancelCreditCard = CancelCreditCardTaskFactory;
-    export import cancelPointAward = CancelPointAwardTaskFactory;
-    export import cancelSeatReservation = CancelSeatReservationTaskFactory;
-    export import givePointAward = GivePointAwardTaskFactory;
-    export import placeOrder = PlaceOrderTaskFactory;
-    export import refundAccount = RefundAccountTaskFactory;
-    export import refundCreditCard = RefundCreditCardTaskFactory;
-    export import returnOrder = ReturnOrderTaskFactory;
-    export import returnPointAward = ReturnPointAwardTaskFactory;
-    export import sendEmailMessage = SendEmailMessageTaskFactory;
-    export import sendOrder = SendOrderTaskFactory;
-    export import payAccount = PayAccountTaskFactory;
-    export import payCreditCard = PayCreditCardTaskFactory;
-    export import payMocoin = PayMocoinTaskFactory;
+    export type IData<T extends TaskName> =
+        T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IData :
+        T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IData :
+        T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.IData :
+        T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IData :
+        T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IData :
+        T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.IData :
+        T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IData :
+        T extends TaskName.RefundAccount ? RefundAccountTaskFactory.IData :
+        T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IData :
+        T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IData :
+        T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IData :
+        T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IData :
+        T extends TaskName.SendOrder ? SendOrderTaskFactory.IData :
+        T extends TaskName.PayAccount ? PayAccountTaskFactory.IData :
+        T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IData :
+        T extends TaskName.PayMocoin ? PayMocoinTaskFactory.IData :
+        never;
+    export type IAttributes<T extends TaskName> =
+        T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IAttributes :
+        T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IAttributes :
+        T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.IAttributes :
+        T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IAttributes :
+        T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IAttributes :
+        T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.IAttributes :
+        T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IAttributes :
+        T extends TaskName.RefundAccount ? RefundAccountTaskFactory.IAttributes :
+        T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IAttributes :
+        T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IAttributes :
+        T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IAttributes :
+        T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IAttributes :
+        T extends TaskName.SendOrder ? SendOrderTaskFactory.IAttributes :
+        T extends TaskName.PayAccount ? PayAccountTaskFactory.IAttributes :
+        T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IAttributes :
+        T extends TaskName.PayMocoin ? PayMocoinTaskFactory.IAttributes :
+        never;
+    export type ITask<T extends TaskName> =
+        T extends TaskName.CancelAccount ? CancelAccountTaskFactory.ITask :
+        T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.ITask :
+        T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.ITask :
+        T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.ITask :
+        T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.ITask :
+        T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.ITask :
+        T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.ITask :
+        T extends TaskName.RefundAccount ? RefundAccountTaskFactory.ITask :
+        T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.ITask :
+        T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.ITask :
+        T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.ITask :
+        T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.ITask :
+        T extends TaskName.SendOrder ? SendOrderTaskFactory.ITask :
+        T extends TaskName.PayAccount ? PayAccountTaskFactory.ITask :
+        T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.ITask :
+        T extends TaskName.PayMocoin ? PayMocoinTaskFactory.ITask :
+        never;
 }
 export import taskExecutionResult = TaskExecutionResultFactory;
 export import taskName = TaskName;

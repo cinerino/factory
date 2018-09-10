@@ -3,6 +3,10 @@
  */
 enum TaskName {
     /**
+     * 上映イベント在庫仕入れ
+     */
+    ImportScreeningEvents = 'importScreeningEvents',
+    /**
      * 座席予約承認アクション取消
      */
     CancelSeatReservation = 'cancelSeatReservation',
