@@ -1,7 +1,3 @@
-/**
- * 注文ファクトリー
- * 注文は、確定した注文取引の領収証に値するものです。
- */
 import * as chevre from '@chevre/factory';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
@@ -13,18 +9,19 @@ import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
 import SortType from './sortType';
 
+export type TypeOf = 'Order';
 /**
- * 決済方法イーターフェース
+ * 決済方法インターフェース
  */
 export interface IPaymentMethod<T extends PaymentMethodType> {
+    /**
+     * 決済方法タイプ
+     */
+    typeOf: T;
     /**
      * 決済方法名
      */
     name: string;
-    /**
-     * 決済方法タイプ
-     */
-    paymentMethod: T;
     /**
      * An identifier for the method of payment used (e.g.the last 4 digits of the credit card).
      */
@@ -34,6 +31,10 @@ export interface IPaymentMethod<T extends PaymentMethodType> {
  * 割引インターフェース
  */
 export interface IDiscount {
+    /**
+     * 割引タイプ
+     */
+    typeOf: string;
     name: string;
     /**
      * Any discount applied.
@@ -94,7 +95,7 @@ export interface IOrder {
     /**
      * object type
      */
-    typeOf: string;
+    typeOf: TypeOf;
     /**
      * Organization or Person
      * The party taking the order (e.g. Amazon.com is a merchant for many sellers). Also accepts a string (e.g. "Amazon.com").

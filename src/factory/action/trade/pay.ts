@@ -12,7 +12,9 @@ import { IMocoinTransaction } from '../authorize/paymentMethod/mocoin';
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 export type IPurpose = IOrder;
+export type TypeOfObject = 'PaymentMethod';
 export interface ICommonObject<T extends PaymentMethodType> {
+    typeOf: TypeOfObject;
     /**
      * 決済方法
      */

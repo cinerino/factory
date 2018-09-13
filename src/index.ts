@@ -89,6 +89,7 @@ export import errorCode = ErrorCode;
 export import actionStatusType = ActionStatusType;
 export import actionType = ActionType;
 export namespace action {
+    export import ISortOrder = ActionFactory.ISortOrder;
     export import IAction = ActionFactory.IAction;
     export import IAttributes = ActionFactory.IAttributes;
     export import IParticipant = ActionFactory.IParticipant;
