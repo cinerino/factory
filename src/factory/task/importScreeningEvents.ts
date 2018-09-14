@@ -17,7 +17,7 @@ export interface IData {
     importThrough: Date;
 }
 export interface IAttributes extends TaskFactory.IAttributes {
-    name: TaskName.CancelAccount;
+    name: TaskName.ImportScreeningEvents;
     data: IData;
 }
 /**
