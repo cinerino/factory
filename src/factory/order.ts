@@ -4,7 +4,7 @@ import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
-import { IContact, IPerson } from './person';
+import { IPerson, IProfile } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
 import SortType from './sortType';
@@ -85,7 +85,7 @@ export interface ISeller {
 /**
  * 購入者インターフェース
  */
-export type ICustomer = IPerson & IContact & {
+export type ICustomer = IPerson & IProfile & {
     name: string;
 };
 /**

@@ -1,6 +1,3 @@
-/**
- * 注文取引ファクトリー
- */
 import * as waiterFactory from '@waiter/factory';
 
 import { IAction as IAuthorizeAction, IAttributes as IAuthorizeActionAttributes } from '../action/authorize';
@@ -10,14 +7,14 @@ import { IClientUser } from '../clientUser';
 import * as OrderFactory from '../order';
 import * as OrganizationFactory from '../organization';
 import OrganizationType from '../organizationType';
-import { IContact, IPerson } from '../person';
+import { IPerson, IProfile } from '../person';
 import * as TransactionFactory from '../transaction';
 import TransactionType from '../transactionType';
 
 /**
- * 購入者連作先インターフェース
+ * 購入者連絡先インターフェース
  */
-export type ICustomerContact = IContact;
+export type ICustomerContact = IProfile;
 /**
  * 販売者インターフェース
  */
@@ -67,6 +64,9 @@ export interface IObject {
 export interface IPotentialActions {
     order: IOrderActionAttributes;
 }
+/**
+ * 注文取引インターフェース
+ */
 export type ITransaction = IExtendId<IAttributes>;
 /**
  * 注文取引インターフェース

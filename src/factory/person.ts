@@ -1,38 +1,28 @@
-/**
- * 人物ファクトリー
- */
 import PersonType from './personType';
 import * as ProgramMembershipFactory from './programMembership';
 
 /**
- * contact interface
- * 連絡先インターフェース
+ * プロフィールインターフェース
  */
-export interface IContact {
+export interface IProfile {
     /**
      * Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the name property.
-     * 名
      */
     givenName: string;
     /**
      * Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the name property.
-     * 姓
      */
     familyName: string;
     /**
      * The telephone number.
-     * 電話番号
      */
     telephone: string;
     /**
      * Email address.
-     * メールアドレス
      */
     email: string;
 }
-
 /**
- * person interface
  * 人物インターフェース
  */
 export interface IPerson {
