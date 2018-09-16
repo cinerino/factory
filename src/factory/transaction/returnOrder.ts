@@ -77,3 +77,5 @@ export interface IAttributes extends TransactionFactory.IAttributes<TransactionT
      */
     potentialActions?: IPotentialActions;
 }
+export interface ISearchConditions extends TransactionFactory.ISearchConditions<TransactionType.ReturnOrder> {
+}

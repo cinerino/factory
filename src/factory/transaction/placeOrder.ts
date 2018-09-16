@@ -98,3 +98,27 @@ export interface IAttributes extends TransactionFactory.IAttributes<TransactionT
      */
     potentialActions?: IPotentialActions;
 }
+export interface ISearchConditions extends TransactionFactory.ISearchConditions<TransactionType.PlaceOrder> {
+    seller?: {
+        ids?: string[];
+    };
+    object?: {
+        /**
+         * 購入者連絡先情報
+         */
+        customerContact?: {
+            givenName?: string;
+            familyName?: string;
+            telephone?: string;
+            email?: string;
+        };
+    };
+    result?: {
+        order?: {
+            /**
+             * 結果の注文番号
+             */
+            orderNumbers?: string[];
+        };
+    };
+}
