@@ -33,6 +33,10 @@ export enum Reason {
     Seller = 'Seller'
 }
 /**
+ * 取引開始パラメーターインターフェース
+ */
+export type IStartParams = TransactionFactory.IStartParams<TransactionType.ReturnOrder, IAgent, undefined, IObject>;
+/**
  * 取引対象物インターフェース
  */
 export interface IObject {
@@ -55,27 +59,7 @@ export type ITransaction = IExtendId<IAttributes>;
 /**
  * 返品取引インターフェース
  */
-export interface IAttributes extends TransactionFactory.IAttributes<TransactionType.ReturnOrder, IAgent, IObject, IResult> {
-    /**
-     * 購入者
-     */
-    agent: IAgent;
-    /**
-     * 取引の結果発生するもの
-     */
-    result?: IResult;
-    /**
-     * 取引に関するエラー
-     */
-    error?: IError;
-    /**
-     * 取引の対象物
-     */
-    object: IObject;
-    /**
-     * 事後発生アクション
-     */
-    potentialActions?: IPotentialActions;
+export interface IAttributes extends TransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
 }
 export interface ISearchConditions extends TransactionFactory.ISearchConditions<TransactionType.ReturnOrder> {
 }

@@ -1,4 +1,4 @@
-import * as waiterFactory from '@waiter/factory';
+import * as waiter from '@waiter/factory';
 
 import { IAction as IAuthorizeAction, IAttributes as IAuthorizeActionAttributes } from '../action/authorize';
 import { IAttributes as IOrderActionAttributes } from '../action/trade/order';
@@ -23,6 +23,41 @@ export type ISeller = OrganizationFactory.IOrganization<OrganizationFactory.IAtt
  * 購入者インターフェース
  */
 export type IAgent = IPerson;
+export interface IPassportBeforeStart {
+    /**
+     * WAITER許可証発行者
+     */
+    issuer: string;
+    /**
+     * WAITER許可証トークン
+     */
+    token: waiter.passport.IEncodedPassport;
+    /**
+     * WAITER許可証トークンシークレット
+     */
+    secret: string;
+}
+export interface IStartParamsWithoutDetail {
+    expires: Date;
+    agent: IAgent;
+    seller: {
+        typeOf: OrganizationType;
+        id: string;
+    };
+    object: {
+        clientUser?: IClientUser;
+        passport?: IPassportBeforeStart;
+    };
+}
+/**
+ * 取引開始パラメーターインターフェース
+ */
+export interface IStartParams extends TransactionFactory.IStartParams<TransactionType.PlaceOrder, IAgent, undefined, IObject> {
+    /**
+     * 販売者
+     */
+    seller: ISeller;
+}
 /**
  * 取引結果インターフェース
  */
@@ -36,18 +71,15 @@ export interface IResult {
  * エラーインターフェース
  */
 export type IError = any;
-/**
- * 取引対象物インターフェース
- */
 export interface IObject {
     /**
      * WAITER許可証トークン
      */
-    passportToken?: waiterFactory.passport.IEncodedPassport;
+    passportToken?: waiter.passport.IEncodedPassport;
     /**
      * WAITER許可証
      */
-    passport?: waiterFactory.passport.IPassport;
+    passport?: waiter.passport.IPassport;
     /**
      * user object of the client where a transaction is processing.
      */
@@ -71,32 +103,7 @@ export type ITransaction = IExtendId<IAttributes>;
 /**
  * 注文取引インターフェース
  */
-export interface IAttributes extends TransactionFactory.IAttributes<TransactionType.PlaceOrder, IAgent, IObject, IResult> {
-    /**
-     * 購入者
-     */
-    agent: IAgent;
-    /**
-     * 販売者
-     */
-    seller: ISeller;
-    /**
-     * 取引の結果発生するもの
-     */
-    result?: IResult;
-    /**
-     * 取引に関するエラー
-     */
-    error?: IError;
-    /**
-     * 取引の対象物
-     * 座席仮予約、クレジットカードのオーソリなど、取引を構成する承認などが含まれます。
-     */
-    object: IObject;
-    /**
-     * 事後発生アクション
-     */
-    potentialActions?: IPotentialActions;
+export interface IAttributes extends TransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
 }
 export interface ISearchConditions extends TransactionFactory.ISearchConditions<TransactionType.PlaceOrder> {
     seller?: {

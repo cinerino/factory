@@ -1,5 +1,6 @@
 import PersonType from './personType';
 import * as ProgramMembershipFactory from './programMembership';
+import { IPropertyValue } from './propertyValue';
 
 /**
  * プロフィールインターフェース
@@ -23,6 +24,10 @@ export interface IProfile {
     email: string;
 }
 /**
+ * 識別子インターフェース
+ */
+export type IIdentifier = IPropertyValue<string>[];
+/**
  * 人物インターフェース
  */
 export interface IPerson {
@@ -43,4 +48,9 @@ export interface IPerson {
      * URL of the item.
      */
     url?: string;
+    /**
+     * 人を識別するもの
+     * サービスを使用するアプリケーション側で都合のいいように設定する
+     */
+    identifier?: IIdentifier;
 }

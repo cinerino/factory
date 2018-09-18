@@ -4,24 +4,41 @@ import TransactionStatusType from './transactionStatusType';
 import TransactionTasksExportationStatus from './transactionTasksExportationStatus';
 import TransactionType from './transactionType';
 
-export type ITransaction<T extends TransactionType, TAgent, TObject, TResult> = IExtendId<IAttributes<T, TAgent, TObject, TResult>>;
 /**
- * transaction interface
- * 取引インターフェース
+ * 取引開始パラメーターインターフェース
  */
-export interface IAttributes<T extends TransactionType, TAgent, TObject, TResult> {
+export interface IStartParams<T extends TransactionType, TAgent, TRecipient, TObject> {
     /**
      * 取引タイプ
      */
     typeOf: T;
     /**
-     * 取引状態
-     */
-    status: TransactionStatusType;
-    /**
      * 取引主体
      */
     agent: TAgent;
+    /**
+     * 取引物受取者
+     */
+    recipient?: TRecipient;
+    /**
+     * 取引対象
+     */
+    object: TObject;
+    /**
+     * 取引進行期限
+     */
+    expires: Date;
+}
+export type ITransaction<TStartParams, TResult, TError, TPotentialActions> =
+    IExtendId<IAttributes<TStartParams, TResult, TError, TPotentialActions>>;
+/**
+ * 取引インターフェース
+ */
+export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TStartParams & {
+    /**
+     * 取引状態
+     */
+    status: TransactionStatusType;
     /**
      * 取引結果
      */
@@ -29,11 +46,7 @@ export interface IAttributes<T extends TransactionType, TAgent, TObject, TResult
     /**
      * 取引エラー
      */
-    error?: any;
-    /**
-     * 取引対象
-     */
-    object?: TObject;
+    error?: TError;
     /**
      * 取引進行期限
      */
@@ -41,7 +54,7 @@ export interface IAttributes<T extends TransactionType, TAgent, TObject, TResult
     /**
      * 取引開始日時
      */
-    startDate?: Date;
+    startDate: Date;
     /**
      * 取引終了日時
      */
@@ -57,8 +70,8 @@ export interface IAttributes<T extends TransactionType, TAgent, TObject, TResult
     /**
      * 事後に発生するアクション
      */
-    potentialActions?: any;
-}
+    potentialActions?: TPotentialActions;
+};
 /**
  * ソート条件インターフェース
  */

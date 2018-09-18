@@ -1,8 +1,9 @@
 /**
  * factory
  */
-import * as chevreFactory from '@chevre/factory';
-import * as pecorinoFactory from '@pecorino/factory';
+import * as chevre from '@chevre/factory';
+import * as pecorino from '@pecorino/factory';
+import * as waiter from '@waiter/factory';
 
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
@@ -83,8 +84,9 @@ import * as URLFactory from './factory/url';
 import ErrorCode from './factory/errorCode';
 import * as errors from './factory/errors';
 
-export import chevre = chevreFactory;
-export import pecorino = pecorinoFactory;
+export import chevre = chevre;
+export import pecorino = pecorino;
+export import waiter = waiter;
 export import errors = errors;
 export import errorCode = ErrorCode;
 export import actionStatusType = ActionStatusType;
@@ -287,6 +289,10 @@ export namespace transaction {
     export type ISearchConditions<T extends TransactionType> =
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.ISearchConditions :
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ISearchConditions :
+        never;
+    export type IStartParams<T extends TransactionType> =
+        T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IStartParams :
+        T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IStartParams :
         never;
     export type IResult<T extends TransactionType> =
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IResult :
