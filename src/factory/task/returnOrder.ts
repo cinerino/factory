@@ -3,7 +3,7 @@ import * as TaskFactory from '../task';
 import TaskName from '../taskName';
 
 export interface IData {
-    transactionId: string;
+    orderNumber: string;
 }
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.ReturnOrder;

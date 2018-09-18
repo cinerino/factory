@@ -1,13 +1,13 @@
 import * as ActionFactory from '../../../action';
-import * as AuthorizePointAwardActionFactory from '../../authorize/award/point';
+import * as GivePointAwardActionFactory from '../give/pointAward';
 import * as ReturnActionFactory from '../return';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 /**
- * 返却対象はポイントインセンティブ承認アクション
+ * 返却対象はポイントインセンティブ付与アクション
  */
-export type IObject = AuthorizePointAwardActionFactory.IAttributes;
+export type IObject = GivePointAwardActionFactory.IAction;
 export type IResult = any;
 // tslint:disable-next-line:no-empty-interface
 export interface IPotentialActions {
