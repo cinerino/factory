@@ -185,7 +185,7 @@ export interface ISearchConditions {
     customer?: {
         typeOf: PersonType;
         ids?: string[];
-        identifiers?: IIdentifier[];
+        identifiers?: IIdentifier;
         /**
          * 購入者会員番号リスト
          */

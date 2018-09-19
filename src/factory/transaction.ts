@@ -117,6 +117,6 @@ export interface ISearchConditions<T extends TransactionType> {
     agent?: {
         typeOf: PersonType;
         ids?: string[];
-        identifiers?: IIdentifier[];
+        identifiers?: IIdentifier;
     };
 }
