@@ -5,6 +5,8 @@ import * as chevre from '@chevre/factory';
 import * as pecorino from '@pecorino/factory';
 import * as waiter from '@waiter/factory';
 
+import * as cognito from './cognito';
+
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as PointAwardAuthorizeActionFactory from './factory/action/authorize/award/point';
@@ -85,6 +87,7 @@ import * as URLFactory from './factory/url';
 import ErrorCode from './factory/errorCode';
 import * as errors from './factory/errors';
 
+export import cognito = cognito;
 export import chevre = chevre;
 export import pecorino = pecorino;
 export import waiter = waiter;

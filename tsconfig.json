@@ -12,6 +12,10 @@
         "inlineSourceMap": false,
         "inlineSources": false,
         "isolatedModules": false,
+        "lib": [
+            "es5",
+            "es2015.promise"
+        ],
         "listEmittedFiles": false,
         "listFiles": false,
         "locale": "en-us",
