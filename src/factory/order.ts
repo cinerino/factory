@@ -4,7 +4,7 @@ import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
-import { IPerson, IProfile } from './person';
+import { IIdentifier, IPerson, IProfile } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
 import SortType from './sortType';
@@ -170,13 +170,27 @@ export interface ISearchConditions {
     page?: number;
     sort?: ISortOrder;
     /**
-     * 販売者IDリスト
+     * 販売者条件
      */
-    sellerIds?: string[];
+    seller?: {
+        typeOf: OrganizationType;
+        /**
+         * 販売者IDリスト
+         */
+        ids?: string[];
+    };
     /**
-     * 購入者会員番号リスト
+     * 購入者条件
      */
-    customerMembershipNumbers?: string[];
+    customer?: {
+        typeOf: PersonType;
+        ids?: string[];
+        identifiers?: IIdentifier[];
+        /**
+         * 購入者会員番号リスト
+         */
+        membershipNumbers?: string[];
+    };
     /**
      * 注文番号リスト
      */
