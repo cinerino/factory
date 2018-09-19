@@ -70,6 +70,7 @@ import * as ReturnPointAwardTaskFactory from './factory/task/returnPointAward';
 import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
 import * as SendOrderTaskFactory from './factory/task/sendOrder';
 
+import * as TaskFactory from './factory/task';
 import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
 import TaskName from './factory/taskName';
 import TaskStatus from './factory/taskStatus';
@@ -243,7 +244,7 @@ export namespace task {
         T extends TaskName.PayAccount ? PayAccountTaskFactory.IData :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IData :
         T extends TaskName.PayMocoin ? PayMocoinTaskFactory.IData :
-        never;
+        TaskFactory.IData;
     export type IAttributes<T extends TaskName> =
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IAttributes :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IAttributes :
@@ -261,7 +262,7 @@ export namespace task {
         T extends TaskName.PayAccount ? PayAccountTaskFactory.IAttributes :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IAttributes :
         T extends TaskName.PayMocoin ? PayMocoinTaskFactory.IAttributes :
-        never;
+        TaskFactory.IAttributes;
     export type ITask<T extends TaskName> =
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.ITask :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.ITask :
@@ -279,7 +280,8 @@ export namespace task {
         T extends TaskName.PayAccount ? PayAccountTaskFactory.ITask :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.ITask :
         T extends TaskName.PayMocoin ? PayMocoinTaskFactory.ITask :
-        never;
+        TaskFactory.ITask;
+    export type ISearchConditions<T extends TaskName> = TaskFactory.ISearchConditions<T>;
 }
 export import taskExecutionResult = TaskExecutionResultFactory;
 export import taskName = TaskName;
