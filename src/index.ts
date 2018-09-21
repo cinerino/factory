@@ -35,6 +35,7 @@ import AccountType from './factory/accountType';
 import * as ClientUserFactory from './factory/clientUser';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
 import CreativeWorkType from './factory/creativeWorkType';
+import * as EncodingFormat from './factory/encodingFormat';
 import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
 import * as OrderFactory from './factory/order';
@@ -187,6 +188,7 @@ export namespace action {
     }
 }
 export import accountType = AccountType;
+export import encodingFormat = EncodingFormat;
 export namespace paymentMethod {
     export namespace paymentCard {
         export import creditCard = CreditCardFactory;
