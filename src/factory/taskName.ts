@@ -3,6 +3,10 @@
  */
 enum TaskName {
     /**
+     * 注文取引分析
+     */
+    AnalyzePlaceOrder = 'analyzePlaceOrder',
+    /**
      * 上映イベント在庫仕入れ
      */
     ImportScreeningEvents = 'importScreeningEvents',
