@@ -77,7 +77,11 @@ enum TaskName {
     /**
      * 会員プログラム登録解除
      */
-    UnRegisterProgramMembership = 'unRegisterProgramMembership'
+    UnRegisterProgramMembership = 'unRegisterProgramMembership',
+    /**
+     * ウェブフックをたたく
+     */
+    TriggerWebhook = 'triggerWebhook'
 }
 
 export default TaskName;

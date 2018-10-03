@@ -73,6 +73,7 @@ import * as ReturnOrderTaskFactory from './factory/task/returnOrder';
 import * as ReturnPointAwardTaskFactory from './factory/task/returnPointAward';
 import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
 import * as SendOrderTaskFactory from './factory/task/sendOrder';
+import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
 
 import * as TaskFactory from './factory/task';
 import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
@@ -251,6 +252,7 @@ export namespace task {
         T extends TaskName.PayAccount ? PayAccountTaskFactory.IData :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IData :
         T extends TaskName.PayMocoin ? PayMocoinTaskFactory.IData :
+        T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         TaskFactory.IData;
     export type IAttributes<T extends TaskName> =
         T extends TaskName.AnalyzePlaceOrder ? AnalyzePlaceOrderTaskFactory.IAttributes :
@@ -270,6 +272,7 @@ export namespace task {
         T extends TaskName.PayAccount ? PayAccountTaskFactory.IAttributes :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IAttributes :
         T extends TaskName.PayMocoin ? PayMocoinTaskFactory.IAttributes :
+        T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         TaskFactory.IAttributes;
     export type ITask<T extends TaskName> =
         T extends TaskName.AnalyzePlaceOrder ? AnalyzePlaceOrderTaskFactory.ITask :
@@ -289,6 +292,7 @@ export namespace task {
         T extends TaskName.PayAccount ? PayAccountTaskFactory.ITask :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.ITask :
         T extends TaskName.PayMocoin ? PayMocoinTaskFactory.ITask :
+        T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         TaskFactory.ITask;
     export type ISearchConditions<T extends TaskName> = TaskFactory.ISearchConditions<T>;
 }
