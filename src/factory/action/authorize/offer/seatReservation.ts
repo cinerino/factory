@@ -36,6 +36,7 @@ export interface IResult {
  */
 export type IObject = chevre.transaction.reserve.IObjectWithoutDetail & {
     typeOf: ObjectType;
+    acceptedOffer: chevre.event.screeningEvent.IAcceptedTicketOffer[];
 };
 export interface IPurpose {
     typeOf: TransactionType.PlaceOrder;
