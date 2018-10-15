@@ -13,6 +13,7 @@
         "inlineSources": false,
         "isolatedModules": false,
         "lib": [
+            "dom",
             "es5",
             "es2015"
         ],
