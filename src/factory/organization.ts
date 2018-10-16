@@ -21,6 +21,19 @@ export interface IGMOInfo {
      */
     shopPass: string;
 }
+/**
+ * ムビチケショップ情報インターフェース
+ */
+export interface IMovieTicketInfo {
+    /**
+     * ムビチケ興行会社コード
+     */
+    kgygishCd: string;
+    /**
+     * ムビチケサイトコード
+     */
+    stCd: string;
+}
 export interface ICreditCardPaymentAccepted {
     /**
      * 決済方法タイプ
@@ -55,6 +68,13 @@ export interface IAccountPaymentAccepted<T extends AccountType> {
      */
     accountNumber: string;
 }
+export interface IMovieTicketPaymentAccepted {
+    /**
+     * 決済方法タイプ
+     */
+    paymentMethodType: PaymentMethodType.MovieTicket;
+    movieTicketInfo: IMovieTicketInfo;
+}
 /**
  * 利用可能決済インターフェース
  */
@@ -62,6 +82,7 @@ export type IPaymentAccepted<T extends PaymentMethodType> =
     T extends PaymentMethodType.Account ? IAccountPaymentAccepted<AccountType> :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentAccepted :
     T extends PaymentMethodType.Mocoin ? IMocoinPaymentAccepted :
+    T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentAccepted :
     never;
 export interface IAttributes<T extends OrganizationType> {
     /**
