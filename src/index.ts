@@ -15,6 +15,7 @@ import * as AuthorizeAccountPaymentActionFactory from './factory/action/authoriz
 import * as AuthorizeCreditCardPaymentActionFactory from './factory/action/authorize/paymentMethod/creditCard';
 import * as AuthorizeMocoinPaymentActionFactory from './factory/action/authorize/paymentMethod/mocoin';
 import * as AuthorizeMovieTicketPaymentActionFactory from './factory/action/authorize/paymentMethod/movieTicket';
+import * as CheckMovieTicketActionFactory from './factory/action/check/paymentMethod/movieTicket';
 import * as CheckTokenActionFactory from './factory/action/check/token';
 import * as RegisterActionFactory from './factory/action/interact/register';
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
@@ -130,6 +131,10 @@ export namespace action {
         }
     }
     export namespace check {
+        // tslint:disable-next-line:no-shadowed-variable
+        export namespace paymentMethod {
+            export import movieTicket = CheckMovieTicketActionFactory;
+        }
         export import token = CheckTokenActionFactory;
     }
     export namespace interact {

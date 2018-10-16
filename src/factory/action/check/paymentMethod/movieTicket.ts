@@ -2,21 +2,15 @@ import * as chevre from '@chevre/factory';
 import * as mvtkapi from '@movieticket/reserve-api-nodejs-client';
 
 import * as ActionFactory from '../../../action';
-import ActionType from '../../../actionType';
-import TransactionType from '../../../transactionType';
-import * as AuthorizeActionFactory from '../../authorize';
+import OrganizationType from '../../../organizationType';
+import PaymentMethodType from '../../../paymentMethodType';
+import * as CheckActionFactory from '../../check';
 
 export type IAgent = ActionFactory.IParticipant;
-export type IRecipient = ActionFactory.IParticipant;
-export type IKnyknrNoInfo = mvtkapi.mvtk.services.seat.seatInfoSync.IKnyknrNoInfo;
+export type IKnyknrNoInfoIn = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IKnyknrNoInfoIn;
 export type IPurchaseNumberAuthIn = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
 export type IPurchaseNumberAuthResult = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
-export enum ObjectType {
-    MovieTicket = 'MovieTicket'
-}
-/**
- * オーソリ対象インターフェース
- */
+export type ObjectType = PaymentMethodType.MovieTicket;
 export interface IObject {
     typeOf: ObjectType;
     /**
@@ -24,30 +18,27 @@ export interface IObject {
      */
     event: { typeOf: chevre.eventType; id: string };
     /**
+     * 販売者
+     */
+    seller: { typeOf: OrganizationType; id: string };
+    /**
      * 購入管理番号情報
      */
-    knyknrNoInfo: IKnyknrNoInfo[];
+    knyknrNoInfo: IKnyknrNoInfoIn[];
 }
 export interface IResult {
-    price: number;
     purchaseNumberAuthIn: IPurchaseNumberAuthIn;
     purchaseNumberAuthResult: IPurchaseNumberAuthResult;
 }
-export interface IPurpose {
-    typeOf: TransactionType.PlaceOrder;
-    id: string;
-}
+export type IError = any;
 /**
- * ムビチケ承認アクション属性インターフェース
+ * ムビチケ確認アクション属性インターフェース
  */
-export interface IAttributes extends AuthorizeActionFactory.IAttributes<IObject, IResult> {
-    typeOf: ActionType.AuthorizeAction;
+export interface IAttributes extends CheckActionFactory.IAttributes<IObject, IResult> {
     object: IObject;
     agent: IAgent;
-    recipient: IRecipient;
-    purpose: IPurpose;
 }
 /**
- * ムビチケ承認アクションインターフェース
+ * ムビチケ確認アクションインターフェース
  */
 export type IAction = ActionFactory.IAction<IAttributes>;
