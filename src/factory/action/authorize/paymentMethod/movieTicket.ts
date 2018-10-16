@@ -8,6 +8,7 @@ import * as AuthorizeActionFactory from '../../authorize';
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 export type IKnyknrNoInfoIn = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IKnyknrNoInfoIn;
+export type IPurchaseNumberAuthIn = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
 export type IPurchaseNumberAuthResult = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
 export enum ObjectType {
     MovieTicket = 'MovieTicket'
@@ -18,12 +19,17 @@ export enum ObjectType {
 export interface IObject {
     typeOf: ObjectType;
     /**
+     * 座席予約対象イベント
+     */
+    event: { id: string };
+    /**
      * 購入管理番号情報
      */
     knyknrNoInfoIn: IKnyknrNoInfoIn[];
 }
 export interface IResult {
     price: number;
+    purchaseNumberAuthIn: IPurchaseNumberAuthIn;
     purchaseNumberAuthResult: IPurchaseNumberAuthResult;
 }
 export interface IPurpose {

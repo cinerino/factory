@@ -32,7 +32,6 @@ export interface IObject {
      * 支払い方法
      */
     method: GMO.utils.util.Method;
-    payType: GMO.utils.util.PayType;
     /**
      * クレジットカード情報
      */
