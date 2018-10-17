@@ -48,6 +48,7 @@ import * as MovieTheaterOrganizationFactory from './factory/organization/movieTh
 import OrganizationType from './factory/organizationType';
 import * as OwnershipInfoFactory from './factory/ownershipInfo';
 import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
+import * as MovieTicketFactory from './factory/paymentMethod/paymentCard/movieTicket';
 import PaymentMethodType from './factory/paymentMethodType';
 import * as PersonFactory from './factory/person';
 import PersonType from './factory/personType';
@@ -201,6 +202,7 @@ export import encodingFormat = EncodingFormat;
 export namespace paymentMethod {
     export namespace paymentCard {
         export import creditCard = CreditCardFactory;
+        export import movieTicket = MovieTicketFactory;
     }
 }
 export import clientUser = ClientUserFactory;

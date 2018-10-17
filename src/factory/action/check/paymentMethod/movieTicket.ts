@@ -1,30 +1,22 @@
-import * as chevre from '@chevre/factory';
 import * as mvtkapi from '@movieticket/reserve-api-nodejs-client';
 
 import * as ActionFactory from '../../../action';
 import OrganizationType from '../../../organizationType';
+import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
 import PaymentMethodType from '../../../paymentMethodType';
 import * as CheckActionFactory from '../../check';
 
 export type IAgent = ActionFactory.IParticipant;
-export type IKnyknrNoInfoIn = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IKnyknrNoInfoIn;
 export type IPurchaseNumberAuthIn = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
 export type IPurchaseNumberAuthResult = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
 export type ObjectType = PaymentMethodType.MovieTicket;
 export interface IObject {
     typeOf: ObjectType;
-    /**
-     * 座席予約対象イベント
-     */
-    event: { typeOf: chevre.eventType; id: string };
+    movieTickets: IMovieTicket[];
     /**
      * 販売者
      */
     seller: { typeOf: OrganizationType; id: string };
-    /**
-     * 購入管理番号情報
-     */
-    knyknrNoInfo: IKnyknrNoInfoIn[];
 }
 export interface IResult {
     purchaseNumberAuthIn: IPurchaseNumberAuthIn;
