@@ -12,6 +12,7 @@ import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as PointAwardAuthorizeActionFactory from './factory/action/authorize/award/point';
 import * as SeatReservationOfferAuthorizeActionFactory from './factory/action/authorize/offer/seatReservation';
 import * as AuthorizeAccountPaymentActionFactory from './factory/action/authorize/paymentMethod/account';
+import * as AuthorizeAnyPaymentActionFactory from './factory/action/authorize/paymentMethod/any';
 import * as AuthorizeCreditCardPaymentActionFactory from './factory/action/authorize/paymentMethod/creditCard';
 import * as AuthorizeMocoinPaymentActionFactory from './factory/action/authorize/paymentMethod/mocoin';
 import * as AuthorizeMovieTicketPaymentActionFactory from './factory/action/authorize/paymentMethod/movieTicket';
@@ -119,6 +120,7 @@ export namespace action {
         // tslint:disable-next-line:no-shadowed-variable
         export namespace paymentMethod {
             export import account = AuthorizeAccountPaymentActionFactory;
+            export import any = AuthorizeAnyPaymentActionFactory;
             export import creditCard = AuthorizeCreditCardPaymentActionFactory;
             export import mocoin = AuthorizeMocoinPaymentActionFactory;
             export import movieTicket = AuthorizeMovieTicketPaymentActionFactory;

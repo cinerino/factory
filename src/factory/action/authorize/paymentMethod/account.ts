@@ -6,19 +6,17 @@ import * as pecorino from '@pecorino/factory';
 import AccountType from '../../../accountType';
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
+import PaymentMethodType from '../../../paymentMethodType';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
-export enum ObjectType {
-    AccountPayment = 'AccountPayment'
-}
 /**
  * オーソリ対象インターフェース
  */
 export interface IObject<T extends AccountType> {
-    typeOf: ObjectType;
+    typeOf: PaymentMethodType.Account;
     amount: number;
     accountType: T;
     fromAccountNumber: string;

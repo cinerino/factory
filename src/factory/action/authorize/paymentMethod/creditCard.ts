@@ -3,6 +3,7 @@ import * as GMO from '@motionpicture/gmo-service';
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import { IUnauthorizedCardOfMember, IUncheckedCardRaw, IUncheckedCardTokenized } from '../../../paymentMethod/paymentCard/creditCard';
+import PaymentMethodType from '../../../paymentMethodType';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
@@ -12,14 +13,11 @@ export type IRecipient = ActionFactory.IParticipant;
  * クレジットカード承認アクションに必要なクレジットカード情報インターフェース
  */
 export type ICreditCard = IUncheckedCardRaw | IUncheckedCardTokenized | IUnauthorizedCardOfMember;
-export enum ObjectType {
-    CreditCard = 'CreditCard'
-}
 /**
  * オーソリ対象インターフェース
  */
 export interface IObject {
-    typeOf: ObjectType;
+    typeOf: PaymentMethodType.CreditCard;
     /**
      * オーダーID
      */

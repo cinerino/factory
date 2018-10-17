@@ -3,6 +3,7 @@ import * as mvtkapi from '@movieticket/reserve-api-nodejs-client';
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
+import PaymentMethodType from '../../../paymentMethodType';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
@@ -10,14 +11,11 @@ export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 export type IPurchaseNumberAuthIn = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
 export type IPurchaseNumberAuthResult = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
-export enum ObjectType {
-    MovieTicket = 'MovieTicket'
-}
 /**
  * 承認対象インターフェース
  */
 export interface IObject {
-    typeOf: ObjectType;
+    typeOf: PaymentMethodType.MovieTicket;
     movieTickets: IMovieTicket[];
 }
 export interface IResult {

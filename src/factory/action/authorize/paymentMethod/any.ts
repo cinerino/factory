@@ -1,43 +1,39 @@
-import * as mocoin from '@mocoin/factory';
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import PaymentMethodType from '../../../paymentMethodType';
+import { IPropertyValue } from '../../../propertyValue';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 /**
- * オーソリ対象インターフェース
+ * 承認対象インターフェース
  */
-export interface IObject {
-    typeOf: PaymentMethodType.Mocoin;
-    transactionId: string;
+export interface IObject<T extends PaymentMethodType> {
+    typeOf: T;
     amount: number;
+    additionalProperty: IPropertyValue<any>[];
 }
-export type IMocoinTransaction = mocoin.transaction.ITokenizedTransaction;
-/**
- * 承認結果はMocoin転送取引
- */
 export interface IResult {
     price: number;
-    amount: number;
-    mocoinTransaction: IMocoinTransaction;
-    mocoinEndpoint: string;
+    additionalProperty: IPropertyValue<any>[];
 }
 export interface IPurpose {
     typeOf: TransactionType.PlaceOrder;
     id: string;
 }
-export type IError = any;
 /**
- * Mocoin承認アクション属性インターフェース
+ * 決済方法承認アクション属性インターフェース
  */
-export interface IAttributes extends AuthorizeActionFactory.IAttributes<IObject, IResult> {
+export interface IAttributes<T extends PaymentMethodType> extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult> {
     typeOf: ActionType.AuthorizeAction;
-    object: IObject;
+    object: IObject<T>;
     agent: IAgent;
     recipient: IRecipient;
     purpose: IPurpose;
 }
-export type IAction = ActionFactory.IAction<IAttributes>;
+/**
+ * 決済方法承認アクションインターフェース
+ */
+export type IAction<T extends PaymentMethodType> = ActionFactory.IAction<IAttributes<T>>;
