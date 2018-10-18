@@ -43,6 +43,10 @@ enum TaskName {
      */
     ReturnPointAward = 'returnPointAward',
     /**
+     * 口座支払
+     */
+    PayAccount = 'payAccount',
+    /**
      * クレジットカード支払
      */
     PayCreditCard = 'payCreditCard',
@@ -51,9 +55,9 @@ enum TaskName {
      */
     PayMocoin = 'payMocoin',
     /**
-     * 口座支払
+     * ムビチケ支払
      */
-    PayAccount = 'payAccount',
+    PayMovieTicket = 'payMovieTicket',
     /**
      * 注文配送
      */

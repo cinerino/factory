@@ -70,6 +70,7 @@ import * as ImportScreeningEventsTaskFactory from './factory/task/importScreenin
 import * as PayAccountTaskFactory from './factory/task/payAccount';
 import * as PayCreditCardTaskFactory from './factory/task/payCreditCard';
 import * as PayMocoinTaskFactory from './factory/task/payMocoin';
+import * as PayMovieTicketTaskFactory from './factory/task/payMovieTicket';
 import * as PlaceOrderTaskFactory from './factory/task/placeOrder';
 import * as RefundAccountTaskFactory from './factory/task/refundAccount';
 import * as RefundCreditCardTaskFactory from './factory/task/refundCreditCard';
@@ -263,6 +264,7 @@ export namespace task {
         T extends TaskName.PayAccount ? PayAccountTaskFactory.IData :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IData :
         T extends TaskName.PayMocoin ? PayMocoinTaskFactory.IData :
+        T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         TaskFactory.IData;
     export type IAttributes<T extends TaskName> =
@@ -283,6 +285,7 @@ export namespace task {
         T extends TaskName.PayAccount ? PayAccountTaskFactory.IAttributes :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IAttributes :
         T extends TaskName.PayMocoin ? PayMocoinTaskFactory.IAttributes :
+        T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         TaskFactory.IAttributes;
     export type ITask<T extends TaskName> =
@@ -303,6 +306,7 @@ export namespace task {
         T extends TaskName.PayAccount ? PayAccountTaskFactory.ITask :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.ITask :
         T extends TaskName.PayMocoin ? PayMocoinTaskFactory.ITask :
+        T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         TaskFactory.ITask;
     export type ISearchConditions<T extends TaskName> = TaskFactory.ISearchConditions<T>;

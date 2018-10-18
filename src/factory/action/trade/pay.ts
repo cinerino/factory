@@ -4,6 +4,7 @@ import AccountType from '../../accountType';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IOrder, IPaymentMethod } from '../../order';
+import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import PaymentMethodType from '../../paymentMethodType';
 import PriceCurrency from '../../priceCurrency';
 import { IPendingTransaction } from '../authorize/paymentMethod/account';
@@ -43,10 +44,20 @@ export interface IObject4mocoin extends ICommonObject<PaymentMethodType.Mocoin> 
     mocoinTransaction: IMocoinTransaction;
     mocoinEndpoint: string;
 }
+/**
+ * ムビチケ決済の場合のオブジェクトインターフェース
+ */
+export interface IObject4movieTicket extends ICommonObject<PaymentMethodType.MovieTicket> {
+    /**
+     * ムビチケリスト
+     */
+    movieTickets: IMovieTicket[];
+}
 export type IObject<T> =
     T extends PaymentMethodType.Account ? IObject4account<AccountType> :
     T extends PaymentMethodType.CreditCard ? IObject4creditCard :
     T extends PaymentMethodType.Mocoin ? IObject4mocoin :
+    T extends PaymentMethodType.MovieTicket ? IObject4movieTicket :
     never;
 /**
  * クレジットカード決済の場合の結果インターフェース
@@ -61,6 +72,7 @@ export type IResult<T> =
     T extends PaymentMethodType.Account ? any :
     T extends PaymentMethodType.CreditCard ? IResult4creditCard :
     T extends PaymentMethodType.Mocoin ? any :
+    T extends PaymentMethodType.MovieTicket ? any :
     never;
 export interface IAttributes<T extends PaymentMethodType> extends ActionFactory.IAttributes<ActionType.PayAction, IObject<T>, IResult<T>> {
     purpose: IPurpose;

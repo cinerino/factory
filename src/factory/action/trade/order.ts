@@ -28,6 +28,10 @@ export interface IPotentialActions {
      */
     payMocoin: IPayActionAttributes<PaymentMethodType.Mocoin>[];
     /**
+     * ムビチケ決済アクション
+     */
+    payMovieTicket?: IPayActionAttributes<PaymentMethodType.MovieTicket>[];
+    /**
      * ポイント付与アクション
      * 現時点で複数口座にポイントを付与することはないが、可能性もこめてリストで持っておく
      */
