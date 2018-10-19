@@ -215,4 +215,11 @@ export interface ISearchConditions {
      * どのイベントに対する予約を注文したか
      */
     reservedEventIds?: string[];
+    /**
+     * 決済方法
+     */
+    paymentMethods?: {
+        typeOfs?: PaymentMethodType[];
+        paymentMethodIds?: string[];
+    };
 }
