@@ -53,6 +53,7 @@ export interface IDiscount {
  * 供給アイテムインターフェース
  */
 export type IItemOffered = chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent>;
+export type ItemOfferedType = chevre.reservationType;
 /**
  * offer interface
  * 供給インターフェース
@@ -163,6 +164,94 @@ export interface ISortOrder {
     price?: SortType;
 }
 /**
+ * 予約対象検索条件インターフェース
+ */
+export interface IReservationForSearchConditions {
+    typeOfs?: chevre.eventType[];
+    ids?: string[];
+    /**
+     * イベント名称
+     */
+    name?: string;
+    /**
+     * 開催中 from
+     */
+    inSessionFrom?: Date;
+    /**
+     * 開催中 through
+     */
+    inSessionThrough?: Date;
+    /**
+     * 開始日時 from
+     */
+    startFrom?: Date;
+    /**
+     * 開始日時 through
+     */
+    startThrough?: Date;
+    /**
+     * イベント開催場所
+     */
+    location?: {
+        branchCodes?: string[];
+    };
+    /**
+     * 親イベント情報
+     */
+    superEvent?: {
+        ids?: string[];
+        location?: {
+            /**
+             * 親イベントが実施される場所の枝番号
+             */
+            branchCodes?: string[];
+        };
+        workPerformed?: {
+            /**
+             * イベントで上演される作品識別子リスト
+             */
+            identifiers?: string[];
+        };
+    };
+}
+export interface ISellerSearchConditions {
+    typeOf: OrganizationType;
+    /**
+     * 販売者IDリスト
+     */
+    ids?: string[];
+}
+export interface ICustomerSearchConditions {
+    typeOf: PersonType;
+    ids?: string[];
+    identifiers?: IIdentifier;
+    /**
+     * 購入者会員番号リスト
+     */
+    membershipNumbers?: string[];
+    /**
+     * 電話番号
+     */
+    telephone?: string;
+}
+export interface IPaymentMethodsSearchConditions {
+    typeOfs?: PaymentMethodType[];
+    paymentMethodIds?: string[];
+}
+export interface IAcceptedOffersSearchConditions {
+    itemOffered?: {
+        typeOfs?: ItemOfferedType[];
+        /**
+         * 予約IDリスト
+         */
+        ids?: string[];
+        /**
+         * 予約対象
+         */
+        reservationFor?: IReservationForSearchConditions;
+    };
+}
+/**
  * 注文検索条件インターフェース
  */
 export interface ISearchConditions {
@@ -172,25 +261,11 @@ export interface ISearchConditions {
     /**
      * 販売者条件
      */
-    seller?: {
-        typeOf: OrganizationType;
-        /**
-         * 販売者IDリスト
-         */
-        ids?: string[];
-    };
+    seller?: ISellerSearchConditions;
     /**
      * 購入者条件
      */
-    customer?: {
-        typeOf: PersonType;
-        ids?: string[];
-        identifiers?: IIdentifier;
-        /**
-         * 購入者会員番号リスト
-         */
-        membershipNumbers?: string[];
-    };
+    customer?: ICustomerSearchConditions;
     /**
      * 注文番号リスト
      */
@@ -212,14 +287,11 @@ export interface ISearchConditions {
      */
     confirmationNumbers?: string[];
     /**
-     * どのイベントに対する予約を注文したか
-     */
-    reservedEventIds?: string[];
-    /**
      * 決済方法
      */
-    paymentMethods?: {
-        typeOfs?: PaymentMethodType[];
-        paymentMethodIds?: string[];
-    };
+    paymentMethods?: IPaymentMethodsSearchConditions;
+    /**
+     * 注文アイテム条件
+     */
+    acceptedOffers?: IAcceptedOffersSearchConditions;
 }
