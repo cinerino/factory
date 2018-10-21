@@ -1,4 +1,3 @@
-import * as chevre from '@chevre/factory';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
@@ -8,6 +7,8 @@ import { IIdentifier, IPerson, IProfile } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
 import SortType from './sortType';
+
+import * as chevre from '../chevre';
 
 export type TypeOf = 'Order';
 /**

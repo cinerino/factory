@@ -1,4 +1,3 @@
-import * as chevre from '@chevre/factory';
 import * as pecorino from '@pecorino/factory';
 
 import AccountType from './accountType';
@@ -6,6 +5,8 @@ import * as OrganizationFactory from './organization';
 import OrganizationType from './organizationType';
 import { IPerson } from './person';
 import SortType from './sortType';
+
+import * as chevre from '../chevre';
 
 /**
  * 口座タイプ

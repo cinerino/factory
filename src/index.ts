@@ -1,10 +1,10 @@
 /**
  * factory
  */
-import * as chevre from '@chevre/factory';
 import * as pecorino from '@pecorino/factory';
 import * as waiter from '@waiter/factory';
 
+import * as chevre from './chevre';
 import * as cognito from './cognito';
 
 import * as ActionFactory from './factory/action';

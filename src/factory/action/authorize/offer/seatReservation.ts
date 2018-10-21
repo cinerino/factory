@@ -1,12 +1,13 @@
 /**
  * 座席予約承認アクションファクトリー
  */
-import * as chevre from '@chevre/factory';
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import PriceCurrency from '../../../priceCurrency';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
+
+import * as chevre from '../../../../chevre';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;

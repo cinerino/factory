@@ -1,7 +1,7 @@
-import * as chevre from '@chevre/factory';
-
 import PaymentMethodType from '../../paymentMethodType';
 import { IPaymentCard } from '../paymentCard';
+
+import * as chevre from '../../../chevre';
 
 /**
  * ムビチケインターフェース

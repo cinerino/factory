@@ -1,9 +1,10 @@
-import * as chevre from '@chevre/factory';
 import IMultilingualString from '../multilingualString';
 import * as OrganizationFactory from '../organization';
 import OrganizationType from '../organizationType';
 import SortType from '../sortType';
 import * as URLFactory from '../url';
+
+import * as chevre from '../../chevre';
 
 /**
  * 場所インターフェース
@@ -68,6 +69,11 @@ export type IOrganization = OrganizationFactory.IOrganization<IAttributes>;
 export interface ISortOrder {
     'location.branchCode'?: SortType;
 }
+export interface ILocationSearchConditions {
+    typeOfs?: chevre.placeType[];
+    branchCodes?: string[];
+    name?: string;
+}
 export interface ISearchConditions {
     limit?: number;
     page?: number;
@@ -76,4 +82,8 @@ export interface ISearchConditions {
      * 名称
      */
     name?: string;
+    /**
+     * 場所
+     */
+    location?: ILocationSearchConditions;
 }
