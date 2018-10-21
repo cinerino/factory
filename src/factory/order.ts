@@ -155,6 +155,10 @@ export interface IOrder {
      * Was the offer accepted as a gift for someone other than the buyer.
      */
     isGift: boolean;
+    /**
+     * Date order was returned.
+     */
+    dateReturned?: Date;
 }
 /**
  * ソート条件インターフェース
