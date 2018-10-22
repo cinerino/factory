@@ -61,6 +61,10 @@ export interface IAttributes extends OrganizationFactory.IAttributes<Organizatio
      * 劇場サイトURL
      */
     url: URLFactory.IURL;
+    /**
+     * Points-of-Sales operated by the organization or person.
+     */
+    hasPOS: OrganizationFactory.IPOS[];
 }
 export type IOrganization = OrganizationFactory.IOrganization<IAttributes>;
 /**

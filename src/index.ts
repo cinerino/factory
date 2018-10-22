@@ -232,6 +232,7 @@ export namespace organization {
         T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IOrganization :
         never;
     export import IPaymentAccepted = OrganizationFactory.IPaymentAccepted;
+    export import IPOS = OrganizationFactory.IPOS;
     export import corporation = CorporationOrganizationFactory;
     export import movieTheater = MovieTheaterOrganizationFactory;
 }

@@ -84,6 +84,15 @@ export type IPaymentAccepted<T extends PaymentMethodType> =
     T extends PaymentMethodType.Mocoin ? IMocoinPaymentAccepted :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentAccepted :
     never;
+export type POSType = 'POS';
+/**
+ * POSインターフェース
+ */
+export interface IPOS {
+    typeOf: POSType;
+    id: string;
+    name: string;
+}
 export interface IAttributes<T extends OrganizationType> {
     /**
      * 組織タイプ
@@ -97,6 +106,10 @@ export interface IAttributes<T extends OrganizationType> {
     url?: URLFactory.IURL;
     image?: string;
     paymentAccepted?: IPaymentAccepted<PaymentMethodType>[];
+    /**
+     * Points-of-Sales operated by the organization or person.
+     */
+    hasPOS?: IPOS[];
 }
 /**
  * 組織インターフェース
