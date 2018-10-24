@@ -2,6 +2,8 @@ import AccountType from './accountType';
 import IMultilingualString from './multilingualString';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
+import { IPlace } from './place';
+import PlaceType from './placeType';
 import * as URLFactory from './url';
 
 /**
@@ -93,6 +95,10 @@ export interface IPOS {
     id: string;
     name: string;
 }
+/**
+ * サービス提供エリアインターフェース
+ */
+export type IAreaServed = IPlace<PlaceType>;
 export interface IAttributes<T extends OrganizationType> {
     /**
      * 組織タイプ
@@ -110,6 +116,10 @@ export interface IAttributes<T extends OrganizationType> {
      * Points-of-Sales operated by the organization or person.
      */
     hasPOS?: IPOS[];
+    /**
+     * The geographic area where a service or offered item is provided.
+     */
+    areaServed?: IAreaServed[];
 }
 /**
  * 組織インターフェース

@@ -1,6 +1,8 @@
 import IMultilingualString from '../multilingualString';
 import * as OrganizationFactory from '../organization';
 import OrganizationType from '../organizationType';
+import * as OnlinePlaceFactory from '../place/online';
+import * as StorePlaceFactory from '../place/store';
 import SortType from '../sortType';
 import * as URLFactory from '../url';
 
@@ -40,6 +42,10 @@ export interface IParentOrganization {
      */
     name: IMultilingualString;
 }
+/**
+ * サービス提供店舗インターフェース
+ */
+export type IAreaServed = StorePlaceFactory.IPlace | OnlinePlaceFactory.IPlace;
 export interface IAttributes extends OrganizationFactory.IAttributes<OrganizationType.MovieTheater> {
     /**
      * 劇場名称
@@ -65,6 +71,10 @@ export interface IAttributes extends OrganizationFactory.IAttributes<Organizatio
      * Points-of-Sales operated by the organization or person.
      */
     hasPOS: OrganizationFactory.IPOS[];
+    /**
+     * サービス提供店舗
+     */
+    areaServed: IAreaServed[];
 }
 export type IOrganization = OrganizationFactory.IOrganization<IAttributes>;
 /**

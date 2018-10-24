@@ -53,6 +53,10 @@ import * as MovieTicketFactory from './factory/paymentMethod/paymentCard/movieTi
 import PaymentMethodType from './factory/paymentMethodType';
 import * as PersonFactory from './factory/person';
 import PersonType from './factory/personType';
+import * as PlaceFactory from './factory/place';
+import * as OnlinePlaceFactory from './factory/place/online';
+import * as StorePlaceFactory from './factory/place/store';
+import PlaceType from './factory/placeType';
 import PriceCurrency from './factory/priceCurrency';
 import * as ProgramMembershipFactory from './factory/programMembership';
 import * as PropertyValueFactory from './factory/propertyValue';
@@ -242,6 +246,13 @@ export import priceCurrency = PriceCurrency;
 export import paymentMethodType = PaymentMethodType;
 export import person = PersonFactory;
 export import personType = PersonType;
+export namespace place {
+    export type IPlace<T extends PlaceType> =
+        T extends PlaceType.Online ? OnlinePlaceFactory.IPlace :
+        T extends PlaceType.Store ? StorePlaceFactory.IPlace :
+        PlaceFactory.IPlace<T>;
+}
+export import placeType = PlaceType;
 export import programMembership = ProgramMembershipFactory;
 export import propertyValue = PropertyValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
