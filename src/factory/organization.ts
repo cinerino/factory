@@ -36,20 +36,20 @@ export interface IMovieTicketInfo {
      */
     stCd: string;
 }
+export interface ICashPaymentAccepted {
+    paymentMethodType: PaymentMethodType.Cash;
+}
 export interface ICreditCardPaymentAccepted {
-    /**
-     * 決済方法タイプ
-     */
     paymentMethodType: PaymentMethodType.CreditCard;
     /**
      * GMO情報
      */
     gmoInfo: IGMOInfo;
 }
+export interface IEMoneyPaymentAccepted {
+    paymentMethodType: PaymentMethodType.EMoney;
+}
 export interface IMocoinPaymentAccepted {
-    /**
-     * 決済方法タイプ
-     */
     paymentMethodType: PaymentMethodType.Mocoin;
     /**
      * 口座番号
@@ -57,9 +57,6 @@ export interface IMocoinPaymentAccepted {
     accountNumber: string;
 }
 export interface IAccountPaymentAccepted<T extends AccountType> {
-    /**
-     * 決済方法タイプ
-     */
     paymentMethodType: PaymentMethodType.Account;
     /**
      * 口座タイプ
@@ -71,9 +68,6 @@ export interface IAccountPaymentAccepted<T extends AccountType> {
     accountNumber: string;
 }
 export interface IMovieTicketPaymentAccepted {
-    /**
-     * 決済方法タイプ
-     */
     paymentMethodType: PaymentMethodType.MovieTicket;
     movieTicketInfo: IMovieTicketInfo;
 }
@@ -82,7 +76,9 @@ export interface IMovieTicketPaymentAccepted {
  */
 export type IPaymentAccepted<T extends PaymentMethodType> =
     T extends PaymentMethodType.Account ? IAccountPaymentAccepted<AccountType> :
+    T extends PaymentMethodType.Cash ? ICashPaymentAccepted :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentAccepted :
+    T extends PaymentMethodType.EMoney ? IEMoneyPaymentAccepted :
     T extends PaymentMethodType.Mocoin ? IMocoinPaymentAccepted :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentAccepted :
     never;
