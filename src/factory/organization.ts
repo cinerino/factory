@@ -49,13 +49,6 @@ export interface ICreditCardPaymentAccepted {
 export interface IEMoneyPaymentAccepted {
     paymentMethodType: PaymentMethodType.EMoney;
 }
-export interface IMocoinPaymentAccepted {
-    paymentMethodType: PaymentMethodType.Mocoin;
-    /**
-     * 口座番号
-     */
-    accountNumber: string;
-}
 export interface IAccountPaymentAccepted<T extends AccountType> {
     paymentMethodType: PaymentMethodType.Account;
     /**
@@ -79,7 +72,6 @@ export type IPaymentAccepted<T extends PaymentMethodType> =
     T extends PaymentMethodType.Cash ? ICashPaymentAccepted :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentAccepted :
     T extends PaymentMethodType.EMoney ? IEMoneyPaymentAccepted :
-    T extends PaymentMethodType.Mocoin ? IMocoinPaymentAccepted :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentAccepted :
     never;
 export type POSType = 'POS';

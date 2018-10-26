@@ -3,10 +3,6 @@
  */
 enum TaskName {
     /**
-     * 注文取引分析
-     */
-    AnalyzePlaceOrder = 'analyzePlaceOrder',
-    /**
      * 上映イベント在庫仕入れ
      */
     ImportScreeningEvents = 'importScreeningEvents',
@@ -50,10 +46,6 @@ enum TaskName {
      * クレジットカード支払
      */
     PayCreditCard = 'payCreditCard',
-    /**
-     * Mocoin支払
-     */
-    PayMocoin = 'payMocoin',
     /**
      * ムビチケ支払
      */

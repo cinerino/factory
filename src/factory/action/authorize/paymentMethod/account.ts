@@ -36,7 +36,7 @@ export interface IObject<T extends AccountType> extends AuthorizeAnyPaymentFacto
      */
     notes?: string;
 }
-export interface IResult<T extends AccountType> extends AuthorizeAnyPaymentFactory.IResult {
+export interface IResult<T extends AccountType> extends AuthorizeAnyPaymentFactory.IResult<PaymentMethodType.Account> {
     /**
      * 確保口座
      */

@@ -8,7 +8,6 @@ import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import PaymentMethodType from '../../paymentMethodType';
 import PriceCurrency from '../../priceCurrency';
 import { IPendingTransaction } from '../authorize/paymentMethod/account';
-import { IMocoinTransaction } from '../authorize/paymentMethod/mocoin';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
@@ -33,16 +32,14 @@ export interface IObject4creditCard extends ICommonObject<PaymentMethodType.Cred
      * 通貨
      */
     priceCurrency: PriceCurrency;
+    entryTranArgs: GMO.services.credit.IEntryTranArgs;
+    execTranArgs: GMO.services.credit.IExecTranArgs;
 }
 /**
  * 口座決済の場合のオブジェクトインターフェース
  */
 export interface IObject4account<T extends AccountType> extends ICommonObject<PaymentMethodType.Account> {
     pendingTransaction: IPendingTransaction<T>;
-}
-export interface IObject4mocoin extends ICommonObject<PaymentMethodType.Mocoin> {
-    mocoinTransaction: IMocoinTransaction;
-    mocoinEndpoint: string;
 }
 /**
  * ムビチケ決済の場合のオブジェクトインターフェース
@@ -56,7 +53,6 @@ export interface IObject4movieTicket extends ICommonObject<PaymentMethodType.Mov
 export type IObject<T> =
     T extends PaymentMethodType.Account ? IObject4account<AccountType> :
     T extends PaymentMethodType.CreditCard ? IObject4creditCard :
-    T extends PaymentMethodType.Mocoin ? IObject4mocoin :
     T extends PaymentMethodType.MovieTicket ? IObject4movieTicket :
     never;
 /**
@@ -71,7 +67,6 @@ export interface IResult4creditCard {
 export type IResult<T> =
     T extends PaymentMethodType.Account ? any :
     T extends PaymentMethodType.CreditCard ? IResult4creditCard :
-    T extends PaymentMethodType.Mocoin ? any :
     T extends PaymentMethodType.MovieTicket ? any :
     never;
 export interface IAttributes<T extends PaymentMethodType> extends ActionFactory.IAttributes<ActionType.PayAction, IObject<T>, IResult<T>> {

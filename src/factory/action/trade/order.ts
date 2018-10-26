@@ -18,15 +18,11 @@ export interface IPotentialActions {
     /**
      * クレジットカード決済アクション
      */
-    payCreditCard?: IPayActionAttributes<PaymentMethodType.CreditCard>;
+    payCreditCard?: IPayActionAttributes<PaymentMethodType.CreditCard>[];
     /**
      * 口座決済実行アクションリスト
      */
     payAccount: IPayActionAttributes<PaymentMethodType.Account>[];
-    /**
-     * Mocoin決済実行アクションリスト
-     */
-    payMocoin: IPayActionAttributes<PaymentMethodType.Mocoin>[];
     /**
      * ムビチケ決済アクション
      */

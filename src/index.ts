@@ -14,7 +14,6 @@ import * as SeatReservationOfferAuthorizeActionFactory from './factory/action/au
 import * as AuthorizeAccountPaymentActionFactory from './factory/action/authorize/paymentMethod/account';
 import * as AuthorizeAnyPaymentActionFactory from './factory/action/authorize/paymentMethod/any';
 import * as AuthorizeCreditCardPaymentActionFactory from './factory/action/authorize/paymentMethod/creditCard';
-import * as AuthorizeMocoinPaymentActionFactory from './factory/action/authorize/paymentMethod/mocoin';
 import * as AuthorizeMovieTicketPaymentActionFactory from './factory/action/authorize/paymentMethod/movieTicket';
 import * as CheckMovieTicketActionFactory from './factory/action/check/paymentMethod/movieTicket';
 import * as CheckTokenActionFactory from './factory/action/check/token';
@@ -51,6 +50,7 @@ import * as OwnershipInfoFactory from './factory/ownershipInfo';
 import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
 import * as MovieTicketFactory from './factory/paymentMethod/paymentCard/movieTicket';
 import PaymentMethodType from './factory/paymentMethodType';
+import PaymentStatusType from './factory/paymentStatusType';
 import * as PersonFactory from './factory/person';
 import PersonType from './factory/personType';
 import * as PlaceFactory from './factory/place';
@@ -64,7 +64,6 @@ import * as QuantitativeValueFactory from './factory/quantitativeValue';
 import { UnitCode } from './factory/unitCode';
 
 import SortType from './factory/sortType';
-import * as AnalyzePlaceOrderTaskFactory from './factory/task/analyzePlaceOrder';
 import * as CancelAccountTaskFactory from './factory/task/cancelAccount';
 import * as CancelCreditCardTaskFactory from './factory/task/cancelCreditCard';
 import * as CancelPointAwardTaskFactory from './factory/task/cancelPointAward';
@@ -73,7 +72,6 @@ import * as GivePointAwardTaskFactory from './factory/task/givePointAward';
 import * as ImportScreeningEventsTaskFactory from './factory/task/importScreeningEvents';
 import * as PayAccountTaskFactory from './factory/task/payAccount';
 import * as PayCreditCardTaskFactory from './factory/task/payCreditCard';
-import * as PayMocoinTaskFactory from './factory/task/payMocoin';
 import * as PayMovieTicketTaskFactory from './factory/task/payMovieTicket';
 import * as PlaceOrderTaskFactory from './factory/task/placeOrder';
 import * as RefundAccountTaskFactory from './factory/task/refundAccount';
@@ -127,7 +125,6 @@ export namespace action {
             export import account = AuthorizeAccountPaymentActionFactory;
             export import any = AuthorizeAnyPaymentActionFactory;
             export import creditCard = AuthorizeCreditCardPaymentActionFactory;
-            export import mocoin = AuthorizeMocoinPaymentActionFactory;
             export import movieTicket = AuthorizeMovieTicketPaymentActionFactory;
         }
         export namespace discount {
@@ -244,6 +241,7 @@ export import organizationType = OrganizationType;
 export import ownershipInfo = OwnershipInfoFactory;
 export import priceCurrency = PriceCurrency;
 export import paymentMethodType = PaymentMethodType;
+export import paymentStatusType = PaymentStatusType;
 export import person = PersonFactory;
 export import personType = PersonType;
 export namespace place {
@@ -259,7 +257,6 @@ export import quantitativeValue = QuantitativeValueFactory;
 export import sortType = SortType;
 export namespace task {
     export type IData<T extends TaskName> =
-        T extends TaskName.AnalyzePlaceOrder ? AnalyzePlaceOrderTaskFactory.IData :
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IData :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IData :
         T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.IData :
@@ -275,12 +272,10 @@ export namespace task {
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IData :
         T extends TaskName.PayAccount ? PayAccountTaskFactory.IData :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IData :
-        T extends TaskName.PayMocoin ? PayMocoinTaskFactory.IData :
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         TaskFactory.IData;
     export type IAttributes<T extends TaskName> =
-        T extends TaskName.AnalyzePlaceOrder ? AnalyzePlaceOrderTaskFactory.IAttributes :
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IAttributes :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IAttributes :
         T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.IAttributes :
@@ -296,12 +291,10 @@ export namespace task {
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IAttributes :
         T extends TaskName.PayAccount ? PayAccountTaskFactory.IAttributes :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IAttributes :
-        T extends TaskName.PayMocoin ? PayMocoinTaskFactory.IAttributes :
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         TaskFactory.IAttributes;
     export type ITask<T extends TaskName> =
-        T extends TaskName.AnalyzePlaceOrder ? AnalyzePlaceOrderTaskFactory.ITask :
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.ITask :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.ITask :
         T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.ITask :
@@ -317,7 +310,6 @@ export namespace task {
         T extends TaskName.SendOrder ? SendOrderTaskFactory.ITask :
         T extends TaskName.PayAccount ? PayAccountTaskFactory.ITask :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.ITask :
-        T extends TaskName.PayMocoin ? PayMocoinTaskFactory.ITask :
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         TaskFactory.ITask;

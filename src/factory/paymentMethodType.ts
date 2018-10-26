@@ -19,10 +19,6 @@ enum PaymentMethodType {
      */
     CreditCard = 'CreditCard',
     /**
-     * Mocoin決済(外部仮想通貨)
-     */
-    Mocoin = 'Mocoin',
-    /**
      * ムビチケ
      */
     MovieTicket = 'MovieTicket'

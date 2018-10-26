@@ -14,7 +14,7 @@ export interface IObject extends AuthorizeAnyPaymentFactory.IObject<PaymentMetho
     typeOf: PaymentMethodType.MovieTicket;
     movieTickets: IMovieTicket[];
 }
-export interface IResult extends AuthorizeAnyPaymentFactory.IResult {
+export interface IResult extends AuthorizeAnyPaymentFactory.IResult<PaymentMethodType.MovieTicket> {
     purchaseNumberAuthIn: IPurchaseNumberAuthIn;
     purchaseNumberAuthResult: IPurchaseNumberAuthResult;
 }

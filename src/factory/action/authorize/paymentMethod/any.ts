@@ -1,6 +1,7 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import PaymentMethodType from '../../../paymentMethodType';
+import PaymentStatusType from '../../../paymentStatusType';
 import { IPropertyValue } from '../../../propertyValue';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
@@ -29,11 +30,27 @@ export interface IObject<T extends PaymentMethodType> {
      */
     additionalProperty?: IPropertyValue<any>[];
 }
-export interface IResult {
+export interface IResult<T extends PaymentMethodType> {
     /**
      * 金額
      */
     amount: number;
+    /**
+     * 決済方法
+     */
+    paymentMethod: IAnyPaymentMethod<T>;
+    /**
+     * 決済ID
+     */
+    paymentMethodId: string;
+    /**
+     * 決済ステータス
+     */
+    paymentStatus: PaymentStatusType;
+    /**
+     * 決済方法名
+     */
+    name: string;
     /**
      * 追加特性
      */
@@ -46,7 +63,7 @@ export interface IPurpose {
 /**
  * 決済方法承認アクション属性インターフェース
  */
-export interface IAttributes<T extends PaymentMethodType> extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult> {
+export interface IAttributes<T extends PaymentMethodType> extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult<T>> {
     typeOf: ActionType.AuthorizeAction;
     object: IObject<T>;
     agent: IAgent;
