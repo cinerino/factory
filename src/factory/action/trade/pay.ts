@@ -13,7 +13,7 @@ export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 export type IPurpose = IOrder;
 export type TypeOfObject = 'PaymentMethod';
-export interface ICommonObject<T extends PaymentMethodType> {
+export interface ICommonPaymentMethod<T extends PaymentMethodType> {
     typeOf: TypeOfObject;
     /**
      * 決済方法
@@ -23,7 +23,7 @@ export interface ICommonObject<T extends PaymentMethodType> {
 /**
  * クレジットカード決済の場合のオブジェクトインターフェース
  */
-export interface IObject4creditCard extends ICommonObject<PaymentMethodType.CreditCard> {
+export interface ICreditCardPaymentMethod extends ICommonPaymentMethod<PaymentMethodType.CreditCard> {
     /**
      * 金額
      */
@@ -38,35 +38,39 @@ export interface IObject4creditCard extends ICommonObject<PaymentMethodType.Cred
 /**
  * 口座決済の場合のオブジェクトインターフェース
  */
-export interface IObject4account<T extends AccountType> extends ICommonObject<PaymentMethodType.Account> {
+export interface IAccountPaymentMethod<T extends AccountType> extends ICommonPaymentMethod<PaymentMethodType.Account> {
     pendingTransaction: IPendingTransaction<T>;
 }
 /**
  * ムビチケ決済の場合のオブジェクトインターフェース
  */
-export interface IObject4movieTicket extends ICommonObject<PaymentMethodType.MovieTicket> {
+export interface IMovieTicketPaymentMethod extends ICommonPaymentMethod<PaymentMethodType.MovieTicket> {
     /**
      * ムビチケリスト
      */
     movieTickets: IMovieTicket[];
 }
-export type IObject<T> =
-    T extends PaymentMethodType.Account ? IObject4account<AccountType> :
-    T extends PaymentMethodType.CreditCard ? IObject4creditCard :
-    T extends PaymentMethodType.MovieTicket ? IObject4movieTicket :
+/**
+ * 決済対象の決済方法インターフェース
+ */
+export type IPaymentMethodObject<T> =
+    T extends PaymentMethodType.Account ? IAccountPaymentMethod<AccountType> :
+    T extends PaymentMethodType.CreditCard ? ICreditCardPaymentMethod :
+    T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentMethod :
     never;
+export type IObject<T extends PaymentMethodType> = IPaymentMethodObject<T>[];
 /**
  * クレジットカード決済の場合の結果インターフェース
  */
-export interface IResult4creditCard {
+export interface ICreditCardRsult {
     /**
      * クレジットカード売上結果
      */
-    creditCardSales?: GMO.services.credit.IAlterTranResult;
+    creditCardSales?: GMO.services.credit.IAlterTranResult[];
 }
 export type IResult<T> =
     T extends PaymentMethodType.Account ? any :
-    T extends PaymentMethodType.CreditCard ? IResult4creditCard :
+    T extends PaymentMethodType.CreditCard ? ICreditCardRsult :
     T extends PaymentMethodType.MovieTicket ? any :
     never;
 export interface IAttributes<T extends PaymentMethodType> extends ActionFactory.IAttributes<ActionType.PayAction, IObject<T>, IResult<T>> {
