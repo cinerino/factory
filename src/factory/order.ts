@@ -92,6 +92,7 @@ export type ICustomer = IPerson & IProfile & {
 };
 /**
  * 注文インターフェース
+ * @see https://schema.org/Order
  */
 export interface IOrder {
     /**
