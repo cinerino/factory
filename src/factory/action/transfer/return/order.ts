@@ -16,7 +16,7 @@ export interface IPotentialActions {
     /**
      * クレジットカード返金アクション
      */
-    refundCreditCard?: IRefundActionAttributes<PaymentMethodType.CreditCard>;
+    refundCreditCard: IRefundActionAttributes<PaymentMethodType.CreditCard>[];
     /**
      * 口座返金アクション
      */
