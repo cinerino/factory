@@ -22,6 +22,10 @@ export interface IPotentialActions {
      */
     refundAccount: IRefundActionAttributes<PaymentMethodType.Account>[];
     /**
+     * ムビチケ着券取消アクション
+     */
+    refundMovieTicket: IRefundActionAttributes<PaymentMethodType.MovieTicket>[];
+    /**
      * ポイントインセンティブ返却アクション
      */
     returnPointAward: ReturnPointAwardActionFactory.IAttributes[];

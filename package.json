@@ -65,11 +65,11 @@
   },
   "dependencies": {
     "@chevre/factory": "^1.0.0-alpha.31",
-    "@motionpicture/gmo-service": "^4.2.1",
+    "@motionpicture/gmo-service": "^4.3.0",
     "@movieticket/reserve-api-nodejs-client": "^1.0.0",
     "@pecorino/factory": "^1.1.0",
     "@waiter/factory": "^1.0.0",
-    "aws-sdk": "^2.350.0",
+    "aws-sdk": "^2.351.0",
     "setprototypeof": "^1.1.0"
   },
   "repository": {

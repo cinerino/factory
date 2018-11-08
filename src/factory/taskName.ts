@@ -59,6 +59,10 @@ enum TaskName {
      */
     RefundCreditCard = 'refundCreditCard',
     /**
+     * ムビチケ着券取消
+     */
+    RefundMovieTicket = 'refundMovieTicket',
+    /**
      * 口座返金
      */
     RefundAccount = 'refundAccount',

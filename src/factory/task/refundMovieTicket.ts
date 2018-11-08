@@ -4,12 +4,12 @@ import PaymentMethodType from '../paymentMethodType';
 import * as TaskFactory from '../task';
 import TaskName from '../taskName';
 
-export type IData = IRefundActionAttributes<PaymentMethodType.Account>;
+export type IData = IRefundActionAttributes<PaymentMethodType.MovieTicket>;
 export interface IAttributes extends TaskFactory.IAttributes {
-    name: TaskName.RefundAccount;
+    name: TaskName.RefundMovieTicket;
     data: IData;
 }
 /**
- * 口座返金タスクインターフェース
+ * ムビチケ着券取消タスクインターフェース
  */
 export type ITask = IExtendId<IAttributes>;
