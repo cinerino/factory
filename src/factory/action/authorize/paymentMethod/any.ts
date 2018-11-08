@@ -32,6 +32,10 @@ export interface IObject<T extends PaymentMethodType> {
 }
 export interface IResult<T extends PaymentMethodType> {
     /**
+     * The identifier for the account the payment will be applied to.
+     */
+    accountId: string;
+    /**
      * 金額
      */
     amount: number;

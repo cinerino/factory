@@ -6,6 +6,7 @@ import PaymentMethodType from './paymentMethodType';
 import { IIdentifier, IPerson, IProfile } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
+import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
 import * as chevre from '../chevre';
@@ -27,6 +28,10 @@ export interface IPaymentMethod<T extends PaymentMethodType> {
      * An identifier for the method of payment used (e.g.the last 4 digits of the credit card).
      */
     paymentMethodId: string;
+    /**
+     * 追加特性
+     */
+    additionalProperty: IPropertyValue<any>[];
 }
 /**
  * 割引インターフェース

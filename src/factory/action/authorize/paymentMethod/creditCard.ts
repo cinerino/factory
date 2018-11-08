@@ -29,6 +29,7 @@ export interface IObject extends AuthorizeAnyPaymentFactory.IObject<PaymentMetho
 }
 export interface IResult extends AuthorizeAnyPaymentFactory.IResult<PaymentMethodType.CreditCard> {
     entryTranArgs: GMO.services.credit.IEntryTranArgs;
+    entryTranResult: GMO.services.credit.IEntryTranResult;
     execTranArgs: GMO.services.credit.IExecTranArgs;
     execTranResult: GMO.services.credit.IExecTranResult;
 }
