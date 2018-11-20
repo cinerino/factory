@@ -1,4 +1,4 @@
-import { priceSpecificationType } from '@chevre/factory';
+import { priceSpecificationType } from '../chevre';
 
 /**
  * 価格仕様タイプ
