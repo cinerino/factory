@@ -288,11 +288,11 @@ export interface ISearchConditions {
     /**
      * 注文日時(から)
      */
-    orderDateFrom: Date;
+    orderDateFrom?: Date;
     /**
      * 注文日時(まで)
      */
-    orderDateThrough: Date;
+    orderDateThrough?: Date;
     /**
      * 確認番号リスト
      */
