@@ -2,6 +2,7 @@ import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IOrder } from '../../order';
 import PaymentMethodType from '../../paymentMethodType';
+import { IAttributes as IConfirmReservationActionAttributes } from '../interact/confirm/reservation';
 import { IAttributes as IGivePointAwardActionAttributes } from '../transfer/give/pointAward';
 import { IAttributes as ISendOrderActionAttributes } from '../transfer/send/order';
 import { IAttributes as IPayActionAttributes } from './pay';
@@ -15,6 +16,10 @@ export interface IPotentialActions {
      * 注文配送アクション
      */
     sendOrder: ISendOrderActionAttributes;
+    /**
+     * 予約確定アクション
+     */
+    confirmReservation?: IConfirmReservationActionAttributes[];
     /**
      * クレジットカード決済アクション
      */

@@ -4,6 +4,7 @@
 enum ActionType {
     AuthorizeAction = 'AuthorizeAction',
     CheckAction = 'CheckAction',
+    ConfirmAction = 'ConfirmAction',
     GiveAction = 'GiveAction',
     OrderAction = 'OrderAction',
     PayAction = 'PayAction',

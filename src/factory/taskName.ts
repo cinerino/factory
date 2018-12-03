@@ -11,6 +11,10 @@ enum TaskName {
      */
     CancelSeatReservation = 'cancelSeatReservation',
     /**
+     * 予約確定
+     */
+    ConfirmReservation = 'confirmReservation',
+    /**
      * クレジットカード承認アクション取消
      */
     CancelCreditCard = 'cancelCreditCard',

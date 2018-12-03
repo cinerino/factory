@@ -17,6 +17,7 @@ import * as AuthorizeCreditCardPaymentActionFactory from './factory/action/autho
 import * as AuthorizeMovieTicketPaymentActionFactory from './factory/action/authorize/paymentMethod/movieTicket';
 import * as CheckMovieTicketActionFactory from './factory/action/check/paymentMethod/movieTicket';
 import * as CheckTokenActionFactory from './factory/action/check/token';
+import * as ConfirmReservationActionFactory from './factory/action/interact/confirm/reservation';
 import * as RegisterActionFactory from './factory/action/interact/register';
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
 import * as OrderActionFactory from './factory/action/trade/order';
@@ -69,6 +70,7 @@ import * as CancelAccountTaskFactory from './factory/task/cancelAccount';
 import * as CancelCreditCardTaskFactory from './factory/task/cancelCreditCard';
 import * as CancelPointAwardTaskFactory from './factory/task/cancelPointAward';
 import * as CancelSeatReservationTaskFactory from './factory/task/cancelSeatReservation';
+import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
 import * as GivePointAwardTaskFactory from './factory/task/givePointAward';
 import * as ImportScreeningEventsTaskFactory from './factory/task/importScreeningEvents';
 import * as PayAccountTaskFactory from './factory/task/payAccount';
@@ -145,6 +147,9 @@ export namespace action {
         export import token = CheckTokenActionFactory;
     }
     export namespace interact {
+        export namespace confirm {
+            export import reservation = ConfirmReservationActionFactory;
+        }
         export namespace register {
             // tslint:disable-next-line:no-shadowed-variable
             export import IAction = RegisterActionFactory.IAction;
@@ -264,6 +269,7 @@ export namespace task {
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IData :
         T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.IData :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IData :
+        T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IData :
         T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.IData :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IData :
@@ -284,6 +290,7 @@ export namespace task {
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IAttributes :
         T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.IAttributes :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IAttributes :
+        T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IAttributes :
         T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.IAttributes :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IAttributes :
@@ -304,6 +311,7 @@ export namespace task {
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.ITask :
         T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.ITask :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.ITask :
+        T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.ITask :
         T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.ITask :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.ITask :
