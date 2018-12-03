@@ -15,7 +15,7 @@ export interface IPotentialActions {
     /**
      * 注文配送アクション
      */
-    sendOrder: ISendOrderActionAttributes;
+    sendOrder?: ISendOrderActionAttributes;
     /**
      * 予約確定アクション
      */
@@ -27,7 +27,7 @@ export interface IPotentialActions {
     /**
      * 口座決済実行アクションリスト
      */
-    payAccount: IPayActionAttributes<PaymentMethodType.Account>[];
+    payAccount?: IPayActionAttributes<PaymentMethodType.Account>[];
     /**
      * ムビチケ決済アクション
      */
@@ -36,7 +36,7 @@ export interface IPotentialActions {
      * ポイント付与アクション
      * 現時点で複数口座にポイントを付与することはないが、可能性もこめてリストで持っておく
      */
-    givePointAward: IGivePointAwardActionAttributes[];
+    givePointAward?: IGivePointAwardActionAttributes[];
 }
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.OrderAction, IObject, IResult> {
     potentialActions?: IPotentialActions;
