@@ -1,3 +1,4 @@
+import { IMonetaryAmount } from './monetaryAmount';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
@@ -28,6 +29,10 @@ export interface IPaymentMethod<T extends PaymentMethodType> {
      * An identifier for the method of payment used (e.g.the last 4 digits of the credit card).
      */
     paymentMethodId: string;
+    /**
+     * The total amount due.
+     */
+    totalPaymentDue?: IMonetaryAmount;
     /**
      * 追加特性
      */

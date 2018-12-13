@@ -1,5 +1,6 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
+import { IMonetaryAmount } from '../../../monetaryAmount';
 import PaymentMethodType from '../../../paymentMethodType';
 import PaymentStatusType from '../../../paymentStatusType';
 import { IPropertyValue } from '../../../propertyValue';
@@ -55,6 +56,10 @@ export interface IResult<T extends PaymentMethodType> {
      * 決済方法名
      */
     name: string;
+    /**
+     * The total amount due.
+     */
+    totalPaymentDue?: IMonetaryAmount;
     /**
      * 追加特性
      */

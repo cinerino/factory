@@ -1,3 +1,4 @@
+import { IMonetaryAmount } from './monetaryAmount';
 import { ICustomer, IOrder } from './order';
 import { IAttributes as IOrganizationAttributes, IOrganization } from './organization';
 import OrganizationType from './organizationType';
@@ -79,7 +80,7 @@ export interface IInvoice {
     /**
      * The total amount due.
      */
-    // totalPaymentDue: string;
+    totalPaymentDue?: IMonetaryAmount;
 }
 
 /**

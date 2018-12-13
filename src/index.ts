@@ -40,6 +40,7 @@ import * as EmailMessageFactory from './factory/creativeWork/message/email';
 import CreativeWorkType from './factory/creativeWorkType';
 import * as EncodingFormat from './factory/encodingFormat';
 import * as InvoiceFactory from './factory/invoice';
+import * as MonetaryAmountFactory from './factory/monetaryAmount';
 import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
 import * as OrderFactory from './factory/order';
@@ -224,6 +225,7 @@ export namespace creativeWork {
 }
 export import creativeWorkType = CreativeWorkType;
 export import invoice = InvoiceFactory;
+export import monetaryAmount = MonetaryAmountFactory;
 export type multilingualString = IMultilingualString;
 export namespace offer {
     export import OfferType = OfferFactory.OfferType;
