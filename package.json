@@ -56,11 +56,11 @@
     "power-assert": "^1.6.1",
     "rimraf": "^2.6.2",
     "sinon": "^5.1.0",
-    "snyk": "^1.113.0",
+    "snyk": "^1.117.1",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "tslint-microsoft-contrib": "^5.2.1",
-    "typescript": "^3.2.1"
+    "typescript": "^3.2.2"
   },
   "dependencies": {
     "@chevre/factory": "^1.0.0-alpha.49",
@@ -68,7 +68,7 @@
     "@movieticket/reserve-api-nodejs-client": "^1.0.0",
     "@pecorino/factory": "^1.1.0",
     "@waiter/factory": "^2.0.0",
-    "aws-sdk": "^2.369.0",
+    "aws-sdk": "^2.375.0",
     "setprototypeof": "^1.1.0"
   },
   "repository": {
