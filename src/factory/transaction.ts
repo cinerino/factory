@@ -119,4 +119,5 @@ export interface ISearchConditions<T extends TransactionType> {
         ids?: string[];
         identifiers?: IIdentifier;
     };
+    tasksExportationStatuses?: TransactionTasksExportationStatus[];
 }
