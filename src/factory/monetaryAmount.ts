@@ -21,7 +21,7 @@ export interface IMonetaryAmount {
      */
     validFrom?: number;
     /**
-     * The date after when the item is not valid. For example the end of an 
+     * The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
      */
     validThrough?: number;
     /**
