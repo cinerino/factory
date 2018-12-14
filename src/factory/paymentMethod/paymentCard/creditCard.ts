@@ -1,3 +1,4 @@
+import * as PaymentMethodFactory from '../../paymentMethod';
 import { IPaymentCard } from '../paymentCard';
 
 /**
@@ -66,4 +67,11 @@ export interface IUnauthorizedCardOfMember {
     memberId: string;
     cardSeq: number;
     cardPass?: string;
+}
+
+/**
+ * 検索条件インターフェース
+ */
+// tslint:disable-next-line:no-empty-interface
+export interface ISearchConditions extends PaymentMethodFactory.ISearchConditions {
 }

@@ -1,3 +1,4 @@
+import * as PaymentMethodFactory from '../../paymentMethod';
 import PaymentMethodType from '../../paymentMethodType';
 import { IPaymentCard } from '../paymentCard';
 
@@ -37,4 +38,11 @@ export interface IMovieTicket extends IPaymentCard {
      * いつまで有効か
      */
     validThrough?: Date;
+}
+
+/**
+ * 検索条件インターフェース
+ */
+export interface ISearchConditions extends PaymentMethodFactory.ISearchConditions {
+    serviceTypes?: string[];
 }

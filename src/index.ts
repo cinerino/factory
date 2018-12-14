@@ -212,6 +212,10 @@ export namespace action {
 export import accountType = AccountType;
 export import encodingFormat = EncodingFormat;
 export namespace paymentMethod {
+    export type ISearchConditions<T extends PaymentMethodType> =
+        T extends PaymentMethodType.CreditCard ? CreditCardFactory.ISearchConditions :
+        T extends PaymentMethodType.MovieTicket ? MovieTicketFactory.ISearchConditions :
+        never;
     export namespace paymentCard {
         export import creditCard = CreditCardFactory;
         export import movieTicket = MovieTicketFactory;
