@@ -63,12 +63,12 @@
     "typescript": "^3.2.2"
   },
   "dependencies": {
-    "@chevre/factory": "^1.0.0-alpha.49",
+    "@chevre/factory": "^1.0.0-alpha.50",
     "@motionpicture/gmo-service": "^4.3.0",
     "@movieticket/reserve-api-nodejs-client": "^1.0.0",
     "@pecorino/factory": "^1.1.0",
     "@waiter/factory": "^2.0.0",
-    "aws-sdk": "^2.375.0",
+    "aws-sdk": "^2.377.0",
     "setprototypeof": "^1.1.0"
   },
   "repository": {
