@@ -231,14 +231,14 @@ export interface IReservationForSearchConditions {
     };
 }
 export interface ISellerSearchConditions {
-    typeOf: OrganizationType;
+    typeOf?: OrganizationType;
     /**
      * 販売者IDリスト
      */
     ids?: string[];
 }
 export interface ICustomerSearchConditions {
-    typeOf: PersonType;
+    typeOf?: PersonType;
     ids?: string[];
     identifiers?: IIdentifier;
     /**
