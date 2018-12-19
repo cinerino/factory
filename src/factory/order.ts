@@ -241,13 +241,10 @@ export interface ICustomerSearchConditions {
     typeOf?: PersonType;
     ids?: string[];
     identifiers?: IIdentifier;
-    /**
-     * 購入者会員番号リスト
-     */
     membershipNumbers?: string[];
-    /**
-     * 電話番号
-     */
+    givenName?: string;
+    familyName?: string;
+    email?: string;
     telephone?: string;
 }
 export interface IPaymentMethodsSearchConditions {
