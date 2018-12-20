@@ -115,7 +115,7 @@ export interface ISearchConditions<T extends TransactionType> {
      */
     endThrough?: Date;
     agent?: {
-        typeOf: PersonType;
+        typeOf?: PersonType;
         ids?: string[];
         identifiers?: IIdentifier;
     };
