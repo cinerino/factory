@@ -7,3 +7,7 @@ export interface IAttributes extends OrganizationFactory.IAttributes<Organizatio
  * 企業組織インターフェース
  */
 export type IOrganization = OrganizationFactory.IOrganization<IAttributes>;
+
+// tslint:disable-next-line:no-empty-interface
+export interface ISearchConditions extends OrganizationFactory.ISearchConditions {
+}

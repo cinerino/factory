@@ -4,7 +4,10 @@ import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
 import { IPlace } from './place';
 import PlaceType from './placeType';
+import SortType from './sortType';
 import * as URLFactory from './url';
+
+import * as chevre from '../chevre';
 
 /**
  * GMOショップ情報インターフェース
@@ -115,3 +118,34 @@ export interface IAttributes<T extends OrganizationType> {
 export type IOrganization<T extends IAttributes<OrganizationType>> = T & {
     id: string;
 };
+
+/**
+ * ソート条件インターフェース
+ */
+export interface ISortOrder {
+    'location.branchCode'?: SortType;
+}
+
+export interface ILocationSearchConditions {
+    typeOfs?: chevre.placeType[] | string[];
+    branchCodes?: string[];
+    name?: string;
+}
+
+/**
+ * 組織検索条件インターフェース
+ */
+export interface ISearchConditions {
+    limit?: number;
+    page?: number;
+    sort?: ISortOrder;
+    typeOfs?: OrganizationType[];
+    /**
+     * 名称
+     */
+    name?: string;
+    /**
+     * 場所
+     */
+    location?: ILocationSearchConditions;
+}

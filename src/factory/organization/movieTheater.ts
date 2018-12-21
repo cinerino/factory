@@ -77,27 +77,14 @@ export interface IAttributes extends OrganizationFactory.IAttributes<Organizatio
     areaServed: IAreaServed[];
 }
 export type IOrganization = OrganizationFactory.IOrganization<IAttributes>;
+
 /**
  * ソート条件インターフェース
  */
 export interface ISortOrder {
     'location.branchCode'?: SortType;
 }
-export interface ILocationSearchConditions {
-    typeOfs?: chevre.placeType[];
-    branchCodes?: string[];
-    name?: string;
-}
-export interface ISearchConditions {
-    limit?: number;
-    page?: number;
+
+export interface ISearchConditions extends OrganizationFactory.ISearchConditions {
     sort?: ISortOrder;
-    /**
-     * 名称
-     */
-    name?: string;
-    /**
-     * 場所
-     */
-    location?: ILocationSearchConditions;
 }

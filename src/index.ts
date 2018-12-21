@@ -238,18 +238,23 @@ export namespace offer {
 export import order = OrderFactory;
 export import orderStatus = OrderStatus;
 export namespace organization {
+    export type ISearchConditions<T extends OrganizationType> =
+        T extends OrganizationType.Corporation ? CorporationOrganizationFactory.ISearchConditions :
+        T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.ISearchConditions :
+        OrganizationFactory.ISearchConditions;
     export type IAttributes<T extends OrganizationType> =
         T extends OrganizationType.Corporation ? CorporationOrganizationFactory.IAttributes :
         T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IAttributes :
-        never;
+        OrganizationFactory.IAttributes<T>;
     export type IOrganization<T extends OrganizationType> =
         T extends OrganizationType.Corporation ? CorporationOrganizationFactory.IOrganization :
         T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IOrganization :
-        never;
+        OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<T>>;
+    export type IAreaServed<T extends OrganizationType> =
+        T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IAreaServed :
+        OrganizationFactory.IAreaServed;
     export import IPaymentAccepted = OrganizationFactory.IPaymentAccepted;
     export import IPOS = OrganizationFactory.IPOS;
-    export import corporation = CorporationOrganizationFactory;
-    export import movieTheater = MovieTheaterOrganizationFactory;
 }
 export import organizationType = OrganizationType;
 export import ownershipInfo = OwnershipInfoFactory;
