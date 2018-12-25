@@ -43,6 +43,10 @@ export interface IAttributes<T extends ActionType, TObject, TResult> {
      */
     error?: any;
     /**
+     * The object that helped the agent perform the action. e.g. John wrote a book with a pen.
+     */
+    instrument?: any;
+    /**
      * アクション対象
      */
     object: TObject;
