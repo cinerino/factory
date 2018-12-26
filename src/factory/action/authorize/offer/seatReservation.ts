@@ -3,7 +3,10 @@
  */
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
+import { IEvent as IScreeningEvent } from '../../../event/screeningEvent';
 import PriceCurrency from '../../../priceCurrency';
+import { IPropertyValue } from '../../../propertyValue';
+import { Identifier as WebAPIIdentifier, IService as IWebAPI } from '../../../service/webAPI';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
@@ -16,15 +19,7 @@ export enum ObjectType {
     SeatReservation = 'SeatReservation'
 }
 
-export enum WebAPIIdentifier {
-    COA = 'COA',
-    Chevre = 'Chevre'
-}
-
-export interface IInstrument<T extends WebAPIIdentifier> {
-    typeOf: 'WebAPI';
-    identifier: T;
-}
+export type IInstrument<T extends WebAPIIdentifier> = IWebAPI<T>;
 
 export type IRequestBody = any;
 export type IResponseBody<T extends WebAPIIdentifier> =
@@ -59,13 +54,17 @@ export interface IResult<T extends WebAPIIdentifier> {
     responseBody: IResponseBody<T>;
 }
 
+export type IAcceptedOffer = chevre.event.screeningEvent.IAcceptedTicketOffer & {
+    additionalProperty: IPropertyValue<any>[];
+};
+
 /**
  * 認可アクション対象
  */
 export type IObject = chevre.transaction.reserve.IObjectWithoutDetail & {
     typeOf: ObjectType;
-    event?: chevre.event.screeningEvent.IEvent;
-    acceptedOffer: chevre.event.screeningEvent.IAcceptedTicketOffer[];
+    event?: IScreeningEvent;
+    acceptedOffer: IAcceptedOffer[];
 };
 
 export interface IPurpose {

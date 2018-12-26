@@ -39,6 +39,9 @@ import * as ClientUserFactory from './factory/clientUser';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
 import CreativeWorkType from './factory/creativeWorkType';
 import * as EncodingFormat from './factory/encodingFormat';
+import * as EventFactory from './factory/event';
+import * as ScreeningEventFactory from './factory/event/screeningEvent';
+import * as ScreeningEventSeriesFactory from './factory/event/screeningEventSeries';
 import * as InvoiceFactory from './factory/invoice';
 import * as MonetaryAmountFactory from './factory/monetaryAmount';
 import IMultilingualString from './factory/multilingualString';
@@ -64,6 +67,7 @@ import PriceCurrency from './factory/priceCurrency';
 import * as ProgramMembershipFactory from './factory/programMembership';
 import * as PropertyValueFactory from './factory/propertyValue';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
+import * as WebAPIServiceFactory from './factory/service/webAPI';
 import { UnitCode } from './factory/unitCode';
 
 import SortType from './factory/sortType';
@@ -228,6 +232,20 @@ export namespace creativeWork {
     }
 }
 export import creativeWorkType = CreativeWorkType;
+export namespace event {
+    export type IAttributes<T extends chevre.eventType> =
+        T extends chevre.eventType.ScreeningEvent ? ScreeningEventFactory.IAttributes :
+        T extends chevre.eventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.IAttributes :
+        EventFactory.IAttributes<T>;
+    export type IEvent<T extends chevre.eventType> =
+        T extends chevre.eventType.ScreeningEvent ? ScreeningEventFactory.IEvent :
+        T extends chevre.eventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.IEvent :
+        EventFactory.IEvent<T>;
+    export type ISearchConditions<T extends chevre.eventType> =
+        T extends chevre.eventType.ScreeningEvent ? ScreeningEventFactory.ISearchConditions :
+        T extends chevre.eventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.ISearchConditions :
+        never;
+}
 export import invoice = InvoiceFactory;
 export import monetaryAmount = MonetaryAmountFactory;
 export type multilingualString = IMultilingualString;
@@ -273,6 +291,9 @@ export import placeType = PlaceType;
 export import programMembership = ProgramMembershipFactory;
 export import propertyValue = PropertyValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
+export namespace service {
+    export import webAPI = WebAPIServiceFactory;
+}
 export import sortType = SortType;
 export namespace task {
     export type IData<T extends TaskName> =
