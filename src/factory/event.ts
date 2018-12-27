@@ -6,7 +6,7 @@ export type IAttributes<T extends chevre.eventType> = chevre.event.IAttributes<T
     /**
      * 仕入れ先サービス
      */
-    suppliedThrough: IwebAPI<WebAPIIdentifier>;
+    suppliedThrough?: IwebAPI<WebAPIIdentifier>;
 };
 
 /**

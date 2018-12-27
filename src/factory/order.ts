@@ -8,11 +8,13 @@ import { IIdentifier, IPerson, IProfile } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
 import { IPropertyValue } from './propertyValue';
+import { Identifier as WebAPIIdentifier, IService as IWebAPI } from './service/webAPI';
 import SortType from './sortType';
 
 import * as chevre from '../chevre';
 
 export type TypeOf = 'Order';
+
 /**
  * 決済方法インターフェース
  */
@@ -38,6 +40,7 @@ export interface IPaymentMethod<T extends PaymentMethodType> {
      */
     additionalProperty: IPropertyValue<any>[];
 }
+
 /**
  * 割引インターフェース
  */
@@ -60,11 +63,21 @@ export interface IDiscount {
      */
     discountCurrency: string;
 }
+
+export type IReservation = chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent> & {
+    /**
+     * 予約発行サービス
+     */
+    bookedThrough?: IWebAPI<WebAPIIdentifier>;
+};
+
 /**
  * 供給アイテムインターフェース
  */
-export type IItemOffered = chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent>;
+export type IItemOffered = IReservation;
+
 export type ItemOfferedType = chevre.reservationType;
+
 /**
  * offer interface
  * 供給インターフェース
