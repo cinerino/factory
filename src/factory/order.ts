@@ -8,7 +8,6 @@ import { IIdentifier, IPerson, IProfile } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
 import { IPropertyValue } from './propertyValue';
-import { Identifier as WebAPIIdentifier, IService as IWebAPI } from './service/webAPI';
 import SortType from './sortType';
 
 import * as chevre from '../chevre';
@@ -64,12 +63,7 @@ export interface IDiscount {
     discountCurrency: string;
 }
 
-export type IReservation = chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent> & {
-    /**
-     * 予約発行サービス
-     */
-    bookedThrough?: IWebAPI<WebAPIIdentifier>;
-};
+export type IReservation = chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent>;
 
 /**
  * 供給アイテムインターフェース

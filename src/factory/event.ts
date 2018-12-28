@@ -1,13 +1,10 @@
+import { IOffer } from './offer';
+
 import * as chevre from '../chevre';
 
-import { Identifier as WebAPIIdentifier, IService as IwebAPI } from './service/webAPI';
+export type IOffer = IOffer;
 
-export type IAttributes<T extends chevre.eventType> = chevre.event.IAttributes<T> & {
-    /**
-     * 仕入れ先サービス
-     */
-    suppliedThrough?: IwebAPI<WebAPIIdentifier>;
-};
+export type IAttributes<T extends chevre.eventType> = chevre.event.IAttributes<T>;
 
 /**
  * イベントインターフェース

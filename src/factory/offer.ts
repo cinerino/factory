@@ -4,10 +4,14 @@ import PaymentMethodType from './paymentMethodType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
 import PriceSpecificationType from './priceSpecificationType';
+import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
+import { Identifier as WebAPIIdentifier, IService as IWebAPI } from './service/webAPI';
 import { UnitCode } from './unitCode';
 
 export type OfferType = 'Offer';
+
+export type IOfferedThrough = IWebAPI<WebAPIIdentifier>;
 
 /**
  * offer interface
@@ -67,6 +71,10 @@ export interface IOffer {
      */
     itemOffered?: any;
     /**
+     * オファー供給サービス
+     */
+    offeredThrough?: IOfferedThrough;
+    /**
      * The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.
      */
     price?: number;
@@ -87,4 +95,9 @@ export interface IOffer {
      * The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
      */
     validThrough?: Date;
+    /**
+     * A property-value pair representing an additional characteristics of the entitity,
+     * e.g. a product feature or another characteristic for which there is no matching property in schema.org.
+     */
+    additionalProperty?: IPropertyValue<any>[];
 }

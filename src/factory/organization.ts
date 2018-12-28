@@ -1,5 +1,6 @@
 import AccountType from './accountType';
 import IMultilingualString from './multilingualString';
+import { IOffer } from './offer';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
 import { IPlace } from './place';
@@ -86,6 +87,9 @@ export interface IPOS {
     id: string;
     name: string;
 }
+
+export type IMakesOffer = IOffer;
+
 /**
  * サービス提供エリアインターフェース
  */
@@ -99,6 +103,10 @@ export interface IAttributes<T extends OrganizationType> {
     name: IMultilingualString;
     legalName?: IMultilingualString;
     location?: any;
+    /**
+     * A pointer to products or services offered by the organization or person.
+     */
+    makesOffer?: IMakesOffer[];
     telephone?: string;
     url?: URLFactory.IURL;
     image?: string;

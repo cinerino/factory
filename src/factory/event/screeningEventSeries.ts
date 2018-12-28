@@ -9,7 +9,7 @@ export type IAttributes = chevre.event.screeningEventSeries.IAttributes & EventF
 /**
  * イベントインターフェース
  */
-export type IEvent = chevre.event.screeningEventSeries.IEvent & EventFactory.IEvent<chevre.eventType.ScreeningEventSeries>;
+export type IEvent = chevre.event.screeningEventSeries.IEvent & EventFactory.IEvent<chevre.eventType.ScreeningEventSeries> & IAttributes;
 
 /**
  * 検索条件インターフェース

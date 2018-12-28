@@ -241,6 +241,9 @@ export namespace event {
         T extends chevre.eventType.ScreeningEvent ? ScreeningEventFactory.IEvent :
         T extends chevre.eventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.IEvent :
         EventFactory.IEvent<T>;
+    export type IOffer<T extends chevre.eventType> =
+        T extends chevre.eventType.ScreeningEvent ? ScreeningEventFactory.IOffer :
+        EventFactory.IOffer;
     export type ISearchConditions<T extends chevre.eventType> =
         T extends chevre.eventType.ScreeningEvent ? ScreeningEventFactory.ISearchConditions :
         T extends chevre.eventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.ISearchConditions :

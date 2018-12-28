@@ -9,6 +9,22 @@ import * as URLFactory from '../url';
 import * as chevre from '../../chevre';
 
 /**
+ * 劇場のオファーインターフェース
+ */
+export interface IMakesOffer extends OrganizationFactory.IMakesOffer {
+    itemOffered: {
+        typeOf: chevre.reservationType.EventReservation;
+        reservationFor: {
+            typeOf: chevre.eventType;
+            location: {
+                typeOf: chevre.placeType.MovieTheater;
+                branchCode: string;
+            };
+        };
+    };
+}
+
+/**
  * 場所インターフェース
  */
 export interface ILocation {
@@ -25,6 +41,7 @@ export interface ILocation {
      */
     name: IMultilingualString;
 }
+
 /**
  * 親組織インターフェース
  */
@@ -42,10 +59,12 @@ export interface IParentOrganization {
      */
     name: IMultilingualString;
 }
+
 /**
  * サービス提供店舗インターフェース
  */
 export type IAreaServed = StorePlaceFactory.IPlace | OnlinePlaceFactory.IPlace;
+
 export interface IAttributes extends OrganizationFactory.IAttributes<OrganizationType.MovieTheater> {
     /**
      * 劇場名称
@@ -59,6 +78,7 @@ export interface IAttributes extends OrganizationFactory.IAttributes<Organizatio
      * 場所
      */
     location: ILocation;
+    makesOffer: IMakesOffer[];
     /**
      * 電話番号
      */
@@ -76,6 +96,7 @@ export interface IAttributes extends OrganizationFactory.IAttributes<Organizatio
      */
     areaServed: IAreaServed[];
 }
+
 export type IOrganization = OrganizationFactory.IOrganization<IAttributes>;
 
 /**
