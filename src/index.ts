@@ -248,6 +248,8 @@ export namespace event {
         T extends chevre.eventType.ScreeningEvent ? ScreeningEventFactory.ISearchConditions :
         T extends chevre.eventType.ScreeningEventSeries ? ScreeningEventSeriesFactory.ISearchConditions :
         never;
+    export import screeningEvent = ScreeningEventFactory;
+    export import screeningEventSeries = ScreeningEventSeriesFactory;
 }
 export import invoice = InvoiceFactory;
 export import monetaryAmount = MonetaryAmountFactory;
