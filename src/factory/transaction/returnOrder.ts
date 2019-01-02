@@ -12,14 +12,17 @@ import * as chevre from '../../chevre';
  * 購入者インターフェース
  */
 export type IAgent = IPerson;
+
 /**
  * 取引結果インターフェース
  */
 export type IResult = any;
+
 /**
  * エラーインターフェース
  */
 export type IError = any;
+
 /**
  * 返品理由
  */
@@ -33,22 +36,34 @@ export enum Reason {
      */
     Seller = 'Seller'
 }
+
+export interface IReturnableOrder {
+    orderNumber: string;
+    customer?: {
+        email?: string;
+        telephone?: string;
+    };
+}
+
+/**
+ * 注文返品開始パラメータインターフェース
+ */
 export interface IStartParamsWithoutDetail {
     expires: Date;
     agent: IAgent;
     object: {
         clientUser?: IClientUser;
-        order: {
-            orderNumber: string;
-        };
+        order: IReturnableOrder;
         cancellationFee: number;
         reason: Reason;
     };
 }
+
 /**
  * 取引開始パラメーターインターフェース
  */
 export type IStartParams = TransactionFactory.IStartParams<TransactionType.ReturnOrder, IAgent, undefined, IObject>;
+
 /**
  * 取引対象物インターフェース
  */
@@ -68,18 +83,22 @@ export interface IObject {
      */
     pendingCancelReservationTransactions?: chevre.transaction.cancelReservation.ITransaction[];
 }
+
 export interface IPotentialActions {
     /**
      * 注文返品アクション属性
      */
     returnOrder: IReturnOrderActionAttributes;
 }
+
 export type ITransaction = IExtendId<IAttributes>;
+
 /**
  * 返品取引インターフェース
  */
 export interface IAttributes extends TransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
 }
+
 export interface ISearchConditions extends TransactionFactory.ISearchConditions<TransactionType.ReturnOrder> {
     object?: {
         order?: {
