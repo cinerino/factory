@@ -4,6 +4,7 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import { IEvent as IScreeningEvent } from '../../../event/screeningEvent';
+import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
 import PriceCurrency from '../../../priceCurrency';
 import { IPropertyValue } from '../../../propertyValue';
 import { Identifier as WebAPIIdentifier, IService as IWebAPI } from '../../../service/webAPI';
@@ -54,14 +55,26 @@ export interface IResult<T extends WebAPIIdentifier> {
     responseBody: IResponseBody<T>;
 }
 
-export type IAcceptedOffer = chevre.event.screeningEvent.IAcceptedTicketOffer & {
+export type IAcceptedPaymentMethod = IMovieTicket;
+
+export type IAcceptedOffer = {
+    paymentMethod?: IAcceptedPaymentMethod;
     additionalProperty: IPropertyValue<any>[];
-};
+} & chevre.event.screeningEvent.IAcceptedTicketOffer;
+
+export type IAcceptedOfferWithoutDetail = {
+    paymentMethod?: IAcceptedPaymentMethod;
+    additionalProperty: IPropertyValue<any>[];
+} & chevre.event.screeningEvent.IAcceptedTicketOfferWithoutDetail;
+
+export type IObjectWithoutDetail = {
+    acceptedOffer: IAcceptedOfferWithoutDetail[];
+} & chevre.transaction.reserve.IObjectWithoutDetail;
 
 /**
  * 認可アクション対象
  */
-export type IObject = chevre.transaction.reserve.IObjectWithoutDetail & {
+export type IObject = IObjectWithoutDetail & {
     typeOf: ObjectType;
     event?: IScreeningEvent;
     acceptedOffer: IAcceptedOffer[];
