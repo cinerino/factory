@@ -3,6 +3,16 @@ import * as ProgramMembershipFactory from './programMembership';
 import { IPropertyValue } from './propertyValue';
 
 /**
+ * 追加属性インターフェース
+ */
+export type IAdditionalProperty = IPropertyValue<string>[];
+
+/**
+ * 識別子インターフェース
+ */
+export type IIdentifier = IPropertyValue<string>[];
+
+/**
  * プロフィールインターフェース
  */
 export interface IProfile {
@@ -22,11 +32,13 @@ export interface IProfile {
      * Email address.
      */
     email: string;
+    /**
+     * 追加属性
+     * プロジェクト固有の属性等
+     */
+    additionalProperty?: IAdditionalProperty;
 }
-/**
- * 識別子インターフェース
- */
-export type IIdentifier = IPropertyValue<string>[];
+
 /**
  * 人物インターフェース
  */
