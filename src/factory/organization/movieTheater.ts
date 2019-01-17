@@ -4,7 +4,6 @@ import OrganizationType from '../organizationType';
 import * as OnlinePlaceFactory from '../place/online';
 import * as StorePlaceFactory from '../place/store';
 import SortType from '../sortType';
-import * as URLFactory from '../url';
 
 import * as chevre from '../../chevre';
 
@@ -86,7 +85,7 @@ export interface IAttributes extends OrganizationFactory.IAttributes<Organizatio
     /**
      * 劇場サイトURL
      */
-    url: URLFactory.IURL;
+    url: string;
     /**
      * Points-of-Sales operated by the organization or person.
      */

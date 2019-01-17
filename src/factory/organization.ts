@@ -6,7 +6,6 @@ import PaymentMethodType from './paymentMethodType';
 import { IPlace } from './place';
 import PlaceType from './placeType';
 import SortType from './sortType';
-import * as URLFactory from './url';
 
 import * as chevre from '../chevre';
 
@@ -81,6 +80,7 @@ export type IPaymentAccepted<T extends PaymentMethodType> =
 export type POSType = 'POS';
 /**
  * POSインターフェース
+ * 管理者が識別しやすいようPOSの属性を指定します
  */
 export interface IPOS {
     typeOf: POSType;
@@ -108,7 +108,7 @@ export interface IAttributes<T extends OrganizationType> {
      */
     makesOffer?: IMakesOffer[];
     telephone?: string;
-    url?: URLFactory.IURL;
+    url?: string;
     image?: string;
     paymentAccepted?: IPaymentAccepted<PaymentMethodType>[];
     /**
