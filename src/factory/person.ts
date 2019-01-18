@@ -5,7 +5,7 @@ import { IPropertyValue } from './propertyValue';
 /**
  * 追加属性インターフェース
  */
-export type IAdditionalProperty = IPropertyValue<string>[];
+export type IAdditionalProperty = IPropertyValue<string | undefined>[];
 
 /**
  * 識別子インターフェース
