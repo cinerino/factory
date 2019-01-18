@@ -1,18 +1,20 @@
 import IMultilingualString from './multilingualString';
 import PlaceType from './placeType';
 
+export type IAvailablePlaceType = PlaceType | string;
+
 /**
  * 場所インターフェース
  */
-export interface IPlace<T extends PlaceType> {
+export interface IPlace<T extends IAvailablePlaceType> {
     typeOf: T;
     id?: string;
     name?: IMultilingualString;
     description?: IMultilingualString;
     address?: IMultilingualString;
     branchCode?: string;
-    containedInPlace?: IPlace<PlaceType>;
-    containsPlace?: IPlace<PlaceType>[];
+    containedInPlace?: IPlace<IAvailablePlaceType>;
+    containsPlace?: IPlace<IAvailablePlaceType>[];
     isAccessibleForFree?: boolean;
     maximumAttendeeCapacity?: number;
     openingHoursSpecification?: any;

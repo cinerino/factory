@@ -3,12 +3,12 @@ import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
-import { IPlace } from './place';
-import PlaceType from './placeType';
+import { IAvailablePlaceType, IPlace } from './place';
 import SortType from './sortType';
 
 import * as chevre from '../chevre';
 
+export type IAcceptedPaymentMethodType = PaymentMethodType | string;
 /**
  * GMOショップ情報インターフェース
  */
@@ -67,16 +67,19 @@ export interface IMovieTicketPaymentAccepted {
     paymentMethodType: PaymentMethodType.MovieTicket;
     movieTicketInfo: IMovieTicketInfo;
 }
+export interface ICommonPaymentAccepted {
+    paymentMethodType: IAcceptedPaymentMethodType;
+}
 /**
  * 利用可能決済インターフェース
  */
-export type IPaymentAccepted<T extends PaymentMethodType> =
+export type IPaymentAccepted<T extends IAcceptedPaymentMethodType> =
     T extends PaymentMethodType.Account ? IAccountPaymentAccepted<AccountType> :
     T extends PaymentMethodType.Cash ? ICashPaymentAccepted :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentAccepted :
     T extends PaymentMethodType.EMoney ? IEMoneyPaymentAccepted :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentAccepted :
-    never;
+    ICommonPaymentAccepted;
 export type POSType = 'POS';
 /**
  * POSインターフェース
@@ -93,7 +96,8 @@ export type IMakesOffer = IOffer;
 /**
  * サービス提供エリアインターフェース
  */
-export type IAreaServed = IPlace<PlaceType>;
+export type IAreaServed = IPlace<IAvailablePlaceType>;
+
 export interface IAttributes<T extends OrganizationType> {
     /**
      * 組織タイプ
@@ -110,7 +114,7 @@ export interface IAttributes<T extends OrganizationType> {
     telephone?: string;
     url?: string;
     image?: string;
-    paymentAccepted?: IPaymentAccepted<PaymentMethodType>[];
+    paymentAccepted?: IPaymentAccepted<IAcceptedPaymentMethodType>[];
     /**
      * Points-of-Sales operated by the organization or person.
      */
@@ -120,6 +124,7 @@ export interface IAttributes<T extends OrganizationType> {
      */
     areaServed?: IAreaServed[];
 }
+
 /**
  * 組織インターフェース
  */
