@@ -300,7 +300,7 @@ export namespace service {
 }
 export import sortType = SortType;
 export namespace task {
-    export type IData<T extends TaskName> =
+    export type IData<T extends TaskName | string> =
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IData :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IData :
         T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.IData :
@@ -321,7 +321,7 @@ export namespace task {
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         TaskFactory.IData;
-    export type IAttributes<T extends TaskName> =
+    export type IAttributes<T extends TaskName | string> =
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IAttributes :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IAttributes :
         T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.IAttributes :
@@ -342,7 +342,7 @@ export namespace task {
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         TaskFactory.IAttributes;
-    export type ITask<T extends TaskName> =
+    export type ITask<T extends TaskName | string> =
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.ITask :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.ITask :
         T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.ITask :
@@ -363,7 +363,7 @@ export namespace task {
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         TaskFactory.ITask;
-    export type ISearchConditions<T extends TaskName> = TaskFactory.ISearchConditions<T>;
+    export type ISearchConditions<T extends TaskName | string> = TaskFactory.ISearchConditions<T>;
 }
 export import taskExecutionResult = TaskExecutionResultFactory;
 export import taskName = TaskName;

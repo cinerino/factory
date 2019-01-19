@@ -55,7 +55,7 @@ export interface ISortOrder {
 /**
  * 注文検索条件インターフェース
  */
-export interface ISearchConditions<T extends TaskName> {
+export interface ISearchConditions<T extends TaskName | string> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
