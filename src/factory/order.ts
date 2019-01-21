@@ -13,11 +13,12 @@ import SortType from './sortType';
 import * as chevre from '../chevre';
 
 export type TypeOf = 'Order';
+export type AvailablePaymentMethodType = PaymentMethodType | string;
 
 /**
  * 決済方法インターフェース
  */
-export interface IPaymentMethod<T extends PaymentMethodType> {
+export interface IPaymentMethod<T extends AvailablePaymentMethodType> {
     /**
      * 決済方法タイプ
      */
@@ -150,7 +151,7 @@ export interface IOrder {
     /**
      * payment methods
      */
-    paymentMethods: IPaymentMethod<PaymentMethodType>[];
+    paymentMethods: IPaymentMethod<AvailablePaymentMethodType>[];
     /**
      * discount infos
      */
@@ -255,7 +256,7 @@ export interface ICustomerSearchConditions {
     telephone?: string;
 }
 export interface IPaymentMethodsSearchConditions {
-    typeOfs?: PaymentMethodType[];
+    typeOfs?: AvailablePaymentMethodType[];
     paymentMethodIds?: string[];
 }
 export interface IAcceptedOffersSearchConditions {
