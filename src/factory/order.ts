@@ -71,7 +71,7 @@ export type IReservation = chevre.reservation.event.IReservation<chevre.event.sc
  */
 export type IItemOffered = IReservation;
 
-export type ItemOfferedType = chevre.reservationType;
+export type ItemOfferedType = chevre.reservationType | string;
 
 /**
  * offer interface

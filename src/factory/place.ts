@@ -9,6 +9,7 @@ export type IAvailablePlaceType = PlaceType | string;
 export interface IPlace<T extends IAvailablePlaceType> {
     typeOf: T;
     id?: string;
+    identifier?: any;
     name?: IMultilingualString;
     description?: IMultilingualString;
     address?: IMultilingualString;

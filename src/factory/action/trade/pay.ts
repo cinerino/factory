@@ -11,6 +11,7 @@ import { IPendingTransaction } from '../authorize/paymentMethod/account';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
+
 export type IPurpose = IOrder;
 export type TypeOfObject = 'PaymentMethod';
 export interface ICommonPaymentMethod<T extends PaymentMethodType> {
@@ -62,7 +63,7 @@ export type IObject<T extends PaymentMethodType> = IPaymentMethodObject<T>[];
 /**
  * クレジットカード決済の場合の結果インターフェース
  */
-export interface ICreditCardRsult {
+export interface ICreditCardResult {
     /**
      * クレジットカード売上結果
      */
@@ -70,9 +71,10 @@ export interface ICreditCardRsult {
 }
 export type IResult<T> =
     T extends PaymentMethodType.Account ? any :
-    T extends PaymentMethodType.CreditCard ? ICreditCardRsult :
+    T extends PaymentMethodType.CreditCard ? ICreditCardResult :
     T extends PaymentMethodType.MovieTicket ? any :
     never;
+
 export interface IAttributes<T extends PaymentMethodType> extends ActionFactory.IAttributes<ActionType.PayAction, IObject<T>, IResult<T>> {
     purpose: IPurpose;
 }

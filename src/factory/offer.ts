@@ -23,6 +23,7 @@ export type IOfferedThrough = IWebAPI<WebAPIIdentifier>;
 export interface IOffer {
     typeOf: OfferType;
     id?: string;
+    identifier?: any;
     name?: string | IMultilingualString;
     alternateName?: string | IMultilingualString;
     description?: string | IMultilingualString;
