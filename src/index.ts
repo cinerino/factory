@@ -277,6 +277,8 @@ export namespace organization {
         OrganizationFactory.IAreaServed;
     export import IPaymentAccepted = OrganizationFactory.IPaymentAccepted;
     export import IPOS = OrganizationFactory.IPOS;
+    export import IAcceptedPaymentMethodType = OrganizationFactory.IAcceptedPaymentMethodType;
+    export import IMakesOffer = OrganizationFactory.IMakesOffer;
 }
 export import organizationType = OrganizationType;
 export import ownershipInfo = OwnershipInfoFactory;
