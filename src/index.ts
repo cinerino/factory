@@ -49,8 +49,6 @@ import * as OfferFactory from './factory/offer';
 import * as OrderFactory from './factory/order';
 import OrderStatus from './factory/orderStatus';
 import * as OrganizationFactory from './factory/organization';
-import * as CorporationOrganizationFactory from './factory/organization/corporation';
-import * as MovieTheaterOrganizationFactory from './factory/organization/movieTheater';
 import OrganizationType from './factory/organizationType';
 import * as OwnershipInfoFactory from './factory/ownershipInfo';
 import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
@@ -259,27 +257,27 @@ export namespace offer {
 }
 export import order = OrderFactory;
 export import orderStatus = OrderStatus;
-export namespace organization {
-    export type ISearchConditions<T extends OrganizationType> =
-        T extends OrganizationType.Corporation ? CorporationOrganizationFactory.ISearchConditions :
-        T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.ISearchConditions :
-        OrganizationFactory.ISearchConditions;
-    export type IAttributes<T extends OrganizationType> =
-        T extends OrganizationType.Corporation ? CorporationOrganizationFactory.IAttributes :
-        T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IAttributes :
-        OrganizationFactory.IAttributes<T>;
-    export type IOrganization<T extends OrganizationType> =
-        T extends OrganizationType.Corporation ? CorporationOrganizationFactory.IOrganization :
-        T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IOrganization :
-        OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<T>>;
-    export type IAreaServed<T extends OrganizationType> =
-        T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IAreaServed :
-        OrganizationFactory.IAreaServed;
-    export import IPaymentAccepted = OrganizationFactory.IPaymentAccepted;
-    export import IPOS = OrganizationFactory.IPOS;
-    export import IAcceptedPaymentMethodType = OrganizationFactory.IAcceptedPaymentMethodType;
-    export import IMakesOffer = OrganizationFactory.IMakesOffer;
-}
+// export namespace organization {
+//     export type ISearchConditions<T extends OrganizationType> =
+//         T extends OrganizationType.Corporation ? CorporationOrganizationFactory.ISearchConditions :
+//         T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.ISearchConditions :
+//         OrganizationFactory.ISearchConditions;
+//     export type IAttributes<T extends OrganizationType> =
+//         T extends OrganizationType.Corporation ? CorporationOrganizationFactory.IAttributes :
+//         T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IAttributes :
+//         OrganizationFactory.IAttributes<T>;
+//     export type IOrganization<T extends OrganizationType> =
+//         T extends OrganizationType.Corporation ? CorporationOrganizationFactory.IOrganization :
+//         T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IOrganization :
+//         OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<T>>;
+//     export type IAreaServed<T extends OrganizationType> =
+//         T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IAreaServed :
+//         OrganizationFactory.IAreaServed;
+//     export import IPaymentAccepted = OrganizationFactory.IPaymentAccepted;
+//     export import IPOS = OrganizationFactory.IPOS;
+//     export import IAcceptedPaymentMethodType = OrganizationFactory.IAcceptedPaymentMethodType;
+//     export import IMakesOffer = OrganizationFactory.IMakesOffer;
+// }
 export import organizationType = OrganizationType;
 export import ownershipInfo = OwnershipInfoFactory;
 export import priceCurrency = PriceCurrency;
@@ -300,6 +298,7 @@ export import quantitativeValue = QuantitativeValueFactory;
 export namespace service {
     export import webAPI = WebAPIServiceFactory;
 }
+export import seller = OrganizationFactory;
 export import sortType = SortType;
 export namespace task {
     export type IData<T extends TaskName | string> =

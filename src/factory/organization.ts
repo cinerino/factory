@@ -8,6 +8,42 @@ import SortType from './sortType';
 
 import * as chevre from '../chevre';
 
+/**
+ * 場所インターフェース
+ */
+export interface ILocation {
+    /**
+     * スキーマタイプ
+     */
+    typeOf: string;
+    /**
+     * 枝番号
+     */
+    branchCode?: string;
+    /**
+     * 場所名称
+     */
+    name: IMultilingualString;
+}
+
+/**
+ * 親組織インターフェース
+ */
+export interface IParentOrganization {
+    /**
+     * スキーマタイプ
+     */
+    typeOf: OrganizationType;
+    /**
+     * 組織識別子
+     */
+    identifier?: any;
+    /**
+     * 組織名称
+     */
+    name: IMultilingualString;
+}
+
 export type IAcceptedPaymentMethodType = PaymentMethodType | string;
 /**
  * GMOショップ情報インターフェース
@@ -24,7 +60,7 @@ export interface IGMOInfo {
     /**
      * ショップパス
      */
-    shopPass: string;
+    shopPass?: string;
 }
 /**
  * ムビチケショップ情報インターフェース
@@ -103,10 +139,14 @@ export interface IAttributes<T extends OrganizationType> {
      * 組織タイプ
      */
     typeOf: T;
-    identifier?: string;
+    identifier?: any;
     name: IMultilingualString;
+    /**
+     * 親組織
+     */
+    parentOrganization?: IParentOrganization;
     legalName?: IMultilingualString;
-    location?: any;
+    location?: ILocation;
     /**
      * A pointer to products or services offered by the organization or person.
      */
