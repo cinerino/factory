@@ -90,7 +90,6 @@ import * as SendOrderTaskFactory from './factory/task/sendOrder';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
 
 import * as TaskFactory from './factory/task';
-import * as TaskExecutionResultFactory from './factory/taskExecutionResult';
 import TaskName from './factory/taskName';
 import TaskStatus from './factory/taskStatus';
 import * as TransactionFactory from './factory/transaction';
@@ -365,8 +364,8 @@ export namespace task {
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         TaskFactory.ITask;
     export type ISearchConditions<T extends TaskName | string> = TaskFactory.ISearchConditions<T>;
+    export type IExecutionResult = TaskFactory.IExecutionResult;
 }
-export import taskExecutionResult = TaskExecutionResultFactory;
 export import taskName = TaskName;
 export import taskStatus = TaskStatus;
 export namespace transaction {
