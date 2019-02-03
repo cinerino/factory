@@ -1,4 +1,4 @@
-import { IOrder } from '../../../order';
+import { IAcceptedOffer, IOrder } from '../../../order';
 import { IPointTransaction, ObjectType as AuthorizePointAwardActionObjectType } from '../../authorize/award/point';
 import * as GiveActionFactory from '../give';
 
@@ -24,7 +24,9 @@ export type IResult = any;
  * 目的は注文
  * 注文に対するインセンティブとしてポイントが付与される仕組み
  */
-export type IPurpose = IOrder;
+export interface IPurpose extends IOrder {
+    acceptedOffers: IAcceptedOffer<any>[];
+}
 export type IPotentialActions = any;
 export interface IAttributes extends GiveActionFactory.IAttributes<IObject, IResult> {
     purpose: IPurpose;
