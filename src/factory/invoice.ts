@@ -1,5 +1,5 @@
 import { IMonetaryAmount } from './monetaryAmount';
-import { ICustomer, IOrder } from './order';
+import { IAcceptedOffer, ICustomer, IOrder } from './order';
 import { IAttributes as IOrganizationAttributes, IOrganization } from './organization';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
@@ -10,6 +10,10 @@ import SortType from './sortType';
 
 export type IBroker = IOrganization<IOrganizationAttributes<OrganizationType>> | IPerson;
 export type IProvider = IOrganization<IOrganizationAttributes<OrganizationType>> | IPerson;
+
+export interface IReferenceOrder extends IOrder {
+    acceptedOffers: IAcceptedOffer<any>[];
+}
 
 /**
  * 請求書インターフェース

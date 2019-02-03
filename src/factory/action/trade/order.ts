@@ -1,6 +1,6 @@
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-import { IOrder } from '../../order';
+import { IAcceptedOffer, IOrder } from '../../order';
 import PaymentMethodType from '../../paymentMethodType';
 import { Identifier as WebAPIIdentifier } from '../../service/webAPI';
 import { IAttributes as IConfirmReservationActionAttributes } from '../interact/confirm/reservation';
@@ -10,7 +10,9 @@ import { IAttributes as IPayActionAttributes } from './pay';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
-export type IObject = IOrder;
+export interface IObject extends IOrder {
+    acceptedOffers: IAcceptedOffer<any>[];
+}
 export type IResult = any;
 export interface IPotentialActions {
     /**
