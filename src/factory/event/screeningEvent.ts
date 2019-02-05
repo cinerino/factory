@@ -89,7 +89,7 @@ export type IOffer = chevre.event.screeningEvent.IOffer & {
  * イベント属性インターフェース
  */
 export type IAttributes = chevre.event.screeningEvent.IAttributes & EventFactory.IEvent<chevre.eventType.ScreeningEvent> & {
-    offers: IOffer;
+    offers: IOffer | chevre.event.screeningEvent.IOffer4cinemasunshine;
 };
 
 /**

@@ -4,6 +4,7 @@ import AccountType from './accountType';
 import * as OrganizationFactory from './organization';
 import OrganizationType from './organizationType';
 import { IPerson } from './person';
+import { IProgramMembership, ProgramMembershipType } from './programMembership';
 import SortType from './sortType';
 
 import * as chevre from '../chevre';
@@ -48,7 +49,7 @@ export interface IReservation<T extends chevre.reservationType> {
 /**
  * 所有対象物のタイプ
  */
-export type IGoodType = chevre.reservationType | AccountGoodType;
+export type IGoodType = chevre.reservationType | ProgramMembershipType | AccountGoodType;
 /**
  * 所有対象物インタエーフェース (Product or Service)
  */
@@ -57,6 +58,10 @@ export type IGood<T extends IGoodType> =
      * 口座タイプの場合
      */
     T extends AccountGoodType ? IAccount<AccountType> :
+    /**
+     * 会員プログラムタイプの場合
+     */
+    T extends ProgramMembershipType ? IProgramMembership :
     /**
      * 予約タイプの場合
      */

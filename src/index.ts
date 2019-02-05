@@ -83,11 +83,13 @@ import * as PlaceOrderTaskFactory from './factory/task/placeOrder';
 import * as RefundAccountTaskFactory from './factory/task/refundAccount';
 import * as RefundCreditCardTaskFactory from './factory/task/refundCreditCard';
 import * as RefundMovieTicketTaskFactory from './factory/task/refundMovieTicket';
+import * as RegisterProgramMembershipTaskFactory from './factory/task/registerProgramMembership';
 import * as ReturnOrderTaskFactory from './factory/task/returnOrder';
 import * as ReturnPointAwardTaskFactory from './factory/task/returnPointAward';
 import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
 import * as SendOrderTaskFactory from './factory/task/sendOrder';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
+import * as UnRegisterProgramMembershipTaskFactory from './factory/task/unRegisterProgramMembership';
 
 import * as TaskFactory from './factory/task';
 import TaskName from './factory/taskName';
@@ -312,6 +314,7 @@ export namespace task {
         T extends TaskName.RefundAccount ? RefundAccountTaskFactory.IData :
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IData :
         T extends TaskName.RefundMovieTicket ? RefundMovieTicketTaskFactory.IData :
+        T extends TaskName.RegisterProgramMembership ? RegisterProgramMembershipTaskFactory.IData :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IData :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IData :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IData :
@@ -320,6 +323,7 @@ export namespace task {
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IData :
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
+        T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IData :
         TaskFactory.IData;
     export type IAttributes<T extends TaskName | string> =
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IAttributes :
@@ -333,6 +337,7 @@ export namespace task {
         T extends TaskName.RefundAccount ? RefundAccountTaskFactory.IAttributes :
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IAttributes :
         T extends TaskName.RefundMovieTicket ? RefundMovieTicketTaskFactory.IAttributes :
+        T extends TaskName.RegisterProgramMembership ? RegisterProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IAttributes :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IAttributes :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IAttributes :
@@ -341,6 +346,7 @@ export namespace task {
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IAttributes :
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
+        T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IAttributes :
         TaskFactory.IAttributes;
     export type ITask<T extends TaskName | string> =
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.ITask :
@@ -354,6 +360,7 @@ export namespace task {
         T extends TaskName.RefundAccount ? RefundAccountTaskFactory.ITask :
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.ITask :
         T extends TaskName.RefundMovieTicket ? RefundMovieTicketTaskFactory.ITask :
+        T extends TaskName.RegisterProgramMembership ? RegisterProgramMembershipTaskFactory.ITask :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.ITask :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.ITask :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.ITask :
@@ -362,6 +369,7 @@ export namespace task {
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.ITask :
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
+        T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.ITask :
         TaskFactory.ITask;
     export type ISearchConditions<T extends TaskName | string> = TaskFactory.ISearchConditions<T>;
     export type IExecutionResult = TaskFactory.IExecutionResult;

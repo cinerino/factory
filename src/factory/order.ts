@@ -7,6 +7,7 @@ import PaymentMethodType from './paymentMethodType';
 import { IIdentifier, IPerson, IProfile } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
+import { IProgramMembership } from './programMembership';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
@@ -69,7 +70,7 @@ export type IReservation = chevre.reservation.event.IReservation<chevre.event.sc
 /**
  * 供給アイテムインターフェース
  */
-export type IItemOffered = IReservation;
+export type IItemOffered = IReservation | IProgramMembership;
 
 export type ItemOfferedType = chevre.reservationType | string;
 
