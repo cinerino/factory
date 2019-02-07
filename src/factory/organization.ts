@@ -4,6 +4,7 @@ import { IOffer } from './offer';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
 import { IAvailablePlaceType, IPlace } from './place';
+import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
 import * as chevre from '../chevre';
@@ -45,6 +46,7 @@ export interface IParentOrganization {
 }
 
 export type IAcceptedPaymentMethodType = PaymentMethodType | string;
+
 /**
  * GMOショップ情報インターフェース
  */
@@ -62,6 +64,7 @@ export interface IGMOInfo {
      */
     shopPass?: string;
 }
+
 /**
  * ムビチケショップ情報インターフェース
  */
@@ -75,9 +78,11 @@ export interface IMovieTicketInfo {
      */
     stCd: string;
 }
+
 export interface ICashPaymentAccepted {
     paymentMethodType: PaymentMethodType.Cash;
 }
+
 export interface ICreditCardPaymentAccepted {
     paymentMethodType: PaymentMethodType.CreditCard;
     /**
@@ -85,9 +90,11 @@ export interface ICreditCardPaymentAccepted {
      */
     gmoInfo: IGMOInfo;
 }
+
 export interface IEMoneyPaymentAccepted {
     paymentMethodType: PaymentMethodType.EMoney;
 }
+
 export interface IAccountPaymentAccepted<T extends AccountType> {
     paymentMethodType: PaymentMethodType.Account;
     /**
@@ -99,13 +106,16 @@ export interface IAccountPaymentAccepted<T extends AccountType> {
      */
     accountNumber: string;
 }
+
 export interface IMovieTicketPaymentAccepted {
     paymentMethodType: PaymentMethodType.MovieTicket;
     movieTicketInfo: IMovieTicketInfo;
 }
+
 export interface ICommonPaymentAccepted {
     paymentMethodType: IAcceptedPaymentMethodType;
 }
+
 /**
  * 利用可能決済インターフェース
  */
@@ -116,7 +126,9 @@ export type IPaymentAccepted<T extends IAcceptedPaymentMethodType> =
     T extends PaymentMethodType.EMoney ? IEMoneyPaymentAccepted :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentAccepted :
     ICommonPaymentAccepted;
+
 export type POSType = 'POS';
+
 /**
  * POSインターフェース
  * 管理者が識別しやすいようPOSの属性を指定します
@@ -163,6 +175,11 @@ export interface IAttributes<T extends OrganizationType> {
      * The geographic area where a service or offered item is provided.
      */
     areaServed?: IAreaServed[];
+    /**
+     * A property-value pair representing an additional characteristics of the entitity,
+     * e.g. a product feature or another characteristic for which there is no matching property in schema.org.
+     */
+    additionalProperty?: IPropertyValue<any>[];
 }
 
 /**
