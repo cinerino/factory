@@ -112,7 +112,7 @@ export interface IOwnershipInfo<T extends IGood<IGoodType> | IGoodWithDetail<IGo
     /**
      * 識別子
      */
-    identifier: any;
+    identifier?: any;
     /**
      * owned by whom
      */
