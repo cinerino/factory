@@ -18,6 +18,7 @@ export enum AccountGoodType {
      */
     Account = 'Account'
 }
+
 /**
  * 口座インターフェース
  */
@@ -32,6 +33,7 @@ export interface IAccount<T extends AccountType> {
      */
     accountNumber: string;
 }
+
 /**
  * 予約インターフェース
  */
@@ -46,10 +48,12 @@ export interface IReservation<T extends chevre.reservationType> {
      */
     reservationNumber: string;
 }
+
 /**
  * 所有対象物のタイプ
  */
 export type IGoodType = chevre.reservationType | ProgramMembershipType | AccountGoodType;
+
 /**
  * 所有対象物インタエーフェース (Product or Service)
  */
@@ -66,7 +70,8 @@ export type IGood<T extends IGoodType> =
      * 予約タイプの場合
      */
     T extends chevre.reservationType ? IReservation<T> :
-    never;
+    any;
+
 /**
  * 所有対象物インタエーフェース(対象物詳細有)
  */
@@ -76,15 +81,22 @@ export type IGoodWithDetail<T extends IGoodType> =
      */
     T extends AccountGoodType ? pecorino.account.IAccount<AccountType> :
     /**
+     * 会員プログラムタイプの場合
+     */
+    T extends ProgramMembershipType ? IProgramMembership :
+    /**
      * 予約タイプの場合
      */
     T extends chevre.reservationType ? chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent> :
-    never;
+    any;
+
 /**
  * 所有者インターフェース
  */
 export type IOwner = OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>> | IPerson;
+
 export type OwnershipInfoType = 'OwnershipInfo';
+
 /**
  * 所有権インターフェース
  */
@@ -97,6 +109,10 @@ export interface IOwnershipInfo<T extends IGood<IGoodType> | IGoodWithDetail<IGo
      * 所有権ID
      */
     id: string;
+    /**
+     * 識別子
+     */
+    identifier: any;
     /**
      * owned by whom
      */
@@ -118,6 +134,7 @@ export interface IOwnershipInfo<T extends IGood<IGoodType> | IGoodWithDetail<IGo
      */
     typeOfGood: T;
 }
+
 /**
  * ソート条件インターフェース
  */
@@ -127,6 +144,7 @@ export interface ISortOrder {
      */
     ownedFrom?: SortType;
 }
+
 /**
  * 所有権識別タイプ
  */
@@ -140,15 +158,20 @@ export type Identifier<T extends IGoodType> =
         accountNumber: string;
     } :
     /**
+     * 会員プログラムタイプの場合
+     */
+    T extends ProgramMembershipType ? any :
+    /**
      * 予約タイプの場合
      */
     T extends chevre.reservationType ? {
         typeOf: chevre.reservationType;
         id: string;
     } :
-    never;
+    any;
+
 /**
- * 所有権識別タイプ
+ * 所有対象物検索条件インターフェース
  */
 export type ITypeOfGoodSearchConditions<T extends IGoodType> =
     /**
@@ -161,6 +184,10 @@ export type ITypeOfGoodSearchConditions<T extends IGoodType> =
         accountNumbers?: string[];
     } :
     /**
+     * 会員プログラムタイプの場合
+     */
+    T extends ProgramMembershipType ? any :
+    /**
      * 予約タイプの場合
      */
     T extends chevre.reservationType ? {
@@ -168,7 +195,8 @@ export type ITypeOfGoodSearchConditions<T extends IGoodType> =
         id?: string;
         ids?: string[];
     } :
-    never;
+    any;
+
 /**
  * 所有権検索条件インターフェース
  */
@@ -194,5 +222,5 @@ export interface ISearchConditions<T extends IGoodType> {
     /**
      * 所有対象物
      */
-    typeOfGood: ITypeOfGoodSearchConditions<T>;
+    typeOfGood?: ITypeOfGoodSearchConditions<T>;
 }
