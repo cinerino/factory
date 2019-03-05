@@ -4,6 +4,7 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import { IEvent as IScreeningEvent } from '../../../event/screeningEvent';
+import * as SeatReservationOfferFactory from '../../../offer/seatReservation';
 import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
 import PriceCurrency from '../../../priceCurrency';
 import { IPropertyValue } from '../../../propertyValue';
@@ -22,7 +23,10 @@ export enum ObjectType {
 
 export type IInstrument<T extends WebAPIIdentifier> = IWebAPI<T>;
 
-export type IRequestBody = any;
+export type IRequestBody<T extends WebAPIIdentifier> =
+    T extends WebAPIIdentifier.COA ? COA.services.reserve.IUpdTmpReserveSeatArgs :
+    // T extends WebAPIIdentifier.Chevre ? chevre.transaction.reserve.ITransaction :
+    any;
 export type IResponseBody<T extends WebAPIIdentifier> =
     T extends WebAPIIdentifier.COA ? COA.services.reserve.IUpdTmpReserveSeatResult :
     T extends WebAPIIdentifier.Chevre ? chevre.transaction.reserve.ITransaction :
@@ -48,7 +52,7 @@ export interface IResult<T extends WebAPIIdentifier> {
     /**
      * 外部サービスへのリクエスト
      */
-    requestBody?: IRequestBody;
+    requestBody?: IRequestBody<T>;
     /**
      * 外部サービスからのレスポンス
      */
@@ -57,28 +61,60 @@ export interface IResult<T extends WebAPIIdentifier> {
 
 export type IAcceptedPaymentMethod = IMovieTicket;
 
-export type IAcceptedOffer = {
+export type IAcceptedOffer4chevre = {
     paymentMethod?: IAcceptedPaymentMethod;
     additionalProperty: IPropertyValue<any>[];
 } & chevre.event.screeningEvent.IAcceptedTicketOffer;
 
-export type IAcceptedOfferWithoutDetail = {
+export type IAcceptedOfferWithoutDetail4chevre = {
     paymentMethod?: IAcceptedPaymentMethod;
     additionalProperty: IPropertyValue<any>[];
 } & chevre.event.screeningEvent.IAcceptedTicketOfferWithoutDetail;
 
-export type IObjectWithoutDetail = {
-    acceptedOffer: IAcceptedOfferWithoutDetail[];
+export type IObjectWithoutDetail4chevre = {
+    acceptedOffer: IAcceptedOfferWithoutDetail4chevre[];
 } & chevre.transaction.reserve.IObjectWithoutDetail;
+
+export type IAcceptedOffer4COA = {
+    paymentMethod?: IAcceptedPaymentMethod;
+    additionalProperty: IPropertyValue<string>[];
+} & SeatReservationOfferFactory.IOfferWithDetails;
+
+export type IAcceptedOfferWithoutDetail4COA = {
+    paymentMethod?: IAcceptedPaymentMethod;
+    additionalProperty: IPropertyValue<string>[];
+} & SeatReservationOfferFactory.IOffer;
+
+export interface IObjectWithoutDetail4COA {
+    acceptedOffer: IAcceptedOfferWithoutDetail4COA[];
+    event: {
+        id: string;
+    };
+}
+
+export type IAcceptedOffer<T extends WebAPIIdentifier> =
+    T extends WebAPIIdentifier.COA ? IAcceptedOffer4COA :
+    T extends WebAPIIdentifier.Chevre ? IAcceptedOffer4chevre :
+    any;
+
+export type IAcceptedOfferWithoutDetail<T extends WebAPIIdentifier> =
+    T extends WebAPIIdentifier.COA ? IAcceptedOfferWithoutDetail4COA :
+    T extends WebAPIIdentifier.Chevre ? IAcceptedOfferWithoutDetail4chevre :
+    any;
+
+export type IObjectWithoutDetail<T extends WebAPIIdentifier> =
+    T extends WebAPIIdentifier.COA ? IObjectWithoutDetail4COA :
+    T extends WebAPIIdentifier.Chevre ? IObjectWithoutDetail4chevre :
+    any;
 
 /**
  * 認可アクション対象
  */
-export type IObject = IObjectWithoutDetail & {
+export type IObject<T extends WebAPIIdentifier> = {
     typeOf: ObjectType;
     event?: IScreeningEvent;
-    acceptedOffer: IAcceptedOffer[];
-};
+    acceptedOffer: IAcceptedOffer<T>[];
+} & IObjectWithoutDetail<T>;
 
 export interface IPurpose {
     typeOf: TransactionType.PlaceOrder;
@@ -93,11 +129,11 @@ export type IError = any;
 /**
  * 座席予約認可アクションインターフェース
  */
-export interface IAttributes<T extends WebAPIIdentifier> extends AuthorizeActionFactory.IAttributes<IObject, IResult<T>> {
+export interface IAttributes<T extends WebAPIIdentifier> extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult<T>> {
     typeOf: ActionType.AuthorizeAction;
     agent: IAgent;
     recipient: IRecipient;
-    object: IObject;
+    object: IObject<T>;
     purpose: IPurpose;
     instrument?: IInstrument<T>;
 }

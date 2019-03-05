@@ -1,5 +1,6 @@
 import ItemAvailability from './itemAvailability';
 import IMultilingualString from './multilingualString';
+import * as SeatReservationOfferFactory from './offer/seatReservation';
 import PaymentMethodType from './paymentMethodType';
 import PriceCurrency from './priceCurrency';
 import { IPriceSpecification } from './priceSpecification';
@@ -8,6 +9,8 @@ import { IPropertyValue } from './propertyValue';
 import { IQuantitativeValue } from './quantitativeValue';
 import { Identifier as WebAPIIdentifier, IService as IWebAPI } from './service/webAPI';
 import { UnitCode } from './unitCode';
+
+export import seatReservation = SeatReservationOfferFactory;
 
 export type OfferType = 'Offer';
 

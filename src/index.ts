@@ -10,7 +10,9 @@ import * as cognito from './cognito';
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as PointAwardAuthorizeActionFactory from './factory/action/authorize/award/point';
-import * as SeatReservationOfferAuthorizeActionFactory from './factory/action/authorize/offer/seatReservation';
+import * as AuthorizeMvtkDiscountActionFactory from './factory/action/authorize/discount/mvtk';
+import * as AuthorizeProgramMembershipOfferActionFactory from './factory/action/authorize/offer/programMembership';
+import * as AuthorizeSeatReservationOfferActionFactory from './factory/action/authorize/offer/seatReservation';
 import * as AuthorizeAccountPaymentActionFactory from './factory/action/authorize/paymentMethod/account';
 import * as AuthorizeAnyPaymentActionFactory from './factory/action/authorize/paymentMethod/any';
 import * as AuthorizeCreditCardPaymentActionFactory from './factory/action/authorize/paymentMethod/creditCard';
@@ -19,7 +21,9 @@ import * as CheckMovieTicketActionFactory from './factory/action/check/paymentMe
 import * as CheckTokenActionFactory from './factory/action/check/token';
 import * as ConfirmReservationActionFactory from './factory/action/interact/confirm/reservation';
 import * as RegisterActionFactory from './factory/action/interact/register';
+import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
+import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
 import * as OrderActionFactory from './factory/action/trade/order';
 import * as PayActionFactory from './factory/action/trade/pay';
 import * as RefundActionFactory from './factory/action/trade/refund';
@@ -135,11 +139,14 @@ export namespace action {
             export import movieTicket = AuthorizeMovieTicketPaymentActionFactory;
         }
         export namespace discount {
+            export import mvtk = AuthorizeMvtkDiscountActionFactory;
         }
         // tslint:disable-next-line:no-shadowed-variable
         export namespace offer {
             // tslint:disable-next-line:no-shadowed-variable
-            export import seatReservation = SeatReservationOfferAuthorizeActionFactory;
+            export import programMembership = AuthorizeProgramMembershipOfferActionFactory;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import seatReservation = AuthorizeSeatReservationOfferActionFactory;
         }
     }
     export namespace check {
@@ -158,12 +165,16 @@ export namespace action {
             export import IAction = RegisterActionFactory.IAction;
             // tslint:disable-next-line:no-shadowed-variable
             export import IAttributes = RegisterActionFactory.IAttributes;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import programMembership = RegisterProgramMembershipActionFactory;
         }
         export namespace unRegister {
             // tslint:disable-next-line:no-shadowed-variable
             export import IAction = UnRegisterActionFactory.IAction;
             // tslint:disable-next-line:no-shadowed-variable
             export import IAttributes = UnRegisterActionFactory.IAttributes;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import programMembership = UnRegisterProgramMembershipActionFactory;
         }
     }
     export namespace trade {
@@ -252,10 +263,7 @@ export namespace event {
 export import invoice = InvoiceFactory;
 export import monetaryAmount = MonetaryAmountFactory;
 export type multilingualString = IMultilingualString;
-export namespace offer {
-    export import OfferType = OfferFactory.OfferType;
-    export import IOffer = OfferFactory.IOffer;
-}
+export import offer = OfferFactory;
 export import order = OrderFactory;
 export import orderStatus = OrderStatus;
 // export namespace organization {
