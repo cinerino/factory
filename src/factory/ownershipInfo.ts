@@ -5,9 +5,12 @@ import * as OrganizationFactory from './organization';
 import OrganizationType from './organizationType';
 import { IPerson } from './person';
 import { IProgramMembership, ProgramMembershipType } from './programMembership';
+import { Identifier as WebAPIIdentifier, IService as IWebAPI } from './service/webAPI';
 import SortType from './sortType';
 
 import * as chevre from '../chevre';
+
+export type IBookingService = IWebAPI<WebAPIIdentifier>;
 
 /**
  * 口座タイプ
@@ -47,7 +50,14 @@ export interface IReservation<T extends chevre.reservationType> {
      * 予約番号
      */
     reservationNumber: string;
+    /**
+     * ブッキングサービス(API)
+     */
+    bookingService?: IBookingService;
 }
+
+export type IReservationWithDetail<T extends chevre.reservationType> =
+    IReservation<T> & chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent>;
 
 /**
  * 所有対象物のタイプ
@@ -87,7 +97,7 @@ export type IGoodWithDetail<T extends IGoodType> =
     /**
      * 予約タイプの場合
      */
-    T extends chevre.reservationType ? chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent> :
+    T extends chevre.reservationType ? IReservationWithDetail<T> :
     any;
 
 /**
