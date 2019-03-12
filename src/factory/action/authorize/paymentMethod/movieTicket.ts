@@ -7,6 +7,9 @@ import * as AuthorizeAnyPaymentFactory from './any';
 
 export type IPurchaseNumberAuthIn = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
 export type IPurchaseNumberAuthResult = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
+export type ISeatInfoSyncIn = mvtkapi.mvtk.services.seat.seatInfoSync.ISeatInfoSyncIn;
+export type ISeatInfoSyncResult = mvtkapi.mvtk.services.seat.seatInfoSync.ISeatInfoSyncResult;
+
 /**
  * 承認対象インターフェース
  */
@@ -14,11 +17,28 @@ export interface IObject extends AuthorizeAnyPaymentFactory.IObject<PaymentMetho
     typeOf: PaymentMethodType.MovieTicket;
     movieTickets: IMovieTicket[];
 }
+
 export interface IResult extends AuthorizeAnyPaymentFactory.IResult<PaymentMethodType.MovieTicket> {
-    purchaseNumberAuthIn: IPurchaseNumberAuthIn;
-    purchaseNumberAuthResult: IPurchaseNumberAuthResult;
+    /**
+     * 承認時のムビチケ認証リクエスト
+     */
+    purchaseNumberAuthIn?: IPurchaseNumberAuthIn;
+    /**
+     * 承認時のムビチケ認証レスポンス
+     */
+    purchaseNumberAuthResult?: IPurchaseNumberAuthResult;
+    /**
+     * 着券済での承認時のムビチケ着券リクエスト
+     */
+    seatInfoSyncIn?: ISeatInfoSyncIn;
+    /**
+     * 着券済での承認時のムビチケ着券レスポンス
+     */
+    seatInfoSyncResult?: ISeatInfoSyncResult;
 }
+
 export type IError = any;
+
 /**
  * ムビチケ承認アクション属性インターフェース
  */
@@ -27,6 +47,7 @@ export interface IAttributes extends AuthorizeAnyPaymentFactory.IAttributes<Paym
     result?: IResult;
     error?: IError;
 }
+
 /**
  * ムビチケ承認アクションインターフェース
  */
