@@ -91,6 +91,7 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOffer {
         name: string;
     };
 }
+
 /**
  * 販売者インターフェース
  */
@@ -103,12 +104,14 @@ export interface ISeller {
     telephone?: string;
     url?: string;
 }
+
 /**
  * 購入者インターフェース
  */
 export type ICustomer = IPerson & IProfile & {
     name: string;
 };
+
 /**
  * 注文インターフェース
  * @see https://schema.org/Order
@@ -180,14 +183,16 @@ export interface IOrder {
      */
     dateReturned?: Date;
 }
+
 /**
  * ソート条件インターフェース
  */
 export interface ISortOrder {
     orderDate?: SortType;
-    orderNumber?: SortType;
-    price?: SortType;
+    // orderNumber?: SortType;
+    // price?: SortType;
 }
+
 /**
  * 予約対象検索条件インターフェース
  */
@@ -239,6 +244,7 @@ export interface IReservationForSearchConditions {
         };
     };
 }
+
 export interface ISellerSearchConditions {
     typeOf?: OrganizationType;
     /**
@@ -246,6 +252,7 @@ export interface ISellerSearchConditions {
      */
     ids?: string[];
 }
+
 export interface ICustomerSearchConditions {
     typeOf?: PersonType;
     ids?: string[];
@@ -256,10 +263,12 @@ export interface ICustomerSearchConditions {
     email?: string;
     telephone?: string;
 }
+
 export interface IPaymentMethodsSearchConditions {
     typeOfs?: AvailablePaymentMethodType[];
     paymentMethodIds?: string[];
 }
+
 export interface IAcceptedOffersSearchConditions {
     itemOffered?: {
         typeOfs?: ItemOfferedType[];
@@ -271,8 +280,13 @@ export interface IAcceptedOffersSearchConditions {
          * 予約対象
          */
         reservationFor?: IReservationForSearchConditions;
+        /**
+         * 予約番号
+         */
+        reservationNumbers?: string[];
     };
 }
+
 /**
  * 注文検索条件インターフェース
  */
