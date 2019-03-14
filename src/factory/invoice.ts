@@ -95,17 +95,23 @@ export interface ISortOrder {
 }
 
 export interface ICustomerSearchConditions {
-    typeOf: PersonType;
+    typeOf?: PersonType;
     ids?: string[];
     identifiers?: IIdentifier;
     /**
-     * 購入者会員番号リスト
+     * メールアドレス
      */
-    membershipNumbers?: string[];
+    email?: string;
     /**
      * 電話番号
      */
     telephone?: string;
+    memberOf?: {
+        /**
+         * 会員番号
+         */
+        membershipNumbers?: string[];
+    };
 }
 
 export interface IReferencesOrderSearchConditions {
@@ -113,12 +119,14 @@ export interface IReferencesOrderSearchConditions {
 }
 
 /**
- * 請求書検索条件インターフェース
+ * インボイス検索条件インターフェース
  */
 export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    createdFrom?: Date;
+    createdThrough?: Date;
     accountIds?: string[];
     confirmationNumbers?: string[];
     customer?: ICustomerSearchConditions;
