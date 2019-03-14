@@ -16,7 +16,7 @@ export interface IReferenceOrder extends IOrder {
 }
 
 /**
- * 請求書インターフェース
+ * インボイスインターフェース
  * @see https://schema.org/Invoice
  */
 export interface IInvoice {
@@ -91,13 +91,7 @@ export interface IInvoice {
  * ソート条件インターフェース
  */
 export interface ISortOrder {
-    accountId?: SortType;
-    confirmationNumber?: SortType;
-    paymentDueDate?: SortType;
-    paymentMethod?: SortType;
-    paymentMethodId?: SortType;
-    paymentStatus?: SortType;
-    'referencesOrder.orderNumber'?: SortType;
+    createdAt?: SortType;
 }
 
 export interface ICustomerSearchConditions {
