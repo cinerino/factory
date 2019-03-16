@@ -6,18 +6,20 @@ import PaymentMethodType from '../../../paymentMethodType';
 import * as AuthorizeAnyPaymentFactory from './any';
 
 /**
- * クレジットカード承認アクションに必要なクレジットカード情報インターフェース
+ * クレジットカード決済承認アクションに必要なクレジットカード情報インターフェース
  */
 export type ICreditCard = IUncheckedCardRaw | IUncheckedCardTokenized | IUnauthorizedCardOfMember;
+
 /**
- * オーソリ対象インターフェース
+ * クレジットカード決済承認対象インターフェース
  */
 export interface IObject extends AuthorizeAnyPaymentFactory.IObject<PaymentMethodType.CreditCard> {
     typeOf: PaymentMethodType.CreditCard;
     /**
-     * オーダーID
+     * GMOオーダーID
+     * 未指定であれば自動生成されます
      */
-    orderId: string;
+    orderId?: string;
     /**
      * 支払い方法
      */
@@ -27,22 +29,26 @@ export interface IObject extends AuthorizeAnyPaymentFactory.IObject<PaymentMetho
      */
     creditCard: ICreditCard;
 }
+
 export interface IResult extends AuthorizeAnyPaymentFactory.IResult<PaymentMethodType.CreditCard> {
     entryTranArgs: GMO.services.credit.IEntryTranArgs;
     entryTranResult: GMO.services.credit.IEntryTranResult;
     execTranArgs: GMO.services.credit.IExecTranArgs;
     execTranResult: GMO.services.credit.IExecTranResult;
 }
+
 export type IError = any;
+
 /**
- * クレジットカード承認アクション属性インターフェース
+ * クレジットカード決済承認アクション属性インターフェース
  */
 export interface IAttributes extends AuthorizeAnyPaymentFactory.IAttributes<PaymentMethodType.CreditCard> {
     object: IObject;
     result?: IResult;
     error?: IError;
 }
+
 /**
- * クレジットカード承認アクションインターフェース
+ * クレジットカード決済承認アクションインターフェース
  */
 export type IAction = ActionFactory.IAction<IAttributes>;
