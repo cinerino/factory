@@ -20,8 +20,8 @@ npm install @cinerino/factory
 
 ### Environment variables
 
-| Name    | Required | Value              | Purpose |
-|---------|----------|--------------------|---------|
+| Name | Required | Value | Purpose |
+| ---- | -------- | ----- | ------- |
 
 ## License
 

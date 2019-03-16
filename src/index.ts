@@ -112,6 +112,7 @@ export import cognito = cognito;
 export import chevre = chevre;
 export import pecorino = pecorino;
 export import waiter = waiter;
+
 export import errors = errors;
 export import errorCode = ErrorCode;
 export import actionStatusType = ActionStatusType;
@@ -266,27 +267,6 @@ export type multilingualString = IMultilingualString;
 export import offer = OfferFactory;
 export import order = OrderFactory;
 export import orderStatus = OrderStatus;
-// export namespace organization {
-//     export type ISearchConditions<T extends OrganizationType> =
-//         T extends OrganizationType.Corporation ? CorporationOrganizationFactory.ISearchConditions :
-//         T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.ISearchConditions :
-//         OrganizationFactory.ISearchConditions;
-//     export type IAttributes<T extends OrganizationType> =
-//         T extends OrganizationType.Corporation ? CorporationOrganizationFactory.IAttributes :
-//         T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IAttributes :
-//         OrganizationFactory.IAttributes<T>;
-//     export type IOrganization<T extends OrganizationType> =
-//         T extends OrganizationType.Corporation ? CorporationOrganizationFactory.IOrganization :
-//         T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IOrganization :
-//         OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<T>>;
-//     export type IAreaServed<T extends OrganizationType> =
-//         T extends OrganizationType.MovieTheater ? MovieTheaterOrganizationFactory.IAreaServed :
-//         OrganizationFactory.IAreaServed;
-//     export import IPaymentAccepted = OrganizationFactory.IPaymentAccepted;
-//     export import IPOS = OrganizationFactory.IPOS;
-//     export import IAcceptedPaymentMethodType = OrganizationFactory.IAcceptedPaymentMethodType;
-//     export import IMakesOffer = OrganizationFactory.IMakesOffer;
-// }
 export import organizationType = OrganizationType;
 export import ownershipInfo = OwnershipInfoFactory;
 export import priceCurrency = PriceCurrency;
