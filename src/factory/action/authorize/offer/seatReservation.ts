@@ -33,7 +33,7 @@ export type IResponseBody<T extends WebAPIIdentifier> =
     chevre.transaction.reserve.ITransaction;
 
 /**
- * 認可アクション結果
+ * 承認アクション結果
  */
 export interface IResult<T extends WebAPIIdentifier> {
     /**
@@ -108,7 +108,7 @@ export type IObjectWithoutDetail<T extends WebAPIIdentifier> =
     any;
 
 /**
- * 認可アクション対象
+ * 承認アクション対象
  */
 export type IObject<T extends WebAPIIdentifier> = {
     typeOf: ObjectType;
@@ -127,7 +127,7 @@ export interface IPurpose {
 export type IError = any;
 
 /**
- * 座席予約認可アクションインターフェース
+ * 座席予約承認アクションインターフェース
  */
 export interface IAttributes<T extends WebAPIIdentifier> extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult<T>> {
     typeOf: ActionType.AuthorizeAction;

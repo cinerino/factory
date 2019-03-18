@@ -28,7 +28,7 @@ export interface IResult {
     pointAPIEndpoint: string;
 }
 export interface IPurpose {
-    typeOf: TransactionType.PlaceOrder;
+    typeOf: TransactionType;
     id: string;
 }
 export type IError = any;

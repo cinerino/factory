@@ -4,6 +4,10 @@
 
 enum TransactionType {
     /**
+     * 通貨転送
+     */
+    MoneyTransfer = 'MoneyTransfer',
+    /**
      * 注文取引
      */
     PlaceOrder = 'PlaceOrder',

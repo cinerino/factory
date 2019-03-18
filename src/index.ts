@@ -29,6 +29,7 @@ import * as PayActionFactory from './factory/action/trade/pay';
 import * as RefundActionFactory from './factory/action/trade/refund';
 import * as GiveActionFactory from './factory/action/transfer/give';
 import * as GivePointAwardActionFactory from './factory/action/transfer/give/pointAward';
+import * as MoneyTransferActionFactory from './factory/action/transfer/moneyTransfer';
 import * as PrintActionFactory from './factory/action/transfer/print';
 import * as PrintTicketActionFactory from './factory/action/transfer/print/ticket';
 import * as ReturnOrderActionFactory from './factory/action/transfer/return/order';
@@ -80,6 +81,7 @@ import * as CancelSeatReservationTaskFactory from './factory/task/cancelSeatRese
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
 import * as GivePointAwardTaskFactory from './factory/task/givePointAward';
 import * as ImportScreeningEventsTaskFactory from './factory/task/importScreeningEvents';
+import * as MoneyTransferTaskFactory from './factory/task/moneyTransfer';
 import * as PayAccountTaskFactory from './factory/task/payAccount';
 import * as PayCreditCardTaskFactory from './factory/task/payCreditCard';
 import * as PayMovieTicketTaskFactory from './factory/task/payMovieTicket';
@@ -99,6 +101,7 @@ import * as TaskFactory from './factory/task';
 import TaskName from './factory/taskName';
 import TaskStatus from './factory/taskStatus';
 import * as TransactionFactory from './factory/transaction';
+import * as MoneyTransferTransactionFactory from './factory/transaction/moneyTransfer';
 import * as PlaceOrderTransactionFactory from './factory/transaction/placeOrder';
 import * as ReturnOrderTransactionFactory from './factory/transaction/returnOrder';
 import TransactionStatusType from './factory/transactionStatusType';
@@ -193,6 +196,9 @@ export namespace action {
             // tslint:disable-next-line:no-shadowed-variable
             export import pointAward = GivePointAwardActionFactory;
         }
+
+        export import moneyTransfer = MoneyTransferActionFactory;
+
         export namespace print {
             // tslint:disable-next-line:no-shadowed-variable
             export import IAction = PrintActionFactory.IAction;
@@ -201,6 +207,7 @@ export namespace action {
             export import IRecipient = PrintActionFactory.IRecipient;
             export import ticket = PrintTicketActionFactory;
         }
+
         /**
          * 返却アクション
          * returnはネームスペース名に使えないのでreturnAction
@@ -210,6 +217,7 @@ export namespace action {
             export import order = ReturnOrderActionFactory;
             export import pointAward = ReturnPointAwardActionFactory;
         }
+
         export namespace send {
             export namespace message {
                 export import email = SendEmailMessageActionFactory;
@@ -298,6 +306,7 @@ export namespace task {
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IData :
         T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.IData :
+        T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.IData :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IData :
         T extends TaskName.RefundAccount ? RefundAccountTaskFactory.IData :
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IData :
@@ -321,6 +330,7 @@ export namespace task {
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IAttributes :
         T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.IAttributes :
+        T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.IAttributes :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IAttributes :
         T extends TaskName.RefundAccount ? RefundAccountTaskFactory.IAttributes :
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IAttributes :
@@ -344,6 +354,7 @@ export namespace task {
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.ITask :
         T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.ITask :
+        T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.ITask :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.ITask :
         T extends TaskName.RefundAccount ? RefundAccountTaskFactory.ITask :
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.ITask :
@@ -371,25 +382,31 @@ export namespace transaction {
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ISearchConditions :
         never;
     export type IStartParams<T extends TransactionType> =
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams<AccountType> :
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IStartParams :
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IStartParams :
         never;
     export type IResult<T extends TransactionType> =
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IResult :
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IResult :
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IResult :
         never;
     export type IPotentialActions<T extends TransactionType> =
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IPotentialActions<AccountType> :
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IPotentialActions :
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IPotentialActions :
         never;
     export type IAttributes<T extends TransactionType> =
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IAttributes<AccountType> :
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IAttributes :
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IAttributes :
         never;
     export type ITransaction<T extends TransactionType> =
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ITransaction<AccountType> :
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.ITransaction :
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ITransaction :
         never;
+    export import moneyTransfer = MoneyTransferTransactionFactory;
     export import placeOrder = PlaceOrderTransactionFactory;
     export import returnOrder = ReturnOrderTransactionFactory;
 }

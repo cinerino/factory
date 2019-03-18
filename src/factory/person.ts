@@ -44,25 +44,20 @@ export interface IProfile {
  */
 export interface IPerson {
     /**
-     * type of object
-     */
-    typeOf: PersonType;
-    /**
-     * person id (Amazon Cognito User Identifier)
+     * Person ID (Amazon Cognito User Identifier)
      */
     id: string;
-    /**
-     * An Organization (or ProgramMembership) to which this Person or Organization belongs.
-     * 所属会員プログラム
-     */
-    memberOf?: ProgramMembershipFactory.IProgramMembership;
-    /**
-     * URL of the item.
-     */
-    url?: string;
     /**
      * 人を識別するもの
      * サービスを使用するアプリケーション側で都合のいいように設定する
      */
     identifier?: IIdentifier;
+    /**
+     * An Organization (or ProgramMembership) to which this Person or Organization belongs.
+     */
+    memberOf?: ProgramMembershipFactory.IProgramMembership;
+    name?: string;
+    description?: string;
+    typeOf: PersonType;
+    url?: string;
 }

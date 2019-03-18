@@ -9,11 +9,13 @@ import * as AuthorizeActionFactory from '../../authorize';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
+
 /**
  * 基本的に管理下のPaymentMethodTypeを指定することが望ましいが、
  * 柔軟性を重視して、自由に文字列で決済方法を指定することもできるように。
  */
 export type IAnyPaymentMethod<T extends PaymentMethodType> = T | string;
+
 /**
  * 承認対象インターフェース
  */
@@ -31,6 +33,7 @@ export interface IObject<T extends PaymentMethodType> {
      */
     additionalProperty?: IPropertyValue<any>[];
 }
+
 export interface IResult<T extends PaymentMethodType> {
     /**
      * The identifier for the account the payment will be applied to.
@@ -65,10 +68,12 @@ export interface IResult<T extends PaymentMethodType> {
      */
     additionalProperty?: IPropertyValue<any>[];
 }
+
 export interface IPurpose {
-    typeOf: TransactionType.PlaceOrder;
+    typeOf: TransactionType;
     id: string;
 }
+
 /**
  * 決済方法承認アクション属性インターフェース
  */
@@ -79,6 +84,7 @@ export interface IAttributes<T extends PaymentMethodType> extends AuthorizeActio
     recipient: IRecipient;
     purpose: IPurpose;
 }
+
 /**
  * 決済方法承認アクションインターフェース
  */

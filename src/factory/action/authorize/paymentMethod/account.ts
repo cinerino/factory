@@ -10,6 +10,7 @@ import * as AuthorizeAnyPaymentFactory from './any';
  */
 export type IPendingTransaction<T extends AccountType> =
     pecorino.transaction.withdraw.ITransaction<T> | pecorino.transaction.transfer.ITransaction<T>;
+
 export interface IAccount<T extends AccountType> {
     /**
      * 口座タイプ
@@ -20,8 +21,12 @@ export interface IAccount<T extends AccountType> {
      */
     accountNumber: string;
 }
+
 export type ITokenizedAccount = string;
+
 export type IFromAccount<T extends AccountType> = IAccount<T> | ITokenizedAccount;
+export type IToAccount<T extends AccountType> = IAccount<T>;
+
 /**
  * オーソリ対象インターフェース
  */
@@ -32,21 +37,33 @@ export interface IObject<T extends AccountType> extends AuthorizeAnyPaymentFacto
      */
     fromAccount: IFromAccount<T>;
     /**
+     * 転送先口座
+     * 転送取引の場合指定
+     */
+    toAccount?: IToAccount<T>;
+    /**
      * 取引メモ
      */
     notes?: string;
 }
+
 export interface IResult<T extends AccountType> extends AuthorizeAnyPaymentFactory.IResult<PaymentMethodType.Account> {
     /**
      * 確保口座
      */
     fromAccount: IAccount<T>;
     /**
+     * 転送先口座
+     */
+    toAccount?: IToAccount<T>;
+    /**
      * 進行中取引
      */
     pendingTransaction: IPendingTransaction<T>;
 }
+
 export type IError = any;
+
 /**
  * 口座承認アクション属性インターフェース
  */
@@ -55,6 +72,7 @@ export interface IAttributes<T extends AccountType> extends AuthorizeAnyPaymentF
     result?: IResult<T>;
     error?: IError;
 }
+
 /**
  * 口座承認アクションインターフェース
  */

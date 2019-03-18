@@ -89,7 +89,7 @@ export interface IObject {
      */
     customerContact?: ICustomerContact;
     /**
-     * 認可アクションリスト
+     * 承認アクションリスト
      */
     authorizeActions: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
 }

@@ -35,6 +35,10 @@ export interface IAttributes<T extends ActionType, TObject, TResult> {
      */
     recipient?: IParticipant;
     /**
+     * アクション説明
+     */
+    description?: string;
+    /**
      * アクション結果
      */
     result?: TResult;

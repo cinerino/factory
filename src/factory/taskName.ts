@@ -27,6 +27,10 @@ enum TaskName {
      */
     CancelPointAward = 'cancelPointAward',
     /**
+     * 通貨転送
+     */
+    MoneyTransfer = 'moneyTransfer',
+    /**
      *  Eメールメッセージ送信
      */
     SendEmailMessage = 'sendEmailMessage',
