@@ -21,6 +21,10 @@ export type AvailablePaymentMethodType = PaymentMethodType | string;
  */
 export interface IPaymentMethod<T extends AvailablePaymentMethodType> {
     /**
+     * The identifier for the account the payment will be applied to.
+     */
+    accountId?: string;
+    /**
      * 決済方法タイプ
      */
     typeOf: T;
@@ -265,6 +269,7 @@ export interface ICustomerSearchConditions {
 }
 
 export interface IPaymentMethodsSearchConditions {
+    accountIds?: string[];
     typeOfs?: AvailablePaymentMethodType[];
     paymentMethodIds?: string[];
 }
