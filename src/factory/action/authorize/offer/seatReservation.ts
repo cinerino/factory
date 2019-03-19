@@ -63,12 +63,12 @@ export type IAcceptedPaymentMethod = IMovieTicket;
 
 export type IAcceptedOffer4chevre = {
     paymentMethod?: IAcceptedPaymentMethod;
-    additionalProperty: IPropertyValue<any>[];
+    additionalProperty: IPropertyValue<string>[];
 } & chevre.event.screeningEvent.IAcceptedTicketOffer;
 
 export type IAcceptedOfferWithoutDetail4chevre = {
     paymentMethod?: IAcceptedPaymentMethod;
-    additionalProperty: IPropertyValue<any>[];
+    additionalProperty: IPropertyValue<string>[];
 } & chevre.event.screeningEvent.IAcceptedTicketOfferWithoutDetail;
 
 export type IObjectWithoutDetail4chevre = {

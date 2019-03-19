@@ -31,7 +31,7 @@ export interface IObject<T extends PaymentMethodType> {
     /**
      * 追加特性
      */
-    additionalProperty?: IPropertyValue<any>[];
+    additionalProperty?: IPropertyValue<string>[];
 }
 
 export interface IResult<T extends PaymentMethodType> {
@@ -66,7 +66,7 @@ export interface IResult<T extends PaymentMethodType> {
     /**
      * 追加特性
      */
-    additionalProperty?: IPropertyValue<any>[];
+    additionalProperty?: IPropertyValue<string>[];
 }
 
 export interface IPurpose {

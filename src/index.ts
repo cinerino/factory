@@ -121,11 +121,14 @@ export import errorCode = ErrorCode;
 export import actionStatusType = ActionStatusType;
 export import actionType = ActionType;
 export namespace action {
-    export import ISortOrder = ActionFactory.ISortOrder;
     export import IAction = ActionFactory.IAction;
+    export import IAdditionalProperty = ActionFactory.IAdditionalProperty;
     export import IAttributes = ActionFactory.IAttributes;
+    export import IDynamicAttributes = ActionFactory.IDynamicAttributes;
     export import IParticipant = ActionFactory.IParticipant;
     export import IPurpose = ActionFactory.IPurpose;
+    export import ISortOrder = ActionFactory.ISortOrder;
+
     export namespace authorize {
         // tslint:disable-next-line:no-shadowed-variable
         export import IAction = AuthorizeActionFactory.IAction;

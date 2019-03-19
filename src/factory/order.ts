@@ -43,7 +43,7 @@ export interface IPaymentMethod<T extends AvailablePaymentMethodType> {
     /**
      * 追加特性
      */
-    additionalProperty: IPropertyValue<any>[];
+    additionalProperty: IPropertyValue<string>[];
 }
 
 /**
