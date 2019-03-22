@@ -15,6 +15,22 @@ export type IAgent = IPerson | OrganizationFactory.IOrganization<OrganizationFac
 export type IRecipient = IPerson | OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>>;
 
 /**
+ * 販売者インターフェース
+ */
+export type ISeller = OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>>;
+
+export interface IStartParamsWithoutDetail<T extends AccountType> {
+    expires: Date;
+    agent: IAgent;
+    recipient: IRecipient;
+    seller: {
+        typeOf: OrganizationType;
+        id: string;
+    };
+    object: IObject<T>;
+}
+
+/**
  * 取引開始パラメーターインターフェース
  */
 export interface IStartParams<T extends AccountType>
@@ -23,6 +39,10 @@ export interface IStartParams<T extends AccountType>
      * 転送先
      */
     recipient: IRecipient;
+    /**
+     * 販売者
+     */
+    seller: ISeller;
 }
 
 export type IResult = any;
