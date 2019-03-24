@@ -31,8 +31,10 @@ export interface IStartParams<T extends TransactionType, TAgent, TRecipient, TOb
      */
     expires: Date;
 }
+
 export type ITransaction<TStartParams, TResult, TError, TPotentialActions> =
     IExtendId<IAttributes<TStartParams, TResult, TError, TPotentialActions>>;
+
 /**
  * 取引インターフェース
  */
@@ -74,14 +76,14 @@ export type IAttributes<TStartParams, TResult, TError, TPotentialActions> = TSta
      */
     potentialActions?: TPotentialActions;
 };
+
 /**
  * ソート条件インターフェース
  */
 export interface ISortOrder {
     startDate?: SortType;
-    endDate?: SortType;
-    status?: SortType;
 }
+
 export interface ISearchConditions<T extends TransactionType> {
     limit?: number;
     page?: number;

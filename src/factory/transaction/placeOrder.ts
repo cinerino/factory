@@ -98,10 +98,6 @@ export interface IObject {
      */
     clientUser?: IClientUser;
     /**
-     * customer contact
-     */
-    // customerContact?: ICustomerProfile;
-    /**
      * 承認アクションリスト
      */
     authorizeActions: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
@@ -128,16 +124,6 @@ export interface ISearchConditions extends TransactionFactory.ISearchConditions<
         ids?: string[];
     };
     object?: {
-        /**
-         * 顧客プロフィール
-         * @deprecated Use agent
-         */
-        customerContact?: {
-            givenName?: string;
-            familyName?: string;
-            telephone?: string;
-            email?: string;
-        };
     };
     result?: {
         order?: {
