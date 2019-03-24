@@ -11,7 +11,7 @@ import TransactionType from '../transactionType';
 import * as chevre from '../../chevre';
 
 /**
- * 購入者インターフェース
+ * 顧客インターフェース
  */
 export type IAgent = IPerson;
 
@@ -35,7 +35,7 @@ export type IError = any;
  */
 export enum Reason {
     /**
-     * 購入者自身の都合での返品
+     * 顧客自身の都合での返品
      */
     Customer = 'Customer',
     /**

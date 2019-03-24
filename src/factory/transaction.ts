@@ -118,6 +118,10 @@ export interface ISearchConditions<T extends TransactionType> {
         typeOf?: PersonType;
         ids?: string[];
         identifiers?: IIdentifier;
+        givenName?: string;
+        familyName?: string;
+        telephone?: string;
+        email?: string;
     };
     tasksExportationStatuses?: TransactionTasksExportationStatus[];
 }

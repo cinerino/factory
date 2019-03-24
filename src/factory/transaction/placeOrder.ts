@@ -12,17 +12,25 @@ import * as TransactionFactory from '../transaction';
 import TransactionType from '../transactionType';
 
 /**
- * 購入者連絡先インターフェース
+ * 顧客プロフィールインターフェース
  */
-export type ICustomerContact = IProfile;
+export type ICustomerProfile = IProfile;
+/**
+ * 顧客プロフィールインターフェース
+ * @alias ICustomerProfile
+ */
+export type ICustomerContact = ICustomerProfile;
+
 /**
  * 販売者インターフェース
  */
 export type ISeller = OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>>;
+
 /**
- * 購入者インターフェース
+ * 顧客インターフェース
  */
 export type IAgent = IPerson;
+
 export interface IPassportBeforeStart {
     /**
      * WAITER許可証発行者
@@ -37,6 +45,7 @@ export interface IPassportBeforeStart {
      */
     secret: string;
 }
+
 export interface IStartParamsWithoutDetail {
     expires: Date;
     agent: IAgent;
@@ -49,6 +58,7 @@ export interface IStartParamsWithoutDetail {
         passport?: IPassportBeforeStart;
     };
 }
+
 /**
  * 取引開始パラメーターインターフェース
  */
@@ -58,6 +68,7 @@ export interface IStartParams extends TransactionFactory.IStartParams<Transactio
      */
     seller: ISeller;
 }
+
 /**
  * 取引結果インターフェース
  */
@@ -67,10 +78,12 @@ export interface IResult {
      */
     order: IOrder;
 }
+
 /**
  * エラーインターフェース
  */
 export type IError = any;
+
 export interface IObject {
     /**
      * WAITER許可証トークン
@@ -87,24 +100,28 @@ export interface IObject {
     /**
      * customer contact
      */
-    customerContact?: ICustomerContact;
+    // customerContact?: ICustomerProfile;
     /**
      * 承認アクションリスト
      */
     authorizeActions: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
 }
+
 export interface IPotentialActions {
     order: IOrderActionAttributes;
 }
+
 /**
  * 注文取引インターフェース
  */
 export type ITransaction = IExtendId<IAttributes>;
+
 /**
  * 注文取引インターフェース
  */
 export interface IAttributes extends TransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions> {
 }
+
 export interface ISearchConditions extends TransactionFactory.ISearchConditions<TransactionType.PlaceOrder> {
     seller?: {
         typeOf?: OrganizationType;
@@ -112,7 +129,8 @@ export interface ISearchConditions extends TransactionFactory.ISearchConditions<
     };
     object?: {
         /**
-         * 購入者連絡先情報
+         * 顧客プロフィール
+         * @deprecated Use agent
          */
         customerContact?: {
             givenName?: string;
