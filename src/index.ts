@@ -96,6 +96,7 @@ import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
 import * as SendOrderTaskFactory from './factory/task/sendOrder';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
 import * as UnRegisterProgramMembershipTaskFactory from './factory/task/unRegisterProgramMembership';
+import * as UpdateEventAttendeeCapacityTaskFactory from './factory/task/updateEventAttendeeCapacity';
 
 import * as TaskFactory from './factory/task';
 import TaskName from './factory/taskName';
@@ -300,6 +301,7 @@ export namespace service {
 }
 export import seller = OrganizationFactory;
 export import sortType = SortType;
+
 export namespace task {
     export type IData<T extends TaskName | string> =
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IData :
@@ -324,7 +326,9 @@ export namespace task {
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IData :
+        T extends TaskName.UpdateEventAttendeeCapacity ? UpdateEventAttendeeCapacityTaskFactory.IData :
         TaskFactory.IData;
+
     export type IAttributes<T extends TaskName | string> =
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IAttributes :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IAttributes :
@@ -348,7 +352,9 @@ export namespace task {
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IAttributes :
+        T extends TaskName.UpdateEventAttendeeCapacity ? UpdateEventAttendeeCapacityTaskFactory.IAttributes :
         TaskFactory.IAttributes;
+
     export type ITask<T extends TaskName | string> =
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.ITask :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.ITask :
@@ -372,12 +378,18 @@ export namespace task {
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.ITask :
+        T extends TaskName.UpdateEventAttendeeCapacity ? UpdateEventAttendeeCapacityTaskFactory.ITask :
         TaskFactory.ITask;
-    export type ISearchConditions<T extends TaskName | string> = TaskFactory.ISearchConditions<T>;
-    export type IExecutionResult = TaskFactory.IExecutionResult;
+
+    export import ISearchConditions = TaskFactory.ISearchConditions;
+
+    export import IExecutionResult = TaskFactory.IExecutionResult;
 }
+
 export import taskName = TaskName;
+
 export import taskStatus = TaskStatus;
+
 export namespace transaction {
     export type ISortOrder = TransactionFactory.ISortOrder;
     export type ISearchConditions<T extends TransactionType> =
