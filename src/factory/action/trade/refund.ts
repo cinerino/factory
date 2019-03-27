@@ -1,6 +1,6 @@
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-import { IAcceptedOffer, IOrder } from '../../order';
+import { ISimpleOrder } from '../../order';
 import PaymentMethodType from '../../paymentMethodType';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../transfer/send/message/email';
 import * as PayActionFactory from './pay';
@@ -18,9 +18,8 @@ export interface IPotentialActions {
      */
     sendEmailMessage?: ISendEmailMessageActionAttributes;
 }
-export interface IPurpose extends IOrder {
-    acceptedOffers: IAcceptedOffer<any>[];
-}
+
+export type IPurpose = ISimpleOrder;
 
 export interface IAttributes<T extends PaymentMethodType> extends ActionFactory.IAttributes<ActionType.RefundAction, IObject<T>, IResult> {
     recipient: IRecipient;

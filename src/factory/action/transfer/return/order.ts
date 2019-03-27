@@ -1,5 +1,5 @@
 import * as ActionFactory from '../../../action';
-import { IOrder } from '../../../order';
+import { ISimpleOrder } from '../../../order';
 import PaymentMethodType from '../../../paymentMethodType';
 import { IAttributes as IRefundActionAttributes } from '../../trade/refund';
 import * as ReturnActionFactory from '../return';
@@ -10,7 +10,7 @@ export type IRecipient = ActionFactory.IParticipant;
 /**
  * 返却対象は注文
  */
-export type IObject = IOrder;
+export type IObject = ISimpleOrder;
 export type IResult = any;
 export interface IPotentialActions {
     /**

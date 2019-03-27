@@ -76,7 +76,7 @@ export interface IInvoice {
     /**
      * The Order(s) related to this Invoice. One or more Orders may be combined into a single Invoice.
      */
-    referencesOrder: IOrder;
+    referencesOrder: IReferenceOrder;
     /**
      * The date the invoice is scheduled to be paid.
      */

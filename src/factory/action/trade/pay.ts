@@ -3,7 +3,7 @@ import * as GMO from '@motionpicture/gmo-service';
 import AccountType from '../../accountType';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-import { IAcceptedOffer, IOrder, IPaymentMethod } from '../../order';
+import { IPaymentMethod, ISimpleOrder } from '../../order';
 import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import PaymentMethodType from '../../paymentMethodType';
 import PriceCurrency from '../../priceCurrency';
@@ -11,9 +11,9 @@ import { IPendingTransaction } from '../authorize/paymentMethod/account';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
-export interface IPurpose extends IOrder {
-    acceptedOffers: IAcceptedOffer<any>[];
-}
+
+export type IPurpose = ISimpleOrder;
+
 export type TypeOfObject = 'PaymentMethod';
 export interface ICommonPaymentMethod<T extends PaymentMethodType> {
     typeOf: TypeOfObject;

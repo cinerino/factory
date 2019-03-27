@@ -114,11 +114,7 @@ export interface ISeller {
  */
 export type ICustomer = IPerson;
 
-/**
- * 注文インターフェース
- * @see https://schema.org/Order
- */
-export interface IOrder {
+export interface ISimpleOrder {
     /**
      * object type
      */
@@ -136,7 +132,7 @@ export interface IOrder {
     /**
      * A number that confirms the given order or payment has been received.
      */
-    confirmationNumber: number;
+    confirmationNumber: string;
     /**
      * The merchant- specific identifier for the transaction.
      */
@@ -150,40 +146,47 @@ export interface IOrder {
      */
     priceCurrency: PriceCurrency;
     /**
+     * Date order was placed.
+     */
+    orderDate: Date;
+}
+
+/**
+ * 注文インターフェース
+ * @see https://schema.org/Order
+ */
+export interface IOrder extends ISimpleOrder {
+    /**
      * Offer
      * The offers included in the order.Also accepts an array of objects.
      */
     acceptedOffers: IAcceptedOffer<IItemOffered>[];
     /**
-     * payment methods
+     * Date order was returned.
      */
-    paymentMethods: IPaymentMethod<AvailablePaymentMethodType>[];
+    dateReturned?: Date;
     /**
      * discount infos
      */
     discounts: IDiscount[];
     /**
-     * URL	(recommended for confirmation cards/ Search Answers)
-     * URL of the Order, typically a link to the merchant's website where the user can retrieve further details about an order.
+     * Was the offer accepted as a gift for someone other than the buyer.
      */
-    url: string;
+    isGift?: boolean;
     /**
      * OrderStatus	(recommended for confirmation cards/ Search Answers)
      * The current status of the order.
      */
     orderStatus: OrderStatus;
     /**
-     * Date order was placed.
+     * payment methods
      */
-    orderDate: Date;
+    paymentMethods: IPaymentMethod<AvailablePaymentMethodType>[];
     /**
-     * Was the offer accepted as a gift for someone other than the buyer.
+     * URL	(recommended for confirmation cards/ Search Answers)
+     * URL of the Order, typically a link to the merchant's website where the user can retrieve further details about an order.
      */
-    isGift: boolean;
-    /**
-     * Date order was returned.
-     */
-    dateReturned?: Date;
+    url?: string;
 }
 
 /**
