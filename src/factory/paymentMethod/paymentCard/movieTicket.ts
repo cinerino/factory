@@ -32,7 +32,7 @@ export interface IMovieTicket extends IPaymentCard {
         /**
          * 予約チケット
          */
-        reservedTicket: { ticketedSeat: chevre.reservation.ISeat };
+        reservedTicket: { ticketedSeat: chevre.reservation.ISeat<chevre.reservationType> };
     };
     /**
      * いつまで有効か

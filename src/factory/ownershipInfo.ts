@@ -57,7 +57,7 @@ export interface IReservation<T extends chevre.reservationType> {
 }
 
 export type IReservationWithDetail<T extends chevre.reservationType> =
-    IReservation<T> & chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent>;
+    IReservation<T> & chevre.reservation.IReservation<chevre.reservationType.EventReservation>;
 
 /**
  * 所有対象物のタイプ

@@ -69,7 +69,7 @@ export interface IDiscount {
     discountCurrency: string;
 }
 
-export type IReservation = chevre.reservation.event.IReservation<chevre.event.screeningEvent.IEvent>;
+export type IReservation = chevre.reservation.IReservation<chevre.reservationType.EventReservation>;
 
 /**
  * 供給アイテムインターフェース
