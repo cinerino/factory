@@ -5,7 +5,8 @@
  */
 
 export enum Application {
-    pdf = 'application/pdf'
+    pdf = 'application/pdf',
+    json = 'application/json'
 }
 export enum Audio {
 }
