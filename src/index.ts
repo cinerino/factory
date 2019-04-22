@@ -68,6 +68,7 @@ import * as StorePlaceFactory from './factory/place/store';
 import PlaceType from './factory/placeType';
 import PriceCurrency from './factory/priceCurrency';
 import * as ProgramMembershipFactory from './factory/programMembership';
+import * as project from './factory/project';
 import * as PropertyValueFactory from './factory/propertyValue';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
 import * as WebAPIServiceFactory from './factory/service/webAPI';
@@ -294,6 +295,7 @@ export namespace place {
 }
 export import placeType = PlaceType;
 export import programMembership = ProgramMembershipFactory;
+export import project = project;
 export import propertyValue = PropertyValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
 export namespace service {
