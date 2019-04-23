@@ -5,6 +5,7 @@ import { IOrder } from '../order';
 import * as OrganizationFactory from '../organization';
 import OrganizationType from '../organizationType';
 import { IPerson } from '../person';
+import { IProject } from '../project';
 import * as TransactionFactory from '../transaction';
 import TransactionType from '../transactionType';
 
@@ -56,6 +57,7 @@ export interface IReturnableOrder {
  * 注文返品開始パラメータインターフェース
  */
 export interface IStartParamsWithoutDetail {
+    project?: IProject;
     expires: Date;
     agent: IAgent;
     object: {

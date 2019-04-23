@@ -6,6 +6,7 @@ import PaymentMethodType from './paymentMethodType';
 import PaymentStatusType from './paymentStatusType';
 import { IIdentifier, IPerson } from './person';
 import PersonType from './personType';
+import { IProject } from './project';
 import SortType from './sortType';
 
 export type IBroker = IOrganization<IOrganizationAttributes<OrganizationType>> | IPerson;
@@ -20,6 +21,7 @@ export interface IReferenceOrder extends IOrder {
  * @see https://schema.org/Invoice
  */
 export interface IInvoice {
+    project?: IProject;
     typeOf: 'Invoice';
     /**
      * The identifier for the account the payment will be applied to.

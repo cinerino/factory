@@ -8,6 +8,7 @@ import { IIdentifier, IPerson } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
 import { IProgramMembership } from './programMembership';
+import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
@@ -115,6 +116,7 @@ export interface ISeller {
 export type ICustomer = IPerson;
 
 export interface ISimpleOrder {
+    project?: IProject;
     /**
      * object type
      */

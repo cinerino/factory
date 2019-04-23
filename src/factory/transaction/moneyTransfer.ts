@@ -8,6 +8,7 @@ import * as OrganizationFactory from '../organization';
 import OrganizationType from '../organizationType';
 import PaymentMethodType from '../paymentMethodType';
 import { IPerson } from '../person';
+import { IProject } from '../project';
 import * as TransactionFactory from '../transaction';
 import TransactionType from '../transactionType';
 
@@ -20,6 +21,7 @@ export type IRecipient = IPerson | OrganizationFactory.IOrganization<Organizatio
 export type ISeller = OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>>;
 
 export interface IStartParamsWithoutDetail<T extends AccountType> {
+    project?: IProject;
     expires: Date;
     agent: IAgent;
     recipient: IRecipient;

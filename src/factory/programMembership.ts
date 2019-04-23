@@ -1,6 +1,7 @@
 import { IOffer } from './offer';
 import * as OrganizationFactory from './organization';
 import OrganizationType from './organizationType';
+import { IProject } from './project';
 
 export type ProgramMembershipType = 'ProgramMembership';
 
@@ -14,6 +15,7 @@ export type Award = any;
  * (e.g. "StarAliance"), traveler clubs (e.g. "AAA"), purchase clubs ("Safeway Club"), etc.
  */
 export interface IProgramMembership {
+    project?: IProject;
     id?: string;
     /**
      * プログラムのホスト組織

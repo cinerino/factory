@@ -4,6 +4,7 @@ import { IOffer } from './offer';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
 import { IAvailablePlaceType, IPlace } from './place';
+import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
@@ -147,6 +148,7 @@ export type IMakesOffer = IOffer;
 export type IAreaServed = IPlace<IAvailablePlaceType>;
 
 export interface IAttributes<T extends OrganizationType> {
+    project?: IProject;
     /**
      * 組織タイプ
      */

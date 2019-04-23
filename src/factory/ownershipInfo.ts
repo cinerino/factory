@@ -5,6 +5,7 @@ import * as OrganizationFactory from './organization';
 import OrganizationType from './organizationType';
 import { IPerson } from './person';
 import { IProgramMembership, ProgramMembershipType } from './programMembership';
+import { IProject } from './project';
 import { Identifier as WebAPIIdentifier, IService as IWebAPI } from './service/webAPI';
 import SortType from './sortType';
 
@@ -111,6 +112,7 @@ export type OwnershipInfoType = 'OwnershipInfo';
  * 所有権インターフェース
  */
 export interface IOwnershipInfo<T extends IGood<IGoodType> | IGoodWithDetail<IGoodType>> {
+    project?: IProject;
     /**
      * object type
      */

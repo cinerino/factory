@@ -8,6 +8,7 @@ import { IOrder } from '../order';
 import * as OrganizationFactory from '../organization';
 import OrganizationType from '../organizationType';
 import { IPerson, IProfile } from '../person';
+import { IProject } from '../project';
 import * as TransactionFactory from '../transaction';
 import TransactionType from '../transactionType';
 
@@ -47,6 +48,7 @@ export interface IPassportBeforeStart {
 }
 
 export interface IStartParamsWithoutDetail {
+    project?: IProject;
     expires: Date;
     agent: IAgent;
     seller: {

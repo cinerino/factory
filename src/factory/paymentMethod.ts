@@ -1,10 +1,12 @@
 import PaymentMethodType from './paymentMethodType';
+import { IProject } from './project';
 import SortType from './sortType';
 
 /**
  * payment method interface
  */
 export interface IPaymentMethod {
+    project?: IProject;
     typeOf: PaymentMethodType;
     identifier: string;
 }
