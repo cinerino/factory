@@ -127,6 +127,7 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    project?: { ids?: string[] };
     createdFrom?: Date;
     createdThrough?: Date;
     accountIds?: string[];

@@ -90,6 +90,7 @@ export interface ISearchConditions<T extends TransactionType> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    project?: { ids?: string[] };
     /**
      * 取引タイプ
      */

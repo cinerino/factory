@@ -216,6 +216,7 @@ export interface ISearchConditions<T extends IGoodType> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    project?: { ids?: string[] };
     ids?: string[];
     /**
      * 所有者

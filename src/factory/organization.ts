@@ -211,6 +211,7 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
+    project?: { ids?: string[] };
     typeOfs?: OrganizationType[];
     /**
      * 名称
