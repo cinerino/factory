@@ -66,7 +66,7 @@ export type IReservationWithDetail<T extends chevre.reservationType> =
 export type IGoodType = chevre.reservationType | ProgramMembershipType | AccountGoodType;
 
 /**
- * 所有対象物インタエーフェース (Product or Service)
+ * 所有対象物インターフェース (Product or Service)
  */
 export type IGood<T extends IGoodType> =
     /**
@@ -84,7 +84,7 @@ export type IGood<T extends IGoodType> =
     any;
 
 /**
- * 所有対象物インタエーフェース(対象物詳細有)
+ * 所有対象物インターフェース(対象物詳細有)
  */
 export type IGoodWithDetail<T extends IGoodType> =
     /**
