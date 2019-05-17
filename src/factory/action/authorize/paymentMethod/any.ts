@@ -11,8 +11,7 @@ export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
 /**
- * 基本的に管理下のPaymentMethodTypeを指定することが望ましいが、
- * 柔軟性を重視して、自由に文字列で決済方法を指定することもできるように。
+ * 汎用決済方法タイプ
  */
 export type IAnyPaymentMethod<T extends PaymentMethodType> = T | string;
 
@@ -21,9 +20,14 @@ export type IAnyPaymentMethod<T extends PaymentMethodType> = T | string;
  */
 export interface IObject<T extends PaymentMethodType> {
     /**
-     * 決済方法
+     * 決済方法タイプ
      */
     typeOf: IAnyPaymentMethod<T>;
+    /**
+     * 決済方法名称
+     * 未指定であればデフォルト値が使用されます
+     */
+    name?: string;
     /**
      * 金額
      */
@@ -56,7 +60,7 @@ export interface IResult<T extends PaymentMethodType> {
      */
     paymentStatus: PaymentStatusType;
     /**
-     * 決済方法名
+     * 決済方法名称
      */
     name: string;
     /**

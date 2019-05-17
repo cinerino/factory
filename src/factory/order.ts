@@ -30,7 +30,7 @@ export interface IPaymentMethod<T extends AvailablePaymentMethodType> {
      */
     typeOf: T;
     /**
-     * 決済方法名
+     * 決済方法名称
      */
     name: string;
     /**
