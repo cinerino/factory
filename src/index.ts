@@ -40,6 +40,7 @@ import ActionStatusType from './factory/actionStatusType';
 import ActionType from './factory/actionType';
 
 import AccountType from './factory/accountType';
+import * as AuthorizationFactory from './factory/authorization';
 import * as ClientUserFactory from './factory/clientUser';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
 import CreativeWorkType from './factory/creativeWorkType';
@@ -237,6 +238,7 @@ export namespace action {
     }
 }
 export import accountType = AccountType;
+export import authorization = AuthorizationFactory;
 export import encodingFormat = EncodingFormat;
 export namespace paymentMethod {
     export type ISearchConditions<T extends PaymentMethodType> =
