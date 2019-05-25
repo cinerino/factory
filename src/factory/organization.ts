@@ -44,6 +44,7 @@ export interface IParentOrganization {
      * 組織名称
      */
     name: IMultilingualString;
+    telephone?: string;
 }
 
 export type IAcceptedPaymentMethodType = PaymentMethodType | string;

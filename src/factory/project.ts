@@ -1,3 +1,4 @@
+import { IParentOrganization } from './organization';
 import SortType from './sortType';
 
 export interface ISettings {
@@ -8,6 +9,20 @@ export interface ISettings {
         endpoint: string;
         refreshToken: string;
     };
+    cognito?: {
+        /**
+         * 管理者ユーザープール
+         */
+        adminUserPool: {
+            id: string;
+        };
+        /**
+         * 顧客ユーザープール
+         */
+        customerUserPool: {
+            id: string;
+        };
+    };
     gmo?: {
         endpoint: string;
         siteId: string;
@@ -15,14 +30,13 @@ export interface ISettings {
     };
     mvtkReserve?: {
         endpoint: string;
+        /**
+         * 興行会社コード
+         */
+        companyCode: string;
     };
     pecorino?: {
         endpoint: string;
-    };
-    waiter?: {
-        disabled: boolean;
-        endpoint: string;
-        secret: string;
     };
     lineNotify?: {
         accessToken: string;
@@ -39,7 +53,9 @@ export interface IProject {
     alternateName?: string;
     description?: string;
     email?: string;
+    logo?: string;
     name?: string;
+    parentOrganization?: IParentOrganization;
     telephone?: string;
     url?: string;
     settings?: ISettings;
