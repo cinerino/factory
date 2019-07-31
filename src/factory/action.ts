@@ -111,3 +111,55 @@ export interface ISortOrder {
     startDate?: SortType;
     // endDate?: SortType;
 }
+
+/**
+ * 検索条件インターフェース
+ */
+export interface ISearchConditions<T extends ActionType> {
+    limit?: number;
+    page?: number;
+    sort?: ISortOrder;
+    project?: { ids?: string[] };
+    typeOf?: T;
+    actionStatusTypes?: ActionStatusType[];
+    startFrom?: Date;
+    startThrough?: Date;
+    object?: {
+        typeOf?: {
+            $in?: string[];
+        };
+        id?: {
+            $in?: string[];
+        };
+        orderNumber?: {
+            $in?: string[];
+        };
+        paymentMethod?: {
+            paymentMethodId?: {
+                $in?: string[];
+            };
+        };
+    };
+    purpose?: {
+        typeOf?: {
+            $in?: string[];
+        };
+        id?: {
+            $in?: string[];
+        };
+        orderNumber?: {
+            $in?: string[];
+        };
+    };
+    result?: {
+        typeOf?: {
+            $in?: string[];
+        };
+        id?: {
+            $in?: string[];
+        };
+        orderNumber?: {
+            $in?: string[];
+        };
+    };
+}
