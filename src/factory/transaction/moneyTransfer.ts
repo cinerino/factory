@@ -1,3 +1,5 @@
+import * as pecorino from '@pecorino/factory';
+
 import AccountType from '../accountType';
 import { IAction as IAuthorizeAction, IAttributes as IAuthorizeActionAttributes } from '../action/authorize';
 import { IAttributes as IPayActionAttributes } from '../action/trade/pay';
@@ -22,13 +24,25 @@ export type ISeller = OrganizationFactory.IOrganization<OrganizationFactory.IAtt
 
 export interface IStartParamsWithoutDetail<T extends AccountType> {
     project?: IProject;
+    /**
+     * 取引期限
+     */
     expires: Date;
+    /**
+     * 転送元
+     */
     agent: IAgent;
+    /**
+     * 転送先
+     */
     recipient: IRecipient;
     seller: {
         typeOf: OrganizationType;
         id: string;
     };
+    /**
+     * 転送内容
+     */
     object: IObject<T>;
 }
 
@@ -54,7 +68,12 @@ export type IResult = any;
  */
 export type IError = any;
 
-export type IToLocation<T extends AccountType> = IAccount<T>;
+/**
+ * 管理されていない口座インターフェース
+ */
+export import IAnonymousLocation = pecorino.action.transfer.moneyTransfer.IAnonymousLocation;
+
+export type IToLocation<T extends AccountType> = IAnonymousLocation | IAccount<T>;
 
 /**
  * 取引対象物インターフェース
@@ -66,9 +85,12 @@ export interface IObject<T extends AccountType> {
      */
     amount: number;
     /**
-     * 転送先
+     * 転送先口座
      */
     toLocation: IToLocation<T>;
+    /**
+     * 取引説明
+     */
     description?: string;
     /**
      * 承認アクションリスト

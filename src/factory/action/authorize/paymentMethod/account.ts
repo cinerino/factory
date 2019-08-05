@@ -9,7 +9,9 @@ import * as AuthorizeAnyPaymentFactory from './any';
  * 進行中取引インターフェース
  */
 export type IPendingTransaction<T extends AccountType> =
-    pecorino.transaction.withdraw.ITransaction<T> | pecorino.transaction.transfer.ITransaction<T>;
+    pecorino.transaction.deposit.ITransaction<T>
+    | pecorino.transaction.transfer.ITransaction<T>
+    | pecorino.transaction.withdraw.ITransaction<T>;
 
 export interface IAccount<T extends AccountType> {
     /**
@@ -22,9 +24,19 @@ export interface IAccount<T extends AccountType> {
     accountNumber: string;
 }
 
+/**
+ * トークン化された口座インターフェース
+ */
 export type ITokenizedAccount = string;
 
+/**
+ * 転送元口座
+ */
 export type IFromAccount<T extends AccountType> = IAccount<T> | ITokenizedAccount;
+
+/**
+ * 転送先口座
+ */
 export type IToAccount<T extends AccountType> = IAccount<T>;
 
 /**
@@ -33,25 +45,26 @@ export type IToAccount<T extends AccountType> = IAccount<T>;
 export interface IObject<T extends AccountType> extends AuthorizeAnyPaymentFactory.IObject<PaymentMethodType.Account> {
     typeOf: PaymentMethodType.Account;
     /**
-     * 確保口座
+     * 転送元口座
+     * 出金取引、転送取引の場合指定
      */
-    fromAccount: IFromAccount<T>;
+    fromAccount?: IFromAccount<T>;
     /**
      * 転送先口座
-     * 転送取引の場合指定
+     * 入金取引、転送取引の場合指定
      */
     toAccount?: IToAccount<T>;
     /**
-     * 取引メモ
+     * 取引説明
      */
     notes?: string;
 }
 
 export interface IResult<T extends AccountType> extends AuthorizeAnyPaymentFactory.IResult<PaymentMethodType.Account> {
     /**
-     * 確保口座
+     * 転送元口座
      */
-    fromAccount: IAccount<T>;
+    fromAccount?: IAccount<T>;
     /**
      * 転送先口座
      */
@@ -65,7 +78,7 @@ export interface IResult<T extends AccountType> extends AuthorizeAnyPaymentFacto
 export type IError = any;
 
 /**
- * 口座承認アクション属性インターフェース
+ * 口座決済承認アクション属性インターフェース
  */
 export interface IAttributes<T extends AccountType> extends AuthorizeAnyPaymentFactory.IAttributes<PaymentMethodType.Account> {
     object: IObject<T>;
@@ -74,6 +87,6 @@ export interface IAttributes<T extends AccountType> extends AuthorizeAnyPaymentF
 }
 
 /**
- * 口座承認アクションインターフェース
+ * 口座決済承認アクションインターフェース
  */
 export type IAction<T extends AccountType> = ActionFactory.IAction<IAttributes<T>>;
