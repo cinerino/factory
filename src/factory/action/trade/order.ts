@@ -3,6 +3,7 @@ import ActionType from '../../actionType';
 import { IAcceptedOffer, IOrder } from '../../order';
 import PaymentMethodType from '../../paymentMethodType';
 import { Identifier as WebAPIIdentifier } from '../../service/webAPI';
+import TransactionType from '../../transactionType';
 import { IAttributes as IConfirmReservationActionAttributes } from '../interact/confirm/reservation';
 import { IAttributes as IGivePointAwardActionAttributes } from '../transfer/give/pointAward';
 import { IAttributes as ISendOrderActionAttributes } from '../transfer/send/order';
@@ -13,7 +14,9 @@ export type IRecipient = ActionFactory.IParticipant;
 export interface IObject extends IOrder {
     acceptedOffers: IAcceptedOffer<any>[];
 }
+
 export type IResult = any;
+
 export interface IPotentialActions {
     /**
      * 注文配送アクション
@@ -41,9 +44,17 @@ export interface IPotentialActions {
      */
     givePointAward?: IGivePointAwardActionAttributes[];
 }
+
+export interface IPurpose {
+    typeOf: TransactionType;
+    id: string;
+}
+
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.OrderAction, IObject, IResult> {
     potentialActions?: IPotentialActions;
+    purpose?: IPurpose;
 }
+
 /**
  * 注文アクションインターフェース
  */
