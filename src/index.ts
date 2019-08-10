@@ -398,6 +398,7 @@ export import taskStatus = TaskStatus;
 export namespace transaction {
     export type ISortOrder = TransactionFactory.ISortOrder;
     export type ISearchConditions<T extends TransactionType> =
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ISearchConditions :
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.ISearchConditions :
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ISearchConditions :
         never;

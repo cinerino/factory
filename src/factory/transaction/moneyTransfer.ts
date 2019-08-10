@@ -14,7 +14,8 @@ import { IProject } from '../project';
 import * as TransactionFactory from '../transaction';
 import TransactionType from '../transactionType';
 
-export type IAgent = IPerson | OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>>;
+export type IAgent = IPerson;
+
 export type IRecipient = IPerson | OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>>;
 
 /**
@@ -117,4 +118,17 @@ export type ITransaction<T extends AccountType> = IExtendId<IAttributes<T>>;
  */
 export interface IAttributes<T extends AccountType>
     extends TransactionFactory.IAttributes<IStartParams<T>, IResult, IError, IPotentialActions<T>> {
+}
+
+export interface ISearchConditions extends TransactionFactory.ISearchConditions<TransactionType.MoneyTransfer> {
+    seller?: {
+        typeOf?: OrganizationType;
+        ids?: string[];
+    };
+    object?: {
+    };
+    potentialActions?: {
+    };
+    result?: {
+    };
 }
