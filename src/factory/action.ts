@@ -139,6 +139,18 @@ export interface ISearchConditions<T extends ActionType> {
                 $in?: string[];
             };
         };
+        event?: {
+            id?: {
+                $in?: string[];
+            };
+        };
+        acceptedOffer?: {
+            ticketedSeat?: {
+                seatNumber?: {
+                    $in?: string[];
+                };
+            };
+        };
     };
     purpose?: {
         typeOf?: {
@@ -159,6 +171,28 @@ export interface ISearchConditions<T extends ActionType> {
             $in?: string[];
         };
         orderNumber?: {
+            $in?: string[];
+        };
+    };
+    fromLocation?: {
+        typeOf?: {
+            $in?: string[];
+        };
+        accountNumber?: {
+            $in?: string[];
+        };
+        accountType?: {
+            $in?: string[];
+        };
+    };
+    toLocation?: {
+        typeOf?: {
+            $in?: string[];
+        };
+        accountNumber?: {
+            $in?: string[];
+        };
+        accountType?: {
             $in?: string[];
         };
     };
