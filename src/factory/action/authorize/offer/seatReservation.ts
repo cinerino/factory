@@ -1,9 +1,5 @@
-/**
- * 座席予約承認アクションファクトリー
- */
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-import { IEvent as IScreeningEvent } from '../../../event/screeningEvent';
 import * as SeatReservationOfferFactory from '../../../offer/seatReservation';
 import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
 import PriceCurrency from '../../../priceCurrency';
@@ -78,7 +74,8 @@ export type IObjectWithoutDetail4chevre = {
 export type IAcceptedOffer4COA = {
     paymentMethod?: IAcceptedPaymentMethod;
     additionalProperty: IPropertyValue<string>[];
-} & SeatReservationOfferFactory.IOfferWithDetails;
+} & chevre.event.screeningEvent.IAcceptedTicketOfferWithoutDetail
+    & SeatReservationOfferFactory.IOfferWithDetails;
 
 export type IAcceptedOfferWithoutDetail4COA = {
     paymentMethod?: IAcceptedPaymentMethod;
@@ -112,7 +109,7 @@ export type IObjectWithoutDetail<T extends WebAPIIdentifier> =
  */
 export type IObject<T extends WebAPIIdentifier> = {
     typeOf: ObjectType;
-    event?: IScreeningEvent;
+    event?: chevre.event.screeningEvent.IEvent;
     acceptedOffer: IAcceptedOffer<T>[];
 } & IObjectWithoutDetail<T>;
 
