@@ -403,7 +403,7 @@ export namespace transaction {
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ISearchConditions :
         never;
     export type IStartParams<T extends TransactionType> =
-        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams<AccountType> :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams :
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IStartParams :
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IStartParams :
         never;

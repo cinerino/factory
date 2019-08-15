@@ -23,7 +23,7 @@ export type IRecipient = IPerson | OrganizationFactory.IOrganization<Organizatio
  */
 export type ISeller = OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>>;
 
-export interface IStartParamsWithoutDetail<T extends AccountType> {
+export interface IStartParamsWithoutDetail {
     project?: IProject;
     /**
      * 取引期限
@@ -44,14 +44,14 @@ export interface IStartParamsWithoutDetail<T extends AccountType> {
     /**
      * 転送内容
      */
-    object: IObject<T>;
+    object: IObject;
 }
 
 /**
  * 取引開始パラメーターインターフェース
  */
-export interface IStartParams<T extends AccountType>
-    extends TransactionFactory.IStartParams<TransactionType.MoneyTransfer, IAgent, IRecipient, IObject<T>> {
+export interface IStartParams
+    extends TransactionFactory.IStartParams<TransactionType.MoneyTransfer, IAgent, IRecipient, IObject> {
     /**
      * 転送先
      */
@@ -79,16 +79,16 @@ export type IToLocation<T extends AccountType> = IAnonymousLocation | IAccount<T
 /**
  * 取引対象物インターフェース
  */
-export interface IObject<T extends AccountType> {
+export interface IObject {
     clientUser?: IClientUser;
     /**
      * 金額
      */
-    amount: number;
+    // amount: number;
     /**
      * 転送先口座
      */
-    toLocation: IToLocation<T>;
+    // toLocation: IToLocation<T>;
     /**
      * 取引説明
      */
@@ -117,7 +117,7 @@ export type ITransaction<T extends AccountType> = IExtendId<IAttributes<T>>;
  * 転送取引インターフェース
  */
 export interface IAttributes<T extends AccountType>
-    extends TransactionFactory.IAttributes<IStartParams<T>, IResult, IError, IPotentialActions<T>> {
+    extends TransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions<T>> {
 }
 
 export interface ISearchConditions extends TransactionFactory.ISearchConditions<TransactionType.MoneyTransfer> {
