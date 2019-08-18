@@ -16,11 +16,6 @@ import TransactionType from '../transactionType';
  * 顧客プロフィールインターフェース
  */
 export type ICustomerProfile = IProfile;
-/**
- * 顧客プロフィールインターフェース
- * @alias ICustomerProfile
- */
-export type ICustomerContact = ICustomerProfile;
 
 /**
  * 販売者インターフェース

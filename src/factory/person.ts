@@ -22,6 +22,11 @@ export interface IProfile {
      */
     additionalProperty?: IAdditionalProperty;
     /**
+     * Physical address of the item.
+     */
+    address?: string;
+    age?: string;
+    /**
      * Email address.
      */
     email?: string;
@@ -33,6 +38,10 @@ export interface IProfile {
      * Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the name property.
      */
     familyName?: string;
+    /**
+     * Gender of the person.
+     */
+    gender?: string;
     /**
      * The telephone number.
      */
