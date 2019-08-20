@@ -185,29 +185,31 @@ export type Identifier<T extends IGoodType> =
 /**
  * 所有対象物検索条件インターフェース
  */
-export type ITypeOfGoodSearchConditions<T extends IGoodType> =
+export interface ITypeOfGoodSearchConditions<T extends IGoodType> {
+    typeOf: T;
     /**
-     * 口座タイプの場合
+     * 予約の場合、予約ID
+     * 会員プログラムの場合、プログラムID
      */
-    T extends AccountGoodType ? {
-        typeOf: AccountGoodType;
-        accountType: AccountType;
-        accountNumber?: string;
-        accountNumbers?: string[];
-    } :
+    id?: string;
     /**
-     * 会員プログラムタイプの場合
+     * 予約の場合、予約ID
+     * 会員プログラムの場合、プログラムID
      */
-    T extends ProgramMembershipType ? any :
+    ids?: string[];
     /**
-     * 予約タイプの場合
+     * 口座の場合、口座タイプ
      */
-    T extends chevre.reservationType ? {
-        typeOf: chevre.reservationType;
-        id?: string;
-        ids?: string[];
-    } :
-    any;
+    accountType?: AccountType;
+    /**
+     * 口座の場合、口座番号
+     */
+    accountNumber?: string;
+    /**
+     * 口座の場合、口座番号
+     */
+    accountNumbers?: string[];
+}
 
 /**
  * 所有権検索条件インターフェース
