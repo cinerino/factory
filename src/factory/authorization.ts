@@ -37,6 +37,12 @@ export interface ISearchConditions {
     page?: number;
     sort?: ISortOrder;
     project?: { ids?: string[] };
+    id?: {
+        $in?: string[];
+    };
+    code?: {
+        $in?: string[];
+    };
     codes?: string[];
     validFrom?: Date;
     validThrough?: Date;
