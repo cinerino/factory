@@ -8,6 +8,10 @@ export type QuantitativeValueType = 'QuantitativeValue';
  */
 export interface IQuantitativeValue<T extends UnitCode> {
     /**
+     * A description of the item.
+     */
+    description?: string;
+    /**
      * The upper value of some characteristic or property.
      */
     maxValue?: number;
@@ -15,6 +19,10 @@ export interface IQuantitativeValue<T extends UnitCode> {
      * The lower value of some characteristic or property.
      */
     minValue?: number;
+    /**
+     * The name of the item.
+     */
+    name?: string;
     typeOf: QuantitativeValueType;
     /**
      * The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL.
