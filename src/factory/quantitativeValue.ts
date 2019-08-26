@@ -1,14 +1,12 @@
 import { UnitCode } from './unitCode';
 
+export type QuantitativeValueType = 'QuantitativeValue';
+
 /**
- * 定量値インターフェース
+ * A point value or interval for product characteristics and other purposes.
+ * @see https://schema.org/QuantitativeValue
  */
 export interface IQuantitativeValue<T extends UnitCode> {
-    typeOf: 'QuantitativeValue';
-    /**
-     * 単位符号
-     */
-    unitCode: T;
     /**
      * The upper value of some characteristic or property.
      */
@@ -17,8 +15,18 @@ export interface IQuantitativeValue<T extends UnitCode> {
      * The lower value of some characteristic or property.
      */
     minValue?: number;
+    typeOf: QuantitativeValueType;
     /**
-     * 値
+     * The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL.
+     * Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.
+     */
+    unitCode?: T;
+    /**
+     * A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for unitCode.
+     */
+    unitText?: string;
+    /**
+     * The value of the quantitative value or property value node.
      */
     value?: number;
 }
