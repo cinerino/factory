@@ -2,6 +2,7 @@ import * as ActionFactory from '../../../action';
 import { IOrder } from '../../../order';
 import { IGood, IGoodType, IOwnershipInfo } from '../../../ownershipInfo';
 import { IAttributes as IRegisterProgramMembershipTaskAttributes } from '../../../task/registerProgramMembership';
+import { IAttributes as IInformActionAttributes } from '../../interact/inform';
 import * as SendActionFactory from '../send';
 import { IAttributes as ISendEmailMessageActionAttributes } from './message/email';
 
@@ -26,6 +27,10 @@ export interface IPotentialActions {
      * 会員プログラムの注文の場合、次回のプログラム更新タスク作成アクションがここに追加されます。
      */
     registerProgramMembership?: IRegisterProgramMembershipTaskAttributes[];
+    /**
+     * 注文通知アクション
+     */
+    informOrder?: IInformActionAttributes<any, any>[];
 }
 
 export interface IAttributes extends SendActionFactory.IAttributes<IObject, IResult> {

@@ -1,6 +1,7 @@
 import * as ActionFactory from '../../../action';
 import { ISimpleOrder } from '../../../order';
 import PaymentMethodType from '../../../paymentMethodType';
+import { IAttributes as IInformActionAttributes } from '../../interact/inform';
 import { IAttributes as IRefundActionAttributes } from '../../trade/refund';
 import * as ReturnActionFactory from '../return';
 import * as ReturnPointAwardActionFactory from './pointAward';
@@ -29,6 +30,10 @@ export interface IPotentialActions {
      * ポイントインセンティブ返却アクション
      */
     returnPointAward: ReturnPointAwardActionFactory.IAttributes[];
+    /**
+     * 注文通知アクション
+     */
+    informOrder?: IInformActionAttributes<any, any>[];
 }
 export interface IAttributes extends ReturnActionFactory.IAttributes<IObject, IResult> {
     recipient: IRecipient;

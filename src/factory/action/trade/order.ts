@@ -5,6 +5,7 @@ import PaymentMethodType from '../../paymentMethodType';
 import { Identifier as WebAPIIdentifier } from '../../service/webAPI';
 import TransactionType from '../../transactionType';
 import { IAttributes as IConfirmReservationActionAttributes } from '../interact/confirm/reservation';
+import { IAttributes as IInformActionAttributes } from '../interact/inform';
 import { IAttributes as IGivePointAwardActionAttributes } from '../transfer/give/pointAward';
 import { IAttributes as ISendOrderActionAttributes } from '../transfer/send/order';
 import { IAttributes as IPayActionAttributes } from './pay';
@@ -43,6 +44,10 @@ export interface IPotentialActions {
      * 現時点で複数口座にポイントを付与することはないが、可能性もこめてリストで持っておく
      */
     givePointAward?: IGivePointAwardActionAttributes[];
+    /**
+     * 注文通知アクション
+     */
+    informOrder?: IInformActionAttributes<any, any>[];
 }
 
 export interface IPurpose {
