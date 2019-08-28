@@ -67,6 +67,49 @@ export interface IStartParams extends TransactionFactory.IStartParams<Transactio
 }
 
 /**
+ * 注文通知パラメータ
+ */
+export interface IConfirmInformOrderParams {
+    /**
+     * 通知先
+     */
+    recipient?: {
+        /**
+         * 通知URL
+         */
+        url?: string;
+    };
+}
+
+export interface IConfirmPotentialActionsParams {
+    order?: {
+        potentialActions?: {
+            informOrder?: IConfirmInformOrderParams[];
+            sendOrder?: {
+                potentialActions?: {
+                    informOrder?: IConfirmInformOrderParams[];
+                };
+            };
+        };
+    };
+}
+
+/**
+ * 取引確定パラメータ
+ */
+export interface IConfirmParams {
+    /**
+     * 取引ID
+     */
+    id: string;
+    agent?: { id?: string };
+    /**
+     * 取引確定後アクション
+     */
+    potentialActions?: IConfirmPotentialActionsParams;
+}
+
+/**
  * 取引結果インターフェース
  */
 export interface IResult {

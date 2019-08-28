@@ -83,50 +83,77 @@ export interface IStartParams extends TransactionFactory.IStartParams<Transactio
     seller: ISeller;
 }
 
+export interface IConfirmInformOrderParams {
+    /**
+     * 通知先
+     */
+    recipient?: {
+        /**
+         * 通知URL
+         */
+        url?: string;
+    };
+}
+
+export interface IConfirmPotentialActionsParams {
+    /**
+     * 注文返品アクション
+     */
+    returnOrder?: {
+        /**
+         * 注文返品後アクション
+         */
+        potentialActions?: {
+            /**
+             * 注文通知アクション
+             */
+            informOrder?: IConfirmInformOrderParams[];
+            /**
+             * クレジットカード返金アクションについてカスタマイズする場合に指定
+             */
+            refundCreditCard?: {
+                object: {
+                    object: {
+                        paymentMethod: {
+                            /**
+                             * 返金対象決済ID
+                             */
+                            paymentMethodId: string;
+                        };
+                    }[];
+                };
+                potentialActions?: {
+                    sendEmailMessage?: {
+                        /**
+                         * 返金メールカスタマイズ
+                         * メール本文をカスタマイズしたい場合、PUGテンプレートを指定
+                         * 挿入変数として`order`を使用できます
+                         * @see https://pugjs.org/api/getting-started.html
+                         */
+                        object?: ICustomization;
+                    };
+                };
+            }[];
+            // refundAccount?: refundAccountActions,
+            /**
+             * ムビチケ着券取消を実行するかどうか
+             */
+            refundMovieTicket?: boolean;
+            // returnPointAward?: returnPointAwardActions
+        };
+    };
+}
+
 export interface IConfirmParams {
     /**
      * 取引ID
      */
     id: string;
     agent?: { id?: string };
-    potentialActions?: {
-        returnOrder?: {
-            potentialActions?: {
-                /**
-                 * クレジットカード返金アクションについてカスタマイズする場合に指定
-                 */
-                refundCreditCard?: {
-                    object: {
-                        object: {
-                            paymentMethod: {
-                                /**
-                                 * 返金対象決済ID
-                                 */
-                                paymentMethodId: string;
-                            };
-                        }[];
-                    };
-                    potentialActions?: {
-                        sendEmailMessage?: {
-                            /**
-                             * 返金メールカスタマイズ
-                             * メール本文をカスタマイズしたい場合、PUGテンプレートを指定
-                             * 挿入変数として`order`を使用できます
-                             * @see https://pugjs.org/api/getting-started.html
-                             */
-                            object?: ICustomization;
-                        };
-                    };
-                }[];
-                // refundAccount?: refundAccountActions,
-                /**
-                 * ムビチケ着券取消を実行するかどうか
-                 */
-                refundMovieTicket?: boolean;
-                // returnPointAward?: returnPointAwardActions
-            };
-        };
-    };
+    /**
+     * 取引確定後アクション
+     */
+    potentialActions?: IConfirmPotentialActionsParams;
 }
 
 /**
