@@ -20,6 +20,7 @@ import * as AuthorizeMovieTicketPaymentActionFactory from './factory/action/auth
 import * as CheckMovieTicketActionFactory from './factory/action/check/paymentMethod/movieTicket';
 import * as CheckTokenActionFactory from './factory/action/check/token';
 import * as ConfirmReservationActionFactory from './factory/action/interact/confirm/reservation';
+import * as InformActionFactory from './factory/action/interact/inform';
 import * as RegisterActionFactory from './factory/action/interact/register';
 import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
@@ -171,6 +172,7 @@ export namespace action {
         export namespace confirm {
             export import reservation = ConfirmReservationActionFactory;
         }
+        export import inform = InformActionFactory;
         export namespace register {
             // tslint:disable-next-line:no-shadowed-variable
             export import IAction = RegisterActionFactory.IAction;
