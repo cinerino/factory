@@ -15,6 +15,10 @@ enum TaskName {
      */
     CancelSeatReservation = 'cancelSeatReservation',
     /**
+     * 予約取消
+     */
+    CancelReservation = 'cancelReservation',
+    /**
      * 予約確定
      */
     ConfirmReservation = 'confirmReservation',
