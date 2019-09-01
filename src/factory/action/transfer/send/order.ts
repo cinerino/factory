@@ -1,7 +1,9 @@
 import * as ActionFactory from '../../../action';
 import { IOrder } from '../../../order';
 import { IGood, IGoodType, IOwnershipInfo } from '../../../ownershipInfo';
+import { Identifier as WebAPIIdentifier } from '../../../service/webAPI';
 import { IAttributes as IRegisterProgramMembershipTaskAttributes } from '../../../task/registerProgramMembership';
+import { IAttributes as IConfirmReservationActionAttributes } from '../../interact/confirm/reservation';
 import { IAttributes as IInformActionAttributes } from '../../interact/inform';
 import * as SendActionFactory from '../send';
 import { IAttributes as ISendEmailMessageActionAttributes } from './message/email';
@@ -13,24 +15,25 @@ export type IObject = IOrder;
 /**
  * 注文配送結果としての所有権
  */
-// export interface IResult {
-//     ownershipInfos: IOwnershipInfo<IGood<IGoodType>>[];
-// }
 export type IResult = IOwnershipInfo<IGood<IGoodType>>[];
 
 export interface IPotentialActions {
     /**
-     * 注文配送を通知するEメール送信アクション
+     * 予約確定アクション
      */
-    sendEmailMessage?: ISendEmailMessageActionAttributes;
+    confirmReservation?: IConfirmReservationActionAttributes<WebAPIIdentifier>[];
+    /**
+     * 注文通知アクション
+     */
+    informOrder?: IInformActionAttributes<any, any>[];
     /**
      * 会員プログラムの注文の場合、次回のプログラム更新タスク作成アクションがここに追加されます。
      */
     registerProgramMembership?: IRegisterProgramMembershipTaskAttributes[];
     /**
-     * 注文通知アクション
+     * 注文配送を通知するEメール送信アクション
      */
-    informOrder?: IInformActionAttributes<any, any>[];
+    sendEmailMessage?: ISendEmailMessageActionAttributes;
 }
 
 export interface IAttributes extends SendActionFactory.IAttributes<IObject, IResult> {
