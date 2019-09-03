@@ -18,7 +18,11 @@ export type IObject<T extends WebAPIIdentifier> =
     T extends WebAPIIdentifier.COA ? IObject4COA :
     IObject4Chevre;
 
-export type IData = ICancelActionAttributes<IObject<WebAPIIdentifier>, any>;
+export type IPotentialActions = chevre.transaction.cancelReservation.IPotentialActionsParams;
+
+export type IData = ICancelActionAttributes<IObject<WebAPIIdentifier>, any> & {
+    potentialActions?: IPotentialActions;
+};
 
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.CancelReservation;

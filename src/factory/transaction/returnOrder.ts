@@ -7,6 +7,8 @@ import * as OrganizationFactory from '../organization';
 import OrganizationType from '../organizationType';
 import { IPerson } from '../person';
 import { IProject } from '../project';
+import { Identifier as WebAPIIdentifier } from '../service/webAPI';
+import * as CancelReservationTaskFactory from '../task/cancelReservation';
 import * as TransactionFactory from '../transaction';
 import TransactionType from '../transactionType';
 
@@ -83,7 +85,7 @@ export interface IStartParams extends TransactionFactory.IStartParams<Transactio
     seller: ISeller;
 }
 
-export interface IConfirmInformOrderParams {
+export interface IInformOrderParams {
     /**
      * 通知先
      */
@@ -95,7 +97,21 @@ export interface IConfirmInformOrderParams {
     };
 }
 
-export interface IConfirmPotentialActionsParams {
+export import ICancelReservationObject = CancelReservationTaskFactory.IObject;
+export import ICancelReservationPotentialActions = CancelReservationTaskFactory.IPotentialActions;
+
+/**
+ * 予約取消パラメータ
+ */
+export interface ICancelReservationParams {
+    /**
+     * 確定対象
+     */
+    object?: ICancelReservationObject<WebAPIIdentifier>;
+    potentialActions?: ICancelReservationPotentialActions;
+}
+
+export interface IPotentialActionsParams {
     /**
      * 注文返品アクション
      */
@@ -105,9 +121,13 @@ export interface IConfirmPotentialActionsParams {
          */
         potentialActions?: {
             /**
+             * 予約取消アクション
+             */
+            cancelReservation?: ICancelReservationParams[];
+            /**
              * 注文通知アクション
              */
-            informOrder?: IConfirmInformOrderParams[];
+            informOrder?: IInformOrderParams[];
             /**
              * クレジットカード返金アクションについてカスタマイズする場合に指定
              */
@@ -153,7 +173,7 @@ export interface IConfirmParams {
     /**
      * 取引確定後アクション
      */
-    potentialActions?: IConfirmPotentialActionsParams;
+    potentialActions?: IPotentialActionsParams;
 }
 
 /**

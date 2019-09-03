@@ -5,10 +5,7 @@ export type IAgent = ActionFactory.IParticipant;
 export type IObject = any;
 export type IPurpose = any;
 export type IResult = any;
-
-// tslint:disable-next-line:no-empty-interface
-export interface IPotentialActions {
-}
+export type IPotentialActions = any;
 
 export interface IAttributes<TObject, TResult> extends ActionFactory.IAttributes<ActionType.CancelAction, TObject, TResult> {
     potentialActions?: IPotentialActions;
