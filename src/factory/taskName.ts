@@ -39,6 +39,10 @@ enum TaskName {
      */
     MoneyTransfer = 'moneyTransfer',
     /**
+     * 会員プログラム注文
+     */
+    OrderProgramMembership = 'orderProgramMembership',
+    /**
      *  Eメールメッセージ送信
      */
     SendEmailMessage = 'sendEmailMessage',

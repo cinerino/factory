@@ -87,6 +87,7 @@ import * as ConfirmReservationTaskFactory from './factory/task/confirmReservatio
 import * as GivePointAwardTaskFactory from './factory/task/givePointAward';
 import * as ImportScreeningEventsTaskFactory from './factory/task/importScreeningEvents';
 import * as MoneyTransferTaskFactory from './factory/task/moneyTransfer';
+import * as OrderProgramMembershipTaskFactory from './factory/task/orderProgramMembership';
 import * as PayAccountTaskFactory from './factory/task/payAccount';
 import * as PayCreditCardTaskFactory from './factory/task/payCreditCard';
 import * as PayMovieTicketTaskFactory from './factory/task/payMovieTicket';
@@ -325,6 +326,7 @@ export namespace task {
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IData :
         T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.IData :
         T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.IData :
+        T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IData :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IData :
         T extends TaskName.RefundAccount ? RefundAccountTaskFactory.IData :
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IData :
@@ -352,6 +354,7 @@ export namespace task {
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IAttributes :
         T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.IAttributes :
         T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.IAttributes :
+        T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IAttributes :
         T extends TaskName.RefundAccount ? RefundAccountTaskFactory.IAttributes :
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IAttributes :
@@ -379,6 +382,7 @@ export namespace task {
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.ITask :
         T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.ITask :
         T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.ITask :
+        T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.ITask :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.ITask :
         T extends TaskName.RefundAccount ? RefundAccountTaskFactory.ITask :
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.ITask :
