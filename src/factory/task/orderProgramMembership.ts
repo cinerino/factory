@@ -7,7 +7,7 @@ import { IProgramMembership } from '../programMembership';
 import { IProject } from '../project';
 import * as TaskFactory from '../task';
 import TaskName from '../taskName';
-import { IConfirmPotentialActionsParams as IOrderPotentialActionsParams } from '../transaction/placeOrder';
+import { IPotentialActionsParams as IOrderPotentialActionsParams } from '../transaction/placeOrder';
 
 export type IAgent = IParticipant;
 export type IAcceptedOffer = IOrderAcceptedOffer<IProgramMembership>;
@@ -15,7 +15,13 @@ export type IPotentialActions = IOrderPotentialActionsParams;
 
 export interface IData {
     agent: IAgent;
+    /**
+     * 注文対象
+     */
     object: IAcceptedOffer;
+    /**
+     * 注文取引確定後アクション
+     */
     potentialActions?: IPotentialActions;
     project?: IProject;
     typeOf: ActionType.OrderAction;
