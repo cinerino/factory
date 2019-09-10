@@ -3,37 +3,41 @@
  */
 enum TaskName {
     /**
-     * 上映イベント在庫仕入れ
+     * 口座承認アクション取消
      */
-    ImportScreeningEvents = 'importScreeningEvents',
-    /**
-     * イベント席数更新
-     */
-    UpdateEventAttendeeCapacity = 'updateEventAttendeeCapacity',
-    /**
-     * 座席予約承認アクション取消
-     */
-    CancelSeatReservation = 'cancelSeatReservation',
-    /**
-     * 予約取消
-     */
-    CancelReservation = 'cancelReservation',
-    /**
-     * 予約確定
-     */
-    ConfirmReservation = 'confirmReservation',
+    CancelAccount = 'cancelAccount',
     /**
      * クレジットカード承認アクション取消
      */
     CancelCreditCard = 'cancelCreditCard',
     /**
-     * 口座承認アクション取消
-     */
-    CancelAccount = 'cancelAccount',
-    /**
      * ポイントインセンティブ承認アクション取消
      */
     CancelPointAward = 'cancelPointAward',
+    /**
+     * 予約取消
+     */
+    CancelReservation = 'cancelReservation',
+    /**
+     * 座席予約承認アクション取消
+     */
+    CancelSeatReservation = 'cancelSeatReservation',
+    /**
+     * 予約確定
+     */
+    ConfirmReservation = 'confirmReservation',
+    /**
+     * 会員削除
+     */
+    DeleteMember = 'deleteMember',
+    /**
+     * ポイントインセンティブ付与
+     */
+    GivePointAward = 'givePointAward',
+    /**
+     * 上映イベント在庫仕入れ
+     */
+    ImportScreeningEvents = 'importScreeningEvents',
     /**
      * 通貨転送
      */
@@ -42,22 +46,6 @@ enum TaskName {
      * 会員プログラム注文
      */
     OrderProgramMembership = 'orderProgramMembership',
-    /**
-     *  Eメールメッセージ送信
-     */
-    SendEmailMessage = 'sendEmailMessage',
-    /**
-     * 注文受付
-     */
-    PlaceOrder = 'placeOrder',
-    /**
-     * 注文返品
-     */
-    ReturnOrder = 'returnOrder',
-    /**
-     * ポイントインセンティブ返却
-     */
-    ReturnPointAward = 'returnPointAward',
     /**
      * 口座支払
      */
@@ -71,9 +59,9 @@ enum TaskName {
      */
     PayMovieTicket = 'payMovieTicket',
     /**
-     * 注文配送
+     * 注文受付
      */
-    SendOrder = 'sendOrder',
+    PlaceOrder = 'placeOrder',
     /**
      * クレジットカード返金
      */
@@ -87,21 +75,37 @@ enum TaskName {
      */
     RefundAccount = 'refundAccount',
     /**
-     * ポイントインセンティブ付与
-     */
-    GivePointAward = 'givePointAward',
-    /**
      * 会員プログラム登録
      */
     RegisterProgramMembership = 'registerProgramMembership',
+    /**
+     * 注文返品
+     */
+    ReturnOrder = 'returnOrder',
+    /**
+     * ポイントインセンティブ返却
+     */
+    ReturnPointAward = 'returnPointAward',
+    /**
+     *  Eメールメッセージ送信
+     */
+    SendEmailMessage = 'sendEmailMessage',
+    /**
+     * 注文配送
+     */
+    SendOrder = 'sendOrder',
+    /**
+     * ウェブフックをたたく
+     */
+    TriggerWebhook = 'triggerWebhook',
     /**
      * 会員プログラム登録解除
      */
     UnRegisterProgramMembership = 'unRegisterProgramMembership',
     /**
-     * ウェブフックをたたく
+     * イベント席数更新
      */
-    TriggerWebhook = 'triggerWebhook'
+    UpdateEventAttendeeCapacity = 'updateEventAttendeeCapacity'
 }
 
 export default TaskName;
