@@ -60,7 +60,7 @@ export interface IReturnableOrder {
  * 注文返品開始パラメータインターフェース
  */
 export interface IStartParamsWithoutDetail {
-    project?: IProject;
+    project: IProject;
     expires: Date;
     agent: IAgent;
     object: {

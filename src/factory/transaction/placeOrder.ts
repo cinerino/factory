@@ -46,7 +46,7 @@ export interface IPassportBeforeStart {
 }
 
 export interface IStartParamsWithoutDetail {
-    project?: IProject;
+    project: IProject;
     expires: Date;
     agent: IAgent;
     seller: {

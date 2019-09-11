@@ -24,7 +24,7 @@ export type IRecipient = IPerson | OrganizationFactory.IOrganization<Organizatio
 export type ISeller = OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>>;
 
 export interface IStartParamsWithoutDetail {
-    project?: IProject;
+    project: IProject;
     /**
      * 取引期限
      */

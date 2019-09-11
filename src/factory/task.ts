@@ -18,7 +18,7 @@ export interface IExecutionResult {
  * タスク属性インターフェース
  */
 export interface IAttributes {
-    project?: IProject;
+    project: IProject;
     /**
      * タスク名
      */

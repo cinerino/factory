@@ -11,7 +11,7 @@ import TransactionType from './transactionType';
  * 取引開始パラメーターインターフェース
  */
 export interface IStartParams<T extends TransactionType, TAgent, TRecipient, TObject> {
-    project?: IProject;
+    project: IProject;
     /**
      * 取引タイプ
      */

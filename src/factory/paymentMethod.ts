@@ -6,7 +6,7 @@ import SortType from './sortType';
  * payment method interface
  */
 export interface IPaymentMethod {
-    project?: IProject;
+    project: IProject;
     typeOf: PaymentMethodType;
     identifier: string;
 }

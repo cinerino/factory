@@ -5,7 +5,7 @@ import * as TaskFactory from '../task';
 import TaskName from '../taskName';
 
 export interface IData {
-    project?: IProject;
+    project: IProject;
     /**
      * 劇場枝番号
      */

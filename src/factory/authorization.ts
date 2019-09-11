@@ -5,7 +5,7 @@ import SortType from './sortType';
  * 承認インターフェース
  */
 export interface IAuthorization {
-    project?: IProject;
+    project: IProject;
     typeOf: 'Authorization';
     code: string;
     object: any;

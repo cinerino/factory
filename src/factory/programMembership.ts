@@ -48,7 +48,7 @@ export interface IProgramMembership {
      * The program providing the membership.
      */
     programName?: string;
-    project?: IProject;
+    project: IProject;
     typeOf: ProgramMembershipType;
     /**
      * URL of the item.

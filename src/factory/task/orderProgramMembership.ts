@@ -22,7 +22,7 @@ export interface IData {
      * 注文取引確定後アクション
      */
     potentialActions?: IPotentialActions;
-    project?: IProject;
+    project: IProject;
     typeOf: ActionType.OrderAction;
 }
 

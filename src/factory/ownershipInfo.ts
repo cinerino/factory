@@ -112,7 +112,7 @@ export type OwnershipInfoType = 'OwnershipInfo';
  * 所有権インターフェース
  */
 export interface IOwnershipInfo<T extends IGood<IGoodType> | IGoodWithDetail<IGoodType>> {
-    project?: IProject;
+    project: IProject;
     /**
      * object type
      */

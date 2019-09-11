@@ -116,7 +116,7 @@ export interface ISeller {
 export type ICustomer = IPerson;
 
 export interface ISimpleOrder {
-    project?: IProject;
+    project: IProject;
     /**
      * object type
      */

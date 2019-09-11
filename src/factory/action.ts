@@ -30,7 +30,7 @@ export type IAdditionalProperty = IPropertyValue<string>[];
  * アクション属性
  */
 export interface IAttributes<T extends ActionType, TObject, TResult> {
-    project?: IProject;
+    project: IProject;
     /**
      * A property-value pair representing an additional characteristics of the entitity,
      * e.g. a product feature or another characteristic for which there is no matching property in schema.org.

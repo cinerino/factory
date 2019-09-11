@@ -149,7 +149,7 @@ export type IMakesOffer = IOffer;
 export type IAreaServed = IPlace<IAvailablePlaceType>;
 
 export interface IAttributes<T extends OrganizationType> {
-    project?: IProject;
+    project: IProject;
     /**
      * 組織タイプ
      */

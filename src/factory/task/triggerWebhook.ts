@@ -5,17 +5,6 @@ import * as TaskFactory from '../task';
 import TaskName from '../taskName';
 
 export type IData = IInformActionAttributes<any, any>;
-// export interface IData {
-//     project?: IProject;
-//     /**
-//      * Webhook URL
-//      */
-//     url: string;
-//     /**
-//      * POSTリクエストボディ
-//      */
-//     payload: any;
-// }
 
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.TriggerWebhook;
