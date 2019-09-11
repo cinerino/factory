@@ -33,7 +33,7 @@ export interface IPotentialActions {
     /**
      * 注文配送を通知するEメール送信アクション
      */
-    sendEmailMessage?: ISendEmailMessageActionAttributes | ISendEmailMessageActionAttributes[];
+    sendEmailMessage?: ISendEmailMessageActionAttributes[];
 }
 
 export interface IAttributes extends SendActionFactory.IAttributes<IObject, IResult> {

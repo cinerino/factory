@@ -16,7 +16,7 @@ export interface IPotentialActions {
     /**
      * 返金処理完了を通知するEメール送信アクション
      */
-    sendEmailMessage?: ISendEmailMessageActionAttributes | ISendEmailMessageActionAttributes[];
+    sendEmailMessage?: ISendEmailMessageActionAttributes[];
 }
 
 export type IPurpose = ISimpleOrder;
