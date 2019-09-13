@@ -1,10 +1,16 @@
 import { IOffer } from './offer';
 import * as OrganizationFactory from './organization';
 import OrganizationType from './organizationType';
+import { IPerson } from './person';
 import { IProject } from './project';
 import { IQuantitativeValue } from './quantitativeValue';
 
 export type ProgramMembershipType = 'ProgramMembership';
+// export enum ProgramMembershipType {
+//     ProgramMembership = 'ProgramMembership'
+// }
+
+export type IMember = IPerson;
 
 /**
  * 会員プログラム特典インターフェース
@@ -26,6 +32,10 @@ export interface IProgramMembership {
      */
     hostingOrganization?: OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>>;
     id?: string;
+    /**
+     * A member of an Organization or a ProgramMembership.
+     */
+    member?: IMember[];
     /**
      * A unique identifier for the membership.
      */
