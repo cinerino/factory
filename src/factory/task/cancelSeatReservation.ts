@@ -6,7 +6,6 @@ import TaskName from '../taskName';
 
 export interface IData {
     project: IProject;
-    transactionId: string;
     purpose: IPurpose;
 }
 
