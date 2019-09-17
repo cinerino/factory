@@ -20,22 +20,30 @@ export type IAnyPaymentMethod<T extends PaymentMethodType> = T | string;
  */
 export interface IObject<T extends PaymentMethodType> {
     /**
-     * 決済方法タイプ
+     * The identifier for the account the payment will be applied to.
      */
-    typeOf: IAnyPaymentMethod<T>;
+    accountId?: string;
+    /**
+     * 追加特性
+     */
+    additionalProperty?: IPropertyValue<string>[];
+    /**
+     * The amount of money.
+     */
+    amount: number;
     /**
      * 決済方法名称
      * 未指定であればデフォルト値が使用されます
      */
     name?: string;
     /**
-     * 金額
+     * 決済ID
      */
-    amount: number;
+    paymentMethodId?: string;
     /**
-     * 追加特性
+     * 決済方法タイプ
      */
-    additionalProperty?: IPropertyValue<string>[];
+    typeOf: IAnyPaymentMethod<T>;
 }
 
 export interface IResult<T extends PaymentMethodType> {
@@ -44,7 +52,7 @@ export interface IResult<T extends PaymentMethodType> {
      */
     accountId: string;
     /**
-     * 金額
+     * The amount of money.
      */
     amount: number;
     /**

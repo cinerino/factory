@@ -5,10 +5,10 @@ import { IPerson } from './person';
 import { IProject } from './project';
 import { IQuantitativeValue } from './quantitativeValue';
 
-export type ProgramMembershipType = 'ProgramMembership';
-// export enum ProgramMembershipType {
-//     ProgramMembership = 'ProgramMembership'
-// }
+// export type ProgramMembershipType = 'ProgramMembership';
+export enum ProgramMembershipType {
+    ProgramMembership = 'ProgramMembership'
+}
 
 export type IMember = IPerson;
 
