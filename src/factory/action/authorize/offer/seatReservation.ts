@@ -104,6 +104,8 @@ export type IObjectWithoutDetail<T extends WebAPIIdentifier> =
     T extends WebAPIIdentifier.Chevre ? IObjectWithoutDetail4chevre :
     any;
 
+export type IPendingTransaction = chevre.transaction.ITransaction<chevre.transactionType.Reserve>;
+
 /**
  * 承認アクション対象
  */
@@ -111,6 +113,10 @@ export type IObject<T extends WebAPIIdentifier> = {
     typeOf: ObjectType;
     event?: chevre.event.screeningEvent.IEvent;
     acceptedOffer: IAcceptedOffer<T>[];
+    /**
+     * Chevre進行中取引
+     */
+    pendingTransaction?: IPendingTransaction;
 } & IObjectWithoutDetail<T>;
 
 export interface IPurpose {
