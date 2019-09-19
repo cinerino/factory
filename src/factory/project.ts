@@ -1,47 +1,64 @@
 import { IParentOrganization } from './organization';
 import SortType from './sortType';
 
+export interface IChevreSettings {
+    endpoint: string;
+}
+
+export interface ICOASettings {
+    endpoint: string;
+    refreshToken: string;
+}
+
+export interface ICognitoSettings {
+    /**
+     * 管理者ユーザープール
+     */
+    adminUserPool: {
+        id: string;
+    };
+    /**
+     * 顧客ユーザープール
+     */
+    customerUserPool: {
+        id: string;
+    };
+}
+
+export interface IGMOSettings {
+    endpoint: string;
+    siteId: string;
+    sitePass: string;
+}
+
+export interface IMvtkReserveSettings {
+    endpoint: string;
+    /**
+     * 興行会社コード
+     */
+    companyCode: string;
+}
+
+export interface IPecorinoSettings {
+    endpoint: string;
+}
+
+export interface ILineNotifySettings {
+    accessToken: string;
+    endpoint: string;
+}
+
+/**
+ * プロジェクト設定インターフェース
+ */
 export interface ISettings {
-    chevre?: {
-        endpoint: string;
-    };
-    coa?: {
-        endpoint: string;
-        refreshToken: string;
-    };
-    cognito?: {
-        /**
-         * 管理者ユーザープール
-         */
-        adminUserPool: {
-            id: string;
-        };
-        /**
-         * 顧客ユーザープール
-         */
-        customerUserPool: {
-            id: string;
-        };
-    };
-    gmo?: {
-        endpoint: string;
-        siteId: string;
-        sitePass: string;
-    };
-    mvtkReserve?: {
-        endpoint: string;
-        /**
-         * 興行会社コード
-         */
-        companyCode: string;
-    };
-    pecorino?: {
-        endpoint: string;
-    };
-    lineNotify?: {
-        accessToken: string;
-        endpoint: string;
-    };
+    chevre?: IChevreSettings;
+    coa?: ICOASettings;
+    cognito?: ICognitoSettings;
+    gmo?: IGMOSettings;
+    mvtkReserve?: IMvtkReserveSettings;
+    pecorino?: IPecorinoSettings;
+    lineNotify?: ILineNotifySettings;
 }
 
 /**
