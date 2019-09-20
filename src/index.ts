@@ -80,6 +80,7 @@ import * as WebAPIServiceFactory from './factory/service/webAPI';
 import { UnitCode } from './factory/unitCode';
 
 import SortType from './factory/sortType';
+import * as AggregateEventReservationsTaskFactory from './factory/task/aggregateEventReservations';
 import * as CancelAccountTaskFactory from './factory/task/cancelAccount';
 import * as CancelCreditCardTaskFactory from './factory/task/cancelCreditCard';
 import * as CancelPointAwardTaskFactory from './factory/task/cancelPointAward';
@@ -340,6 +341,7 @@ export import sortType = SortType;
 
 export namespace task {
     export type IData<T extends TaskName | string> =
+        T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.IData :
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IData :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IData :
         T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.IData :
@@ -369,6 +371,7 @@ export namespace task {
         TaskFactory.IData;
 
     export type IAttributes<T extends TaskName | string> =
+        T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.IAttributes :
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IAttributes :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IAttributes :
         T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.IAttributes :
@@ -398,6 +401,7 @@ export namespace task {
         TaskFactory.IAttributes;
 
     export type ITask<T extends TaskName | string> =
+        T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.ITask :
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.ITask :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.ITask :
         T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.ITask :

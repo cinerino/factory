@@ -3,6 +3,10 @@
  */
 enum TaskName {
     /**
+     * イベント予約集計
+     */
+    AggregateEventReservations = 'aggregateEventReservations',
+    /**
      * 口座承認アクション取消
      */
     CancelAccount = 'cancelAccount',
