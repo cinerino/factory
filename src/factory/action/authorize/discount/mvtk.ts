@@ -13,21 +13,15 @@ export type ISeatInfoSyncIn = mvtkapi.mvtk.services.seat.seatInfoSync.ISeatInfoS
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
-export enum ObjectType {
-    Mvtk = 'Mvtk'
-}
+// export enum ObjectType {
+//     Mvtk = 'Mvtk'
+// }
 
-// tslint:disable-next-line:no-suspicious-comment
-// TODO ムビチケ着券OUTに変更
-export interface IResult {
-    price: number;
-}
+export type IResult = any;
 
-// tslint:disable-next-line:no-suspicious-comment
-// TODO ムビチケ着券INに変更
 export interface IObject {
-    typeOf: ObjectType;
-    price: number;
+    // typeOf: ObjectType;
+    // price: number;
     seatInfoSyncIn: ISeatInfoSyncIn;
 }
 
