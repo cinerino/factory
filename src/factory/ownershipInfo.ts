@@ -45,12 +45,14 @@ export interface IReservation<T extends chevre.reservationType> {
     typeOf: T;
     /**
      * 予約ID
+     * EventReservationの場合、必ず存在します
      */
-    id: string;
+    id?: string;
     /**
      * 予約番号
+     * EventReservationの場合、必ず存在します
      */
-    reservationNumber: string;
+    reservationNumber?: string;
     /**
      * ブッキングサービス(API)
      */
@@ -58,7 +60,7 @@ export interface IReservation<T extends chevre.reservationType> {
 }
 
 export type IReservationWithDetail<T extends chevre.reservationType> =
-    IReservation<T> & chevre.reservation.IReservation<chevre.reservationType.EventReservation>;
+    IReservation<T> & chevre.reservation.IReservation<T>;
 
 /**
  * 所有対象物のタイプ
