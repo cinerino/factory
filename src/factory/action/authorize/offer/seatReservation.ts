@@ -1,6 +1,7 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import * as SeatReservationOfferFactory from '../../../offer/seatReservation';
+import * as OrderFactory from '../../../order';
 import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
 import PriceCurrency from '../../../priceCurrency';
 import { IPropertyValue } from '../../../propertyValue';
@@ -40,6 +41,8 @@ export interface ITmpReservation {
     additionalProperty?: IPropertyValue<string>[];
 }
 
+export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IReservation>;
+
 /**
  * 承認アクション結果
  */
@@ -69,6 +72,7 @@ export interface IResult<T extends WebAPIIdentifier> {
      * 仮予約リスト(ttts専用)
      */
     tmpReservations?: ITmpReservation[];
+    acceptedOffers?: IResultAcceptedOffer[];
 }
 
 export type IAcceptedPaymentMethod = IMovieTicket;
