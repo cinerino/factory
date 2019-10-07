@@ -71,7 +71,7 @@ export interface IResult<T extends WebAPIIdentifier> {
     /**
      * 仮予約リスト(ttts専用)
      */
-    tmpReservations?: ITmpReservation[];
+    // tmpReservations?: ITmpReservation[];
     acceptedOffers?: IResultAcceptedOffer[];
 }
 
