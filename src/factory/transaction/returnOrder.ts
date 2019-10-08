@@ -85,6 +85,9 @@ export interface IStartParams extends TransactionFactory.IStartParams<Transactio
     seller: ISeller;
 }
 
+/**
+ * 注文通知パラメータ
+ */
 export interface IInformOrderParams {
     /**
      * 通知先
@@ -111,6 +114,37 @@ export interface ICancelReservationParams {
     potentialActions?: ICancelReservationPotentialActions;
 }
 
+/**
+ * クレジットカード返金パラメータ
+ */
+export interface IRefundCreditCardParams {
+    object: {
+        object: {
+            paymentMethod: {
+                /**
+                 * 返金対象決済ID
+                 */
+                paymentMethodId: string;
+            };
+        }[];
+    };
+    potentialActions?: {
+        /**
+         * 注文通知アクション
+         */
+        informOrder?: IInformOrderParams[];
+        sendEmailMessage?: {
+            /**
+             * 返金メールカスタマイズ
+             * メール本文をカスタマイズしたい場合、PUGテンプレートを指定
+             * 挿入変数として`order`を使用できます
+             * @see https://pugjs.org/api/getting-started.html
+             */
+            object?: ICustomization;
+        };
+    };
+}
+
 export interface IPotentialActionsParams {
     /**
      * 注文返品アクション
@@ -131,29 +165,7 @@ export interface IPotentialActionsParams {
             /**
              * クレジットカード返金アクションについてカスタマイズする場合に指定
              */
-            refundCreditCard?: {
-                object: {
-                    object: {
-                        paymentMethod: {
-                            /**
-                             * 返金対象決済ID
-                             */
-                            paymentMethodId: string;
-                        };
-                    }[];
-                };
-                potentialActions?: {
-                    sendEmailMessage?: {
-                        /**
-                         * 返金メールカスタマイズ
-                         * メール本文をカスタマイズしたい場合、PUGテンプレートを指定
-                         * 挿入変数として`order`を使用できます
-                         * @see https://pugjs.org/api/getting-started.html
-                         */
-                        object?: ICustomization;
-                    };
-                };
-            }[];
+            refundCreditCard?: IRefundCreditCardParams[];
             // refundAccount?: refundAccountActions,
             /**
              * ムビチケ着券取消を実行するかどうか

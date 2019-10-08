@@ -2,6 +2,7 @@ import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { ISimpleOrder } from '../../order';
 import PaymentMethodType from '../../paymentMethodType';
+import { IAttributes as IInformActionAttributes } from '../interact/inform';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../transfer/send/message/email';
 import * as PayActionFactory from './pay';
 
@@ -13,6 +14,10 @@ export type IRecipient = ActionFactory.IParticipant;
 export type IObject<T extends PaymentMethodType> = PayActionFactory.IAction<T>;
 export type IResult = any;
 export interface IPotentialActions {
+    /**
+     * 注文通知アクション
+     */
+    informOrder?: IInformActionAttributes<any, any>[];
     /**
      * 返金処理完了を通知するEメール送信アクション
      */
