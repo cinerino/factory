@@ -48,4 +48,8 @@ export interface ICustomization {
      * @see https://pugjs.org/api/getting-started.html
      */
     template?: string;
+    /**
+     * 変数変換の必要がない場合の本文指定
+     */
+    text?: string;
 }
