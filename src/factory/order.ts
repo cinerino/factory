@@ -1,3 +1,4 @@
+import { IParticipant } from './action';
 import { IMonetaryAmount } from './monetaryAmount';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
@@ -115,6 +116,11 @@ export interface ISeller {
  */
 export type ICustomer = IPerson;
 
+/**
+ * 返品者インターフェース
+ */
+export type IReturner = IParticipant;
+
 export interface ISimpleOrder {
     project: IProject;
     /**
@@ -122,12 +128,10 @@ export interface ISimpleOrder {
      */
     typeOf: TypeOf;
     /**
-     * Organization or Person
      * The party taking the order (e.g. Amazon.com is a merchant for many sellers). Also accepts a string (e.g. "Amazon.com").
      */
     seller: ISeller;
     /**
-     * Person or Organization
      * Party placing the order.
      */
     customer: ICustomer;
@@ -184,6 +188,10 @@ export interface IOrder extends ISimpleOrder {
      * payment methods
      */
     paymentMethods: IPaymentMethod<AvailablePaymentMethodType>[];
+    /**
+     * Returner
+     */
+    returner?: IReturner;
     /**
      * URL	(recommended for confirmation cards/ Search Answers)
      * URL of the Order, typically a link to the merchant's website where the user can retrieve further details about an order.
