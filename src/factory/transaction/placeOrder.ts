@@ -10,7 +10,7 @@ import { IOrder } from '../order';
 import * as OrganizationFactory from '../organization';
 import OrganizationType from '../organizationType';
 import { IPerson, IProfile } from '../person';
-import { IProject } from '../project';
+import { IInformParams, IOnOrderStatusChanged, IProject } from '../project';
 import { Identifier as WebAPIIdentifier } from '../service/webAPI';
 import * as TransactionFactory from '../transaction';
 import TransactionType from '../transactionType';
@@ -56,6 +56,10 @@ export interface IStartParamsWithoutDetail {
     object: {
         clientUser?: IClientUser;
         passport?: IPassportBeforeStart;
+        /**
+         * 注文ステータス変更時イベント
+         */
+        onOrderStatusChanged?: IOnOrderStatusChanged;
     };
 }
 
@@ -72,17 +76,7 @@ export interface IStartParams extends TransactionFactory.IStartParams<Transactio
 /**
  * 注文通知パラメータ
  */
-export interface IInformOrderParams {
-    /**
-     * 通知先
-     */
-    recipient?: {
-        /**
-         * 通知URL
-         */
-        url?: string;
-    };
-}
+export type IInformOrderParams = IInformParams;
 
 /**
  * 予約確定パラメータ
@@ -197,6 +191,10 @@ export interface IObject {
      * 承認アクションリスト
      */
     authorizeActions: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
+    /**
+     * 注文ステータス変更時イベント
+     */
+    onOrderStatusChanged?: IOnOrderStatusChanged;
 }
 
 export interface IPotentialActions {

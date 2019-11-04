@@ -6,7 +6,7 @@ import { IOrder } from '../order';
 import * as OrganizationFactory from '../organization';
 import OrganizationType from '../organizationType';
 import { IPerson } from '../person';
-import { IProject } from '../project';
+import { IInformParams, IOnOrderStatusChanged, IProject } from '../project';
 import { Identifier as WebAPIIdentifier } from '../service/webAPI';
 import * as CancelReservationTaskFactory from '../task/cancelReservation';
 import * as TransactionFactory from '../transaction';
@@ -68,6 +68,10 @@ export interface IStartParamsWithoutDetail {
         order: IReturnableOrder;
         cancellationFee: number;
         reason: Reason;
+        /**
+         * 注文ステータス変更時イベント
+         */
+        onOrderStatusChanged?: IOnOrderStatusChanged;
     };
     seller: {
         typeOf: OrganizationType;
@@ -88,17 +92,7 @@ export interface IStartParams extends TransactionFactory.IStartParams<Transactio
 /**
  * 注文通知パラメータ
  */
-export interface IInformOrderParams {
-    /**
-     * 通知先
-     */
-    recipient?: {
-        /**
-         * 通知URL
-         */
-        url?: string;
-    };
-}
+export type IInformOrderParams = IInformParams;
 
 export import ICancelReservationObject = CancelReservationTaskFactory.IObject;
 export import ICancelReservationPotentialActions = CancelReservationTaskFactory.IPotentialActions;
@@ -206,6 +200,10 @@ export interface IObject {
      * 進行中の予約キャンセル取引
      */
     pendingCancelReservationTransactions?: chevre.transaction.cancelReservation.ITransaction[];
+    /**
+     * 注文ステータス変更時イベント
+     */
+    onOrderStatusChanged?: IOnOrderStatusChanged;
 }
 
 export interface IPotentialActions {

@@ -1,6 +1,21 @@
 import { IParentOrganization } from './organization';
 import SortType from './sortType';
 
+/**
+ * 通知パラメータ
+ */
+export interface IInformParams {
+    /**
+     * 通知先
+     */
+    recipient?: {
+        /**
+         * 通知URL
+         */
+        url?: string;
+    };
+}
+
 export interface IChevreSettings {
     endpoint: string;
 }
@@ -49,6 +64,13 @@ export interface ILineNotifySettings {
 }
 
 /**
+ * 注文ステータス変更時イベントインターフェース
+ */
+export interface IOnOrderStatusChanged {
+    informOrder?: IInformParams[];
+}
+
+/**
  * プロジェクト設定インターフェース
  */
 export interface ISettings {
@@ -59,6 +81,7 @@ export interface ISettings {
     mvtkReserve?: IMvtkReserveSettings;
     pecorino?: IPecorinoSettings;
     lineNotify?: ILineNotifySettings;
+    onOrderStatusChanged?: IOnOrderStatusChanged;
 }
 
 /**
