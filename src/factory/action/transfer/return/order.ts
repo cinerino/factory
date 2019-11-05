@@ -5,6 +5,7 @@ import { IAttributes as IInformActionAttributes } from '../../interact/inform';
 import { IAttributes as ICancelActionAttributes } from '../../organize/cancel';
 import { IAttributes as IRefundActionAttributes } from '../../trade/refund';
 import * as ReturnActionFactory from '../return';
+import { IAttributes as ISendEmailMessageActionAttributes } from '../send/message/email';
 import * as ReturnPointAwardActionFactory from './pointAward';
 
 export type IAgent = ActionFactory.IParticipant;
@@ -42,6 +43,10 @@ export interface IPotentialActions {
      * ポイントインセンティブ返却アクション
      */
     returnPointAward: ReturnPointAwardActionFactory.IAttributes[];
+    /**
+     * Eメール送信アクション
+     */
+    sendEmailMessage?: ISendEmailMessageActionAttributes[];
 }
 
 export interface IAttributes extends ReturnActionFactory.IAttributes<IObject, IResult> {

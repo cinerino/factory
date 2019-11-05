@@ -31,7 +31,7 @@ export interface IPotentialActions {
      */
     registerProgramMembership?: IRegisterProgramMembershipAttributes[];
     /**
-     * 注文配送を通知するEメール送信アクション
+     * Eメール送信アクション
      */
     sendEmailMessage?: ISendEmailMessageActionAttributes[];
 }
