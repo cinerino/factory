@@ -176,6 +176,10 @@ export interface IOrder extends ISimpleOrder {
      */
     discounts: IDiscount[];
     /**
+     * The identifier property represents any kind of identifier for any kind of Thing
+     */
+    identifier?: IIdentifier;
+    /**
      * Was the offer accepted as a gift for someone other than the buyer.
      */
     isGift?: boolean;
@@ -319,6 +323,12 @@ export interface ISearchConditions {
      * 顧客条件
      */
     customer?: ICustomerSearchConditions;
+    /**
+     * 識別子条件
+     */
+    identifier?: {
+        $in?: IIdentifier;
+    };
     /**
      * 注文番号リスト
      */
