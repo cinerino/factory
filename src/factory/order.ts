@@ -5,7 +5,7 @@ import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
-import { IIdentifier, IPerson } from './person';
+import { IIdentifier as IPersonIdentifier, IPerson } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
 import { IProgramMembership } from './programMembership';
@@ -120,6 +120,8 @@ export type ICustomer = IPerson;
  * 返品者インターフェース
  */
 export type IReturner = IParticipant;
+
+export type IIdentifier = IPropertyValue<string>[];
 
 export interface ISimpleOrder {
     project: IProject;
@@ -275,7 +277,7 @@ export interface ISellerSearchConditions {
 export interface ICustomerSearchConditions {
     typeOf?: PersonType;
     ids?: string[];
-    identifiers?: IIdentifier;
+    identifiers?: IPersonIdentifier;
     membershipNumbers?: string[];
     givenName?: string;
     familyName?: string;
