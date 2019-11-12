@@ -278,6 +278,10 @@ export interface ICustomerSearchConditions {
     typeOf?: PersonType;
     ids?: string[];
     identifiers?: IPersonIdentifier;
+    identifier?: {
+        $all?: IPersonIdentifier;
+        $in?: IPersonIdentifier;
+    };
     membershipNumbers?: string[];
     givenName?: string;
     familyName?: string;
@@ -329,6 +333,7 @@ export interface ISearchConditions {
      * 識別子条件
      */
     identifier?: {
+        $all?: IIdentifier;
         $in?: IIdentifier;
     };
     /**
