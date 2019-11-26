@@ -1,6 +1,6 @@
 import * as COA from '@motionpicture/coa-service';
 
-import { IOffer } from '../offer';
+import * as OfferFactory from '../offer';
 
 export interface ICOATicketInfo {
     /**
@@ -100,7 +100,7 @@ export interface IOffer {
 /**
  * 座席予約供給情報(詳細つき)インターフェース
  */
-export interface IOfferWithDetails extends IOffer {
+export interface IOfferWithDetails extends OfferFactory.IOffer {
     /**
      * seat section
      */
