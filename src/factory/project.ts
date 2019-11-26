@@ -70,6 +70,21 @@ export interface IOnOrderStatusChanged {
     informOrder?: IInformParams[];
 }
 
+export interface IRepositorySettings {
+    event?: any;
+}
+
+/**
+ * ウェブフック設定
+ */
+export interface IWebhookSettings {
+    /**
+     * リクエストタイムアウト
+     * @see https://github.com/request/request#timeouts
+     */
+    timeout?: number;
+}
+
 /**
  * プロジェクト設定インターフェース
  */
@@ -82,6 +97,8 @@ export interface ISettings {
     pecorino?: IPecorinoSettings;
     lineNotify?: ILineNotifySettings;
     onOrderStatusChanged?: IOnOrderStatusChanged;
+    repository?: IRepositorySettings;
+    webhook?: IWebhookSettings;
 }
 
 /**
