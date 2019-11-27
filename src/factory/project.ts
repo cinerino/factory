@@ -99,6 +99,21 @@ export interface ISettings {
     onOrderStatusChanged?: IOnOrderStatusChanged;
     repository?: IRepositorySettings;
     webhook?: IWebhookSettings;
+
+    // ↓その他の設定
+    codeExpiresInSeconds?: number;
+    emailInformUpdateProgrammembership?: string;
+    importEventsIntervalInMinutes?: number;
+    importEventsInWeeks?: number;
+    importEventsStopped?: boolean;
+    sendgridApiKey?: string;
+    transactionWebhookUrl?: string;
+    useEventRepo?: boolean;
+    useInMemoryOfferRepo?: boolean;
+    useRedisEventItemAvailabilityRepo?: boolean;
+    useReservationNumberAsConfirmationNumber?: boolean;
+    useUsernameAsGMOMemberId?: boolean;
+    validateMovieTicket?: boolean;
 }
 
 /**
