@@ -65,3 +65,20 @@ export interface IProgramMembership {
      */
     url?: string;
 }
+
+/**
+ * 会員プログラム検索条件インターフェース
+ */
+export interface ISearchConditions {
+    limit?: number;
+    page?: number;
+    // sort?: ISortOrder;
+    project?: {
+        id?: {
+            $eq?: string;
+        };
+    };
+    id?: {
+        $eq?: string;
+    };
+}
