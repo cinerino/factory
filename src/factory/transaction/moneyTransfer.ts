@@ -81,6 +81,10 @@ export type IToLocation<T extends AccountType> = IAccount<T>;
  */
 export interface IObject<T extends AccountType> {
     /**
+     * 金額
+     */
+    amount?: number;
+    /**
      * 転送先口座
      */
     toLocation?: IToLocation<T>;
