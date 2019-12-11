@@ -1,5 +1,5 @@
 /**
- * 合計金額インターフェース
+ * 金額インターフェース
  * @see https://schema.org/MonetaryAmount
  */
 export interface IMonetaryAmount {

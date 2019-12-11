@@ -4,6 +4,7 @@ import AccountType from '../../accountType';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
+import { ISimpleOrder } from '../../order';
 import PaymentMethodType from '../../paymentMethodType';
 import { IPropertyValue } from '../../propertyValue';
 import SortType from '../../sortType';
@@ -95,27 +96,16 @@ export type IResult = any;
 
 export type IPotentialActions = any;
 
-/**
- * アクションの目的インターフェース
- * ここでは、取引が目的となる
- */
-export interface IPurpose {
-    /**
-     * 取引タイプ
-     */
+export interface ITransactionPurpose {
     typeOf: TransactionType;
-    /**
-     * 取引ID
-     */
     id: string;
 }
+
+export type IPurpose = ITransactionPurpose | ISimpleOrder;
 
 export interface IAttributes<T extends AccountType>
     extends ActionFactory.IAttributes<ActionType.MoneyTransfer, IObject<T>, IResult> {
     typeOf: ActionType.MoneyTransfer;
-    /**
-     * どんな取引によって発生した転送アクションか
-     */
     purpose: IPurpose;
     /**
      * 金額
@@ -137,14 +127,7 @@ export type IAction<T extends AccountType> = ActionFactory.IAction<IAttributes<T
  * ソート条件インターフェース
  */
 export interface ISortOrder {
-    /**
-     * アクション開始日時順
-     */
     startDate?: SortType;
-    /**
-     * アクション完了日時順
-     */
-    endDate?: SortType;
 }
 
 /**

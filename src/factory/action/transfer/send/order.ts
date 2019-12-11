@@ -1,3 +1,4 @@
+import AccountType from '../../../accountType';
 import * as ActionFactory from '../../../action';
 import { IOrder } from '../../../order';
 import { IGood, IGoodType, IOwnershipInfo } from '../../../ownershipInfo';
@@ -5,6 +6,7 @@ import { Identifier as WebAPIIdentifier } from '../../../service/webAPI';
 import { IAttributes as IConfirmReservationActionAttributes } from '../../interact/confirm/reservation';
 import { IAttributes as IInformActionAttributes } from '../../interact/inform';
 import { IAttributes as IRegisterProgramMembershipAttributes } from '../../interact/register/programMembership';
+import { IAttributes as IMoneyTransferActionAttributes } from '../../transfer/moneyTransfer';
 import * as SendActionFactory from '../send';
 import { IAttributes as ISendEmailMessageActionAttributes } from './message/email';
 
@@ -26,6 +28,10 @@ export interface IPotentialActions {
      * 注文通知アクション
      */
     informOrder?: IInformActionAttributes<any, any>[];
+    /**
+     * 通貨転送アクション
+     */
+    moneyTransfer?: IMoneyTransferActionAttributes<AccountType>[];
     /**
      * 会員プログラムの注文の場合、会員プログラム登録アクション
      */

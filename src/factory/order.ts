@@ -1,4 +1,7 @@
+import AccountType from './accountType';
 import { IParticipant } from './action';
+import { IAccount } from './action/transfer/moneyTransfer';
+import ActionType from './actionType';
 import { IMonetaryAmount } from './monetaryAmount';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
@@ -73,10 +76,16 @@ export interface IDiscount {
 
 export type IReservation = chevre.reservation.IReservation<chevre.reservationType.EventReservation>;
 
+export interface IMoneyTransfer<T extends AccountType> {
+    typeOf: ActionType.MoneyTransfer;
+    amount: number;
+    toLocation: IAccount<T>;
+}
+
 /**
  * 供給アイテムインターフェース
  */
-export type IItemOffered = IReservation | IProgramMembership;
+export type IItemOffered = IMoneyTransfer<AccountType> | IReservation | IProgramMembership;
 
 export type ItemOfferedType = chevre.reservationType | string;
 

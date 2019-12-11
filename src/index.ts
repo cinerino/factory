@@ -11,6 +11,7 @@ import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as PointAwardAuthorizeActionFactory from './factory/action/authorize/award/point';
 import * as AuthorizeMvtkDiscountActionFactory from './factory/action/authorize/discount/mvtk';
+import * as AuthorizeMoneyTransferOfferActionFactory from './factory/action/authorize/offer/moneyTransfer';
 import * as AuthorizeProgramMembershipOfferActionFactory from './factory/action/authorize/offer/programMembership';
 import * as AuthorizeSeatReservationOfferActionFactory from './factory/action/authorize/offer/seatReservation';
 import * as AuthorizeAccountPaymentActionFactory from './factory/action/authorize/paymentMethod/account';
@@ -164,6 +165,8 @@ export namespace action {
         }
         // tslint:disable-next-line:no-shadowed-variable
         export namespace offer {
+            // tslint:disable-next-line:no-shadowed-variable
+            export import moneyTransfer = AuthorizeMoneyTransferOfferActionFactory;
             // tslint:disable-next-line:no-shadowed-variable
             export import programMembership = AuthorizeProgramMembershipOfferActionFactory;
             // tslint:disable-next-line:no-shadowed-variable
