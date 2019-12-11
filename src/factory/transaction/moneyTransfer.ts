@@ -1,4 +1,4 @@
-import * as pecorino from '@pecorino/factory';
+// import * as pecorino from '@pecorino/factory';
 
 import AccountType from '../accountType';
 import { IAction as IAuthorizeAction, IAttributes as IAuthorizeActionAttributes } from '../action/authorize';
@@ -22,7 +22,7 @@ export type IRecipient = IPerson | OrganizationFactory.IOrganization<Organizatio
  */
 export type ISeller = OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>>;
 
-export interface IStartParamsWithoutDetail {
+export interface IStartParamsWithoutDetail<T extends AccountType> {
     project: IProject;
     /**
      * 取引期限
@@ -43,14 +43,14 @@ export interface IStartParamsWithoutDetail {
     /**
      * 転送内容
      */
-    object: IObject;
+    object: IObject<T>;
 }
 
 /**
  * 取引開始パラメーターインターフェース
  */
-export interface IStartParams
-    extends TransactionFactory.IStartParams<TransactionType.MoneyTransfer, IAgent, IRecipient, IObject> {
+export interface IStartParams<T extends AccountType>
+    extends TransactionFactory.IStartParams<TransactionType.MoneyTransfer, IAgent, IRecipient, IObject<T>> {
     /**
      * 転送先
      */
@@ -71,22 +71,19 @@ export type IError = any;
 /**
  * 管理されていない口座インターフェース
  */
-export import IAnonymousLocation = pecorino.action.transfer.moneyTransfer.IAnonymousLocation;
+// export import IAnonymousLocation = pecorino.action.transfer.moneyTransfer.IAnonymousLocation;
 
-export type IToLocation<T extends AccountType> = IAnonymousLocation | IAccount<T>;
+// export type IToLocation<T extends AccountType> = IAnonymousLocation | IAccount<T>;
+export type IToLocation<T extends AccountType> = IAccount<T>;
 
 /**
  * 取引対象物インターフェース
  */
-export interface IObject {
-    /**
-     * 金額
-     */
-    // amount: number;
+export interface IObject<T extends AccountType> {
     /**
      * 転送先口座
      */
-    // toLocation: IToLocation<T>;
+    toLocation?: IToLocation<T>;
     /**
      * 取引説明
      */
@@ -99,8 +96,7 @@ export interface IObject {
 
 export interface IPotentialActions<T extends AccountType> {
     /**
-     * 通貨転送
-     * fromLocationが複数の場合、複数の転送アクションが発生
+     * 通貨転送アクション
      */
     moneyTransfer: IMoneyTransferActionAttributes<T>[];
     /**
@@ -115,7 +111,7 @@ export type ITransaction<T extends AccountType> = IExtendId<IAttributes<T>>;
  * 転送取引インターフェース
  */
 export interface IAttributes<T extends AccountType>
-    extends TransactionFactory.IAttributes<IStartParams, IResult, IError, IPotentialActions<T>> {
+    extends TransactionFactory.IAttributes<IStartParams<T>, IResult, IError, IPotentialActions<T>> {
 }
 
 export interface ISearchConditions extends TransactionFactory.ISearchConditions<TransactionType.MoneyTransfer> {
