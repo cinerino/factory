@@ -108,6 +108,7 @@ import * as SendOrderTaskFactory from './factory/task/sendOrder';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
 import * as UnRegisterProgramMembershipTaskFactory from './factory/task/unRegisterProgramMembership';
 import * as UpdateEventAttendeeCapacityTaskFactory from './factory/task/updateEventAttendeeCapacity';
+import * as VoidMoneyTransferTaskFactory from './factory/task/voidMoneyTransfer';
 
 import * as TaskFactory from './factory/task';
 import TaskName from './factory/taskName';
@@ -371,6 +372,7 @@ export namespace task {
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IData :
         T extends TaskName.UpdateEventAttendeeCapacity ? UpdateEventAttendeeCapacityTaskFactory.IData :
+        T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IData :
         TaskFactory.IData;
 
     export type IAttributes<T extends TaskName | string> =
@@ -401,6 +403,7 @@ export namespace task {
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.UpdateEventAttendeeCapacity ? UpdateEventAttendeeCapacityTaskFactory.IAttributes :
+        T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IAttributes :
         TaskFactory.IAttributes;
 
     export type ITask<T extends TaskName | string> =
@@ -431,6 +434,7 @@ export namespace task {
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.ITask :
         T extends TaskName.UpdateEventAttendeeCapacity ? UpdateEventAttendeeCapacityTaskFactory.ITask :
+        T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.ITask :
         TaskFactory.ITask;
 
     export import ISearchConditions = TaskFactory.ISearchConditions;

@@ -109,7 +109,11 @@ enum TaskName {
     /**
      * イベント席数更新
      */
-    UpdateEventAttendeeCapacity = 'updateEventAttendeeCapacity'
+    UpdateEventAttendeeCapacity = 'updateEventAttendeeCapacity',
+    /**
+     * 通貨転送中止
+     */
+    VoidMoneyTransfer = 'voidMoneyTransfer'
 }
 
 export default TaskName;
