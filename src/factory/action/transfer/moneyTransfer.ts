@@ -15,22 +15,9 @@ export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
 /**
- * 出所不明の匿名場所インターフェース
+ * 匿名ロケーションインターフェース
  */
-export interface IAnonymousLocation {
-    /**
-     * ロケーションタイプ
-     */
-    typeOf: string;
-    /**
-     * ロケーションID
-     */
-    id?: string;
-    /**
-     * ロケーション名
-     */
-    name?: string;
-}
+export import IAnonymousLocation = pecorino.action.transfer.moneyTransfer.IAnonymousLocation;
 
 export type AvailablePaymentMethodType = PaymentMethodType | string;
 
