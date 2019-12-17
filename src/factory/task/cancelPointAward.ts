@@ -5,6 +5,11 @@ import * as TaskFactory from '../task';
 import TaskName from '../taskName';
 
 export interface IData {
+    agent?: { id: string };
+    /**
+     * 承認アクションID指定であれば、指定アクションのみ中止
+     */
+    id?: string;
     project: IProject;
     purpose: IPurpose;
 }
