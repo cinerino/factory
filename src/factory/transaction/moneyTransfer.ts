@@ -62,8 +62,15 @@ export type IResult = any;
  */
 export type IError = any;
 
+/**
+ * トークン化された口座インターフェース
+ */
+export type ITokenizedAccount = string;
+
+export type IFromLocation<T extends AccountType> = IAccount<T> | ITokenizedAccount;
+
 export type IToLocationType = pecorino.account.TypeOf.Account | string;
-export type IFromLocation<T extends AccountType> = IAccount<T>;
+
 export type IToLocation<T extends AccountType, T2 extends IToLocationType> =
     T2 extends pecorino.account.TypeOf.Account ? IAccount<T> :
     IAnonymousLocation;
