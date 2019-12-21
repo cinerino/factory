@@ -97,7 +97,7 @@ export interface IAttributes<T extends AccountType>
     /**
      * 金額
      */
-    amount: number;
+    amount: IMonetaryAmount;
     /**
      * 転送元
      */

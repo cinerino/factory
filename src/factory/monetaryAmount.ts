@@ -1,8 +1,10 @@
+import { IThing } from './thing';
+
 /**
  * 金額インターフェース
  * @see https://schema.org/MonetaryAmount
  */
-export interface IMonetaryAmount {
+export interface IMonetaryAmount extends IThing {
     typeOf: 'MonetaryAmount';
     /**
      * The currency in which the monetary amount is expressed.

@@ -4,8 +4,8 @@ import OrganizationType from './organizationType';
 import { IPerson } from './person';
 import { IProject } from './project';
 import { IQuantitativeValue } from './quantitativeValue';
+import { IThing } from './thing';
 
-// export type ProgramMembershipType = 'ProgramMembership';
 export enum ProgramMembershipType {
     ProgramMembership = 'ProgramMembership'
 }
@@ -22,7 +22,7 @@ export type Award = any;
  * (e.g. "StarAliance"), traveler clubs (e.g. "AAA"), purchase clubs ("Safeway Club"), etc.
  * @see https://schema.org/ProgramMembership
  */
-export interface IProgramMembership {
+export interface IProgramMembership extends IThing {
     /**
      * 特典リスト
      */
@@ -46,12 +46,7 @@ export interface IProgramMembership {
      */
     membershipPointsEarned?: IQuantitativeValue<any>;
     /**
-     * The name of the item.
-     */
-    name?: string;
-    /**
      * 会員プログラムに対するオファー
-     * このオファーに対して注文取引を成立させると、ユーザーに会員プログラムが所有権として付与されます。
      */
     offers?: IOffer[];
     /**
@@ -60,10 +55,6 @@ export interface IProgramMembership {
     programName?: string;
     project: IProject;
     typeOf: ProgramMembershipType;
-    /**
-     * URL of the item.
-     */
-    url?: string;
 }
 
 /**
