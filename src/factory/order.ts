@@ -1,8 +1,8 @@
-import AccountType from './accountType';
+// import AccountType from './accountType';
 import { IParticipant } from './action';
-import { IAccount } from './action/transfer/moneyTransfer';
-import ActionType from './actionType';
-import { IMonetaryAmount } from './monetaryAmount';
+// import { IAccount } from './action/transfer/moneyTransfer';
+// import ActionType from './actionType';
+import * as MonetaryAmountFactory from './monetaryAmount';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
@@ -44,7 +44,7 @@ export interface IPaymentMethod<T extends AvailablePaymentMethodType> {
     /**
      * The total amount due.
      */
-    totalPaymentDue?: IMonetaryAmount;
+    totalPaymentDue?: MonetaryAmountFactory.IMonetaryAmount;
     /**
      * 追加特性
      */
@@ -76,16 +76,17 @@ export interface IDiscount {
 
 export type IReservation = chevre.reservation.IReservation<chevre.reservationType.EventReservation>;
 
-export interface IMoneyTransfer<T extends AccountType> {
-    typeOf: ActionType.MoneyTransfer;
-    amount: number;
-    toLocation: IAccount<T>;
-}
+// export interface IMoneyTransfer<T extends AccountType> {
+//     typeOf: ActionType.MoneyTransfer;
+//     amount: number;
+//     toLocation: IAccount<T>;
+// }
+export import IMonetaryAmount = MonetaryAmountFactory.IMonetaryAmount;
 
 /**
  * 供給アイテムインターフェース
  */
-export type IItemOffered = IMoneyTransfer<AccountType> | IReservation | IProgramMembership;
+export type IItemOffered = IMonetaryAmount | IReservation | IProgramMembership;
 
 export type ItemOfferedType = chevre.reservationType | string;
 
