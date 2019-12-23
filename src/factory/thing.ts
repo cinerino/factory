@@ -1,6 +1,11 @@
 import { IPropertyValue } from './propertyValue';
 
 /**
+ * 識別子インターフェース
+ */
+export type IIdentifier = IPropertyValue<string>[];
+
+/**
  * @see https://schema.org/Thing
  */
 export interface IThing {
@@ -15,7 +20,7 @@ export interface IThing {
     /**
      * The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc.
      */
-    identifier?: IPropertyValue<string>[];
+    identifier?: IIdentifier;
     /**
      * An image of the item.
      */

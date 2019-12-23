@@ -1,21 +1,19 @@
 import PersonType from './personType';
 import * as ProgramMembershipFactory from './programMembership';
 import { IPropertyValue } from './propertyValue';
+import * as ThingFactory from './thing';
 
 /**
  * 追加属性インターフェース
  */
-export type IAdditionalProperty = IPropertyValue<string | undefined>[];
+export type IAdditionalProperty = IPropertyValue<string>[];
 
-/**
- * 識別子インターフェース
- */
-export type IIdentifier = IPropertyValue<string>[];
+export import IIdentifier = ThingFactory.IIdentifier;
 
 /**
  * プロフィールインターフェース
  */
-export interface IProfile {
+export interface IProfile extends ThingFactory.IThing {
     /**
      * 追加属性
      * プロジェクト固有の属性等
@@ -52,21 +50,13 @@ export interface IProfile {
  * 人物インターフェース
  */
 export type IPerson = IProfile & {
-    description?: string;
     /**
      * Person ID (Amazon Cognito User Identifier)
      */
     id: string;
     /**
-     * 人を識別するもの
-     * サービスを使用するアプリケーション側で都合のいいように設定する
-     */
-    identifier?: IIdentifier;
-    /**
      * An Organization (or ProgramMembership) to which this Person or Organization belongs.
      */
     memberOf?: ProgramMembershipFactory.IProgramMembership;
-    name?: string;
     typeOf: PersonType;
-    url?: string;
 };
