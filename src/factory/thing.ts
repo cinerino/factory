@@ -20,7 +20,7 @@ export interface IThing {
     /**
      * The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc.
      */
-    identifier?: IIdentifier;
+    identifier?: IIdentifier | string;
     /**
      * An image of the item.
      */

@@ -48,6 +48,7 @@ import AccountType from './factory/accountType';
 import * as AuthorizationFactory from './factory/authorization';
 import * as ClientUserFactory from './factory/clientUser';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
+import * as WebApplicationFactory from './factory/creativeWork/softwareApplication/webApplication';
 import CreativeWorkType from './factory/creativeWorkType';
 import * as EncodingFormat from './factory/encodingFormat';
 import * as EventFactory from './factory/event';
@@ -288,12 +289,18 @@ export namespace paymentMethod {
     }
 }
 export import clientUser = ClientUserFactory;
+
 export namespace creativeWork {
     export namespace message {
         export import email = EmailMessageFactory;
     }
+    export namespace softwareApplication {
+        export import webApplication = WebApplicationFactory;
+    }
 }
+
 export import creativeWorkType = CreativeWorkType;
+
 export namespace event {
     export type IAttributes<T extends chevre.eventType> =
         T extends chevre.eventType.ScreeningEvent ? ScreeningEventFactory.IAttributes :

@@ -1,12 +1,14 @@
 import CreativeWorkType from './creativeWorkType';
+import { IThing } from './thing';
 
 export interface ICopyrightHolder {
     name: string;
 }
 /**
- * 作品インターフェース
+ * 著作物インターフェース
  */
-export interface ICreativeWork {
+export interface ICreativeWork extends IThing {
+    id?: string;
     identifier: string;
     name: string;
     description?: string;
