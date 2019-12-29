@@ -2,10 +2,10 @@ import * as pecorino from '@pecorino/factory';
 
 import AccountType from './accountType';
 import * as OrganizationFactory from './organization';
+import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
 import { IPerson } from './person';
 import { IProgramMembership, ProgramMembershipType } from './programMembership';
-import { IProject } from './project';
 import { Identifier as WebAPIIdentifier, IService as IWebAPI } from './service/webAPI';
 import SortType from './sortType';
 

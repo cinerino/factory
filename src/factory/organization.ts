@@ -1,10 +1,10 @@
 import AccountType from './accountType';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
+import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
 import { IAvailablePlaceType, IPlace } from './place';
-import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 

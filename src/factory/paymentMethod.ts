@@ -1,5 +1,5 @@
+import { IProject } from './organization/project';
 import PaymentMethodType from './paymentMethodType';
-import { IProject } from './project';
 import SortType from './sortType';
 
 /**

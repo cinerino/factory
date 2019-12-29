@@ -1,12 +1,12 @@
 import { IMonetaryAmount } from './monetaryAmount';
 import { IAcceptedOffer, ICustomer, IOrder } from './order';
 import { IAttributes as IOrganizationAttributes, IOrganization } from './organization';
+import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
 import PaymentStatusType from './paymentStatusType';
 import { IIdentifier, IPerson } from './person';
 import PersonType from './personType';
-import { IProject } from './project';
 import SortType from './sortType';
 
 export type IBroker = IOrganization<IOrganizationAttributes<OrganizationType>> | IPerson;

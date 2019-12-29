@@ -3,6 +3,8 @@
  */
 enum OrganizationType {
     Corporation = 'Corporation',
-    MovieTheater = 'MovieTheater'
+    MovieTheater = 'MovieTheater',
+    Project = 'Project'
 }
+
 export default OrganizationType;

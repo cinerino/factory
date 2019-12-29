@@ -1,5 +1,6 @@
-import { IParentOrganization } from './organization';
-import SortType from './sortType';
+import { IParentOrganization } from '../organization';
+import OrganizationType from '../organizationType';
+import SortType from '../sortType';
 
 /**
  * 通知パラメータ
@@ -120,7 +121,7 @@ export interface ISettings {
  * プロジェクトインターフェース
  */
 export interface IProject {
-    typeOf: 'Project';
+    typeOf: OrganizationType.Project;
     id: string;
     alternateName?: string;
     description?: string;
