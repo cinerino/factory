@@ -1,4 +1,4 @@
-import { IProject } from './project';
+import { IProject } from './organization/project';
 import SortType from './sortType';
 
 /**

@@ -1,8 +1,8 @@
 import { IOffer } from './offer';
 import * as OrganizationFactory from './organization';
+import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
 import { IPerson } from './person';
-import { IProject } from './project';
 import { IQuantitativeValue } from './quantitativeValue';
 import { IThing } from './thing';
 

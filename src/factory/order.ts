@@ -6,13 +6,13 @@ import * as MonetaryAmountFactory from './monetaryAmount';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
+import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
 import { IIdentifier as IPersonIdentifier, IPerson } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
 import { IProgramMembership } from './programMembership';
-import { IProject } from './project';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 

@@ -61,6 +61,7 @@ import * as OfferFactory from './factory/offer';
 import * as OrderFactory from './factory/order';
 import OrderStatus from './factory/orderStatus';
 import * as OrganizationFactory from './factory/organization';
+import * as ProjectFactory from './factory/organization/project';
 import OrganizationType from './factory/organizationType';
 import * as OwnershipInfoFactory from './factory/ownershipInfo';
 import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
@@ -75,7 +76,6 @@ import * as StorePlaceFactory from './factory/place/store';
 import PlaceType from './factory/placeType';
 import PriceCurrency from './factory/priceCurrency';
 import * as ProgramMembershipFactory from './factory/programMembership';
-import * as project from './factory/project';
 import * as PropertyValueFactory from './factory/propertyValue';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
 import * as WebAPIServiceFactory from './factory/service/webAPI';
@@ -341,7 +341,7 @@ export namespace place {
 }
 export import placeType = PlaceType;
 export import programMembership = ProgramMembershipFactory;
-export import project = project;
+export import project = ProjectFactory;
 export import propertyValue = PropertyValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
 export namespace service {
