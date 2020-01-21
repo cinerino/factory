@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 各インターフェース検索条件にproject.id.$eqを追加
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v1.2.0 - 2020-01-21
+
+### Changed
+
+- 各インターフェース検索条件にproject.id.$eqを追加
 
 ## v1.1.0 - 2019-12-29
 
