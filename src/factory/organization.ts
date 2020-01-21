@@ -212,7 +212,10 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
-    project?: { ids?: string[] };
+    project?: {
+        id?: { $eq?: string };
+        ids?: string[];
+    };
     typeOfs?: OrganizationType[];
     /**
      * 名称

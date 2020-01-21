@@ -75,7 +75,10 @@ export interface ISearchConditions<T extends TaskName | string> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
-    project?: { ids?: string[] };
+    project?: {
+        id?: { $eq?: string };
+        ids?: string[];
+    };
     name?: T;
     statuses?: TaskStatus[];
     runsFrom?: Date;

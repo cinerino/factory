@@ -119,7 +119,10 @@ export interface ISearchConditions<T extends ActionType> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
-    project?: { ids?: string[] };
+    project?: {
+        id?: { $eq?: string };
+        ids?: string[];
+    };
     typeOf?: T;
     actionStatusTypes?: ActionStatusType[];
     startFrom?: Date;
