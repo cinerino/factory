@@ -127,7 +127,10 @@ export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
-    project?: { ids?: string[] };
+    project?: {
+        id?: { $eq?: string };
+        ids?: string[];
+    };
     createdFrom?: Date;
     createdThrough?: Date;
     accountIds?: string[];

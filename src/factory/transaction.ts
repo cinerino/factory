@@ -111,7 +111,10 @@ export interface ISearchConditions<T extends TransactionType> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
-    project?: { ids?: string[] };
+    project?: {
+        id?: { $eq?: string };
+        ids?: string[];
+    };
     /**
      * 取引タイプ
      */

@@ -220,7 +220,10 @@ export interface ISearchConditions<T extends IGoodType> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
-    project?: { ids?: string[] };
+    project?: {
+        id?: { $eq?: string };
+        ids?: string[];
+    };
     ids?: string[];
     /**
      * 所有者
