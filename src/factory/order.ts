@@ -358,11 +358,26 @@ export interface ISearchConditions {
      */
     orderStatuses?: OrderStatus[];
     /**
+     * 注文日時
+     */
+    orderDate?: {
+        /**
+         * 注文日時(まで)
+         */
+        $gte?: Date;
+        /**
+         * 注文日時(から)
+         */
+        $lte?: Date;
+    };
+    /**
      * 注文日時(から)
+     * @deprecated Use orderDate.$gte
      */
     orderDateFrom?: Date;
     /**
      * 注文日時(まで)
+     * @deprecated Use orderDate.$lte
      */
     orderDateThrough?: Date;
     /**
