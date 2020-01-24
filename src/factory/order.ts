@@ -292,11 +292,28 @@ export interface ICustomerSearchConditions {
         $all?: IPersonIdentifier;
         $in?: IPersonIdentifier;
     };
-    membershipNumbers?: string[];
-    givenName?: string;
-    familyName?: string;
-    email?: string;
-    telephone?: string;
+    additionalProperty?: {
+        $all?: IPersonIdentifier;
+        $in?: IPersonIdentifier;
+    };
+    memberOf?: {
+        membershipNumber?: {
+            $eq?: string;
+            $in?: string[];
+        };
+    };
+    givenName?: string | {
+        $eq?: string;
+    };
+    familyName?: string | {
+        $eq?: string;
+    };
+    email?: string | {
+        $eq?: string;
+    };
+    telephone?: string | {
+        $eq?: string;
+    };
 }
 
 export interface IPaymentMethodsSearchConditions {
