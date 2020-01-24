@@ -304,15 +304,19 @@ export interface ICustomerSearchConditions {
     };
     givenName?: string | {
         $eq?: string;
+        $regex?: string;
     };
     familyName?: string | {
         $eq?: string;
+        $regex?: string;
     };
     email?: string | {
         $eq?: string;
+        $regex?: string;
     };
     telephone?: string | {
         $eq?: string;
+        $regex?: string;
     };
 }
 
