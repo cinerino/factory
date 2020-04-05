@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v1.6.0 - 2020-04-05
+
+### Added
+
 - 販売者に返品ポリシー属性を追加
 
 ### Changed
@@ -15,15 +29,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - update @chevre/factory
 - 注文検索条件拡張
 
-### Deprecated
-
 ### Removed
 
 - 場所(オンラインとストア)インターフェースを削除
-
-### Fixed
-
-### Security
 
 ## v1.5.0 - 2020-01-24
 
