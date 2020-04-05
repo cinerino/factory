@@ -1,4 +1,5 @@
 import AccountType from './accountType';
+import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import { IProject } from './organization/project';
@@ -147,12 +148,15 @@ export type IMakesOffer = IOffer;
  */
 export type IAreaServed = any;
 
+export type IHasMerchantReturnPolicy = IMerchantReturnPolicy[];
+
 export interface IAttributes<T extends OrganizationType> {
     project: IProject;
     /**
      * 組織タイプ
      */
     typeOf: T;
+    hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
     identifier?: any;
     name: IMultilingualString;
     /**

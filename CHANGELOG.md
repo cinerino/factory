@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 販売者に返品ポリシー属性を追加
+
 ### Changed
 
 - update @chevre/factory
