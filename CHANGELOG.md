@@ -18,6 +18,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v1.6.0 - 2020-04-05
+
+### Added
+
+- 販売者に返品ポリシー属性を追加
+
+### Changed
+
+- update @chevre/factory
+- 注文検索条件拡張
+
+### Removed
+
+- 場所(オンラインとストア)インターフェースを削除
+
 ## v1.5.0 - 2020-01-24
 
 ### Changed

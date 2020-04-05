@@ -413,4 +413,8 @@ export interface ISearchConditions {
      * 注文アイテム条件
      */
     acceptedOffers?: IAcceptedOffersSearchConditions;
+    price?: {
+        $gte?: number;
+        $lte?: number;
+    };
 }

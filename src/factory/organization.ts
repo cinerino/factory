@@ -1,10 +1,10 @@
 import AccountType from './accountType';
+import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
-import { IAvailablePlaceType, IPlace } from './place';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 
@@ -146,7 +146,9 @@ export type IMakesOffer = IOffer;
 /**
  * サービス提供エリアインターフェース
  */
-export type IAreaServed = IPlace<IAvailablePlaceType>;
+export type IAreaServed = any;
+
+export type IHasMerchantReturnPolicy = IMerchantReturnPolicy[];
 
 export interface IAttributes<T extends OrganizationType> {
     project: IProject;
@@ -154,6 +156,7 @@ export interface IAttributes<T extends OrganizationType> {
      * 組織タイプ
      */
     typeOf: T;
+    hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
     identifier?: any;
     name: IMultilingualString;
     /**
