@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- hasPOSをChevreへ移行
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v1.8.0 - 2020-04-11
+
+### Changed
+
+- hasPOSをChevreへ移行
 
 ## v1.7.0 - 2020-04-08
 
