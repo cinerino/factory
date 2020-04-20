@@ -109,9 +109,7 @@ export interface ISettings {
     importEventsStopped?: boolean;
     sendgridApiKey?: string;
     transactionWebhookUrl?: string;
-    useEventRepo?: boolean;
     useInMemoryOfferRepo?: boolean;
-    useRedisEventItemAvailabilityRepo?: boolean;
     useReservationNumberAsConfirmationNumber?: boolean;
     useUsernameAsGMOMemberId?: boolean;
     validateMovieTicket?: boolean;

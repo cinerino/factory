@@ -14,6 +14,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- プロジェクトのイベントリポジトリ使用設定を削除
+- プロジェクトのRedisイベント在庫状況リポジトリ使用設定を削除
+
 ### Fixed
 
 ### Security
