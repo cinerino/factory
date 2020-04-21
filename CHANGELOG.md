@@ -14,12 +14,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
-- イベントインポートタスクを削除
-- イベントキャパシティ更新タスクを削除
-
 ### Fixed
 
 ### Security
+
+## v2.1.0 - 2020-04-21
+
+### Removed
+
+- イベントインポートタスクを削除
+- イベントキャパシティ更新タスクを削除
 
 ## v2.0.0 - 2020-04-20
 
