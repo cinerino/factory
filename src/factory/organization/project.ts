@@ -104,9 +104,6 @@ export interface ISettings {
     // ↓その他の設定
     codeExpiresInSeconds?: number;
     emailInformUpdateProgrammembership?: string;
-    importEventsIntervalInMinutes?: number;
-    importEventsInWeeks?: number;
-    importEventsStopped?: boolean;
     sendgridApiKey?: string;
     transactionWebhookUrl?: string;
     useInMemoryOfferRepo?: boolean;

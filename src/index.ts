@@ -87,7 +87,6 @@ import * as CancelSeatReservationTaskFactory from './factory/task/cancelSeatRese
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
 import * as DeleteMemberTaskFactory from './factory/task/deleteMember';
 import * as GivePointAwardTaskFactory from './factory/task/givePointAward';
-import * as ImportScreeningEventsTaskFactory from './factory/task/importScreeningEvents';
 import * as MoneyTransferTaskFactory from './factory/task/moneyTransfer';
 import * as OrderProgramMembershipTaskFactory from './factory/task/orderProgramMembership';
 import * as PayAccountTaskFactory from './factory/task/payAccount';
@@ -104,7 +103,6 @@ import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
 import * as SendOrderTaskFactory from './factory/task/sendOrder';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
 import * as UnRegisterProgramMembershipTaskFactory from './factory/task/unRegisterProgramMembership';
-import * as UpdateEventAttendeeCapacityTaskFactory from './factory/task/updateEventAttendeeCapacity';
 import * as VoidMoneyTransferTaskFactory from './factory/task/voidMoneyTransfer';
 
 import * as TaskFactory from './factory/task';
@@ -350,7 +348,6 @@ export namespace task {
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IData :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IData :
-        T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.IData :
         T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.IData :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IData :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IData :
@@ -367,7 +364,6 @@ export namespace task {
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IData :
-        T extends TaskName.UpdateEventAttendeeCapacity ? UpdateEventAttendeeCapacityTaskFactory.IData :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IData :
         TaskFactory.IData;
 
@@ -381,7 +377,6 @@ export namespace task {
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IAttributes :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IAttributes :
-        T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.IAttributes :
         T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.IAttributes :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IAttributes :
@@ -398,7 +393,6 @@ export namespace task {
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IAttributes :
-        T extends TaskName.UpdateEventAttendeeCapacity ? UpdateEventAttendeeCapacityTaskFactory.IAttributes :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IAttributes :
         TaskFactory.IAttributes;
 
@@ -412,7 +406,6 @@ export namespace task {
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.ITask :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.ITask :
-        T extends TaskName.ImportScreeningEvents ? ImportScreeningEventsTaskFactory.ITask :
         T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.ITask :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.ITask :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.ITask :
@@ -429,7 +422,6 @@ export namespace task {
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.ITask :
-        T extends TaskName.UpdateEventAttendeeCapacity ? UpdateEventAttendeeCapacityTaskFactory.ITask :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.ITask :
         TaskFactory.ITask;
 
