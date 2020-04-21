@@ -39,10 +39,6 @@ enum TaskName {
      */
     GivePointAward = 'givePointAward',
     /**
-     * 上映イベント在庫仕入れ
-     */
-    ImportScreeningEvents = 'importScreeningEvents',
-    /**
      * 通貨転送
      */
     MoneyTransfer = 'moneyTransfer',
@@ -106,10 +102,6 @@ enum TaskName {
      * 会員プログラム登録解除
      */
     UnRegisterProgramMembership = 'unRegisterProgramMembership',
-    /**
-     * イベント席数更新
-     */
-    UpdateEventAttendeeCapacity = 'updateEventAttendeeCapacity',
     /**
      * 通貨転送中止
      */
