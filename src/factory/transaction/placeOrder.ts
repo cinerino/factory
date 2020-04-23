@@ -87,10 +87,12 @@ export interface IConfirmReservationParams {
 export interface IRegisterProgramMembershipParams {
     object?: {
         typeOf: 'ProgramMembership';
-        /**
-         * 会員プログラムID
-         */
-        id: string;
+        membershipFor: {
+            /**
+             * 会員プログラムID
+             */
+            id: string;
+        };
     };
     potentialActions?: {
         /**
