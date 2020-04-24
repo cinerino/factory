@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.0.0 - 2020-04-24
+
+### Changed
+
+- メンバーシップインターフェースをメンバーシップとプログラムに分離
+
 ## v2.1.0 - 2020-04-21
 
 ### Removed

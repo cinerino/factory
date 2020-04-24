@@ -6,16 +6,13 @@ import { IPerson } from './person';
 import { IQuantitativeValue } from './quantitativeValue';
 import { IThing } from './thing';
 
+export type MembershipServiceType = 'MembershipService';
+
 export enum ProgramMembershipType {
     ProgramMembership = 'ProgramMembership'
 }
 
 export type IMember = IPerson;
-
-/**
- * 会員プログラム特典インターフェース
- */
-export type Award = any;
 
 /**
  * Used to describe membership in a loyalty programs
@@ -24,22 +21,31 @@ export type Award = any;
  */
 export interface IProgramMembership extends IThing {
     /**
-     * 特典リスト
-     */
-    award?: Award[];
-    /**
      * The organization (airline, travelers' club, etc.) the membership is made with.
      */
     hostingOrganization?: OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>>;
-    id?: string;
     /**
      * A member of an Organization or a ProgramMembership.
      */
     member?: IMember[];
+    membershipFor: {
+        typeOf: MembershipServiceType;
+        id: string;
+    };
     /**
      * A unique identifier for the membership.
      */
     membershipNumber?: string;
+    /**
+     * The program providing the membership.
+     */
+    programName?: string;
+    project: IProject;
+    typeOf: ProgramMembershipType;
+}
+
+export interface IMembershipService extends IThing {
+    id?: string;
     /**
      * The number of membership points earned by the member.
      * If necessary, the unitText can be used to express the units the points are issued in. (e.g. stars, miles, etc.)
@@ -54,7 +60,7 @@ export interface IProgramMembership extends IThing {
      */
     programName?: string;
     project: IProject;
-    typeOf: ProgramMembershipType;
+    typeOf: MembershipServiceType;
 }
 
 /**
