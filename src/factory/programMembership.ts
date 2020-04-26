@@ -1,5 +1,4 @@
 import IMultilingualString from './multilingualString';
-import { IOffer } from './offer';
 import * as OrganizationFactory from './organization';
 import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
@@ -38,7 +37,6 @@ export interface IMembershipServiceOutput {
  */
 export interface IMembershipService extends IThing {
     id?: string;
-    offers?: IOffer[];
     project: IProject;
     serviceOutput?: IMembershipServiceOutput[];
     typeOf: MembershipServiceType;
