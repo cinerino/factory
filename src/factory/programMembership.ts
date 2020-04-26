@@ -28,11 +28,19 @@ export interface IProgramMembership extends IThing {
     typeOf: ProgramMembershipType;
 }
 
+export interface IMembershipServiceOutput {
+    typeOf: ProgramMembershipType;
+    membershipPointsEarned?: IQuantitativeValue<any>;
+}
+
+/**
+ * 会員サービスインターフェース
+ */
 export interface IMembershipService extends IThing {
     id?: string;
-    membershipPointsEarned?: IQuantitativeValue<any>;
     offers?: IOffer[];
     project: IProject;
+    serviceOutput?: IMembershipServiceOutput[];
     typeOf: MembershipServiceType;
 }
 
