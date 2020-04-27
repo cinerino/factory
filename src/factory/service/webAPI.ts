@@ -1,12 +1,4 @@
-export enum Identifier {
-    COA = 'COA',
-    Chevre = 'Chevre'
-}
+import * as chevre from '../../chevre';
 
-/**
- * WebAPIインターフェース
- */
-export interface IService<T extends Identifier> {
-    typeOf: 'WebAPI';
-    identifier: T;
-}
+export import Identifier = chevre.service.webAPI.Identifier;
+export import IService = chevre.service.webAPI.IService;
