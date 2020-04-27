@@ -74,7 +74,6 @@ import PriceCurrency from './factory/priceCurrency';
 import * as ProgramMembershipFactory from './factory/programMembership';
 import * as PropertyValueFactory from './factory/propertyValue';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
-import * as WebAPIServiceFactory from './factory/service/webAPI';
 import { UnitCode } from './factory/unitCode';
 
 import SortType from './factory/sortType';
@@ -331,9 +330,7 @@ export import programMembership = ProgramMembershipFactory;
 export import project = ProjectFactory;
 export import propertyValue = PropertyValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
-export namespace service {
-    export import webAPI = WebAPIServiceFactory;
-}
+export import service = chevre.service;
 export import seller = OrganizationFactory;
 export import sortType = SortType;
 
