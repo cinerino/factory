@@ -37,7 +37,7 @@ export type IPointTransaction = pecorino.transaction.deposit.ITransaction<Accoun
 export interface IResult {
     price: number;
     amount: number;
-    pointTransaction: IPointTransaction;
+    pointTransaction?: IPointTransaction;
 }
 
 export interface IPurpose {

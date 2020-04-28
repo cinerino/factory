@@ -9,17 +9,17 @@ export import ObjectType = AuthorizePointAwardActionObjectType;
  */
 export interface IObject {
     typeOf: ObjectType;
-    /**
-     * 付与対象のポイント取引
-     * 基本的には、この取引を確定することで付与処理が実行される、という考え方です。
-     */
-    pointTransaction: IPointTransaction;
     amount: number;
     toLocation: {
         accountType: string;
         accountNumber: string;
     };
     description: string;
+    /**
+     * 付与対象のポイント取引
+     * 取引が存在すれば、この取引を確定することで付与処理が実行される、という考え方
+     */
+    pointTransaction?: IPointTransaction;
 }
 
 export type IResult = any;
