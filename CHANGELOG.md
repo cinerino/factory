@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.7.0 - 2020-04-28
+
+### Changed
+
+- ポイントインセンティブ承認時に口座取引を開始しないように調整
+
 ## v3.6.0 - 2020-04-28
 
 ### Changed
