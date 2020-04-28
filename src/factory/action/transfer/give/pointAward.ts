@@ -14,11 +14,14 @@ export interface IObject {
      * 基本的には、この取引を確定することで付与処理が実行される、という考え方です。
      */
     pointTransaction: IPointTransaction;
-    /**
-     * ポイントサービスエンドポイント
-     */
-    pointAPIEndpoint: string;
+    amount: number;
+    toLocation: {
+        accountType: string;
+        accountNumber: string;
+    };
+    description: string;
 }
+
 export type IResult = any;
 
 /**

@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.6.0 - 2020-04-28
+
+### Changed
+
+- ポイント付与アクションからpointAPIEndpointを削除
+
 ## v3.5.0 - 2020-04-27
 
 ### Changed

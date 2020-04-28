@@ -38,7 +38,6 @@ export interface IResult {
     price: number;
     amount: number;
     pointTransaction: IPointTransaction;
-    pointAPIEndpoint: string;
 }
 
 export interface IPurpose {
