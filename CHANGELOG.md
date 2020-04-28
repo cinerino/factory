@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v3.8.0 - 2020-04-28
+
+### Added
+
+- 取引確定後アクションパラメータにインセンティブ付与を追加
+
 ## v3.7.0 - 2020-04-28
 
 ### Changed
