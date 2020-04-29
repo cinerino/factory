@@ -1,5 +1,6 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
+import { IMonetaryAmount } from '../../../monetaryAmount';
 import * as SeatReservationOfferFactory from '../../../offer/seatReservation';
 import * as OrderFactory from '../../../order';
 import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
@@ -54,8 +55,14 @@ export interface IResult<T extends WebAPIIdentifier> {
     priceCurrency: PriceCurrency;
     /**
      * オファーに対して必要な消費ポイント
+     * @deprecated Use amount
      */
     point: number;
+    /**
+     * オファーに対して必要な金額
+     * currencyを口座タイプとして扱う
+     */
+    amount: IMonetaryAmount[];
     /**
      * 外部リクエストエンドポイント
      */
