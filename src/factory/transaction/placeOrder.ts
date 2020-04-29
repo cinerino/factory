@@ -209,6 +209,9 @@ export interface IObject {
      * 注文ステータス変更時イベント
      */
     onOrderStatusChanged?: IOnOrderStatusChanged;
+    potentialActions?: {
+        givePointAward?: IGivePointAwardParams[];
+    };
 }
 
 export interface IPotentialActions {

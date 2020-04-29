@@ -1,6 +1,3 @@
-import * as pecorino from '@pecorino/factory';
-
-import AccountType from '../../../accountType';
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import TransactionType from '../../../transactionType';
@@ -32,12 +29,9 @@ export interface IObject {
     notes?: string;
 }
 
-export type IPointTransaction = pecorino.transaction.deposit.ITransaction<AccountType.Point>;
-
 export interface IResult {
     price: number;
     amount: number;
-    pointTransaction?: IPointTransaction;
 }
 
 export interface IPurpose {

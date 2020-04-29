@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v4.0.0 - 2020-04-29
+
+### Removed
+
+- ポイントインセンティブ承認アクション取消タスクを削除
+- 口座タイプをChevre管理へ移行
+
 ## v3.8.0 - 2020-04-28
 
 ### Added

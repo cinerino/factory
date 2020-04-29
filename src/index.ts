@@ -80,7 +80,6 @@ import SortType from './factory/sortType';
 import * as AggregateEventReservationsTaskFactory from './factory/task/aggregateEventReservations';
 import * as CancelAccountTaskFactory from './factory/task/cancelAccount';
 import * as CancelCreditCardTaskFactory from './factory/task/cancelCreditCard';
-import * as CancelPointAwardTaskFactory from './factory/task/cancelPointAward';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
 import * as CancelSeatReservationTaskFactory from './factory/task/cancelSeatReservation';
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
@@ -267,7 +266,6 @@ export namespace action {
     }
 }
 
-export import accountType = AccountType;
 export import authorization = AuthorizationFactory;
 
 export import encodingFormat = EncodingFormat;
@@ -339,7 +337,6 @@ export namespace task {
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.IData :
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IData :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IData :
-        T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.IData :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IData :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.IData :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
@@ -368,7 +365,6 @@ export namespace task {
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.IAttributes :
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IAttributes :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IAttributes :
-        T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.IAttributes :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IAttributes :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.IAttributes :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
@@ -397,7 +393,6 @@ export namespace task {
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.ITask :
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.ITask :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.ITask :
-        T extends TaskName.CancelPointAward ? CancelPointAwardTaskFactory.ITask :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.ITask :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.ITask :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
