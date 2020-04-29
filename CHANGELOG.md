@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- イベントオファー承認結果にamountを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.1.0 - 2020-04-29
+
+### Added
+
+- イベントオファー承認結果にamountを追加
 
 ## v4.0.0 - 2020-04-29
 
