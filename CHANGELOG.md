@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 注文インターフェースを拡張
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v4.2.0 - 2020-04-29
+
+### Changed
+
+- 注文インターフェースを拡張
 
 ## v4.1.0 - 2020-04-29
 
