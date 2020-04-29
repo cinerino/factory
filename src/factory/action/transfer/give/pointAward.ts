@@ -1,5 +1,5 @@
 import { ISimpleOrder } from '../../../order';
-import { IPointTransaction, ObjectType as AuthorizePointAwardActionObjectType } from '../../authorize/award/point';
+import { ObjectType as AuthorizePointAwardActionObjectType } from '../../authorize/award/point';
 import * as GiveActionFactory from '../give';
 
 export import ObjectType = AuthorizePointAwardActionObjectType;
@@ -15,11 +15,6 @@ export interface IObject {
         accountNumber: string;
     };
     description: string;
-    /**
-     * 付与対象のポイント取引
-     * 取引が存在すれば、この取引を確定することで付与処理が実行される、という考え方
-     */
-    pointTransaction?: IPointTransaction;
 }
 
 export type IResult = any;

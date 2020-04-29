@@ -15,10 +15,6 @@ enum TaskName {
      */
     CancelCreditCard = 'cancelCreditCard',
     /**
-     * ポイントインセンティブ承認アクション取消
-     */
-    CancelPointAward = 'cancelPointAward',
-    /**
      * 予約取消
      */
     CancelReservation = 'cancelReservation',
