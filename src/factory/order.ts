@@ -15,6 +15,7 @@ import PriceCurrency from './priceCurrency';
 import { IProgramMembership } from './programMembership';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
+import { IThing } from './thing';
 
 import * as chevre from '../chevre';
 
@@ -133,7 +134,7 @@ export type IReturner = IParticipant;
 
 export type IIdentifier = IPropertyValue<string>[];
 
-export interface ISimpleOrder {
+export interface ISimpleOrder extends IThing {
     project: IProject;
     /**
      * object type

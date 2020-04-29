@@ -212,6 +212,10 @@ export interface IObject {
     potentialActions?: {
         givePointAward?: IGivePointAwardParams[];
     };
+    /**
+     * 注文名称
+     */
+    name?: string;
 }
 
 export interface IPotentialActions {
