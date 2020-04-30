@@ -31,17 +31,6 @@ export type IResponseBody<T extends WebAPIIdentifier> =
     T extends WebAPIIdentifier.Chevre ? chevre.transaction.reserve.ITransaction :
     chevre.transaction.reserve.ITransaction;
 
-/**
- * 仮予約インターフェース(ttts専用)
- */
-export interface ITmpReservation {
-    id: string;
-    reservedTicket: chevre.reservation.ITicket<chevre.reservationType.EventReservation>;
-    additionalTicketText: string;
-    reservationNumber: string;
-    additionalProperty?: IPropertyValue<string>[];
-}
-
 export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IReservation>;
 
 /**
@@ -53,11 +42,6 @@ export interface IResult<T extends WebAPIIdentifier> {
      */
     price: number;
     priceCurrency: PriceCurrency;
-    /**
-     * オファーに対して必要な消費ポイント
-     * @deprecated Use amount
-     */
-    point: number;
     /**
      * オファーに対して必要な金額
      * currencyを口座タイプとして扱う
@@ -75,10 +59,6 @@ export interface IResult<T extends WebAPIIdentifier> {
      * 外部サービスからのレスポンス
      */
     responseBody: IResponseBody<T>;
-    /**
-     * 仮予約リスト(ttts専用)
-     */
-    // tmpReservations?: ITmpReservation[];
     acceptedOffers?: IResultAcceptedOffer[];
 }
 
