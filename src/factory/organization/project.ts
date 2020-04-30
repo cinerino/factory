@@ -109,7 +109,6 @@ export interface ISettings {
     useInMemoryOfferRepo?: boolean;
     useReservationNumberAsConfirmationNumber?: boolean;
     useUsernameAsGMOMemberId?: boolean;
-    validateMovieTicket?: boolean;
 }
 
 /**
