@@ -54,11 +54,6 @@ export interface IResult<T extends WebAPIIdentifier> {
     price: number;
     priceCurrency: PriceCurrency;
     /**
-     * オファーに対して必要な消費ポイント
-     * @deprecated Use amount
-     */
-    point: number;
-    /**
      * オファーに対して必要な金額
      * currencyを口座タイプとして扱う
      */

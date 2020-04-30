@@ -40,6 +40,32 @@ export interface IPassportBeforeStart {
     secret: string;
 }
 
+export interface IObject {
+    /**
+     * WAITER許可証トークン
+     */
+    passportToken?: waiter.passport.IEncodedPassport;
+    /**
+     * WAITER許可証
+     */
+    passport?: waiter.passport.IPassport;
+    /**
+     * 承認アクションリスト
+     */
+    authorizeActions: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
+    /**
+     * 注文ステータス変更時イベント
+     */
+    onOrderStatusChanged?: IOnOrderStatusChanged;
+    potentialActions?: {
+        givePointAward?: IGivePointAwardParams[];
+    };
+    /**
+     * 注文名称
+     */
+    name?: string;
+}
+
 export interface IStartParamsWithoutDetail {
     project: IProject;
     expires: Date;
@@ -54,6 +80,10 @@ export interface IStartParamsWithoutDetail {
          * 注文ステータス変更時イベント
          */
         onOrderStatusChanged?: IOnOrderStatusChanged;
+        /**
+         * 注文名称
+         */
+        name?: string;
     };
 }
 
@@ -191,32 +221,6 @@ export interface IResult {
  * エラーインターフェース
  */
 export type IError = any;
-
-export interface IObject {
-    /**
-     * WAITER許可証トークン
-     */
-    passportToken?: waiter.passport.IEncodedPassport;
-    /**
-     * WAITER許可証
-     */
-    passport?: waiter.passport.IPassport;
-    /**
-     * 承認アクションリスト
-     */
-    authorizeActions: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
-    /**
-     * 注文ステータス変更時イベント
-     */
-    onOrderStatusChanged?: IOnOrderStatusChanged;
-    potentialActions?: {
-        givePointAward?: IGivePointAwardParams[];
-    };
-    /**
-     * 注文名称
-     */
-    name?: string;
-}
 
 export interface IPotentialActions {
     order: IOrderActionAttributes;
