@@ -10,7 +10,6 @@ import * as cognito from './cognito';
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as PointAwardAuthorizeActionFactory from './factory/action/authorize/award/point';
-import * as AuthorizeMvtkDiscountActionFactory from './factory/action/authorize/discount/mvtk';
 import * as AuthorizeMonetaryAmountOfferActionFactory from './factory/action/authorize/offer/monetaryAmount';
 import * as AuthorizeProgramMembershipOfferActionFactory from './factory/action/authorize/offer/programMembership';
 import * as AuthorizeSeatReservationOfferActionFactory from './factory/action/authorize/offer/seatReservation';
@@ -155,7 +154,6 @@ export namespace action {
             export import movieTicket = AuthorizeMovieTicketPaymentActionFactory;
         }
         export namespace discount {
-            export import mvtk = AuthorizeMvtkDiscountActionFactory;
         }
         // tslint:disable-next-line:no-shadowed-variable
         export namespace offer {

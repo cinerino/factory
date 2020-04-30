@@ -10,6 +10,11 @@ export type IPurchaseNumberAuthResult = mvtkapi.mvtk.services.auth.purchaseNumbe
 export type ISeatInfoSyncIn = mvtkapi.mvtk.services.seat.seatInfoSync.ISeatInfoSyncIn;
 export type ISeatInfoSyncResult = mvtkapi.mvtk.services.seat.seatInfoSync.ISeatInfoSyncResult;
 
+export interface IObject4sskts {
+    typeOf: PaymentMethodType.MovieTicket | string;
+    seatInfoSyncIn: ISeatInfoSyncIn;
+}
+
 /**
  * 承認対象インターフェース
  */
