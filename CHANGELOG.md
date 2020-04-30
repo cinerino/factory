@@ -10,17 +10,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- イベントオファー承認結果のpointをamountへ移行
-
 ### Deprecated
 
 ### Removed
 
-- プロジェクトのvalidateMovieTicket設定を削除
-
 ### Fixed
 
 ### Security
+
+## v4.3.0 - 2020-04-30
+
+### Changed
+
+- イベントオファー承認結果のpointをamountへ移行
+
+### Removed
+
+- プロジェクトのvalidateMovieTicket設定を削除
 
 ## v4.2.0 - 2020-04-29
 
