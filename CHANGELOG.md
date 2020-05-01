@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 決済方法にMGTicketを追加
+- 決済方法にPrepaidCardを追加
+- プリペイドカードインターフェースを追加
+- プリペイドカード決済インターフェースを追加
+- プリペイドカード返金インターフェースを追加
+
 ### Changed
 
 ### Deprecated

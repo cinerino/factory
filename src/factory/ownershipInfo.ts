@@ -4,6 +4,7 @@ import AccountType from './accountType';
 import * as OrganizationFactory from './organization';
 import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
+import PaymentMethodType from './paymentMethodType';
 import { IPerson } from './person';
 import { IProgramMembership, ProgramMembershipType } from './programMembership';
 import { Identifier as WebAPIIdentifier, IService as IWebAPI } from './service/webAPI';
@@ -62,10 +63,15 @@ export interface IReservation<T extends chevre.reservationType> {
 export type IReservationWithDetail<T extends chevre.reservationType> =
     IReservation<T> & chevre.reservation.IReservation<T>;
 
+export interface IPrepaidCard {
+    typeOf: PaymentMethodType.PrepaidCard;
+    identifier: string;
+}
+
 /**
  * 所有対象物のタイプ
  */
-export type IGoodType = chevre.reservationType | ProgramMembershipType | AccountGoodType;
+export type IGoodType = chevre.reservationType | ProgramMembershipType | AccountGoodType | PaymentMethodType.PrepaidCard;
 
 /**
  * 所有対象物インターフェース (Product or Service)
@@ -83,6 +89,10 @@ export type IGood<T extends IGoodType> =
      * 予約タイプの場合
      */
     T extends chevre.reservationType ? IReservation<T> :
+    /**
+     * プリペイドカードタイプの場合
+     */
+    T extends PaymentMethodType.PrepaidCard ? IPrepaidCard :
     any;
 
 /**

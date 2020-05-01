@@ -55,9 +55,17 @@ enum TaskName {
      */
     PayMovieTicket = 'payMovieTicket',
     /**
+     * プリペイドカード決済
+     */
+    PayPrepaidCard = 'payPrepaidCard',
+    /**
      * 注文受付
      */
     PlaceOrder = 'placeOrder',
+    /**
+     * 口座返金
+     */
+    RefundAccount = 'refundAccount',
     /**
      * クレジットカード返金
      */
@@ -67,9 +75,9 @@ enum TaskName {
      */
     RefundMovieTicket = 'refundMovieTicket',
     /**
-     * 口座返金
+     * プリペイドカード返金
      */
-    RefundAccount = 'refundAccount',
+    RefundPrepaidCard = 'refundPrepaidCard',
     /**
      * 会員プログラム登録
      */

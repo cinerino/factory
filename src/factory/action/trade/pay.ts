@@ -8,6 +8,7 @@ import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import PaymentMethodType from '../../paymentMethodType';
 import PriceCurrency from '../../priceCurrency';
 import { IPendingTransaction } from '../authorize/paymentMethod/account';
+import { IPendingTransaction as IPrepaidCardPendingTransaction } from '../authorize/paymentMethod/prepaidCard';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
@@ -53,14 +54,24 @@ export interface IMovieTicketPaymentMethod extends ICommonPaymentMethod<PaymentM
     movieTickets: IMovieTicket[];
 }
 /**
+ * プリペイドカード決済の場合のオブジェクトインターフェース
+ */
+export interface IPrepaidCardPaymentMethod extends ICommonPaymentMethod<PaymentMethodType.PrepaidCard> {
+    pendingTransaction: IPrepaidCardPendingTransaction;
+}
+
+/**
  * 決済対象の決済方法インターフェース
  */
 export type IPaymentMethodObject<T> =
     T extends PaymentMethodType.Account ? IAccountPaymentMethod<AccountType> :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentMethod :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentMethod :
+    T extends PaymentMethodType.PrepaidCard ? IPrepaidCardPaymentMethod :
     never;
+
 export type IObject<T extends PaymentMethodType> = IPaymentMethodObject<T>[];
+
 /**
  * クレジットカード決済の場合の結果インターフェース
  */
@@ -70,16 +81,19 @@ export interface ICreditCardResult {
      */
     creditCardSales?: GMO.services.credit.IAlterTranResult[];
 }
+
 export type IResult<T> =
     T extends PaymentMethodType.Account ? any :
     T extends PaymentMethodType.CreditCard ? ICreditCardResult :
     T extends PaymentMethodType.MovieTicket ? any :
+    T extends PaymentMethodType.PrepaidCard ? any :
     never;
 
 export interface IAttributes<T extends PaymentMethodType> extends ActionFactory.IAttributes<ActionType.PayAction, IObject<T>, IResult<T>> {
     purpose: IPurpose;
 }
+
 /**
- * 支払アクションインターフェース
+ * 決済アクションインターフェース
  */
 export type IAction<T extends PaymentMethodType> = ActionFactory.IAction<IAttributes<T>>;

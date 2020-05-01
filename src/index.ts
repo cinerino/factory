@@ -65,6 +65,7 @@ import OrganizationType from './factory/organizationType';
 import * as OwnershipInfoFactory from './factory/ownershipInfo';
 import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
 import * as MovieTicketFactory from './factory/paymentMethod/paymentCard/movieTicket';
+import * as PrepaidCardFactory from './factory/paymentMethod/paymentCard/prepaidCard';
 import PaymentMethodType from './factory/paymentMethodType';
 import PaymentStatusType from './factory/paymentStatusType';
 import * as PersonFactory from './factory/person';
@@ -267,16 +268,20 @@ export namespace action {
 export import authorization = AuthorizationFactory;
 
 export import encodingFormat = EncodingFormat;
+
 export namespace paymentMethod {
     export type ISearchConditions<T extends PaymentMethodType> =
         T extends PaymentMethodType.CreditCard ? CreditCardFactory.ISearchConditions :
         T extends PaymentMethodType.MovieTicket ? MovieTicketFactory.ISearchConditions :
+        T extends PaymentMethodType.PrepaidCard ? PrepaidCardFactory.ISearchConditions :
         never;
     export namespace paymentCard {
         export import creditCard = CreditCardFactory;
         export import movieTicket = MovieTicketFactory;
+        export import prepaidCard = PrepaidCardFactory;
     }
 }
+
 export import clientUser = ClientUserFactory;
 
 export namespace creativeWork {
