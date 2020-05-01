@@ -17,6 +17,7 @@ import * as AuthorizeAccountPaymentActionFactory from './factory/action/authoriz
 import * as AuthorizeAnyPaymentActionFactory from './factory/action/authorize/paymentMethod/any';
 import * as AuthorizeCreditCardPaymentActionFactory from './factory/action/authorize/paymentMethod/creditCard';
 import * as AuthorizeMovieTicketPaymentActionFactory from './factory/action/authorize/paymentMethod/movieTicket';
+import * as AuthorizePrepaidCardPaymentActionFactory from './factory/action/authorize/paymentMethod/prepaidCard';
 import * as CheckMovieTicketActionFactory from './factory/action/check/paymentMethod/movieTicket';
 import * as CheckTokenActionFactory from './factory/action/check/token';
 import * as ConfirmReservationActionFactory from './factory/action/interact/confirm/reservation';
@@ -153,6 +154,7 @@ export namespace action {
             export import any = AuthorizeAnyPaymentActionFactory;
             export import creditCard = AuthorizeCreditCardPaymentActionFactory;
             export import movieTicket = AuthorizeMovieTicketPaymentActionFactory;
+            export import prepaidCard = AuthorizePrepaidCardPaymentActionFactory;
         }
         export namespace discount {
         }
