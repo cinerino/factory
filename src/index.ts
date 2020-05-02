@@ -281,13 +281,13 @@ export namespace paymentMethod {
         T extends PaymentMethodType.PrepaidCard ? PrepaidCardFactory.ISearchConditions :
         never;
 
-    export namespace paymentCard {
-        export type IPaymentCard<T extends PaymentMethodType> =
-            T extends PaymentMethodType.CreditCard ? CreditCardFactory.ICheckedCard :
-            T extends PaymentMethodType.MovieTicket ? MovieTicketFactory.IMovieTicket :
-            T extends PaymentMethodType.PrepaidCard ? PrepaidCardFactory.IPrepaidCard :
-            never;
+    export type IPaymentMethod<T extends PaymentMethodType> =
+        T extends PaymentMethodType.CreditCard ? CreditCardFactory.ICheckedCard :
+        T extends PaymentMethodType.MovieTicket ? MovieTicketFactory.IMovieTicket :
+        T extends PaymentMethodType.PrepaidCard ? PrepaidCardFactory.IPrepaidCard :
+        never;
 
+    export namespace paymentCard {
         export import creditCard = CreditCardFactory;
         export import movieTicket = MovieTicketFactory;
         export import prepaidCard = PrepaidCardFactory;
