@@ -34,15 +34,11 @@ export interface IMovieTicket extends IPaymentCard {
          */
         reservedTicket: { ticketedSeat: chevre.reservation.ISeat<chevre.reservationType> };
     };
-    /**
-     * いつまで有効か
-     */
-    validThrough?: Date;
 }
 
 /**
  * 検索条件インターフェース
  */
+// tslint:disable-next-line:no-empty-interface
 export interface ISearchConditions extends PaymentMethodFactory.ISearchConditions {
-    serviceTypes?: string[];
 }

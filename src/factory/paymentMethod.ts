@@ -33,4 +33,5 @@ export interface ISearchConditions {
         $eq?: string;
         $in?: string[];
     };
+    serviceTypes?: string[];
 }

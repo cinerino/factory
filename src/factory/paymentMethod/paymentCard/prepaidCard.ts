@@ -17,14 +17,6 @@ export interface IPrepaidCard extends IPaymentCard {
      * アクセスコード
      */
     accessCode: string;
-    /**
-     * ムビチケ利用対象座席予約
-     */
-    serviceOutput: IServiceOutput;
-    /**
-     * いつまで有効か
-     */
-    validThrough?: Date;
 }
 
 /**

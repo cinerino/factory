@@ -13,4 +13,6 @@ export interface IPaymentCard extends IPaymentMethod {
      * The amount of money.
      */
     amount?: IMonetaryAmount;
+    serviceOutput?: any;
+    serviceType?: any;
 }
