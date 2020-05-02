@@ -1,11 +1,12 @@
 import { IProject } from './organization/project';
 import PaymentMethodType from './paymentMethodType';
 import SortType from './sortType';
+import { IThing } from './thing';
 
 /**
  * payment method interface
  */
-export interface IPaymentMethod {
+export interface IPaymentMethod extends IThing {
     project: IProject;
     typeOf: PaymentMethodType;
     identifier: string;
@@ -27,7 +28,9 @@ export interface ISearchConditions {
     sort?: ISortOrder;
     project?: {
         id?: { $eq?: string };
-        ids?: string[];
     };
-    identifiers?: string[];
+    identifier?: {
+        $eq?: string;
+        $in?: string[];
+    };
 }

@@ -114,6 +114,12 @@ export interface IMovieTicketPaymentAccepted {
     movieTicketInfo: IMovieTicketInfo;
 }
 
+export interface IPrepaidCardPaymentAccepted {
+    paymentMethodType: PaymentMethodType.PrepaidCard;
+    accountType: PaymentMethodType.PrepaidCard;
+    accountNumber: string;
+}
+
 export interface ICommonPaymentAccepted {
     paymentMethodType: IAcceptedPaymentMethodType;
 }
@@ -127,6 +133,7 @@ export type IPaymentAccepted<T extends IAcceptedPaymentMethodType> =
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentAccepted :
     T extends PaymentMethodType.EMoney ? IEMoneyPaymentAccepted :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentAccepted :
+    T extends PaymentMethodType.PrepaidCard ? IPrepaidCardPaymentAccepted :
     ICommonPaymentAccepted;
 
 export type IMakesOffer = IOffer;
