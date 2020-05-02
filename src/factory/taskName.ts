@@ -55,6 +55,10 @@ enum TaskName {
      */
     PayCreditCard = 'payCreditCard',
     /**
+     * MGチケット決済
+     */
+    PayMGTicket = 'payMGTicket',
+    /**
      * ムビチケ支払
      */
     PayMovieTicket = 'payMovieTicket',
@@ -74,6 +78,10 @@ enum TaskName {
      * クレジットカード返金
      */
     RefundCreditCard = 'refundCreditCard',
+    /**
+     * MGチケット着券取消
+     */
+    RefundMGTicket = 'refundMGTicket',
     /**
      * ムビチケ着券取消
      */

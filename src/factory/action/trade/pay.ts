@@ -4,6 +4,7 @@ import AccountType from '../../accountType';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IPaymentMethod, ISimpleOrder } from '../../order';
+import { IMGTicket } from '../../paymentMethod/paymentCard/mgTicket';
 import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import PaymentMethodType from '../../paymentMethodType';
 import PriceCurrency from '../../priceCurrency';
@@ -47,7 +48,18 @@ export interface IAccountPaymentMethod<T extends AccountType> extends ICommonPay
 /**
  * ムビチケ決済の場合のオブジェクトインターフェース
  */
-export interface IMovieTicketPaymentMethod extends ICommonPaymentMethod<PaymentMethodType.MovieTicket> {
+export interface IMGTicketPaymentMethod
+    extends ICommonPaymentMethod<PaymentMethodType.MGTicket> {
+    /**
+     * MGチケットリスト
+     */
+    mgTickets: IMGTicket[];
+}
+/**
+ * ムビチケ決済の場合のオブジェクトインターフェース
+ */
+export interface IMovieTicketPaymentMethod
+    extends ICommonPaymentMethod<PaymentMethodType.MovieTicket> {
     /**
      * ムビチケリスト
      */
@@ -66,6 +78,7 @@ export interface IPrepaidCardPaymentMethod extends ICommonPaymentMethod<PaymentM
 export type IPaymentMethodObject<T> =
     T extends PaymentMethodType.Account ? IAccountPaymentMethod<AccountType> :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentMethod :
+    T extends PaymentMethodType.MGTicket ? IMGTicketPaymentMethod :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentMethod :
     T extends PaymentMethodType.PrepaidCard ? IPrepaidCardPaymentMethod :
     never;
@@ -85,6 +98,7 @@ export interface ICreditCardResult {
 export type IResult<T> =
     T extends PaymentMethodType.Account ? any :
     T extends PaymentMethodType.CreditCard ? ICreditCardResult :
+    T extends PaymentMethodType.MGTicket ? any :
     T extends PaymentMethodType.MovieTicket ? any :
     T extends PaymentMethodType.PrepaidCard ? any :
     never;

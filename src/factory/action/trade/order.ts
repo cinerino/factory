@@ -35,6 +35,10 @@ export interface IPotentialActions {
      */
     payCreditCard?: IPayActionAttributes<PaymentMethodType.CreditCard>[];
     /**
+     * MGチケット決済アクション
+     */
+    payMGTicket?: IPayActionAttributes<PaymentMethodType.MGTicket>[];
+    /**
      * ムビチケ決済アクション
      */
     payMovieTicket?: IPayActionAttributes<PaymentMethodType.MovieTicket>[];

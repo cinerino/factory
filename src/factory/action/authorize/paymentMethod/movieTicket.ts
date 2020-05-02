@@ -11,7 +11,7 @@ export type ISeatInfoSyncIn = mvtkapi.mvtk.services.seat.seatInfoSync.ISeatInfoS
 export type ISeatInfoSyncResult = mvtkapi.mvtk.services.seat.seatInfoSync.ISeatInfoSyncResult;
 
 export interface IObject4sskts {
-    typeOf: PaymentMethodType.MovieTicket | string;
+    typeOf: PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket;
     seatInfoSyncIn: ISeatInfoSyncIn;
 }
 

@@ -4,11 +4,7 @@ import { IPaymentCard } from '../paymentCard';
 
 import * as chevre from '../../../chevre';
 
-/**
- * ムビチケインターフェース
- */
-export interface IMovieTicket extends IPaymentCard {
-    typeOf: PaymentMethodType.MovieTicket;
+export interface IAttributes extends IPaymentCard {
     /**
      * 購入管理番号(ムビチケ購入番号)
      */
@@ -34,6 +30,13 @@ export interface IMovieTicket extends IPaymentCard {
          */
         reservedTicket: { ticketedSeat: chevre.reservation.ISeat<chevre.reservationType> };
     };
+}
+
+/**
+ * ムビチケインターフェース
+ */
+export interface IMovieTicket extends IAttributes {
+    typeOf: PaymentMethodType.MovieTicket;
 }
 
 /**
