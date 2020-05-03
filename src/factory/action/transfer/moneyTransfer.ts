@@ -1,6 +1,5 @@
 import * as pecorino from '@pecorino/factory';
 
-import AccountType from '../../accountType';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
@@ -13,6 +12,8 @@ import { IPendingTransaction } from '../authorize/paymentMethod/account';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
+
+export type AccountType = string;
 
 /**
  * 匿名ロケーションインターフェース

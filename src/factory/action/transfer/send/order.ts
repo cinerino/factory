@@ -1,4 +1,3 @@
-import AccountType from '../../../accountType';
 import * as ActionFactory from '../../../action';
 import { IOrder } from '../../../order';
 import { IGood, IGoodType, IOwnershipInfo } from '../../../ownershipInfo';
@@ -13,6 +12,8 @@ import { IAttributes as ISendEmailMessageActionAttributes } from './message/emai
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 export type IObject = IOrder;
+
+export type AccountType = string;
 
 /**
  * 注文配送結果としての所有権

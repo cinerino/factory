@@ -1,4 +1,3 @@
-import AccountType from './accountType';
 import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
@@ -97,7 +96,7 @@ export interface IEMoneyPaymentAccepted {
     paymentMethodType: PaymentMethodType.EMoney;
 }
 
-export interface IAccountPaymentAccepted<T extends AccountType> {
+export interface IAccountPaymentAccepted<T extends string> {
     paymentMethodType: PaymentMethodType.Account;
     /**
      * 口座タイプ
@@ -133,7 +132,7 @@ export interface ICommonPaymentAccepted {
  * 利用可能決済インターフェース
  */
 export type IPaymentAccepted<T extends IAcceptedPaymentMethodType> =
-    T extends PaymentMethodType.Account ? IAccountPaymentAccepted<AccountType> :
+    T extends PaymentMethodType.Account ? IAccountPaymentAccepted<string> :
     T extends PaymentMethodType.Cash ? ICashPaymentAccepted :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentAccepted :
     T extends PaymentMethodType.EMoney ? IEMoneyPaymentAccepted :

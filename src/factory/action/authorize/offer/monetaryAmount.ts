@@ -1,6 +1,5 @@
 import * as pecorino from '@pecorino/factory';
 
-import AccountType from '../../../accountType';
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import { IMonetaryAmount } from '../../../monetaryAmount';
@@ -12,6 +11,8 @@ import { IAccount } from '../../transfer/moneyTransfer';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
+
+export type AccountType = string;
 
 export type IRequestBody = any;
 export type IResponseBody<T extends AccountType> = pecorino.transaction.deposit.ITransaction<T>;

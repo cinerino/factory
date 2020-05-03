@@ -44,7 +44,7 @@ import * as DeleteMemberActionFactory from './factory/action/update/delete/membe
 import ActionStatusType from './factory/actionStatusType';
 import ActionType from './factory/actionType';
 
-import AccountType from './factory/accountType';
+import { AccountType } from './factory/accountType';
 import * as AuthorizationFactory from './factory/authorization';
 import * as ClientUserFactory from './factory/clientUser';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';

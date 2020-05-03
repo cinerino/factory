@@ -1,6 +1,5 @@
 import * as GMO from '@motionpicture/gmo-service';
 
-import AccountType from '../../accountType';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IPaymentMethod, ISimpleOrder } from '../../order';
@@ -17,6 +16,9 @@ export type IRecipient = ActionFactory.IParticipant;
 export type IPurpose = ISimpleOrder;
 
 export type TypeOfObject = 'PaymentMethod';
+
+export type AccountType = string;
+
 export interface ICommonPaymentMethod<T extends PaymentMethodType> {
     typeOf: TypeOfObject;
     /**

@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - プリペイドカードインターフェースを追加
 - プリペイドカード決済インターフェースを追加
 - プリペイドカード返金インターフェースを追加
+- 予約済の口座タイプを追加
 
 ### Changed
 

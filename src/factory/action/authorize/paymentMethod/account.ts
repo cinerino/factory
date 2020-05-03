@@ -1,9 +1,10 @@
 import * as pecorino from '@pecorino/factory';
 
-import AccountType from '../../../accountType';
 import * as ActionFactory from '../../../action';
 import PaymentMethodType from '../../../paymentMethodType';
 import * as AuthorizeAnyPaymentFactory from './any';
+
+export type AccountType = string;
 
 /**
  * 進行中取引インターフェース

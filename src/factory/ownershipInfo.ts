@@ -1,6 +1,5 @@
 import * as pecorino from '@pecorino/factory';
 
-import AccountType from './accountType';
 import * as OrganizationFactory from './organization';
 import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
@@ -27,7 +26,7 @@ export enum AccountGoodType {
 /**
  * 口座インターフェース
  */
-export interface IAccount<T extends AccountType> {
+export interface IAccount<T extends string> {
     typeOf: AccountGoodType.Account;
     /**
      * 口座タイプ
@@ -80,7 +79,7 @@ export type IGood<T extends IGoodType> =
     /**
      * 口座タイプの場合
      */
-    T extends AccountGoodType ? IAccount<AccountType> :
+    T extends AccountGoodType ? IAccount<string> :
     /**
      * 会員プログラムタイプの場合
      */
@@ -102,7 +101,7 @@ export type IGoodWithDetail<T extends IGoodType> =
     /**
      * 口座タイプの場合
      */
-    T extends AccountGoodType ? pecorino.account.IAccount<AccountType> :
+    T extends AccountGoodType ? pecorino.account.IAccount<string> :
     /**
      * 会員プログラムタイプの場合
      */
@@ -178,7 +177,7 @@ export type Identifier<T extends IGoodType> =
      */
     T extends AccountGoodType ? {
         typeOf: AccountGoodType;
-        accountType: AccountType;
+        accountType: string;
         accountNumber: string;
     } :
     /**
@@ -212,7 +211,7 @@ export interface ITypeOfGoodSearchConditions<T extends IGoodType> {
     /**
      * 口座の場合、口座タイプ
      */
-    accountType?: AccountType;
+    accountType?: string;
     /**
      * 口座の場合、口座番号
      */
