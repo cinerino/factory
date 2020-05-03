@@ -13,8 +13,6 @@ export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 export type IObject = IOrder;
 
-export type AccountType = string;
-
 /**
  * 注文配送結果としての所有権
  */
@@ -32,7 +30,7 @@ export interface IPotentialActions {
     /**
      * 通貨転送アクション
      */
-    moneyTransfer?: IMoneyTransferActionAttributes<AccountType>[];
+    moneyTransfer?: IMoneyTransferActionAttributes<string>[];
     /**
      * 会員プログラムの注文の場合、会員プログラム登録アクション
      */

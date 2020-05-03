@@ -15,9 +15,7 @@ export type IRecipient = IPerson | TransactionFactory.ISeller;
 
 export import ISeller = TransactionFactory.ISeller;
 
-export type AccountType = string;
-
-export interface IStartParamsWithoutDetail<T extends AccountType, T2 extends IToLocationType> {
+export interface IStartParamsWithoutDetail<T extends string, T2 extends IToLocationType> {
     project: IProject;
     /**
      * 取引期限
@@ -44,7 +42,7 @@ export interface IStartParamsWithoutDetail<T extends AccountType, T2 extends ITo
 /**
  * 取引開始パラメーターインターフェース
  */
-export interface IStartParams<T extends AccountType, T2 extends IToLocationType>
+export interface IStartParams<T extends string, T2 extends IToLocationType>
     extends TransactionFactory.IStartParams<TransactionType.MoneyTransfer, IAgent, IRecipient, IObject<T, T2>> {
     /**
      * 転送先
@@ -68,18 +66,18 @@ export type IError = any;
  */
 export type ITokenizedAccount = string;
 
-export type IFromLocation<T extends AccountType> = IAccount<T> | ITokenizedAccount;
+export type IFromLocation<T extends string> = IAccount<T> | ITokenizedAccount;
 
 export type IToLocationType = pecorino.account.TypeOf.Account | string;
 
-export type IToLocation<T extends AccountType, T2 extends IToLocationType> =
+export type IToLocation<T extends string, T2 extends IToLocationType> =
     T2 extends pecorino.account.TypeOf.Account ? IAccount<T> :
     IAnonymousLocation;
 
 /**
  * 取引対象物インターフェース
  */
-export interface IObject<T extends AccountType, T2 extends IToLocationType> {
+export interface IObject<T extends string, T2 extends IToLocationType> {
     /**
      * 金額
      */
@@ -102,19 +100,19 @@ export interface IObject<T extends AccountType, T2 extends IToLocationType> {
     authorizeActions: IAuthorizeAction<IAuthorizeActionAttributes<any, any>>[];
 }
 
-export interface IPotentialActions<T extends AccountType> {
+export interface IPotentialActions<T extends string> {
     /**
      * 通貨転送アクション
      */
     moneyTransfer: IMoneyTransferActionAttributes<T>[];
 }
 
-export type ITransaction<T extends AccountType, T2 extends IToLocationType> = IExtendId<IAttributes<T, T2>>;
+export type ITransaction<T extends string, T2 extends IToLocationType> = IExtendId<IAttributes<T, T2>>;
 
 /**
  * 転送取引インターフェース
  */
-export interface IAttributes<T extends AccountType, T2 extends IToLocationType>
+export interface IAttributes<T extends string, T2 extends IToLocationType>
     extends TransactionFactory.IAttributes<IStartParams<T, T2>, IResult, IError, IPotentialActions<T>> {
 }
 

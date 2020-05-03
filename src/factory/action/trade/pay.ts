@@ -17,8 +17,6 @@ export type IPurpose = ISimpleOrder;
 
 export type TypeOfObject = 'PaymentMethod';
 
-export type AccountType = string;
-
 export interface ICommonPaymentMethod<T extends PaymentMethodType> {
     typeOf: TypeOfObject;
     /**
@@ -44,7 +42,7 @@ export interface ICreditCardPaymentMethod extends ICommonPaymentMethod<PaymentMe
 /**
  * 口座決済の場合のオブジェクトインターフェース
  */
-export interface IAccountPaymentMethod<T extends AccountType> extends ICommonPaymentMethod<PaymentMethodType.Account> {
+export interface IAccountPaymentMethod<T extends string> extends ICommonPaymentMethod<PaymentMethodType.Account> {
     pendingTransaction: IPendingTransaction<T>;
 }
 /**
@@ -78,7 +76,7 @@ export interface IPrepaidCardPaymentMethod extends ICommonPaymentMethod<PaymentM
  * 決済対象の決済方法インターフェース
  */
 export type IPaymentMethodObject<T> =
-    T extends PaymentMethodType.Account ? IAccountPaymentMethod<AccountType> :
+    T extends PaymentMethodType.Account ? IAccountPaymentMethod<string> :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentMethod :
     T extends PaymentMethodType.MGTicket ? IMGTicketPaymentMethod :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentMethod :
