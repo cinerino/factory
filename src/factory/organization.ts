@@ -1,3 +1,4 @@
+import { AccountType } from './accountType';
 import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
@@ -120,7 +121,7 @@ export interface IMovieTicketPaymentAccepted {
 
 export interface IPrepaidCardPaymentAccepted {
     paymentMethodType: PaymentMethodType.PrepaidCard;
-    accountType: PaymentMethodType.PrepaidCard;
+    accountType: AccountType.Prepaid;
     accountNumber: string;
 }
 

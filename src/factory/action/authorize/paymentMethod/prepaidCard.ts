@@ -1,5 +1,6 @@
 import * as pecorino from '@pecorino/factory';
 
+import { AccountType } from '../../../accountType';
 import * as ActionFactory from '../../../action';
 import PaymentMethodType from '../../../paymentMethodType';
 import * as AuthorizeAnyPaymentFactory from './any';
@@ -16,7 +17,7 @@ export interface IAccount {
     /**
      * 口座タイプ
      */
-    accountType: PaymentMethodType.PrepaidCard;
+    accountType: AccountType.Prepaid;
     /**
      * 口座番号
      */
