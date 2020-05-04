@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v5.0.0 - 2020-05-04
+
+### Added
+
 - 決済方法にMGTicketを追加
 - 決済方法にPrepaidCardを追加
 - プリペイドカードインターフェースを追加
@@ -19,15 +33,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 - 決済方法インターフェースを拡張
 
-### Deprecated
-
 ### Removed
 
 - ムビチケディスカウント承認アクションを削除
-
-### Fixed
-
-### Security
 
 ## v4.3.0 - 2020-04-30
 
