@@ -1,4 +1,3 @@
-// import AccountType from './accountType';
 import { IParticipant } from './action';
 // import { IAccount } from './action/transfer/moneyTransfer';
 // import ActionType from './actionType';
@@ -77,11 +76,6 @@ export interface IDiscount {
 
 export type IReservation = chevre.reservation.IReservation<chevre.reservationType.EventReservation>;
 
-// export interface IMoneyTransfer<T extends AccountType> {
-//     typeOf: ActionType.MoneyTransfer;
-//     amount: number;
-//     toLocation: IAccount<T>;
-// }
 export import IMonetaryAmount = MonetaryAmountFactory.IMonetaryAmount;
 
 /**

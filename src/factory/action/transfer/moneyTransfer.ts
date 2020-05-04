@@ -1,6 +1,5 @@
 import * as pecorino from '@pecorino/factory';
 
-import AccountType from '../../accountType';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IMonetaryAmount } from '../../monetaryAmount';
@@ -54,7 +53,7 @@ export interface IPaymentMethodLocation<T extends AvailablePaymentMethodType> {
 /**
  * 口座インターフェース
  */
-export interface IAccount<T extends AccountType> {
+export interface IAccount<T extends string> {
     typeOf: pecorino.account.TypeOf.Account;
     /**
      * 口座タイプ
@@ -73,9 +72,9 @@ export interface IAccount<T extends AccountType> {
 /**
  * 転送元あるいは転送先の場所インターフェース
  */
-export type ILocation<T extends AccountType> = IAnonymousLocation | IPaymentMethodLocation<AvailablePaymentMethodType> | IAccount<T>;
+export type ILocation<T extends string> = IAnonymousLocation | IPaymentMethodLocation<AvailablePaymentMethodType> | IAccount<T>;
 
-export interface IObject<T extends AccountType> {
+export interface IObject<T extends string> {
     pendingTransaction: IPendingTransaction<T>;
 }
 
@@ -90,7 +89,7 @@ export interface ITransactionPurpose {
 
 export type IPurpose = ITransactionPurpose | ISimpleOrder;
 
-export interface IAttributes<T extends AccountType>
+export interface IAttributes<T extends string>
     extends ActionFactory.IAttributes<ActionType.MoneyTransfer, IObject<T>, IResult> {
     typeOf: ActionType.MoneyTransfer;
     purpose: IPurpose;
@@ -108,7 +107,7 @@ export interface IAttributes<T extends AccountType>
     toLocation: ILocation<T>;
 }
 
-export type IAction<T extends AccountType> = ActionFactory.IAction<IAttributes<T>>;
+export type IAction<T extends string> = ActionFactory.IAction<IAttributes<T>>;
 
 /**
  * ソート条件インターフェース
@@ -120,7 +119,7 @@ export interface ISortOrder {
 /**
  * 検索条件インターフェース
  */
-export interface ISearchConditions<T extends AccountType> {
+export interface ISearchConditions<T extends string> {
     limit?: number;
     page?: number;
     sort?: ISortOrder;

@@ -152,6 +152,10 @@ export interface IPotentialActionsParams {
             refundCreditCard?: IRefundCreditCardParams[];
             // refundAccount?: refundAccountActions,
             /**
+             * MGチケット着券取消を実行するかどうか
+             */
+            refundMGTicket?: boolean;
+            /**
              * ムビチケ着券取消を実行するかどうか
              */
             refundMovieTicket?: boolean;

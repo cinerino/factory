@@ -18,6 +18,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v5.0.0 - 2020-05-04
+
+### Added
+
+- 決済方法にMGTicketを追加
+- 決済方法にPrepaidCardを追加
+- プリペイドカードインターフェースを追加
+- プリペイドカード決済インターフェースを追加
+- プリペイドカード返金インターフェースを追加
+- 予約済の口座タイプを追加
+
+### Changed
+
+- 決済方法インターフェースを拡張
+
+### Removed
+
+- ムビチケディスカウント承認アクションを削除
+
 ## v4.3.0 - 2020-04-30
 
 ### Changed

@@ -1,4 +1,3 @@
-import AccountType from '../../../accountType';
 import * as ActionFactory from '../../../action';
 import { IOrder } from '../../../order';
 import { IGood, IGoodType, IOwnershipInfo } from '../../../ownershipInfo';
@@ -31,7 +30,7 @@ export interface IPotentialActions {
     /**
      * 通貨転送アクション
      */
-    moneyTransfer?: IMoneyTransferActionAttributes<AccountType>[];
+    moneyTransfer?: IMoneyTransferActionAttributes<string>[];
     /**
      * 会員プログラムの注文の場合、会員プログラム登録アクション
      */

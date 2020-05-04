@@ -1,4 +1,4 @@
-import AccountType from './accountType';
+import { AccountType } from './accountType';
 import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
@@ -97,7 +97,7 @@ export interface IEMoneyPaymentAccepted {
     paymentMethodType: PaymentMethodType.EMoney;
 }
 
-export interface IAccountPaymentAccepted<T extends AccountType> {
+export interface IAccountPaymentAccepted<T extends string> {
     paymentMethodType: PaymentMethodType.Account;
     /**
      * 口座タイプ
@@ -109,9 +109,20 @@ export interface IAccountPaymentAccepted<T extends AccountType> {
     accountNumber: string;
 }
 
+export interface IMGTicketPaymentAccepted {
+    paymentMethodType: PaymentMethodType.MGTicket;
+    movieTicketInfo: IMovieTicketInfo;
+}
+
 export interface IMovieTicketPaymentAccepted {
     paymentMethodType: PaymentMethodType.MovieTicket;
     movieTicketInfo: IMovieTicketInfo;
+}
+
+export interface IPrepaidCardPaymentAccepted {
+    paymentMethodType: PaymentMethodType.PrepaidCard;
+    accountType: AccountType.Prepaid;
+    accountNumber: string;
 }
 
 export interface ICommonPaymentAccepted {
@@ -122,11 +133,13 @@ export interface ICommonPaymentAccepted {
  * 利用可能決済インターフェース
  */
 export type IPaymentAccepted<T extends IAcceptedPaymentMethodType> =
-    T extends PaymentMethodType.Account ? IAccountPaymentAccepted<AccountType> :
+    T extends PaymentMethodType.Account ? IAccountPaymentAccepted<string> :
     T extends PaymentMethodType.Cash ? ICashPaymentAccepted :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentAccepted :
     T extends PaymentMethodType.EMoney ? IEMoneyPaymentAccepted :
+    T extends PaymentMethodType.MGTicket ? IMGTicketPaymentAccepted :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentAccepted :
+    T extends PaymentMethodType.PrepaidCard ? IPrepaidCardPaymentAccepted :
     ICommonPaymentAccepted;
 
 export type IMakesOffer = IOffer;

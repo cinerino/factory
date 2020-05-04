@@ -1,13 +1,14 @@
 import * as GMO from '@motionpicture/gmo-service';
 
-import AccountType from '../../accountType';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IPaymentMethod, ISimpleOrder } from '../../order';
+import { IMGTicket } from '../../paymentMethod/paymentCard/mgTicket';
 import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import PaymentMethodType from '../../paymentMethodType';
 import PriceCurrency from '../../priceCurrency';
 import { IPendingTransaction } from '../authorize/paymentMethod/account';
+import { IPendingTransaction as IPrepaidCardPendingTransaction } from '../authorize/paymentMethod/prepaidCard';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
@@ -15,6 +16,7 @@ export type IRecipient = ActionFactory.IParticipant;
 export type IPurpose = ISimpleOrder;
 
 export type TypeOfObject = 'PaymentMethod';
+
 export interface ICommonPaymentMethod<T extends PaymentMethodType> {
     typeOf: TypeOfObject;
     /**
@@ -40,27 +42,49 @@ export interface ICreditCardPaymentMethod extends ICommonPaymentMethod<PaymentMe
 /**
  * 口座決済の場合のオブジェクトインターフェース
  */
-export interface IAccountPaymentMethod<T extends AccountType> extends ICommonPaymentMethod<PaymentMethodType.Account> {
+export interface IAccountPaymentMethod<T extends string> extends ICommonPaymentMethod<PaymentMethodType.Account> {
     pendingTransaction: IPendingTransaction<T>;
 }
 /**
  * ムビチケ決済の場合のオブジェクトインターフェース
  */
-export interface IMovieTicketPaymentMethod extends ICommonPaymentMethod<PaymentMethodType.MovieTicket> {
+export interface IMGTicketPaymentMethod
+    extends ICommonPaymentMethod<PaymentMethodType.MGTicket> {
+    /**
+     * MGチケットリスト
+     */
+    mgTickets: IMGTicket[];
+}
+/**
+ * ムビチケ決済の場合のオブジェクトインターフェース
+ */
+export interface IMovieTicketPaymentMethod
+    extends ICommonPaymentMethod<PaymentMethodType.MovieTicket> {
     /**
      * ムビチケリスト
      */
     movieTickets: IMovieTicket[];
 }
 /**
+ * プリペイドカード決済の場合のオブジェクトインターフェース
+ */
+export interface IPrepaidCardPaymentMethod extends ICommonPaymentMethod<PaymentMethodType.PrepaidCard> {
+    pendingTransaction: IPrepaidCardPendingTransaction;
+}
+
+/**
  * 決済対象の決済方法インターフェース
  */
 export type IPaymentMethodObject<T> =
-    T extends PaymentMethodType.Account ? IAccountPaymentMethod<AccountType> :
+    T extends PaymentMethodType.Account ? IAccountPaymentMethod<string> :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentMethod :
+    T extends PaymentMethodType.MGTicket ? IMGTicketPaymentMethod :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentMethod :
+    T extends PaymentMethodType.PrepaidCard ? IPrepaidCardPaymentMethod :
     never;
+
 export type IObject<T extends PaymentMethodType> = IPaymentMethodObject<T>[];
+
 /**
  * クレジットカード決済の場合の結果インターフェース
  */
@@ -70,16 +94,20 @@ export interface ICreditCardResult {
      */
     creditCardSales?: GMO.services.credit.IAlterTranResult[];
 }
+
 export type IResult<T> =
     T extends PaymentMethodType.Account ? any :
     T extends PaymentMethodType.CreditCard ? ICreditCardResult :
+    T extends PaymentMethodType.MGTicket ? any :
     T extends PaymentMethodType.MovieTicket ? any :
+    T extends PaymentMethodType.PrepaidCard ? any :
     never;
 
 export interface IAttributes<T extends PaymentMethodType> extends ActionFactory.IAttributes<ActionType.PayAction, IObject<T>, IResult<T>> {
     purpose: IPurpose;
 }
+
 /**
- * 支払アクションインターフェース
+ * 決済アクションインターフェース
  */
 export type IAction<T extends PaymentMethodType> = ActionFactory.IAction<IAttributes<T>>;

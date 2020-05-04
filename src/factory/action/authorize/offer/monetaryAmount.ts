@@ -1,6 +1,5 @@
 import * as pecorino from '@pecorino/factory';
 
-import AccountType from '../../../accountType';
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import { IMonetaryAmount } from '../../../monetaryAmount';
@@ -14,9 +13,9 @@ export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
 export type IRequestBody = any;
-export type IResponseBody<T extends AccountType> = pecorino.transaction.deposit.ITransaction<T>;
+export type IResponseBody<T extends string> = pecorino.transaction.deposit.ITransaction<T>;
 
-export interface IResult<T extends AccountType> {
+export interface IResult<T extends string> {
     price: number;
     priceCurrency: PriceCurrency;
     requestEndpoint?: string;
@@ -24,16 +23,12 @@ export interface IResult<T extends AccountType> {
     responseBody: IResponseBody<T>;
 }
 
-export type IPendingTransaction<T extends AccountType> = pecorino.transaction.ITransaction<pecorino.transactionType.Deposit, T>;
+export type IPendingTransaction<T extends string> = pecorino.transaction.ITransaction<pecorino.transactionType.Deposit, T>;
 
-export type IObject<T extends AccountType> = OrderFactory.IAcceptedOffer<IMonetaryAmount> & {
+export type IObject<T extends string> = OrderFactory.IAcceptedOffer<IMonetaryAmount> & {
     toLocation: IAccount<T>;
     pendingTransaction?: IPendingTransaction<T>;
 };
-
-// export interface IObject<T extends AccountType> extends OrderFactory.IMoneyTransfer<T> {
-//     pendingTransaction?: IPendingTransaction<T>;
-// }
 
 export interface ITransactionPurpose {
     typeOf: TransactionType;
@@ -44,7 +39,7 @@ export type IPurpose = ITransactionPurpose;
 
 export type IError = any;
 
-export interface IAttributes<T extends AccountType> extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult<T>> {
+export interface IAttributes<T extends string> extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult<T>> {
     typeOf: ActionType.AuthorizeAction;
     agent: IAgent;
     recipient: IRecipient;
@@ -52,4 +47,4 @@ export interface IAttributes<T extends AccountType> extends AuthorizeActionFacto
     purpose: IPurpose;
 }
 
-export type IAction<T extends AccountType> = ActionFactory.IAction<IAttributes<T>>;
+export type IAction<T extends string> = ActionFactory.IAction<IAttributes<T>>;

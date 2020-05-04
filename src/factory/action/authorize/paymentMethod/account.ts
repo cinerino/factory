@@ -1,6 +1,5 @@
 import * as pecorino from '@pecorino/factory';
 
-import AccountType from '../../../accountType';
 import * as ActionFactory from '../../../action';
 import PaymentMethodType from '../../../paymentMethodType';
 import * as AuthorizeAnyPaymentFactory from './any';
@@ -8,12 +7,12 @@ import * as AuthorizeAnyPaymentFactory from './any';
 /**
  * 進行中取引インターフェース
  */
-export type IPendingTransaction<T extends AccountType> =
+export type IPendingTransaction<T extends string> =
     pecorino.transaction.deposit.ITransaction<T>
     | pecorino.transaction.transfer.ITransaction<T>
     | pecorino.transaction.withdraw.ITransaction<T>;
 
-export interface IAccount<T extends AccountType> {
+export interface IAccount<T extends string> {
     /**
      * 口座タイプ
      */
@@ -32,17 +31,17 @@ export type ITokenizedAccount = string;
 /**
  * 転送元口座
  */
-export type IFromAccount<T extends AccountType> = IAccount<T> | ITokenizedAccount;
+export type IFromAccount<T extends string> = IAccount<T> | ITokenizedAccount;
 
 /**
  * 転送先口座
  */
-export type IToAccount<T extends AccountType> = IAccount<T>;
+export type IToAccount<T extends string> = IAccount<T>;
 
 /**
  * オーソリ対象インターフェース
  */
-export interface IObject<T extends AccountType> extends AuthorizeAnyPaymentFactory.IObject<PaymentMethodType.Account> {
+export interface IObject<T extends string> extends AuthorizeAnyPaymentFactory.IObject<PaymentMethodType.Account> {
     typeOf: PaymentMethodType.Account;
     /**
      * 転送元口座
@@ -60,7 +59,7 @@ export interface IObject<T extends AccountType> extends AuthorizeAnyPaymentFacto
     notes?: string;
 }
 
-export interface IResult<T extends AccountType> extends AuthorizeAnyPaymentFactory.IResult<PaymentMethodType.Account> {
+export interface IResult<T extends string> extends AuthorizeAnyPaymentFactory.IResult<PaymentMethodType.Account> {
     /**
      * 転送元口座
      */
@@ -80,7 +79,7 @@ export type IError = any;
 /**
  * 口座決済承認アクション属性インターフェース
  */
-export interface IAttributes<T extends AccountType> extends AuthorizeAnyPaymentFactory.IAttributes<PaymentMethodType.Account> {
+export interface IAttributes<T extends string> extends AuthorizeAnyPaymentFactory.IAttributes<PaymentMethodType.Account> {
     object: IObject<T>;
     result?: IResult<T>;
     error?: IError;
@@ -89,4 +88,4 @@ export interface IAttributes<T extends AccountType> extends AuthorizeAnyPaymentF
 /**
  * 口座決済承認アクションインターフェース
  */
-export type IAction<T extends AccountType> = ActionFactory.IAction<IAttributes<T>>;
+export type IAction<T extends string> = ActionFactory.IAction<IAttributes<T>>;

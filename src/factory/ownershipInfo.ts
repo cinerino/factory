@@ -1,9 +1,9 @@
 import * as pecorino from '@pecorino/factory';
 
-import AccountType from './accountType';
 import * as OrganizationFactory from './organization';
 import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
+import PaymentMethodType from './paymentMethodType';
 import { IPerson } from './person';
 import { IProgramMembership, ProgramMembershipType } from './programMembership';
 import { Identifier as WebAPIIdentifier, IService as IWebAPI } from './service/webAPI';
@@ -26,7 +26,7 @@ export enum AccountGoodType {
 /**
  * 口座インターフェース
  */
-export interface IAccount<T extends AccountType> {
+export interface IAccount<T extends string> {
     typeOf: AccountGoodType.Account;
     /**
      * 口座タイプ
@@ -62,10 +62,15 @@ export interface IReservation<T extends chevre.reservationType> {
 export type IReservationWithDetail<T extends chevre.reservationType> =
     IReservation<T> & chevre.reservation.IReservation<T>;
 
+export interface IPrepaidCard {
+    typeOf: PaymentMethodType.PrepaidCard;
+    identifier: string;
+}
+
 /**
  * 所有対象物のタイプ
  */
-export type IGoodType = chevre.reservationType | ProgramMembershipType | AccountGoodType;
+export type IGoodType = chevre.reservationType | ProgramMembershipType | AccountGoodType | PaymentMethodType.PrepaidCard;
 
 /**
  * 所有対象物インターフェース (Product or Service)
@@ -74,7 +79,7 @@ export type IGood<T extends IGoodType> =
     /**
      * 口座タイプの場合
      */
-    T extends AccountGoodType ? IAccount<AccountType> :
+    T extends AccountGoodType ? IAccount<string> :
     /**
      * 会員プログラムタイプの場合
      */
@@ -83,6 +88,10 @@ export type IGood<T extends IGoodType> =
      * 予約タイプの場合
      */
     T extends chevre.reservationType ? IReservation<T> :
+    /**
+     * プリペイドカードタイプの場合
+     */
+    T extends PaymentMethodType.PrepaidCard ? IPrepaidCard :
     any;
 
 /**
@@ -92,7 +101,7 @@ export type IGoodWithDetail<T extends IGoodType> =
     /**
      * 口座タイプの場合
      */
-    T extends AccountGoodType ? pecorino.account.IAccount<AccountType> :
+    T extends AccountGoodType ? pecorino.account.IAccount<string> :
     /**
      * 会員プログラムタイプの場合
      */
@@ -168,7 +177,7 @@ export type Identifier<T extends IGoodType> =
      */
     T extends AccountGoodType ? {
         typeOf: AccountGoodType;
-        accountType: AccountType;
+        accountType: string;
         accountNumber: string;
     } :
     /**
@@ -202,7 +211,7 @@ export interface ITypeOfGoodSearchConditions<T extends IGoodType> {
     /**
      * 口座の場合、口座タイプ
      */
-    accountType?: AccountType;
+    accountType?: string;
     /**
      * 口座の場合、口座番号
      */

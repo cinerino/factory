@@ -3,6 +3,7 @@ import ActionType from '../../../actionType';
 import { IMonetaryAmount } from '../../../monetaryAmount';
 import * as SeatReservationOfferFactory from '../../../offer/seatReservation';
 import * as OrderFactory from '../../../order';
+import { IMGTicket } from '../../../paymentMethod/paymentCard/mgTicket';
 import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
 import PriceCurrency from '../../../priceCurrency';
 import { IPropertyValue } from '../../../propertyValue';
@@ -62,7 +63,7 @@ export interface IResult<T extends WebAPIIdentifier> {
     acceptedOffers?: IResultAcceptedOffer[];
 }
 
-export type IAcceptedPaymentMethod = IMovieTicket;
+export type IAcceptedPaymentMethod = IMGTicket | IMovieTicket;
 
 export type IAcceptedOffer4chevre = {
     paymentMethod?: IAcceptedPaymentMethod;

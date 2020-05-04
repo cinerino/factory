@@ -36,6 +36,10 @@ export interface IPotentialActions {
      */
     refundAccount: IRefundActionAttributes<PaymentMethodType.Account>[];
     /**
+     * MGチケット着券取消アクション
+     */
+    refundMGTicket: IRefundActionAttributes<PaymentMethodType.MGTicket>[];
+    /**
      * ムビチケ着券取消アクション
      */
     refundMovieTicket: IRefundActionAttributes<PaymentMethodType.MovieTicket>[];
