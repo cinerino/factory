@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Added
 
 - 注文アイテムに決済カードを追加
+- サービス登録タスクを追加
 
 ### Changed
 

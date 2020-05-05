@@ -95,6 +95,10 @@ enum TaskName {
      */
     RegisterProgramMembership = 'registerProgramMembership',
     /**
+     * サービス登録
+     */
+    RegisterService = 'registerService',
+    /**
      * 注文返品
      */
     ReturnOrder = 'returnOrder',
