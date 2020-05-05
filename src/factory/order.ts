@@ -7,6 +7,7 @@ import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
 import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
+import { IPrepaidCard } from './paymentMethod/paymentCard/prepaidCard';
 import PaymentMethodType from './paymentMethodType';
 import { IIdentifier as IPersonIdentifier, IPerson } from './person';
 import PersonType from './personType';
@@ -81,9 +82,7 @@ export import IMonetaryAmount = MonetaryAmountFactory.IMonetaryAmount;
 /**
  * 供給アイテムインターフェース
  */
-export type IItemOffered = IMonetaryAmount | IReservation | IProgramMembership;
-
-export type ItemOfferedType = chevre.reservationType | string;
+export type IItemOffered = IMonetaryAmount | IReservation | IProgramMembership | IPrepaidCard;
 
 /**
  * offer interface
@@ -323,7 +322,7 @@ export interface IPaymentMethodsSearchConditions {
 
 export interface IAcceptedOffersSearchConditions {
     itemOffered?: {
-        typeOfs?: ItemOfferedType[];
+        typeOfs?: string[];
         /**
          * 予約IDリスト
          */
