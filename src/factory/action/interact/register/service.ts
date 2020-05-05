@@ -1,9 +1,8 @@
 import { IAcceptedOffer as IOrderAcceptedOffer } from '../../../order';
-import { IProgramMembership } from '../../../programMembership';
 import * as RegisterActionFactory from '../register';
 
 export type IAcceptedOffer = IOrderAcceptedOffer<any>;
-export type IObject = IProgramMembership;
+export type IObject = any;
 export type IResult = any;
 
 export type IPotentialActions = any;
