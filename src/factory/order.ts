@@ -1,7 +1,4 @@
 import { IParticipant } from './action';
-// import { IAccount } from './action/transfer/moneyTransfer';
-// import ActionType from './actionType';
-import * as MonetaryAmountFactory from './monetaryAmount';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
@@ -44,7 +41,7 @@ export interface IPaymentMethod<T extends AvailablePaymentMethodType> {
     /**
      * The total amount due.
      */
-    totalPaymentDue?: MonetaryAmountFactory.IMonetaryAmount;
+    totalPaymentDue?: chevre.monetaryAmount.IMonetaryAmount;
     /**
      * 追加特性
      */
@@ -75,9 +72,7 @@ export interface IDiscount {
 }
 
 export type IReservation = chevre.reservation.IReservation<chevre.reservationType.EventReservation>;
-
-export import IMonetaryAmount = MonetaryAmountFactory.IMonetaryAmount;
-
+export import IMonetaryAmount = chevre.monetaryAmount.IMonetaryAmount;
 export import IPrepaidCard = chevre.paymentMethod.paymentCard.prepaidCard.IPrepaidCard;
 
 /**

@@ -57,7 +57,6 @@ import * as EventFactory from './factory/event';
 import * as ScreeningEventFactory from './factory/event/screeningEvent';
 import * as ScreeningEventSeriesFactory from './factory/event/screeningEventSeries';
 import * as InvoiceFactory from './factory/invoice';
-import * as MonetaryAmountFactory from './factory/monetaryAmount';
 import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
 import * as OrderFactory from './factory/order';
@@ -314,7 +313,6 @@ export namespace event {
     export import screeningEventSeries = ScreeningEventSeriesFactory;
 }
 export import invoice = InvoiceFactory;
-export import monetaryAmount = MonetaryAmountFactory;
 export type multilingualString = IMultilingualString;
 export import offer = OfferFactory;
 export import order = OrderFactory;

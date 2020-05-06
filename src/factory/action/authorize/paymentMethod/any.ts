@@ -1,11 +1,12 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-import { IMonetaryAmount } from '../../../monetaryAmount';
 import PaymentMethodType from '../../../paymentMethodType';
 import PaymentStatusType from '../../../paymentStatusType';
 import { IPropertyValue } from '../../../propertyValue';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
+
+import * as chevre from '../../../../chevre';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
@@ -74,7 +75,7 @@ export interface IResult<T extends PaymentMethodType> {
     /**
      * The total amount due.
      */
-    totalPaymentDue?: IMonetaryAmount;
+    totalPaymentDue?: chevre.monetaryAmount.IMonetaryAmount;
     /**
      * 追加特性
      */

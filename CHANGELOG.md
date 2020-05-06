@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Changed
 
 - 決済方法インターフェースをChevreへ移行
+- 金額インターフェースをChevreへ移行
 
 ### Deprecated
 

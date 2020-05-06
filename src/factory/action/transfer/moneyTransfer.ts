@@ -2,13 +2,14 @@ import * as pecorino from '@pecorino/factory';
 
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-import { IMonetaryAmount } from '../../monetaryAmount';
 import { ISimpleOrder } from '../../order';
 import PaymentMethodType from '../../paymentMethodType';
 import { IPropertyValue } from '../../propertyValue';
 import SortType from '../../sortType';
 import TransactionType from '../../transactionType';
 import { IPendingTransaction } from '../authorize/paymentMethod/account';
+
+import * as chevre from '../../../chevre';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
@@ -43,7 +44,7 @@ export interface IPaymentMethodLocation<T extends AvailablePaymentMethodType> {
     /**
      * The total amount due.
      */
-    totalPaymentDue?: IMonetaryAmount;
+    totalPaymentDue?: chevre.monetaryAmount.IMonetaryAmount;
     /**
      * 追加特性
      */
@@ -96,7 +97,7 @@ export interface IAttributes<T extends string>
     /**
      * 金額
      */
-    amount: IMonetaryAmount;
+    amount: chevre.monetaryAmount.IMonetaryAmount;
     /**
      * 転送元
      */

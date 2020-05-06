@@ -2,12 +2,13 @@ import * as pecorino from '@pecorino/factory';
 
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-import { IMonetaryAmount } from '../../../monetaryAmount';
 import * as OrderFactory from '../../../order';
 import PriceCurrency from '../../../priceCurrency';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 import { IAccount } from '../../transfer/moneyTransfer';
+
+import * as chevre from '../../../../chevre';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
@@ -25,7 +26,7 @@ export interface IResult<T extends string> {
 
 export type IPendingTransaction<T extends string> = pecorino.transaction.ITransaction<pecorino.transactionType.Deposit, T>;
 
-export type IObject<T extends string> = OrderFactory.IAcceptedOffer<IMonetaryAmount> & {
+export type IObject<T extends string> = OrderFactory.IAcceptedOffer<chevre.monetaryAmount.IMonetaryAmount> & {
     toLocation: IAccount<T>;
     pendingTransaction?: IPendingTransaction<T>;
 };

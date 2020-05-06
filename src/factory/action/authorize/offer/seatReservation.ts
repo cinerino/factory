@@ -1,6 +1,5 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-import { IMonetaryAmount } from '../../../monetaryAmount';
 import * as SeatReservationOfferFactory from '../../../offer/seatReservation';
 import * as OrderFactory from '../../../order';
 import PriceCurrency from '../../../priceCurrency';
@@ -48,7 +47,7 @@ export interface IResult<T extends WebAPIIdentifier> {
      * オファーに対して必要な金額
      * currencyを口座タイプとして扱う
      */
-    amount: IMonetaryAmount[];
+    amount: chevre.monetaryAmount.IMonetaryAmount[];
     /**
      * 外部リクエストエンドポイント
      */
