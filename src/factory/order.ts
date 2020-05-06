@@ -7,7 +7,6 @@ import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
 import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
-import { IPrepaidCard } from './paymentMethod/paymentCard/prepaidCard';
 import PaymentMethodType from './paymentMethodType';
 import { IIdentifier as IPersonIdentifier, IPerson } from './person';
 import PersonType from './personType';
@@ -78,6 +77,8 @@ export interface IDiscount {
 export type IReservation = chevre.reservation.IReservation<chevre.reservationType.EventReservation>;
 
 export import IMonetaryAmount = MonetaryAmountFactory.IMonetaryAmount;
+
+export import IPrepaidCard = chevre.paymentMethod.paymentCard.prepaidCard.IPrepaidCard;
 
 /**
  * 供給アイテムインターフェース

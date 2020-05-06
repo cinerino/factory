@@ -3,8 +3,6 @@ import ActionType from '../../../actionType';
 import { IMonetaryAmount } from '../../../monetaryAmount';
 import * as SeatReservationOfferFactory from '../../../offer/seatReservation';
 import * as OrderFactory from '../../../order';
-import { IMGTicket } from '../../../paymentMethod/paymentCard/mgTicket';
-import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
 import PriceCurrency from '../../../priceCurrency';
 import { IPropertyValue } from '../../../propertyValue';
 import { Identifier as WebAPIIdentifier, IService as IWebAPI } from '../../../service/webAPI';
@@ -16,6 +14,9 @@ import * as COA from '../../../../coa';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
+
+export import IMGTicket = chevre.paymentMethod.paymentCard.mgTicket.IMGTicket;
+export import IMovieTicket = chevre.paymentMethod.paymentCard.movieTicket.IMovieTicket;
 
 export enum ObjectType {
     SeatReservation = 'SeatReservation'

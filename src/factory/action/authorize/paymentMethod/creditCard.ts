@@ -1,9 +1,14 @@
 import * as GMO from '@motionpicture/gmo-service';
 
 import * as ActionFactory from '../../../action';
-import { IUnauthorizedCardOfMember, IUncheckedCardRaw, IUncheckedCardTokenized } from '../../../paymentMethod/paymentCard/creditCard';
 import PaymentMethodType from '../../../paymentMethodType';
 import * as AuthorizeAnyPaymentFactory from './any';
+
+import * as chevre from '../../../../chevre';
+
+export import IUnauthorizedCardOfMember = chevre.paymentMethod.paymentCard.creditCard.IUnauthorizedCardOfMember;
+export import IUncheckedCardRaw = chevre.paymentMethod.paymentCard.creditCard.IUncheckedCardRaw;
+export import IUncheckedCardTokenized = chevre.paymentMethod.paymentCard.creditCard.IUncheckedCardTokenized;
 
 /**
  * クレジットカード決済承認アクションに必要なクレジットカード情報インターフェース

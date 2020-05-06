@@ -3,12 +3,15 @@ import * as GMO from '@motionpicture/gmo-service';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IPaymentMethod, ISimpleOrder } from '../../order';
-import { IMGTicket } from '../../paymentMethod/paymentCard/mgTicket';
-import { IMovieTicket } from '../../paymentMethod/paymentCard/movieTicket';
 import PaymentMethodType from '../../paymentMethodType';
 import PriceCurrency from '../../priceCurrency';
 import { IPendingTransaction } from '../authorize/paymentMethod/account';
 import { IPendingTransaction as IPrepaidCardPendingTransaction } from '../authorize/paymentMethod/prepaidCard';
+
+import * as chevre from '../../../chevre';
+
+export import IMGTicket = chevre.paymentMethod.paymentCard.mgTicket.IMGTicket;
+export import IMovieTicket = chevre.paymentMethod.paymentCard.movieTicket.IMovieTicket;
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;

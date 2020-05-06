@@ -66,10 +66,6 @@ import * as OrganizationFactory from './factory/organization';
 import * as ProjectFactory from './factory/organization/project';
 import OrganizationType from './factory/organizationType';
 import * as OwnershipInfoFactory from './factory/ownershipInfo';
-import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
-import * as MGTicketFactory from './factory/paymentMethod/paymentCard/mgTicket';
-import * as MovieTicketFactory from './factory/paymentMethod/paymentCard/movieTicket';
-import * as PrepaidCardFactory from './factory/paymentMethod/paymentCard/prepaidCard';
 import PaymentMethodType from './factory/paymentMethodType';
 import PaymentStatusType from './factory/paymentStatusType';
 import * as PersonFactory from './factory/person';
@@ -284,29 +280,6 @@ export namespace action {
 export import authorization = AuthorizationFactory;
 
 export import encodingFormat = EncodingFormat;
-
-export namespace paymentMethod {
-    export type ISearchConditions<T extends PaymentMethodType> =
-        T extends PaymentMethodType.CreditCard ? CreditCardFactory.ISearchConditions :
-        T extends PaymentMethodType.MGTicket ? MGTicketFactory.ISearchConditions :
-        T extends PaymentMethodType.MovieTicket ? MovieTicketFactory.ISearchConditions :
-        T extends PaymentMethodType.PrepaidCard ? PrepaidCardFactory.ISearchConditions :
-        never;
-
-    export type IPaymentMethod<T extends PaymentMethodType> =
-        T extends PaymentMethodType.CreditCard ? CreditCardFactory.ICheckedCard :
-        T extends PaymentMethodType.MGTicket ? MGTicketFactory.IMGTicket :
-        T extends PaymentMethodType.MovieTicket ? MovieTicketFactory.IMovieTicket :
-        T extends PaymentMethodType.PrepaidCard ? PrepaidCardFactory.IPrepaidCard :
-        never;
-
-    export namespace paymentCard {
-        export import creditCard = CreditCardFactory;
-        export import mgTicket = MGTicketFactory;
-        export import movieTicket = MovieTicketFactory;
-        export import prepaidCard = PrepaidCardFactory;
-    }
-}
 
 export import clientUser = ClientUserFactory;
 
