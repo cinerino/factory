@@ -1,68 +1,55 @@
-import * as pecorino from '@pecorino/factory';
-
-import { AccountType } from '../../../accountType';
+/**
+ * Chevre決済カード決済承認
+ */
 import * as ActionFactory from '../../../action';
-import PaymentMethodType from '../../../paymentMethodType';
 import * as AuthorizeAnyPaymentFactory from './any';
+
+import * as chevre from '../../../../chevre';
 
 /**
  * 進行中取引インターフェース
  */
-export type IPendingTransaction =
-    pecorino.transaction.deposit.ITransaction<string>
-    | pecorino.transaction.transfer.ITransaction<string>
-    | pecorino.transaction.withdraw.ITransaction<string>;
+export type IPendingTransaction = chevre.transaction.moneyTransfer.ITransaction;
 
-export interface IAccount {
-    /**
-     * 口座タイプ
-     */
-    accountType: AccountType.Prepaid;
-    /**
-     * 口座番号
-     */
-    accountNumber: string;
-}
+export type IPaymentCard = chevre.action.transfer.moneyTransfer.IPaymentCard;
 
 /**
- * トークン化された口座インターフェース
+ * 決済トークン
  */
-export type ITokenizedAccount = string;
+export type ITokenizedPaymentCard = string;
 
 /**
- * 転送元口座
+ * 転送元インターフェース
  */
-export type IFromLocation = IAccount | ITokenizedAccount;
+export type IFromLocation = IPaymentCard | ITokenizedPaymentCard;
 
 /**
- * 転送先口座
+ * 転送先インターフェース
  */
-export type IToLocation = IAccount;
+export type IToLocation = IPaymentCard;
 
 /**
  * オーソリ対象インターフェース
  */
-export interface IObject extends AuthorizeAnyPaymentFactory.IObject<PaymentMethodType.PrepaidCard> {
-    typeOf: PaymentMethodType.PrepaidCard;
+export interface IObject extends AuthorizeAnyPaymentFactory.IObject<any> {
+    typeOf: string;
     /**
-     * 転送元口座
-     * 出金取引、転送取引の場合指定
+     * 転送元
      */
     fromLocation?: IFromLocation;
     /**
-     * 転送先口座
-     * 入金取引、転送取引の場合指定
+     * 転送先
      */
     toLocation?: IToLocation;
 }
 
-export interface IResult extends AuthorizeAnyPaymentFactory.IResult<PaymentMethodType.PrepaidCard> {
+export interface IResult extends AuthorizeAnyPaymentFactory.IResult<any> {
     /**
-     * 転送元口座
+     * 転送元
      */
     fromLocation?: IFromLocation;
     /**
-     * 転送先口座
+     * 転送先
      */
     toLocation?: IToLocation;
     /**
@@ -74,15 +61,15 @@ export interface IResult extends AuthorizeAnyPaymentFactory.IResult<PaymentMetho
 export type IError = any;
 
 /**
- * プリペイドカード決済承認アクション属性インターフェース
+ * 決済カード決済承認アクション属性インターフェース
  */
-export interface IAttributes extends AuthorizeAnyPaymentFactory.IAttributes<PaymentMethodType.PrepaidCard> {
+export interface IAttributes extends AuthorizeAnyPaymentFactory.IAttributes<any> {
     object: IObject;
     result?: IResult;
     error?: IError;
 }
 
 /**
- * プリペイドカード決済承認アクションインターフェース
+ * 決済カード決済承認アクションインターフェース
  */
 export type IAction = ActionFactory.IAction<IAttributes>;
