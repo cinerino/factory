@@ -33,6 +33,10 @@ export interface IObject<T extends PaymentMethodType> {
      */
     amount: number;
     /**
+     * 説明
+     */
+    description?: string;
+    /**
      * 決済方法名称
      * 未指定であればデフォルト値が使用されます
      */

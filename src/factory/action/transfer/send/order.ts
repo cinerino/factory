@@ -31,7 +31,7 @@ export interface IPotentialActions {
     /**
      * 通貨転送アクション
      */
-    moneyTransfer?: IMoneyTransferActionAttributes<string>[];
+    moneyTransfer?: IMoneyTransferActionAttributes[];
     /**
      * 会員プログラムの注文の場合、会員プログラム登録アクション
      */

@@ -5,14 +5,15 @@ import ActionType from '../../actionType';
 import { ISimpleOrder } from '../../order';
 import PaymentMethodType from '../../paymentMethodType';
 import { IPropertyValue } from '../../propertyValue';
-import SortType from '../../sortType';
 import TransactionType from '../../transactionType';
-import { IPendingTransaction } from '../authorize/paymentMethod/account';
+import { IPendingTransaction as IPaymentCardTransaction } from '../authorize/paymentMethod/prepaidCard';
 
 import * as chevre from '../../../chevre';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
+
+export type IPendingTransaction = IPaymentCardTransaction;
 
 /**
  * 匿名ロケーションインターフェース
@@ -52,31 +53,21 @@ export interface IPaymentMethodLocation<T extends AvailablePaymentMethodType> {
 }
 
 /**
- * 口座インターフェース
+ * 決済カードインターフェース
  */
-export interface IAccount<T extends string> {
-    typeOf: pecorino.account.TypeOf.Account;
-    /**
-     * 口座タイプ
-     */
-    accountType: T;
-    /**
-     * 口座番号
-     */
-    accountNumber: string;
-    /**
-     * 口座名義
-     */
-    name?: string;
+export interface IPaymentCard {
+    typeOf: string;
+    identifier: string;
+    accessCode?: string;
 }
 
 /**
  * 転送元あるいは転送先の場所インターフェース
  */
-export type ILocation<T extends string> = IAnonymousLocation | IPaymentMethodLocation<AvailablePaymentMethodType> | IAccount<T>;
+export type ILocation = IAnonymousLocation | IPaymentMethodLocation<AvailablePaymentMethodType> | IPaymentCard;
 
-export interface IObject<T extends string> {
-    pendingTransaction: IPendingTransaction<T>;
+export interface IObject {
+    pendingTransaction: IPendingTransaction;
 }
 
 export type IResult = any;
@@ -90,8 +81,8 @@ export interface ITransactionPurpose {
 
 export type IPurpose = ITransactionPurpose | ISimpleOrder;
 
-export interface IAttributes<T extends string>
-    extends ActionFactory.IAttributes<ActionType.MoneyTransfer, IObject<T>, IResult> {
+export interface IAttributes
+    extends ActionFactory.IAttributes<ActionType.MoneyTransfer, IObject, IResult> {
     typeOf: ActionType.MoneyTransfer;
     purpose: IPurpose;
     /**
@@ -101,35 +92,11 @@ export interface IAttributes<T extends string>
     /**
      * 転送元
      */
-    fromLocation: ILocation<T>;
+    fromLocation: ILocation;
     /**
      * 転送先
      */
-    toLocation: ILocation<T>;
+    toLocation: ILocation;
 }
 
-export type IAction<T extends string> = ActionFactory.IAction<IAttributes<T>>;
-
-/**
- * ソート条件インターフェース
- */
-export interface ISortOrder {
-    startDate?: SortType;
-}
-
-/**
- * 検索条件インターフェース
- */
-export interface ISearchConditions<T extends string> {
-    limit?: number;
-    page?: number;
-    sort?: ISortOrder;
-    /**
-     * 口座タイプ
-     */
-    accountType: T;
-    /**
-     * 口座番号
-     */
-    accountNumber?: string;
-}
+export type IAction = ActionFactory.IAction<IAttributes>;

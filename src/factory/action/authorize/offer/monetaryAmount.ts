@@ -1,12 +1,10 @@
-import * as pecorino from '@pecorino/factory';
-
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import * as OrderFactory from '../../../order';
 import PriceCurrency from '../../../priceCurrency';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
-import { IAccount } from '../../transfer/moneyTransfer';
+import { IPaymentCard, IPendingTransaction } from '../../transfer/moneyTransfer';
 
 import * as chevre from '../../../../chevre';
 
@@ -14,21 +12,18 @@ export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
 export type IRequestBody = any;
-export type IResponseBody<T extends string> = pecorino.transaction.deposit.ITransaction<T>;
+export type IResponseBody = IPendingTransaction;
 
-export interface IResult<T extends string> {
+export interface IResult {
     price: number;
     priceCurrency: PriceCurrency;
-    requestEndpoint?: string;
     requestBody?: IRequestBody;
-    responseBody: IResponseBody<T>;
+    responseBody: IResponseBody;
 }
 
-export type IPendingTransaction<T extends string> = pecorino.transaction.ITransaction<pecorino.transactionType.Deposit, T>;
-
-export type IObject<T extends string> = OrderFactory.IAcceptedOffer<chevre.monetaryAmount.IMonetaryAmount> & {
-    toLocation: IAccount<T>;
-    pendingTransaction?: IPendingTransaction<T>;
+export type IObject = OrderFactory.IAcceptedOffer<chevre.monetaryAmount.IMonetaryAmount> & {
+    toLocation: IPaymentCard;
+    pendingTransaction?: IPendingTransaction;
 };
 
 export interface ITransactionPurpose {
@@ -40,12 +35,12 @@ export type IPurpose = ITransactionPurpose;
 
 export type IError = any;
 
-export interface IAttributes<T extends string> extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult<T>> {
+export interface IAttributes extends AuthorizeActionFactory.IAttributes<IObject, IResult> {
     typeOf: ActionType.AuthorizeAction;
     agent: IAgent;
     recipient: IRecipient;
-    object: IObject<T>;
+    object: IObject;
     purpose: IPurpose;
 }
 
-export type IAction<T extends string> = ActionFactory.IAction<IAttributes<T>>;
+export type IAction = ActionFactory.IAction<IAttributes>;
