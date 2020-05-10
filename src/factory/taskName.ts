@@ -15,9 +15,9 @@ enum TaskName {
      */
     CancelCreditCard = 'cancelCreditCard',
     /**
-     * プリペイドカード決済承認アクション取消
+     * 決済カード決済承認アクション取消
      */
-    CancelPrepaidCard = 'cancelPrepaidCard',
+    CancelPaymentCard = 'cancelPaymentCard',
     /**
      * 予約取消
      */
@@ -63,9 +63,9 @@ enum TaskName {
      */
     PayMovieTicket = 'payMovieTicket',
     /**
-     * プリペイドカード決済
+     * 決済カード決済
      */
-    PayPrepaidCard = 'payPrepaidCard',
+    PayPaymentCard = 'payPaymentCard',
     /**
      * 注文受付
      */
@@ -87,9 +87,9 @@ enum TaskName {
      */
     RefundMovieTicket = 'refundMovieTicket',
     /**
-     * プリペイドカード返金
+     * 決済カード返金
      */
-    RefundPrepaidCard = 'refundPrepaidCard',
+    RefundPaymentCard = 'refundPaymentCard',
     /**
      * 会員プログラム登録
      */

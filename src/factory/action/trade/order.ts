@@ -43,9 +43,9 @@ export interface IPotentialActions {
      */
     payMovieTicket?: IPayActionAttributes<PaymentMethodType.MovieTicket>[];
     /**
-     * プリペイドカード決済アクション
+     * 決済カード決済アクション
      */
-    payPrepaidCard?: IPayActionAttributes<PaymentMethodType.PrepaidCard>[];
+    payPaymentCard?: IPayActionAttributes<string>[];
     /**
      * 注文配送アクション
      */

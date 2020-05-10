@@ -14,12 +14,12 @@ export type IRecipient = ActionFactory.IParticipant;
 /**
  * 汎用決済方法タイプ
  */
-export type IAnyPaymentMethod<T extends PaymentMethodType> = T | string;
+export type IAnyPaymentMethod = PaymentMethodType | string;
 
 /**
  * 承認対象インターフェース
  */
-export interface IObject<T extends PaymentMethodType> {
+export interface IObject<T extends IAnyPaymentMethod> {
     /**
      * The identifier for the account the payment will be applied to.
      */
@@ -48,10 +48,10 @@ export interface IObject<T extends PaymentMethodType> {
     /**
      * 決済方法タイプ
      */
-    typeOf: IAnyPaymentMethod<T>;
+    typeOf: T;
 }
 
-export interface IResult<T extends PaymentMethodType> {
+export interface IResult<T extends IAnyPaymentMethod> {
     /**
      * The identifier for the account the payment will be applied to.
      */
@@ -63,7 +63,7 @@ export interface IResult<T extends PaymentMethodType> {
     /**
      * 決済方法
      */
-    paymentMethod: IAnyPaymentMethod<T>;
+    paymentMethod: T;
     /**
      * 決済ID
      */

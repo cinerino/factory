@@ -73,12 +73,12 @@ export interface IDiscount {
 
 export type IReservation = chevre.reservation.IReservation<chevre.reservationType.EventReservation>;
 export import IMonetaryAmount = chevre.monetaryAmount.IMonetaryAmount;
-export import IPrepaidCard = chevre.paymentMethod.paymentCard.prepaidCard.IPrepaidCard;
+export import IPaymentCard = chevre.paymentMethod.paymentCard.IPaymentCard;
 
 /**
  * 供給アイテムインターフェース
  */
-export type IItemOffered = IMonetaryAmount | IReservation | IProgramMembership | IPrepaidCard;
+export type IItemOffered = IMonetaryAmount | IReservation | IProgramMembership | IPaymentCard;
 
 /**
  * offer interface
