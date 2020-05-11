@@ -11,7 +11,7 @@ export type IRecipient = ActionFactory.IParticipant;
 /**
  * 承認アクション対象
  */
-export type IObject = IAcceptedOffer<any>;
+export type IObject = IAcceptedOffer<any>[];
 
 /**
  * 承認アクション結果
