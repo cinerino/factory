@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 決済方法インターフェースをChevreへ移行
 - 金額インターフェースをChevreへ移行
 - 金額オファー承認をChevre通貨転送取引連携へ変更
+- update @pecorino/factory
 
 ### Deprecated
 

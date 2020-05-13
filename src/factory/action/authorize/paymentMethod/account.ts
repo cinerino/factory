@@ -7,10 +7,10 @@ import * as AuthorizeAnyPaymentFactory from './any';
 /**
  * 進行中取引インターフェース
  */
-export type IPendingTransaction<T extends string> =
-    pecorino.transaction.deposit.ITransaction<T>
-    | pecorino.transaction.transfer.ITransaction<T>
-    | pecorino.transaction.withdraw.ITransaction<T>;
+export type IPendingTransaction =
+    pecorino.transaction.deposit.ITransaction
+    | pecorino.transaction.transfer.ITransaction
+    | pecorino.transaction.withdraw.ITransaction;
 
 export interface IAccount<T extends string> {
     /**
@@ -71,7 +71,7 @@ export interface IResult<T extends string> extends AuthorizeAnyPaymentFactory.IR
     /**
      * 進行中取引
      */
-    pendingTransaction: IPendingTransaction<T>;
+    pendingTransaction: IPendingTransaction;
 }
 
 export type IError = any;

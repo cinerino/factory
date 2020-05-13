@@ -44,8 +44,8 @@ export interface ICreditCardPaymentMethod extends ICommonPaymentMethod<PaymentMe
 /**
  * 口座決済の場合のオブジェクトインターフェース
  */
-export interface IAccountPaymentMethod<T extends string> extends ICommonPaymentMethod<PaymentMethodType.Account> {
-    pendingTransaction: IPendingTransaction<T>;
+export interface IAccountPaymentMethod extends ICommonPaymentMethod<PaymentMethodType.Account> {
+    pendingTransaction: IPendingTransaction;
 }
 /**
  * ムビチケ決済の場合のオブジェクトインターフェース
@@ -72,7 +72,7 @@ export interface IMovieTicketPaymentMethod
  * 決済対象の決済方法インターフェース
  */
 export type IPaymentMethodObject<T> =
-    T extends PaymentMethodType.Account ? IAccountPaymentMethod<string> :
+    T extends PaymentMethodType.Account ? IAccountPaymentMethod :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentMethod :
     T extends PaymentMethodType.MGTicket ? IMGTicketPaymentMethod :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentMethod :

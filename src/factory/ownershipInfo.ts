@@ -91,7 +91,7 @@ export type IGoodWithDetail<T extends IGoodType> =
     /**
      * 口座タイプの場合
      */
-    T extends AccountGoodType ? pecorino.account.IAccount<string> :
+    T extends AccountGoodType ? pecorino.account.IAccount :
     /**
      * 会員プログラムタイプの場合
      */
