@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 金額オファー承認をChevre通貨転送取引連携へ変更
 - update @pecorino/factory
 - 注文返品取引オブジェクトを最適化
+- 注文返品取引を複数注文に対応
 
 ### Deprecated
 

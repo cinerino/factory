@@ -206,7 +206,7 @@ export interface IPotentialActions {
     /**
      * 注文返品アクション属性
      */
-    returnOrder: IReturnOrderActionAttributes;
+    returnOrder: IReturnOrderActionAttributes[];
 }
 
 export type ITransaction = IExtendId<IAttributes>;
