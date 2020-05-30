@@ -103,7 +103,7 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOffer {
  */
 export interface ISeller {
     id: string;
-    identifier?: string;
+    identifier?: any;
     name: string;
     legalName?: IMultilingualString;
     typeOf: OrganizationType;

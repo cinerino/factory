@@ -6,6 +6,7 @@ import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
+import { IThing } from './thing';
 
 import * as chevre from '../chevre';
 
@@ -144,18 +145,10 @@ export type IAreaServed = any;
 
 export type IHasMerchantReturnPolicy = IMerchantReturnPolicy[];
 
-export interface IAttributes<T extends OrganizationType> {
+export interface IAttributes<T extends OrganizationType> extends IThing {
     project: IProject;
-    /**
-     * 組織タイプ
-     */
     typeOf: T;
     hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
-    identifier?: any;
-    name: IMultilingualString;
-    /**
-     * 親組織
-     */
     parentOrganization?: IParentOrganization;
     legalName?: IMultilingualString;
     location?: ILocation;
@@ -164,8 +157,6 @@ export interface IAttributes<T extends OrganizationType> {
      */
     makesOffer?: IMakesOffer[];
     telephone?: string;
-    url?: string;
-    image?: string;
     paymentAccepted?: IPaymentAccepted<IAcceptedPaymentMethodType>[];
     /**
      * The geographic area where a service or offered item is provided.
