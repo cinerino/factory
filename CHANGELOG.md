@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## v5.1.0 - 2020-05-30
+
+### Added
+
 - 注文アイテムに決済カードを追加
 - サービス登録タスクを追加
 
@@ -20,14 +34,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - 注文返品取引オブジェクトを最適化
 - 注文返品取引を複数注文に対応
 - アクションのagentインターフェースを拡張
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## v5.0.0 - 2020-05-04
 
