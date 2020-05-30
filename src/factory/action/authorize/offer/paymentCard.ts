@@ -1,37 +1,33 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-import * as OrderFactory from '../../../order';
+import { IAcceptedOffer } from '../../../order';
 import PriceCurrency from '../../../priceCurrency';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
-import { IPaymentCard, IPendingTransaction } from '../../transfer/moneyTransfer';
-
-import * as chevre from '../../../../chevre';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
-export type IRequestBody = any;
-export type IResponseBody = IPendingTransaction;
+/**
+ * 承認アクション対象
+ */
+export type IObject = IAcceptedOffer<any>[];
 
+/**
+ * 承認アクション結果
+ */
 export interface IResult {
+    /**
+     * オファー分の金額
+     */
     price: number;
     priceCurrency: PriceCurrency;
-    requestBody?: IRequestBody;
-    responseBody: IResponseBody;
 }
 
-export type IObject = OrderFactory.IAcceptedOffer<chevre.monetaryAmount.IMonetaryAmount> & {
-    toLocation: IPaymentCard;
-    pendingTransaction?: IPendingTransaction;
-};
-
-export interface ITransactionPurpose {
-    typeOf: TransactionType;
+export interface IPurpose {
+    typeOf: TransactionType.PlaceOrder;
     id: string;
 }
-
-export type IPurpose = ITransactionPurpose;
 
 export type IError = any;
 
@@ -43,4 +39,7 @@ export interface IAttributes extends AuthorizeActionFactory.IAttributes<IObject,
     purpose: IPurpose;
 }
 
+/**
+ * 決済カードオファー承認アクションインターフェース
+ */
 export type IAction = ActionFactory.IAction<IAttributes>;

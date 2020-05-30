@@ -18,6 +18,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v5.1.0 - 2020-05-30
+
+### Added
+
+- 注文アイテムに決済カードを追加
+- サービス登録タスクを追加
+
+### Changed
+
+- 決済方法インターフェースをChevreへ移行
+- 金額インターフェースをChevreへ移行
+- 金額オファー承認をChevre通貨転送取引連携へ変更
+- update @pecorino/factory
+- 注文返品取引オブジェクトを最適化
+- 注文返品取引を複数注文に対応
+- アクションのagentインターフェースを拡張
+
 ## v5.0.0 - 2020-05-04
 
 ### Added

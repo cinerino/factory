@@ -1,7 +1,4 @@
 import { IParticipant } from './action';
-// import { IAccount } from './action/transfer/moneyTransfer';
-// import ActionType from './actionType';
-import * as MonetaryAmountFactory from './monetaryAmount';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
@@ -44,7 +41,7 @@ export interface IPaymentMethod<T extends AvailablePaymentMethodType> {
     /**
      * The total amount due.
      */
-    totalPaymentDue?: MonetaryAmountFactory.IMonetaryAmount;
+    totalPaymentDue?: chevre.monetaryAmount.IMonetaryAmount;
     /**
      * 追加特性
      */
@@ -75,15 +72,13 @@ export interface IDiscount {
 }
 
 export type IReservation = chevre.reservation.IReservation<chevre.reservationType.EventReservation>;
-
-export import IMonetaryAmount = MonetaryAmountFactory.IMonetaryAmount;
+export import IMonetaryAmount = chevre.monetaryAmount.IMonetaryAmount;
+export import IPaymentCard = chevre.paymentMethod.paymentCard.IPaymentCard;
 
 /**
  * 供給アイテムインターフェース
  */
-export type IItemOffered = IMonetaryAmount | IReservation | IProgramMembership;
-
-export type ItemOfferedType = chevre.reservationType | string;
+export type IItemOffered = IMonetaryAmount | IReservation | IProgramMembership | IPaymentCard;
 
 /**
  * offer interface
@@ -108,7 +103,7 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOffer {
  */
 export interface ISeller {
     id: string;
-    identifier?: string;
+    identifier?: any;
     name: string;
     legalName?: IMultilingualString;
     typeOf: OrganizationType;
@@ -323,7 +318,7 @@ export interface IPaymentMethodsSearchConditions {
 
 export interface IAcceptedOffersSearchConditions {
     itemOffered?: {
-        typeOfs?: ItemOfferedType[];
+        typeOfs?: string[];
         /**
          * 予約IDリスト
          */

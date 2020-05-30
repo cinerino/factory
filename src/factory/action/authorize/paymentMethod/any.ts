@@ -1,11 +1,12 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-import { IMonetaryAmount } from '../../../monetaryAmount';
 import PaymentMethodType from '../../../paymentMethodType';
 import PaymentStatusType from '../../../paymentStatusType';
 import { IPropertyValue } from '../../../propertyValue';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
+
+import * as chevre from '../../../../chevre';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
@@ -13,12 +14,12 @@ export type IRecipient = ActionFactory.IParticipant;
 /**
  * 汎用決済方法タイプ
  */
-export type IAnyPaymentMethod<T extends PaymentMethodType> = T | string;
+export type IAnyPaymentMethod = PaymentMethodType | string;
 
 /**
  * 承認対象インターフェース
  */
-export interface IObject<T extends PaymentMethodType> {
+export interface IObject<T extends IAnyPaymentMethod> {
     /**
      * The identifier for the account the payment will be applied to.
      */
@@ -32,6 +33,10 @@ export interface IObject<T extends PaymentMethodType> {
      */
     amount: number;
     /**
+     * 説明
+     */
+    description?: string;
+    /**
      * 決済方法名称
      * 未指定であればデフォルト値が使用されます
      */
@@ -43,10 +48,10 @@ export interface IObject<T extends PaymentMethodType> {
     /**
      * 決済方法タイプ
      */
-    typeOf: IAnyPaymentMethod<T>;
+    typeOf: T;
 }
 
-export interface IResult<T extends PaymentMethodType> {
+export interface IResult<T extends IAnyPaymentMethod> {
     /**
      * The identifier for the account the payment will be applied to.
      */
@@ -58,7 +63,7 @@ export interface IResult<T extends PaymentMethodType> {
     /**
      * 決済方法
      */
-    paymentMethod: IAnyPaymentMethod<T>;
+    paymentMethod: T;
     /**
      * 決済ID
      */
@@ -74,7 +79,7 @@ export interface IResult<T extends PaymentMethodType> {
     /**
      * The total amount due.
      */
-    totalPaymentDue?: IMonetaryAmount;
+    totalPaymentDue?: chevre.monetaryAmount.IMonetaryAmount;
     /**
      * 追加特性
      */

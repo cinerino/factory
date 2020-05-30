@@ -1,14 +1,17 @@
 import * as mvtkapi from '@movieticket/reserve-api-nodejs-client';
 
 import * as ActionFactory from '../../../action';
-import { IMovieTicket } from '../../../paymentMethod/paymentCard/movieTicket';
 import PaymentMethodType from '../../../paymentMethodType';
 import * as AuthorizeAnyPaymentFactory from './any';
+
+import * as chevre from '../../../../chevre';
 
 export type IPurchaseNumberAuthIn = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
 export type IPurchaseNumberAuthResult = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
 export type ISeatInfoSyncIn = mvtkapi.mvtk.services.seat.seatInfoSync.ISeatInfoSyncIn;
 export type ISeatInfoSyncResult = mvtkapi.mvtk.services.seat.seatInfoSync.ISeatInfoSyncResult;
+
+export import IMovieTicket = chevre.paymentMethod.paymentCard.movieTicket.IMovieTicket;
 
 export interface IObject4sskts {
     typeOf: PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket;

@@ -1,4 +1,3 @@
-import { IMonetaryAmount } from './monetaryAmount';
 import { IAcceptedOffer, ICustomer, IOrder } from './order';
 import { IAttributes as IOrganizationAttributes, IOrganization } from './organization';
 import { IProject } from './organization/project';
@@ -8,6 +7,8 @@ import PaymentStatusType from './paymentStatusType';
 import { IIdentifier, IPerson } from './person';
 import PersonType from './personType';
 import SortType from './sortType';
+
+import * as chevre from '../chevre';
 
 export type IBroker = IOrganization<IOrganizationAttributes<OrganizationType>> | IPerson;
 export type IProvider = IOrganization<IOrganizationAttributes<OrganizationType>> | IPerson;
@@ -86,7 +87,7 @@ export interface IInvoice {
     /**
      * The total amount due.
      */
-    totalPaymentDue?: IMonetaryAmount;
+    totalPaymentDue?: chevre.monetaryAmount.IMonetaryAmount;
 }
 
 /**

@@ -11,7 +11,7 @@ export type IRecipient = ActionFactory.IParticipant;
 /**
  * 返却対象は支払アクション
  */
-export type IObject<T extends PaymentMethodType> = PayActionFactory.IAction<T>;
+export type IObject<T extends PaymentMethodType | string> = PayActionFactory.IAction<T>;
 export type IResult = any;
 export interface IPotentialActions {
     /**
@@ -26,7 +26,8 @@ export interface IPotentialActions {
 
 export type IPurpose = ISimpleOrder;
 
-export interface IAttributes<T extends PaymentMethodType> extends ActionFactory.IAttributes<ActionType.RefundAction, IObject<T>, IResult> {
+export interface IAttributes<T extends PaymentMethodType | string>
+    extends ActionFactory.IAttributes<ActionType.RefundAction, IObject<T>, IResult> {
     recipient: IRecipient;
     purpose: IPurpose;
     potentialActions?: IPotentialActions;

@@ -11,19 +11,21 @@ import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as PointAwardAuthorizeActionFactory from './factory/action/authorize/award/point';
 import * as AuthorizeMonetaryAmountOfferActionFactory from './factory/action/authorize/offer/monetaryAmount';
+import * as AuthorizePaymentCardOfferActionFactory from './factory/action/authorize/offer/paymentCard';
 import * as AuthorizeProgramMembershipOfferActionFactory from './factory/action/authorize/offer/programMembership';
 import * as AuthorizeSeatReservationOfferActionFactory from './factory/action/authorize/offer/seatReservation';
 import * as AuthorizeAccountPaymentActionFactory from './factory/action/authorize/paymentMethod/account';
 import * as AuthorizeAnyPaymentActionFactory from './factory/action/authorize/paymentMethod/any';
 import * as AuthorizeCreditCardPaymentActionFactory from './factory/action/authorize/paymentMethod/creditCard';
 import * as AuthorizeMovieTicketPaymentActionFactory from './factory/action/authorize/paymentMethod/movieTicket';
-import * as AuthorizePrepaidCardPaymentActionFactory from './factory/action/authorize/paymentMethod/prepaidCard';
+import * as AuthorizePaymentCardPaymentActionFactory from './factory/action/authorize/paymentMethod/paymentCard';
 import * as CheckMovieTicketActionFactory from './factory/action/check/paymentMethod/movieTicket';
 import * as CheckTokenActionFactory from './factory/action/check/token';
 import * as ConfirmReservationActionFactory from './factory/action/interact/confirm/reservation';
 import * as InformActionFactory from './factory/action/interact/inform';
 import * as RegisterActionFactory from './factory/action/interact/register';
 import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
+import * as RegisterServiceActionFactory from './factory/action/interact/register/service';
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
 import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
 import * as CancelActionFactory from './factory/action/organize/cancel';
@@ -55,7 +57,6 @@ import * as EventFactory from './factory/event';
 import * as ScreeningEventFactory from './factory/event/screeningEvent';
 import * as ScreeningEventSeriesFactory from './factory/event/screeningEventSeries';
 import * as InvoiceFactory from './factory/invoice';
-import * as MonetaryAmountFactory from './factory/monetaryAmount';
 import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
 import * as OrderFactory from './factory/order';
@@ -64,10 +65,6 @@ import * as OrganizationFactory from './factory/organization';
 import * as ProjectFactory from './factory/organization/project';
 import OrganizationType from './factory/organizationType';
 import * as OwnershipInfoFactory from './factory/ownershipInfo';
-import * as CreditCardFactory from './factory/paymentMethod/paymentCard/creditCard';
-import * as MGTicketFactory from './factory/paymentMethod/paymentCard/mgTicket';
-import * as MovieTicketFactory from './factory/paymentMethod/paymentCard/movieTicket';
-import * as PrepaidCardFactory from './factory/paymentMethod/paymentCard/prepaidCard';
 import PaymentMethodType from './factory/paymentMethodType';
 import PaymentStatusType from './factory/paymentStatusType';
 import * as PersonFactory from './factory/person';
@@ -82,7 +79,7 @@ import SortType from './factory/sortType';
 import * as AggregateEventReservationsTaskFactory from './factory/task/aggregateEventReservations';
 import * as CancelAccountTaskFactory from './factory/task/cancelAccount';
 import * as CancelCreditCardTaskFactory from './factory/task/cancelCreditCard';
-import * as CancelPrepaidCardTaskFactory from './factory/task/cancelPrepaidCard';
+import * as CancelPaymentCardTaskFactory from './factory/task/cancelPaymentCard';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
 import * as CancelSeatReservationTaskFactory from './factory/task/cancelSeatReservation';
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
@@ -94,14 +91,15 @@ import * as PayAccountTaskFactory from './factory/task/payAccount';
 import * as PayCreditCardTaskFactory from './factory/task/payCreditCard';
 import * as PayMGTicketTaskFactory from './factory/task/payMGTicket';
 import * as PayMovieTicketTaskFactory from './factory/task/payMovieTicket';
-import * as PayPrepaidCardTaskFactory from './factory/task/payPrepaidCard';
+import * as PayPaymentCardTaskFactory from './factory/task/payPaymentCard';
 import * as PlaceOrderTaskFactory from './factory/task/placeOrder';
 import * as RefundAccountTaskFactory from './factory/task/refundAccount';
 import * as RefundCreditCardTaskFactory from './factory/task/refundCreditCard';
 import * as RefundMGTicketTaskFactory from './factory/task/refundMGTicket';
 import * as RefundMovieTicketTaskFactory from './factory/task/refundMovieTicket';
-import * as RefundPrepaidCardTaskFactory from './factory/task/refundPrepaidCard';
+import * as RefundPaymentCardTaskFactory from './factory/task/refundPaymentCard';
 import * as RegisterProgramMembershipTaskFactory from './factory/task/registerProgramMembership';
+import * as RegisterServiceTaskFactory from './factory/task/registerService';
 import * as ReturnOrderTaskFactory from './factory/task/returnOrder';
 import * as ReturnPointAwardTaskFactory from './factory/task/returnPointAward';
 import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
@@ -162,7 +160,7 @@ export namespace action {
             export import any = AuthorizeAnyPaymentActionFactory;
             export import creditCard = AuthorizeCreditCardPaymentActionFactory;
             export import movieTicket = AuthorizeMovieTicketPaymentActionFactory;
-            export import prepaidCard = AuthorizePrepaidCardPaymentActionFactory;
+            export import paymentCard = AuthorizePaymentCardPaymentActionFactory;
         }
         export namespace discount {
         }
@@ -170,6 +168,7 @@ export namespace action {
         export namespace offer {
             // tslint:disable-next-line:no-shadowed-variable
             export import monetaryAmount = AuthorizeMonetaryAmountOfferActionFactory;
+            export import paymentCard = AuthorizePaymentCardOfferActionFactory;
             // tslint:disable-next-line:no-shadowed-variable
             export import programMembership = AuthorizeProgramMembershipOfferActionFactory;
             // tslint:disable-next-line:no-shadowed-variable
@@ -202,6 +201,8 @@ export namespace action {
             export import IAttributes = RegisterActionFactory.IAttributes;
             // tslint:disable-next-line:no-shadowed-variable
             export import programMembership = RegisterProgramMembershipActionFactory;
+            // tslint:disable-next-line:no-shadowed-variable
+            export import service = RegisterServiceActionFactory;
         }
         export namespace unRegister {
             // tslint:disable-next-line:no-shadowed-variable
@@ -279,29 +280,6 @@ export import authorization = AuthorizationFactory;
 
 export import encodingFormat = EncodingFormat;
 
-export namespace paymentMethod {
-    export type ISearchConditions<T extends PaymentMethodType> =
-        T extends PaymentMethodType.CreditCard ? CreditCardFactory.ISearchConditions :
-        T extends PaymentMethodType.MGTicket ? MGTicketFactory.ISearchConditions :
-        T extends PaymentMethodType.MovieTicket ? MovieTicketFactory.ISearchConditions :
-        T extends PaymentMethodType.PrepaidCard ? PrepaidCardFactory.ISearchConditions :
-        never;
-
-    export type IPaymentMethod<T extends PaymentMethodType> =
-        T extends PaymentMethodType.CreditCard ? CreditCardFactory.ICheckedCard :
-        T extends PaymentMethodType.MGTicket ? MGTicketFactory.IMGTicket :
-        T extends PaymentMethodType.MovieTicket ? MovieTicketFactory.IMovieTicket :
-        T extends PaymentMethodType.PrepaidCard ? PrepaidCardFactory.IPrepaidCard :
-        never;
-
-    export namespace paymentCard {
-        export import creditCard = CreditCardFactory;
-        export import mgTicket = MGTicketFactory;
-        export import movieTicket = MovieTicketFactory;
-        export import prepaidCard = PrepaidCardFactory;
-    }
-}
-
 export import clientUser = ClientUserFactory;
 
 export namespace creativeWork {
@@ -335,7 +313,6 @@ export namespace event {
     export import screeningEventSeries = ScreeningEventSeriesFactory;
 }
 export import invoice = InvoiceFactory;
-export import monetaryAmount = MonetaryAmountFactory;
 export type multilingualString = IMultilingualString;
 export import offer = OfferFactory;
 export import order = OrderFactory;
@@ -360,7 +337,7 @@ export namespace task {
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.IData :
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IData :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IData :
-        T extends TaskName.CancelPrepaidCard ? CancelPrepaidCardTaskFactory.IData :
+        T extends TaskName.CancelPaymentCard ? CancelPaymentCardTaskFactory.IData :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IData :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.IData :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
@@ -373,8 +350,9 @@ export namespace task {
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IData :
         T extends TaskName.RefundMGTicket ? RefundMGTicketTaskFactory.IData :
         T extends TaskName.RefundMovieTicket ? RefundMovieTicketTaskFactory.IData :
-        T extends TaskName.RefundPrepaidCard ? RefundPrepaidCardTaskFactory.IData :
+        T extends TaskName.RefundPaymentCard ? RefundPaymentCardTaskFactory.IData :
         T extends TaskName.RegisterProgramMembership ? RegisterProgramMembershipTaskFactory.IData :
+        T extends TaskName.RegisterService ? RegisterServiceTaskFactory.IData :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IData :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IData :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IData :
@@ -383,7 +361,7 @@ export namespace task {
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IData :
         T extends TaskName.PayMGTicket ? PayMGTicketTaskFactory.IData :
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IData :
-        T extends TaskName.PayPrepaidCard ? PayPrepaidCardTaskFactory.IData :
+        T extends TaskName.PayPaymentCard ? PayPaymentCardTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IData :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IData :
@@ -393,7 +371,7 @@ export namespace task {
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.IAttributes :
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IAttributes :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IAttributes :
-        T extends TaskName.CancelPrepaidCard ? CancelPrepaidCardTaskFactory.IAttributes :
+        T extends TaskName.CancelPaymentCard ? CancelPaymentCardTaskFactory.IAttributes :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IAttributes :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.IAttributes :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
@@ -406,8 +384,9 @@ export namespace task {
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IAttributes :
         T extends TaskName.RefundMGTicket ? RefundMGTicketTaskFactory.IData :
         T extends TaskName.RefundMovieTicket ? RefundMovieTicketTaskFactory.IAttributes :
-        T extends TaskName.RefundPrepaidCard ? RefundPrepaidCardTaskFactory.IAttributes :
+        T extends TaskName.RefundPaymentCard ? RefundPaymentCardTaskFactory.IAttributes :
         T extends TaskName.RegisterProgramMembership ? RegisterProgramMembershipTaskFactory.IAttributes :
+        T extends TaskName.RegisterService ? RegisterServiceTaskFactory.IAttributes :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IAttributes :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IAttributes :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IAttributes :
@@ -416,7 +395,7 @@ export namespace task {
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IAttributes :
         T extends TaskName.PayMGTicket ? PayMGTicketTaskFactory.IAttributes :
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IAttributes :
-        T extends TaskName.PayPrepaidCard ? PayPrepaidCardTaskFactory.IAttributes :
+        T extends TaskName.PayPaymentCard ? PayPaymentCardTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IAttributes :
@@ -426,7 +405,7 @@ export namespace task {
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.ITask :
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.ITask :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.ITask :
-        T extends TaskName.CancelPrepaidCard ? CancelPrepaidCardTaskFactory.ITask :
+        T extends TaskName.CancelPaymentCard ? CancelPaymentCardTaskFactory.ITask :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.ITask :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.ITask :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
@@ -439,8 +418,9 @@ export namespace task {
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.ITask :
         T extends TaskName.RefundMGTicket ? RefundMGTicketTaskFactory.ITask :
         T extends TaskName.RefundMovieTicket ? RefundMovieTicketTaskFactory.ITask :
-        T extends TaskName.RefundPrepaidCard ? RefundPrepaidCardTaskFactory.ITask :
+        T extends TaskName.RefundPaymentCard ? RefundPaymentCardTaskFactory.ITask :
         T extends TaskName.RegisterProgramMembership ? RegisterProgramMembershipTaskFactory.ITask :
+        T extends TaskName.RegisterService ? RegisterServiceTaskFactory.ITask :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.ITask :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.ITask :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.ITask :
@@ -449,7 +429,7 @@ export namespace task {
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.ITask :
         T extends TaskName.PayMGTicket ? PayMGTicketTaskFactory.ITask :
         T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.ITask :
-        T extends TaskName.PayPrepaidCard ? PayPrepaidCardTaskFactory.ITask :
+        T extends TaskName.PayPaymentCard ? PayPaymentCardTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.ITask :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.ITask :
@@ -472,8 +452,7 @@ export namespace transaction {
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ISearchConditions :
         never;
     export type IStartParams<T extends TransactionType> =
-        T extends TransactionType.MoneyTransfer
-        ? MoneyTransferTransactionFactory.IStartParams<string, MoneyTransferTransactionFactory.IToLocationType> :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IStartParams :
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IStartParams :
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IStartParams :
         never;
@@ -483,19 +462,17 @@ export namespace transaction {
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IResult :
         never;
     export type IPotentialActions<T extends TransactionType> =
-        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IPotentialActions<string> :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IPotentialActions :
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IPotentialActions :
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IPotentialActions :
         never;
     export type IAttributes<T extends TransactionType> =
-        T extends TransactionType.MoneyTransfer
-        ? MoneyTransferTransactionFactory.IAttributes<string, MoneyTransferTransactionFactory.IToLocationType> :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.IAttributes :
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.IAttributes :
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.IAttributes :
         never;
     export type ITransaction<T extends TransactionType> =
-        T extends TransactionType.MoneyTransfer
-        ? MoneyTransferTransactionFactory.ITransaction<string, MoneyTransferTransactionFactory.IToLocationType> :
+        T extends TransactionType.MoneyTransfer ? MoneyTransferTransactionFactory.ITransaction :
         T extends TransactionType.PlaceOrder ? PlaceOrderTransactionFactory.ITransaction :
         T extends TransactionType.ReturnOrder ? ReturnOrderTransactionFactory.ITransaction :
         never;

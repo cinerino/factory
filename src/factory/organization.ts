@@ -1,4 +1,3 @@
-import { AccountType } from './accountType';
 import { IMerchantReturnPolicy } from './merchantReturnPolicy';
 import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
@@ -7,6 +6,7 @@ import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
+import { IThing } from './thing';
 
 import * as chevre from '../chevre';
 
@@ -119,14 +119,9 @@ export interface IMovieTicketPaymentAccepted {
     movieTicketInfo: IMovieTicketInfo;
 }
 
-export interface IPrepaidCardPaymentAccepted {
-    paymentMethodType: PaymentMethodType.PrepaidCard;
-    accountType: AccountType.Prepaid;
-    accountNumber: string;
-}
-
 export interface ICommonPaymentAccepted {
     paymentMethodType: IAcceptedPaymentMethodType;
+    identifier?: string;
 }
 
 /**
@@ -139,7 +134,6 @@ export type IPaymentAccepted<T extends IAcceptedPaymentMethodType> =
     T extends PaymentMethodType.EMoney ? IEMoneyPaymentAccepted :
     T extends PaymentMethodType.MGTicket ? IMGTicketPaymentAccepted :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentAccepted :
-    T extends PaymentMethodType.PrepaidCard ? IPrepaidCardPaymentAccepted :
     ICommonPaymentAccepted;
 
 export type IMakesOffer = IOffer;
@@ -151,18 +145,10 @@ export type IAreaServed = any;
 
 export type IHasMerchantReturnPolicy = IMerchantReturnPolicy[];
 
-export interface IAttributes<T extends OrganizationType> {
+export interface IAttributes<T extends OrganizationType> extends IThing {
     project: IProject;
-    /**
-     * 組織タイプ
-     */
     typeOf: T;
     hasMerchantReturnPolicy?: IHasMerchantReturnPolicy;
-    identifier?: any;
-    name: IMultilingualString;
-    /**
-     * 親組織
-     */
     parentOrganization?: IParentOrganization;
     legalName?: IMultilingualString;
     location?: ILocation;
@@ -171,8 +157,6 @@ export interface IAttributes<T extends OrganizationType> {
      */
     makesOffer?: IMakesOffer[];
     telephone?: string;
-    url?: string;
-    image?: string;
     paymentAccepted?: IPaymentAccepted<IAcceptedPaymentMethodType>[];
     /**
      * The geographic area where a service or offered item is provided.

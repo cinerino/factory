@@ -1,16 +1,13 @@
-import * as pecorino from '@pecorino/factory';
-
 import * as ActionFactory from '../../../action';
 import PaymentMethodType from '../../../paymentMethodType';
 import * as AuthorizeAnyPaymentFactory from './any';
 
+import * as chevre from '../../../../chevre';
+
 /**
  * 進行中取引インターフェース
  */
-export type IPendingTransaction<T extends string> =
-    pecorino.transaction.deposit.ITransaction<T>
-    | pecorino.transaction.transfer.ITransaction<T>
-    | pecorino.transaction.withdraw.ITransaction<T>;
+export type IPendingTransaction = chevre.transaction.moneyTransfer.ITransaction;
 
 export interface IAccount<T extends string> {
     /**
@@ -71,7 +68,7 @@ export interface IResult<T extends string> extends AuthorizeAnyPaymentFactory.IR
     /**
      * 進行中取引
      */
-    pendingTransaction: IPendingTransaction<T>;
+    pendingTransaction: IPendingTransaction;
 }
 
 export type IError = any;

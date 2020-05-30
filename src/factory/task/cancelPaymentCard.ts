@@ -15,11 +15,11 @@ export interface IData {
 }
 
 export interface IAttributes extends TaskFactory.IAttributes {
-    name: TaskName.CancelPrepaidCard;
+    name: TaskName.CancelPaymentCard;
     data: IData;
 }
 
 /**
- * プリペイドカード決済承認取消タスクインターフェース
+ * 決済カード決済承認取消タスクインターフェース
  */
 export type ITask = IExtendId<IAttributes>;

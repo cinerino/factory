@@ -11,7 +11,8 @@ export type IObject4COA = COA.services.reserve.IStateReserveArgs;
 
 export interface IObject4Chevre {
     typeOf: chevre.transactionType.Reserve;
-    id: string;
+    id?: string;
+    transactionNumber?: string;
 }
 
 export type IObject<T extends WebAPIIdentifier> =
