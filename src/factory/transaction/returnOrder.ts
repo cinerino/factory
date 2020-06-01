@@ -128,43 +128,51 @@ export interface IRefundCreditCardParams {
     };
 }
 
+export interface IReturnOrderActionParams {
+    object?: {
+        /**
+         * 返品対象注文番号
+         */
+        orderNumber?: string;
+    };
+    /**
+     * 注文返品後アクション
+     */
+    potentialActions?: {
+        /**
+         * 予約取消アクション
+         */
+        cancelReservation?: ICancelReservationParams[];
+        /**
+         * 注文通知アクション
+         */
+        informOrder?: IInformOrderParams[];
+        /**
+         * クレジットカード返金アクションについてカスタマイズする場合に指定
+         */
+        refundCreditCard?: IRefundCreditCardParams[];
+        // refundAccount?: refundAccountActions,
+        /**
+         * MGチケット着券取消を実行するかどうか
+         */
+        refundMGTicket?: boolean;
+        /**
+         * ムビチケ着券取消を実行するかどうか
+         */
+        refundMovieTicket?: boolean;
+        // returnPointAward?: returnPointAwardActions
+        /**
+         * Eメール送信アクション
+         */
+        sendEmailMessage?: ISendEmailMessageParams[];
+    };
+}
+
 export interface IPotentialActionsParams {
     /**
      * 注文返品アクション
      */
-    returnOrder?: {
-        /**
-         * 注文返品後アクション
-         */
-        potentialActions?: {
-            /**
-             * 予約取消アクション
-             */
-            cancelReservation?: ICancelReservationParams[];
-            /**
-             * 注文通知アクション
-             */
-            informOrder?: IInformOrderParams[];
-            /**
-             * クレジットカード返金アクションについてカスタマイズする場合に指定
-             */
-            refundCreditCard?: IRefundCreditCardParams[];
-            // refundAccount?: refundAccountActions,
-            /**
-             * MGチケット着券取消を実行するかどうか
-             */
-            refundMGTicket?: boolean;
-            /**
-             * ムビチケ着券取消を実行するかどうか
-             */
-            refundMovieTicket?: boolean;
-            // returnPointAward?: returnPointAwardActions
-            /**
-             * Eメール送信アクション
-             */
-            sendEmailMessage?: ISendEmailMessageParams[];
-        };
-    };
+    returnOrder?: IReturnOrderActionParams | IReturnOrderActionParams[];
 }
 
 export interface IConfirmParams {
