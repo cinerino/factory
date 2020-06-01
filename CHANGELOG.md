@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- プロジェクトに返金通知設定を追加
+
 ### Changed
 
 - 返金アクションのオブジェクトを決済方法に変更
@@ -16,6 +18,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Deprecated
 
 ### Removed
+
+- プロジェクトのリポジトリ使用設定を削除
 
 ### Fixed
 
