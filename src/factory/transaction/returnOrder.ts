@@ -8,23 +8,12 @@ import * as CancelReservationTaskFactory from '../task/cancelReservation';
 import * as TransactionFactory from '../transaction';
 import TransactionType from '../transactionType';
 
-import * as chevre from '../../chevre';
-
-/**
- * 顧客インターフェース
- */
 export type IAgent = IPerson;
 
 export import ISeller = TransactionFactory.ISeller;
 
-/**
- * 取引結果インターフェース
- */
 export type IResult = any;
 
-/**
- * エラーインターフェース
- */
 export type IError = any;
 
 /**
@@ -57,7 +46,7 @@ export interface IStartParamsWithoutDetail {
     expires: Date;
     agent: IAgent;
     object: {
-        order: IReturnableOrder;
+        order: IReturnableOrder | IReturnableOrder[];
         cancellationFee: number;
         reason: Reason;
         /**
@@ -128,43 +117,51 @@ export interface IRefundCreditCardParams {
     };
 }
 
+export interface IReturnOrderActionParams {
+    object?: {
+        /**
+         * 返品対象注文番号
+         */
+        orderNumber?: string;
+    };
+    /**
+     * 注文返品後アクション
+     */
+    potentialActions?: {
+        /**
+         * 予約取消アクション
+         */
+        cancelReservation?: ICancelReservationParams[];
+        /**
+         * 注文通知アクション
+         */
+        informOrder?: IInformOrderParams[];
+        /**
+         * クレジットカード返金アクションについてカスタマイズする場合に指定
+         */
+        refundCreditCard?: IRefundCreditCardParams[];
+        // refundAccount?: refundAccountActions,
+        /**
+         * MGチケット着券取消を実行するかどうか
+         */
+        refundMGTicket?: boolean;
+        /**
+         * ムビチケ着券取消を実行するかどうか
+         */
+        refundMovieTicket?: boolean;
+        // returnPointAward?: returnPointAwardActions
+        /**
+         * Eメール送信アクション
+         */
+        sendEmailMessage?: ISendEmailMessageParams[];
+    };
+}
+
 export interface IPotentialActionsParams {
     /**
      * 注文返品アクション
      */
-    returnOrder?: {
-        /**
-         * 注文返品後アクション
-         */
-        potentialActions?: {
-            /**
-             * 予約取消アクション
-             */
-            cancelReservation?: ICancelReservationParams[];
-            /**
-             * 注文通知アクション
-             */
-            informOrder?: IInformOrderParams[];
-            /**
-             * クレジットカード返金アクションについてカスタマイズする場合に指定
-             */
-            refundCreditCard?: IRefundCreditCardParams[];
-            // refundAccount?: refundAccountActions,
-            /**
-             * MGチケット着券取消を実行するかどうか
-             */
-            refundMGTicket?: boolean;
-            /**
-             * ムビチケ着券取消を実行するかどうか
-             */
-            refundMovieTicket?: boolean;
-            // returnPointAward?: returnPointAwardActions
-            /**
-             * Eメール送信アクション
-             */
-            sendEmailMessage?: ISendEmailMessageParams[];
-        };
-    };
+    returnOrder?: IReturnOrderActionParams | IReturnOrderActionParams[];
 }
 
 export interface IConfirmParams {
@@ -183,7 +180,7 @@ export interface IConfirmParams {
  * 取引対象物インターフェース
  */
 export interface IObject {
-    order: IReturnableOrder;
+    order: IReturnableOrder[];
     /**
      * キャンセル手数料
      */
@@ -192,10 +189,6 @@ export interface IObject {
      * 返品理由
      */
     reason: Reason;
-    /**
-     * 進行中の予約キャンセル取引
-     */
-    pendingCancelReservationTransactions?: chevre.transaction.cancelReservation.ITransaction[];
     /**
      * 注文ステータス変更時イベント
      */

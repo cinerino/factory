@@ -18,6 +18,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v6.0.0 - 2020-06-02
+
+### Added
+
+- プロジェクトに返金通知設定を追加
+
+### Changed
+
+- 返金アクションのオブジェクトを決済方法に変更
+- 返品取引を複数注文に対応
+
+### Removed
+
+- プロジェクトのリポジトリ使用設定を削除
+
 ## v5.1.0 - 2020-05-30
 
 ### Added

@@ -9,11 +9,11 @@ export interface IInformParams {
     /**
      * 通知先
      */
-    recipient?: {
-        /**
-         * 通知URL
-         */
-        url?: string;
+    recipient: {
+        id?: string;
+        typeOf: any;
+        name: string;
+        url: string;
     };
 }
 
@@ -71,10 +71,6 @@ export interface IOnOrderStatusChanged {
     informOrder?: IInformParams[];
 }
 
-export interface IRepositorySettings {
-    event?: any;
-}
-
 /**
  * ウェブフック設定
  */
@@ -84,6 +80,14 @@ export interface IWebhookSettings {
      * @see https://github.com/request/request#timeouts
      */
     timeout?: number;
+}
+
+export interface IOnRefunded {
+    informOrder?: IInformParams[];
+}
+
+export interface IPayment {
+    onRefunded?: IOnRefunded;
 }
 
 /**
@@ -98,8 +102,8 @@ export interface ISettings {
     pecorino?: IPecorinoSettings;
     lineNotify?: ILineNotifySettings;
     onOrderStatusChanged?: IOnOrderStatusChanged;
-    repository?: IRepositorySettings;
     webhook?: IWebhookSettings;
+    payment?: IPayment;
 
     // ↓その他の設定
     codeExpiresInSeconds?: number;
