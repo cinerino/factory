@@ -33,7 +33,7 @@ export interface IPotentialActions {
      */
     moneyTransfer?: IMoneyTransferActionAttributes[];
     /**
-     * 会員プログラムの注文の場合、会員プログラム登録アクション
+     * メンバーシップの注文の場合、メンバーシップ登録アクション
      */
     registerProgramMembership?: IRegisterProgramMembershipAttributes[];
     registerService?: IRegisterServiceAttributes[];

@@ -9,7 +9,7 @@ export type IResult = any;
 
 export interface IPotentialActions {
     /**
-     * 次回の会員プログラム注文タスク
+     * 次回のメンバーシップ注文タスク
      */
     orderProgramMembership?: IOrderProgramMembershipTaskAttributes[];
 }
@@ -19,6 +19,6 @@ export interface IAttributes extends RegisterActionFactory.IAttributes<IObject, 
 }
 
 /**
- * 会員プログラム登録アクションインターフェース
+ * メンバーシップ登録アクションインターフェース
  */
 export type IAction = RegisterActionFactory.IAction<IAttributes>;

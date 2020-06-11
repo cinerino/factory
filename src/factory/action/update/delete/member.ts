@@ -7,7 +7,7 @@ export type IResult = any;
 
 export interface IPotentialActions {
     /**
-     * 会員プログラム登録解除アクション
+     * メンバーシップ登録解除アクション
      */
     unRegisterProgramMembership?: IUnRegisterProgramMembershipActionAttributes[];
 }
