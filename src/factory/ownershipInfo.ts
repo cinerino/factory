@@ -4,7 +4,7 @@ import * as OrganizationFactory from './organization';
 import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
 import { IPerson } from './person';
-import { IProgramMembership, ProgramMembershipType } from './programMembership';
+import { IProgramMembership } from './programMembership';
 import { Identifier as WebAPIIdentifier, IService as IWebAPI } from './service/webAPI';
 import SortType from './sortType';
 
@@ -64,7 +64,7 @@ export type IReservationWithDetail<T extends chevre.reservationType> =
 /**
  * 所有対象物のタイプ
  */
-export type IGoodType = chevre.reservationType | ProgramMembershipType | AccountGoodType | string;
+export type IGoodType = chevre.reservationType | chevre.programMembership.ProgramMembershipType | AccountGoodType | string;
 
 /**
  * 所有対象物インターフェース (Product or Service)
@@ -75,9 +75,9 @@ export type IGood<T extends IGoodType> =
      */
     T extends AccountGoodType ? IAccount<string> :
     /**
-     * 会員プログラムタイプの場合
+     * メンバーシップタイプの場合
      */
-    T extends ProgramMembershipType ? IProgramMembership :
+    T extends chevre.programMembership.ProgramMembershipType ? IProgramMembership :
     /**
      * 予約タイプの場合
      */
@@ -93,9 +93,9 @@ export type IGoodWithDetail<T extends IGoodType> =
      */
     T extends AccountGoodType ? pecorino.account.IAccount :
     /**
-     * 会員プログラムタイプの場合
+     * メンバーシップタイプの場合
      */
-    T extends ProgramMembershipType ? IProgramMembership :
+    T extends chevre.programMembership.ProgramMembershipType ? IProgramMembership :
     /**
      * 予約タイプの場合
      */
@@ -171,9 +171,9 @@ export type Identifier<T extends IGoodType> =
         accountNumber: string;
     } :
     /**
-     * 会員プログラムタイプの場合
+     * メンバーシップタイプの場合
      */
-    T extends ProgramMembershipType ? any :
+    T extends chevre.programMembership.ProgramMembershipType ? any :
     /**
      * 予約タイプの場合
      */
@@ -190,12 +190,10 @@ export interface ITypeOfGoodSearchConditions<T extends IGoodType> {
     typeOf: T;
     /**
      * 予約の場合、予約ID
-     * 会員プログラムの場合、プログラムID
      */
     id?: string;
     /**
      * 予約の場合、予約ID
-     * 会員プログラムの場合、プログラムID
      */
     ids?: string[];
     /**

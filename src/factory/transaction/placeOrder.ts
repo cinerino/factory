@@ -113,25 +113,25 @@ export interface IConfirmReservationParams {
 }
 
 /**
- * 会員プログラム登録パラメータ
+ * メンバーシップ登録パラメータ
  */
 export interface IRegisterProgramMembershipParams {
     object?: {
         typeOf: 'ProgramMembership';
         membershipFor: {
             /**
-             * 会員プログラムID
+             * プロダクトID
              */
             id: string;
         };
     };
     potentialActions?: {
         /**
-         * 次回の会員プログラム注文タスク
+         * 次回のメンバーシップ注文タスク
          */
         orderProgramMembership?: {
             /**
-             * 会員プログラム注文後アクション
+             * メンバーシップ注文後アクション
              */
             potentialActions?: IPotentialActionsParams;
         };

@@ -43,7 +43,7 @@ enum TaskName {
      */
     MoneyTransfer = 'moneyTransfer',
     /**
-     * 会員プログラム注文
+     * メンバーシップ注文
      */
     OrderProgramMembership = 'orderProgramMembership',
     /**
@@ -91,7 +91,7 @@ enum TaskName {
      */
     RefundPaymentCard = 'refundPaymentCard',
     /**
-     * 会員プログラム登録
+     * メンバーシップ登録
      */
     RegisterProgramMembership = 'registerProgramMembership',
     /**
@@ -119,7 +119,7 @@ enum TaskName {
      */
     TriggerWebhook = 'triggerWebhook',
     /**
-     * 会員プログラム登録解除
+     * メンバーシップ登録解除
      */
     UnRegisterProgramMembership = 'unRegisterProgramMembership',
     /**

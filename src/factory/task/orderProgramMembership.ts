@@ -32,6 +32,6 @@ export interface IAttributes extends TaskFactory.IAttributes {
 }
 
 /**
- * 会員プログラム注文タスクインターフェース
+ * メンバーシップ注文タスクインターフェース
  */
 export type ITask = IExtendId<IAttributes>;

@@ -9,6 +9,6 @@ export interface IAttributes extends TaskFactory.IAttributes {
     data: IData;
 }
 /**
- * 会員プログラム登録解除タスクインターフェース
+ * メンバーシップ登録解除タスクインターフェース
  */
 export type ITask = IExtendId<IAttributes>;
