@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- メンバーシップインターフェースをchevreに統合
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v6.2.0 - 2020-06-11
+
+### Changed
+
+- メンバーシップインターフェースをchevreに統合
 
 ## v6.1.0 - 2020-06-11
 
