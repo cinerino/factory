@@ -1,5 +1,5 @@
 /**
- * Chevre決済カード決済承認
+ * Chevreペイメントカード決済承認
  */
 import * as ActionFactory from '../../../action';
 import * as AuthorizeAnyPaymentFactory from './any';
@@ -61,7 +61,7 @@ export interface IResult extends AuthorizeAnyPaymentFactory.IResult<any> {
 export type IError = any;
 
 /**
- * 決済カード決済承認アクション属性インターフェース
+ * ペイメントカード決済承認アクション属性インターフェース
  */
 export interface IAttributes extends AuthorizeAnyPaymentFactory.IAttributes<any> {
     object: IObject;
@@ -70,6 +70,6 @@ export interface IAttributes extends AuthorizeAnyPaymentFactory.IAttributes<any>
 }
 
 /**
- * 決済カード決済承認アクションインターフェース
+ * ペイメントカード決済承認アクションインターフェース
  */
 export type IAction = ActionFactory.IAction<IAttributes>;

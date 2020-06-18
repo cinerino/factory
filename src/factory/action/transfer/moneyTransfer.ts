@@ -53,7 +53,7 @@ export interface IPaymentMethodLocation<T extends AvailablePaymentMethodType> {
 }
 
 /**
- * 決済カードインターフェース
+ * ペイメントカードインターフェース
  */
 export interface IPaymentCard {
     typeOf: string;

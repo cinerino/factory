@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- メンバーシップオファー承認アクションを追加
+- 注文アイテムにIServiceOutputを追加
+
 ### Changed
 
 ### Deprecated

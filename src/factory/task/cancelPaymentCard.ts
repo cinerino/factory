@@ -20,6 +20,6 @@ export interface IAttributes extends TaskFactory.IAttributes {
 }
 
 /**
- * 決済カード決済承認取消タスクインターフェース
+ * ペイメントカード決済承認取消タスクインターフェース
  */
 export type ITask = IExtendId<IAttributes>;

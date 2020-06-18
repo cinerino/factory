@@ -31,6 +31,6 @@ export interface IAttributes extends AuthorizeActionFactory.IAttributes<IObject,
 }
 
 /**
- * ペイメントカードオファー承認アクションインターフェース
+ * メンバーシップオファー承認アクションインターフェース
  */
 export type IAction = ActionFactory.IAction<IAttributes>;
