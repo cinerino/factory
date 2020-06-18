@@ -8,9 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- メンバーシップオファー承認アクションを追加
-- 注文アイテムにIServiceOutputを追加
-
 ### Changed
 
 ### Deprecated
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v6.4.0 - 2020-06-18
+
+### Added
+
+- メンバーシップオファー承認アクションを追加
+- 注文アイテムにIServiceOutputを追加
 
 ## v6.3.0 - 2020-06-16
 
