@@ -43,7 +43,7 @@ export interface IPotentialActions {
      */
     payMovieTicket?: IPayActionAttributes<PaymentMethodType.MovieTicket>[];
     /**
-     * 決済カード決済アクション
+     * ペイメントカード決済アクション
      */
     payPaymentCard?: IPayActionAttributes<string>[];
     /**

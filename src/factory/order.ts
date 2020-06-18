@@ -74,15 +74,15 @@ export interface IDiscount {
 export type IReservation = chevre.reservation.IReservation<chevre.reservationType.EventReservation>;
 export import IMonetaryAmount = chevre.monetaryAmount.IMonetaryAmount;
 export import IPaymentCard = chevre.paymentMethod.paymentCard.IPaymentCard;
+export import IServiceOutput = chevre.service.IServiceOutput;
 
 /**
- * 供給アイテムインターフェース
+ * 注文アイテムインターフェース
  */
-export type IItemOffered = IMonetaryAmount | IReservation | IProgramMembership | IPaymentCard;
+export type IItemOffered = IMonetaryAmount | IReservation | IProgramMembership | IPaymentCard | IServiceOutput;
 
 /**
- * offer interface
- * 供給インターフェース
+ * オファーインターフェース
  */
 export interface IAcceptedOffer<T extends IItemOffered> extends IOffer {
     /**
@@ -112,7 +112,7 @@ export interface ISeller {
 }
 
 /**
- * 顧客インターフェース
+ * カスタマーインターフェース
  */
 export type ICustomer = IPerson;
 
