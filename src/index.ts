@@ -10,9 +10,8 @@ import * as cognito from './cognito';
 import * as ActionFactory from './factory/action';
 import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as PointAwardAuthorizeActionFactory from './factory/action/authorize/award/point';
-import * as AuthorizeMembershipServiceOfferActionFactory from './factory/action/authorize/offer/membershipService';
 import * as AuthorizeMonetaryAmountOfferActionFactory from './factory/action/authorize/offer/monetaryAmount';
-import * as AuthorizePaymentCardOfferActionFactory from './factory/action/authorize/offer/paymentCard';
+import * as AuthorizeProductOfferActionFactory from './factory/action/authorize/offer/product';
 import * as AuthorizeProgramMembershipOfferActionFactory from './factory/action/authorize/offer/programMembership';
 import * as AuthorizeSeatReservationOfferActionFactory from './factory/action/authorize/offer/seatReservation';
 import * as AuthorizeAccountPaymentActionFactory from './factory/action/authorize/paymentMethod/account';
@@ -167,10 +166,9 @@ export namespace action {
         }
         // tslint:disable-next-line:no-shadowed-variable
         export namespace offer {
-            export import membershipService = AuthorizeMembershipServiceOfferActionFactory;
             // tslint:disable-next-line:no-shadowed-variable
             export import monetaryAmount = AuthorizeMonetaryAmountOfferActionFactory;
-            export import paymentCard = AuthorizePaymentCardOfferActionFactory;
+            export import product = AuthorizeProductOfferActionFactory;
             // tslint:disable-next-line:no-shadowed-variable
             export import programMembership = AuthorizeProgramMembershipOfferActionFactory;
             // tslint:disable-next-line:no-shadowed-variable

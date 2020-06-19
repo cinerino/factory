@@ -16,6 +16,8 @@ export interface IResult {
     price: number;
     priceCurrency: PriceCurrency;
     acceptedOffers: IResultAcceptedOffer;
+    requestBody?: any;
+    responseBody: any;
 }
 export interface IPurpose {
     typeOf: TransactionType.PlaceOrder;
@@ -31,6 +33,6 @@ export interface IAttributes extends AuthorizeActionFactory.IAttributes<IObject,
 }
 
 /**
- * メンバーシップオファー承認アクションインターフェース
+ * プロダクトオファー承認アクションインターフェース
  */
 export type IAction = ActionFactory.IAction<IAttributes>;
