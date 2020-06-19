@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- メンバーシップオファー承認とペイメントカードオファー承認をプロダクトオファー承認として統合
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v6.5.0 - 2020-06-19
+
+### Changed
+
+- メンバーシップオファー承認とペイメントカードオファー承認をプロダクトオファー承認として統合
 
 ## v6.4.0 - 2020-06-18
 
