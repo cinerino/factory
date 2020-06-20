@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- メンバーシップ注文アイテムをサービスアウトプットアイテムに統合
+- メンバーシップ所有権をサービスアウトプットに統合
+
 ### Deprecated
 
 ### Removed
