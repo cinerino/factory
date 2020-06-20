@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v6.6.0 - 2020-06-20
+
+### Changed
+
+- メンバーシップ注文アイテムをサービスアウトプットアイテムに統合
+- メンバーシップ所有権をサービスアウトプットに統合
+
 ## v6.5.0 - 2020-06-19
 
 ### Changed

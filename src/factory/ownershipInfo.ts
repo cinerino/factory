@@ -4,7 +4,6 @@ import * as OrganizationFactory from './organization';
 import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
 import { IPerson } from './person';
-import { IProgramMembership } from './programMembership';
 import { Identifier as WebAPIIdentifier, IService as IWebAPI } from './service/webAPI';
 import SortType from './sortType';
 
@@ -64,7 +63,7 @@ export type IReservationWithDetail<T extends chevre.reservationType> =
 /**
  * 所有対象物のタイプ
  */
-export type IGoodType = chevre.reservationType | chevre.programMembership.ProgramMembershipType | AccountGoodType | string;
+export type IGoodType = chevre.reservationType | AccountGoodType | string;
 
 /**
  * 所有対象物インターフェース (Product or Service)
@@ -74,10 +73,6 @@ export type IGood<T extends IGoodType> =
      * 口座タイプの場合
      */
     T extends AccountGoodType ? IAccount<string> :
-    /**
-     * メンバーシップタイプの場合
-     */
-    T extends chevre.programMembership.ProgramMembershipType ? IProgramMembership :
     /**
      * 予約タイプの場合
      */
@@ -92,10 +87,6 @@ export type IGoodWithDetail<T extends IGoodType> =
      * 口座タイプの場合
      */
     T extends AccountGoodType ? pecorino.account.IAccount :
-    /**
-     * メンバーシップタイプの場合
-     */
-    T extends chevre.programMembership.ProgramMembershipType ? IProgramMembership :
     /**
      * 予約タイプの場合
      */
@@ -170,10 +161,6 @@ export type Identifier<T extends IGoodType> =
         accountType: string;
         accountNumber: string;
     } :
-    /**
-     * メンバーシップタイプの場合
-     */
-    T extends chevre.programMembership.ProgramMembershipType ? any :
     /**
      * 予約タイプの場合
      */

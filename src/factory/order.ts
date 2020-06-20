@@ -8,7 +8,6 @@ import PaymentMethodType from './paymentMethodType';
 import { IIdentifier as IPersonIdentifier, IPerson } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
-import { IProgramMembership } from './programMembership';
 import { IPropertyValue } from './propertyValue';
 import SortType from './sortType';
 import { IThing } from './thing';
@@ -73,13 +72,12 @@ export interface IDiscount {
 
 export type IReservation = chevre.reservation.IReservation<chevre.reservationType.EventReservation>;
 export import IMonetaryAmount = chevre.monetaryAmount.IMonetaryAmount;
-// export import IPaymentCard = chevre.paymentMethod.paymentCard.IPaymentCard;
 export import IServiceOutput = chevre.service.IServiceOutput;
 
 /**
  * 注文アイテムインターフェース
  */
-export type IItemOffered = IMonetaryAmount | IReservation | IProgramMembership | IServiceOutput;
+export type IItemOffered = IMonetaryAmount | IReservation | IServiceOutput;
 
 /**
  * オファーインターフェース
