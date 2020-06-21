@@ -1,7 +1,7 @@
 import { IParticipant } from './action';
-import IMultilingualString from './multilingualString';
 import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
+import { IOrganization } from './organization';
 import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
@@ -90,24 +90,13 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOffer {
     /**
      * 販売者
      */
-    seller: {
-        typeOf: OrganizationType | PersonType;
-        name: string;
-    };
+    seller: ISeller;
 }
 
 /**
  * 販売者インターフェース
  */
-export interface ISeller {
-    id: string;
-    identifier?: any;
-    name: string;
-    legalName?: IMultilingualString;
-    typeOf: OrganizationType;
-    telephone?: string;
-    url?: string;
-}
+export type ISeller = IOrganization<any>;
 
 /**
  * カスタマーインターフェース
