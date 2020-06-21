@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 注文の販売者インターフェースを拡張
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v6.7.0 - 2020-06-21
+
+### Changed
+
+- 注文の販売者インターフェースを拡張
 
 ## v6.6.0 - 2020-06-20
 
