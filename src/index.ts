@@ -12,7 +12,6 @@ import * as AuthorizeActionFactory from './factory/action/authorize';
 import * as PointAwardAuthorizeActionFactory from './factory/action/authorize/award/point';
 import * as AuthorizeMonetaryAmountOfferActionFactory from './factory/action/authorize/offer/monetaryAmount';
 import * as AuthorizeProductOfferActionFactory from './factory/action/authorize/offer/product';
-import * as AuthorizeProgramMembershipOfferActionFactory from './factory/action/authorize/offer/programMembership';
 import * as AuthorizeSeatReservationOfferActionFactory from './factory/action/authorize/offer/seatReservation';
 import * as AuthorizeAccountPaymentActionFactory from './factory/action/authorize/paymentMethod/account';
 import * as AuthorizeAnyPaymentActionFactory from './factory/action/authorize/paymentMethod/any';
@@ -24,7 +23,6 @@ import * as CheckTokenActionFactory from './factory/action/check/token';
 import * as ConfirmReservationActionFactory from './factory/action/interact/confirm/reservation';
 import * as InformActionFactory from './factory/action/interact/inform';
 import * as RegisterActionFactory from './factory/action/interact/register';
-import * as RegisterProgramMembershipActionFactory from './factory/action/interact/register/programMembership';
 import * as RegisterServiceActionFactory from './factory/action/interact/register/service';
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
 import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
@@ -98,7 +96,6 @@ import * as RefundCreditCardTaskFactory from './factory/task/refundCreditCard';
 import * as RefundMGTicketTaskFactory from './factory/task/refundMGTicket';
 import * as RefundMovieTicketTaskFactory from './factory/task/refundMovieTicket';
 import * as RefundPaymentCardTaskFactory from './factory/task/refundPaymentCard';
-import * as RegisterProgramMembershipTaskFactory from './factory/task/registerProgramMembership';
 import * as RegisterServiceTaskFactory from './factory/task/registerService';
 import * as ReturnOrderTaskFactory from './factory/task/returnOrder';
 import * as ReturnPointAwardTaskFactory from './factory/task/returnPointAward';
@@ -166,12 +163,8 @@ export namespace action {
         }
         // tslint:disable-next-line:no-shadowed-variable
         export namespace offer {
-            // tslint:disable-next-line:no-shadowed-variable
             export import monetaryAmount = AuthorizeMonetaryAmountOfferActionFactory;
             export import product = AuthorizeProductOfferActionFactory;
-            // tslint:disable-next-line:no-shadowed-variable
-            export import programMembership = AuthorizeProgramMembershipOfferActionFactory;
-            // tslint:disable-next-line:no-shadowed-variable
             export import seatReservation = AuthorizeSeatReservationOfferActionFactory;
         }
     }
@@ -199,8 +192,6 @@ export namespace action {
             export import IAction = RegisterActionFactory.IAction;
             // tslint:disable-next-line:no-shadowed-variable
             export import IAttributes = RegisterActionFactory.IAttributes;
-            // tslint:disable-next-line:no-shadowed-variable
-            export import programMembership = RegisterProgramMembershipActionFactory;
             // tslint:disable-next-line:no-shadowed-variable
             export import service = RegisterServiceActionFactory;
         }
@@ -351,7 +342,6 @@ export namespace task {
         T extends TaskName.RefundMGTicket ? RefundMGTicketTaskFactory.IData :
         T extends TaskName.RefundMovieTicket ? RefundMovieTicketTaskFactory.IData :
         T extends TaskName.RefundPaymentCard ? RefundPaymentCardTaskFactory.IData :
-        T extends TaskName.RegisterProgramMembership ? RegisterProgramMembershipTaskFactory.IData :
         T extends TaskName.RegisterService ? RegisterServiceTaskFactory.IData :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IData :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IData :
@@ -385,7 +375,6 @@ export namespace task {
         T extends TaskName.RefundMGTicket ? RefundMGTicketTaskFactory.IData :
         T extends TaskName.RefundMovieTicket ? RefundMovieTicketTaskFactory.IAttributes :
         T extends TaskName.RefundPaymentCard ? RefundPaymentCardTaskFactory.IAttributes :
-        T extends TaskName.RegisterProgramMembership ? RegisterProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.RegisterService ? RegisterServiceTaskFactory.IAttributes :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IAttributes :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IAttributes :
@@ -419,7 +408,6 @@ export namespace task {
         T extends TaskName.RefundMGTicket ? RefundMGTicketTaskFactory.ITask :
         T extends TaskName.RefundMovieTicket ? RefundMovieTicketTaskFactory.ITask :
         T extends TaskName.RefundPaymentCard ? RefundPaymentCardTaskFactory.ITask :
-        T extends TaskName.RegisterProgramMembership ? RegisterProgramMembershipTaskFactory.ITask :
         T extends TaskName.RegisterService ? RegisterServiceTaskFactory.ITask :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.ITask :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.ITask :
@@ -438,6 +426,8 @@ export namespace task {
     export import ISearchConditions = TaskFactory.ISearchConditions;
 
     export import IExecutionResult = TaskFactory.IExecutionResult;
+
+    export import orderProgramMembership = OrderProgramMembershipTaskFactory;
 }
 
 export import taskName = TaskName;

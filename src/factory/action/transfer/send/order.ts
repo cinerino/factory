@@ -4,7 +4,6 @@ import { IGood, IGoodType, IOwnershipInfo } from '../../../ownershipInfo';
 import { Identifier as WebAPIIdentifier } from '../../../service/webAPI';
 import { IAttributes as IConfirmReservationActionAttributes } from '../../interact/confirm/reservation';
 import { IAttributes as IInformActionAttributes } from '../../interact/inform';
-import { IAttributes as IRegisterProgramMembershipAttributes } from '../../interact/register/programMembership';
 import { IAttributes as IRegisterServiceAttributes } from '../../interact/register/service';
 import { IAttributes as IMoneyTransferActionAttributes } from '../../transfer/moneyTransfer';
 import * as SendActionFactory from '../send';
@@ -33,9 +32,8 @@ export interface IPotentialActions {
      */
     moneyTransfer?: IMoneyTransferActionAttributes[];
     /**
-     * メンバーシップの注文の場合、メンバーシップ登録アクション
+     * サービス登録アクション
      */
-    registerProgramMembership?: IRegisterProgramMembershipAttributes[];
     registerService?: IRegisterServiceAttributes[];
     /**
      * Eメール送信アクション
