@@ -305,18 +305,13 @@ export interface IPaymentMethodsSearchConditions {
 
 export interface IAcceptedOffersSearchConditions {
     itemOffered?: {
-        typeOfs?: string[];
-        /**
-         * 予約IDリスト
-         */
+        typeOf?: { $in?: string[] };
+        identifier?: { $in?: string[] };
+        issuedThrough?: {
+            id?: { $in?: string[] };
+        };
         ids?: string[];
-        /**
-         * 予約対象
-         */
         reservationFor?: IReservationForSearchConditions;
-        /**
-         * 予約番号
-         */
         reservationNumbers?: string[];
     };
 }
