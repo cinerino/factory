@@ -127,6 +127,14 @@ export interface ISearchConditions<T extends ActionType> {
     actionStatusTypes?: ActionStatusType[];
     startFrom?: Date;
     startThrough?: Date;
+    agent?: {
+        typeOf?: {
+            $in?: string[];
+        };
+        id?: {
+            $in?: string[];
+        };
+    };
     object?: {
         typeOf?: {
             $in?: string[];
