@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 口座タイプをGeneric型を解除
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v7.3.0 - 2020-06-25
+
+### Changed
+
+- 口座タイプをGeneric型を解除
+
+### Deprec
 ## v7.2.0 - 2020-06-24
 
 ### Added
