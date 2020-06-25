@@ -97,12 +97,12 @@ export interface IEMoneyPaymentAccepted {
     paymentMethodType: PaymentMethodType.EMoney;
 }
 
-export interface IAccountPaymentAccepted<T extends string> {
+export interface IAccountPaymentAccepted {
     paymentMethodType: PaymentMethodType.Account;
     /**
      * 口座タイプ
      */
-    accountType: T;
+    accountType: string;
     /**
      * 口座番号
      */
@@ -128,7 +128,7 @@ export interface ICommonPaymentAccepted {
  * 利用可能決済インターフェース
  */
 export type IPaymentAccepted<T extends IAcceptedPaymentMethodType> =
-    T extends PaymentMethodType.Account ? IAccountPaymentAccepted<string> :
+    T extends PaymentMethodType.Account ? IAccountPaymentAccepted :
     T extends PaymentMethodType.Cash ? ICashPaymentAccepted :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentAccepted :
     T extends PaymentMethodType.EMoney ? IEMoneyPaymentAccepted :
