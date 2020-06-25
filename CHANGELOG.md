@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 口座タイプをGeneric型を解除
+
 ### Deprecated
 
 ### Removed

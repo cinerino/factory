@@ -24,12 +24,12 @@ export enum AccountGoodType {
 /**
  * 口座インターフェース
  */
-export interface IAccount<T extends string> {
+export interface IAccount {
     typeOf: AccountGoodType.Account;
     /**
      * 口座タイプ
      */
-    accountType: T;
+    accountType: string;
     /**
      * 口座番号
      */
@@ -72,7 +72,7 @@ export type IGood<T extends IGoodType> =
     /**
      * 口座タイプの場合
      */
-    T extends AccountGoodType ? IAccount<string> :
+    T extends AccountGoodType ? IAccount :
     /**
      * 予約タイプの場合
      */

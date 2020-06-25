@@ -9,11 +9,11 @@ import * as chevre from '../../../../chevre';
  */
 export type IPendingTransaction = chevre.transaction.moneyTransfer.ITransaction;
 
-export interface IAccount<T extends string> {
+export interface IAccount {
     /**
      * 口座タイプ
      */
-    accountType: T;
+    accountType: string;
     /**
      * 口座番号
      */
@@ -28,43 +28,43 @@ export type ITokenizedAccount = string;
 /**
  * 転送元口座
  */
-export type IFromAccount<T extends string> = IAccount<T> | ITokenizedAccount;
+export type IFromAccount = IAccount | ITokenizedAccount;
 
 /**
  * 転送先口座
  */
-export type IToAccount<T extends string> = IAccount<T>;
+export type IToAccount = IAccount;
 
 /**
- * オーソリ対象インターフェース
+ * 承認対象インターフェース
  */
-export interface IObject<T extends string> extends AuthorizeAnyPaymentFactory.IObject<PaymentMethodType.Account> {
+export interface IObject extends AuthorizeAnyPaymentFactory.IObject<PaymentMethodType.Account> {
     typeOf: PaymentMethodType.Account;
     /**
      * 転送元口座
      * 出金取引、転送取引の場合指定
      */
-    fromAccount?: IFromAccount<T>;
+    fromAccount?: IFromAccount;
     /**
      * 転送先口座
      * 入金取引、転送取引の場合指定
      */
-    toAccount?: IToAccount<T>;
+    toAccount?: IToAccount;
     /**
      * 取引説明
      */
     notes?: string;
 }
 
-export interface IResult<T extends string> extends AuthorizeAnyPaymentFactory.IResult<PaymentMethodType.Account> {
+export interface IResult extends AuthorizeAnyPaymentFactory.IResult<PaymentMethodType.Account> {
     /**
      * 転送元口座
      */
-    fromAccount?: IAccount<T>;
+    fromAccount?: IAccount;
     /**
      * 転送先口座
      */
-    toAccount?: IToAccount<T>;
+    toAccount?: IToAccount;
     /**
      * 進行中取引
      */
@@ -76,13 +76,13 @@ export type IError = any;
 /**
  * 口座決済承認アクション属性インターフェース
  */
-export interface IAttributes<T extends string> extends AuthorizeAnyPaymentFactory.IAttributes<PaymentMethodType.Account> {
-    object: IObject<T>;
-    result?: IResult<T>;
+export interface IAttributes extends AuthorizeAnyPaymentFactory.IAttributes<PaymentMethodType.Account> {
+    object: IObject;
+    result?: IResult;
     error?: IError;
 }
 
 /**
  * 口座決済承認アクションインターフェース
  */
-export type IAction<T extends string> = ActionFactory.IAction<IAttributes<T>>;
+export type IAction = ActionFactory.IAction<IAttributes>;
