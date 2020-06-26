@@ -175,24 +175,26 @@ export type Identifier<T extends IGoodType> =
  */
 export interface ITypeOfGoodSearchConditions<T extends IGoodType> {
     typeOf: T;
-    /**
-     * 予約の場合、予約ID
-     */
+    identifier?: {
+        $eq?: string;
+    };
     id?: string;
-    /**
-     * 予約の場合、予約ID
-     */
     ids?: string[];
+    issuedThrough?: {
+        id?: {
+            $eq?: string;
+        };
+    };
     /**
-     * 口座の場合、口座タイプ
+     * 口座タイプ
      */
     accountType?: string;
     /**
-     * 口座の場合、口座番号
+     * 口座番号
      */
     accountNumber?: string;
     /**
-     * 口座の場合、口座番号
+     * 口座番号
      */
     accountNumbers?: string[];
 }
