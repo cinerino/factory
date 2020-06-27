@@ -19,10 +19,6 @@ enum TaskName {
      */
     CancelPaymentCard = 'cancelPaymentCard',
     /**
-     * サービス登録中止
-     */
-    CancelRegisterService = 'cancelRegisterService',
-    /**
      * 予約取消
      */
     CancelReservation = 'cancelReservation',
@@ -129,7 +125,11 @@ enum TaskName {
     /**
      * 通貨転送中止
      */
-    VoidMoneyTransfer = 'voidMoneyTransfer'
+    VoidMoneyTransfer = 'voidMoneyTransfer',
+    /**
+     * サービス登録中止
+     */
+    VoidRegisterService = 'voidRegisterService'
 }
 
 export default TaskName;

@@ -78,7 +78,6 @@ import * as AggregateEventReservationsTaskFactory from './factory/task/aggregate
 import * as CancelAccountTaskFactory from './factory/task/cancelAccount';
 import * as CancelCreditCardTaskFactory from './factory/task/cancelCreditCard';
 import * as CancelPaymentCardTaskFactory from './factory/task/cancelPaymentCard';
-import * as CancelRegisterServiceTaskFactory from './factory/task/cancelRegisterService';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
 import * as CancelSeatReservationTaskFactory from './factory/task/cancelSeatReservation';
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
@@ -105,6 +104,7 @@ import * as SendOrderTaskFactory from './factory/task/sendOrder';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
 import * as UnRegisterProgramMembershipTaskFactory from './factory/task/unRegisterProgramMembership';
 import * as VoidMoneyTransferTaskFactory from './factory/task/voidMoneyTransfer';
+import * as VoidRegisterServiceTaskFactory from './factory/task/voidRegisterService';
 
 import * as TaskFactory from './factory/task';
 import TaskName from './factory/taskName';
@@ -330,7 +330,6 @@ export namespace task {
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IData :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IData :
         T extends TaskName.CancelPaymentCard ? CancelPaymentCardTaskFactory.IData :
-        T extends TaskName.CancelRegisterService ? CancelRegisterServiceTaskFactory.IData :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IData :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.IData :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
@@ -357,6 +356,7 @@ export namespace task {
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IData :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IData :
+        T extends TaskName.VoidRegisterService ? VoidRegisterServiceTaskFactory.IData :
         TaskFactory.IData;
 
     export type IAttributes<T extends TaskName | string> =
@@ -364,7 +364,6 @@ export namespace task {
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IAttributes :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IAttributes :
         T extends TaskName.CancelPaymentCard ? CancelPaymentCardTaskFactory.IAttributes :
-        T extends TaskName.CancelRegisterService ? CancelRegisterServiceTaskFactory.IAttributes :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IAttributes :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.IAttributes :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
@@ -391,6 +390,7 @@ export namespace task {
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IAttributes :
+        T extends TaskName.VoidRegisterService ? VoidRegisterServiceTaskFactory.IAttributes :
         TaskFactory.IAttributes;
 
     export type ITask<T extends TaskName | string> =
@@ -398,7 +398,6 @@ export namespace task {
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.ITask :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.ITask :
         T extends TaskName.CancelPaymentCard ? CancelPaymentCardTaskFactory.ITask :
-        T extends TaskName.CancelRegisterService ? CancelRegisterServiceTaskFactory.ITask :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.ITask :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.ITask :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
@@ -425,6 +424,7 @@ export namespace task {
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.ITask :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.ITask :
+        T extends TaskName.VoidRegisterService ? VoidRegisterServiceTaskFactory.ITask :
         TaskFactory.ITask;
 
     export import ISearchConditions = TaskFactory.ISearchConditions;

@@ -15,7 +15,7 @@ export interface IData {
 }
 
 export interface IAttributes extends TaskFactory.IAttributes {
-    name: TaskName.CancelRegisterService;
+    name: TaskName.VoidRegisterService;
     data: IData;
 }
 
