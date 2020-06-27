@@ -78,6 +78,7 @@ import * as AggregateEventReservationsTaskFactory from './factory/task/aggregate
 import * as CancelAccountTaskFactory from './factory/task/cancelAccount';
 import * as CancelCreditCardTaskFactory from './factory/task/cancelCreditCard';
 import * as CancelPaymentCardTaskFactory from './factory/task/cancelPaymentCard';
+import * as CancelRegisterServiceTaskFactory from './factory/task/cancelRegisterService';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
 import * as CancelSeatReservationTaskFactory from './factory/task/cancelSeatReservation';
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
@@ -329,6 +330,7 @@ export namespace task {
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IData :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IData :
         T extends TaskName.CancelPaymentCard ? CancelPaymentCardTaskFactory.IData :
+        T extends TaskName.CancelRegisterService ? CancelRegisterServiceTaskFactory.IData :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IData :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.IData :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
@@ -362,6 +364,7 @@ export namespace task {
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IAttributes :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IAttributes :
         T extends TaskName.CancelPaymentCard ? CancelPaymentCardTaskFactory.IAttributes :
+        T extends TaskName.CancelRegisterService ? CancelRegisterServiceTaskFactory.IAttributes :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IAttributes :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.IAttributes :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
@@ -395,6 +398,7 @@ export namespace task {
         T extends TaskName.CancelAccount ? CancelAccountTaskFactory.ITask :
         T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.ITask :
         T extends TaskName.CancelPaymentCard ? CancelPaymentCardTaskFactory.ITask :
+        T extends TaskName.CancelRegisterService ? CancelRegisterServiceTaskFactory.ITask :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.ITask :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.ITask :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
