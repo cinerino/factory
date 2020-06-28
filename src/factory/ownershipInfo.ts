@@ -34,6 +34,7 @@ export interface IAccount {
      * 口座番号
      */
     accountNumber: string;
+    identifier?: string;
 }
 
 /**
@@ -43,12 +44,10 @@ export interface IReservation<T extends chevre.reservationType> {
     typeOf: T;
     /**
      * 予約ID
-     * EventReservationの場合、必ず存在します
      */
     id?: string;
     /**
      * 予約番号
-     * EventReservationの場合、必ず存在します
      */
     reservationNumber?: string;
     /**
@@ -57,13 +56,12 @@ export interface IReservation<T extends chevre.reservationType> {
     bookingService?: IBookingService;
 }
 
-export type IReservationWithDetail<T extends chevre.reservationType> =
-    IReservation<T> & chevre.reservation.IReservation<T>;
+export type IReservationWithDetail<T extends chevre.reservationType> = IReservation<T> & chevre.reservation.IReservation<T>;
 
 /**
  * 所有対象物のタイプ
  */
-export type IGoodType = chevre.reservationType | AccountGoodType | string;
+export type IGoodType = string;
 
 /**
  * 所有対象物インターフェース (Product or Service)
@@ -150,31 +148,10 @@ export interface ISortOrder {
 }
 
 /**
- * 所有権識別タイプ
- */
-export type Identifier<T extends IGoodType> =
-    /**
-     * 口座タイプの場合
-     */
-    T extends AccountGoodType ? {
-        typeOf: AccountGoodType;
-        accountType: string;
-        accountNumber: string;
-    } :
-    /**
-     * 予約タイプの場合
-     */
-    T extends chevre.reservationType ? {
-        typeOf: chevre.reservationType;
-        id: string;
-    } :
-    any;
-
-/**
  * 所有対象物検索条件インターフェース
  */
-export interface ITypeOfGoodSearchConditions<T extends IGoodType> {
-    typeOf: T;
+export interface ITypeOfGoodSearchConditions {
+    typeOf: string;
     identifier?: {
         $eq?: string;
     };
@@ -202,7 +179,7 @@ export interface ITypeOfGoodSearchConditions<T extends IGoodType> {
 /**
  * 所有権検索条件インターフェース
  */
-export interface ISearchConditions<T extends IGoodType> {
+export interface ISearchConditions {
     limit?: number;
     page?: number;
     sort?: ISortOrder;
@@ -228,5 +205,5 @@ export interface ISearchConditions<T extends IGoodType> {
     /**
      * 所有対象物
      */
-    typeOfGood?: ITypeOfGoodSearchConditions<T>;
+    typeOfGood?: ITypeOfGoodSearchConditions;
 }
