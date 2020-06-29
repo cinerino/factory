@@ -1,3 +1,5 @@
+// tslint:disable-next-line:no-require-imports
+import setPrototypeOf = require('setprototypeof');
 import ErrorCode from '../errorCode';
 
 /**
@@ -11,5 +13,7 @@ export class CinerinoError extends Error {
         super(message)/* istanbul ignore next */;
         this.name = 'CinerinoError';
         this.reason = code;
+
+        setPrototypeOf(this, CinerinoError.prototype);
     }
 }
