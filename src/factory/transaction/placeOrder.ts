@@ -9,9 +9,10 @@ import { IIdentifier as IOrderIdentifier, IOrder } from '../order';
 import { IInformParams, IOnOrderStatusChanged, IProject } from '../organization/project';
 import OrganizationType from '../organizationType';
 import { IPerson, IProfile } from '../person';
-import { Identifier as WebAPIIdentifier } from '../service/webAPI';
 import * as TransactionFactory from '../transaction';
 import TransactionType from '../transactionType';
+
+import * as chevre from '../../chevre';
 
 /**
  * 顧客プロフィールインターフェース
@@ -109,7 +110,7 @@ export interface IConfirmReservationParams {
     /**
      * 確定対象
      */
-    object?: IConfirmReservationObject<WebAPIIdentifier>;
+    object?: IConfirmReservationObject<chevre.service.webAPI.Identifier>;
 }
 
 /**

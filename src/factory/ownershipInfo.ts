@@ -4,12 +4,11 @@ import * as OrganizationFactory from './organization';
 import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
 import { IPerson } from './person';
-import { Identifier as WebAPIIdentifier, IService as IWebAPI } from './service/webAPI';
 import SortType from './sortType';
 
 import * as chevre from '../chevre';
 
-export type IBookingService = IWebAPI<WebAPIIdentifier>;
+export type IBookingService = chevre.service.webAPI.IService<chevre.service.webAPI.Identifier>;
 
 /**
  * 口座タイプ

@@ -1,13 +1,14 @@
 import * as ActionFactory from '../../../action';
 import { IOrder } from '../../../order';
 import { IGood, IGoodType, IOwnershipInfo } from '../../../ownershipInfo';
-import { Identifier as WebAPIIdentifier } from '../../../service/webAPI';
 import { IAttributes as IConfirmReservationActionAttributes } from '../../interact/confirm/reservation';
 import { IAttributes as IInformActionAttributes } from '../../interact/inform';
 import { IAttributes as IRegisterServiceAttributes } from '../../interact/register/service';
 import { IAttributes as IMoneyTransferActionAttributes } from '../../transfer/moneyTransfer';
 import * as SendActionFactory from '../send';
 import { IAttributes as ISendEmailMessageActionAttributes } from './message/email';
+
+import * as chevre from '../../../../chevre';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
@@ -22,7 +23,7 @@ export interface IPotentialActions {
     /**
      * 予約確定アクション
      */
-    confirmReservation?: IConfirmReservationActionAttributes<WebAPIIdentifier>[];
+    confirmReservation?: IConfirmReservationActionAttributes<chevre.service.webAPI.Identifier>[];
     /**
      * 注文通知アクション
      */

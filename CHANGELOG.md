@@ -10,7 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- update @chevre/factory
+- update @chevre/factory\
+- webAPIインターフェースをChevreへ完全移行
 
 ### Deprecated
 

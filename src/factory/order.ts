@@ -72,7 +72,7 @@ export interface IDiscount {
 
 export type IReservation = chevre.reservation.IReservation<chevre.reservationType.EventReservation>;
 export import IMonetaryAmount = chevre.monetaryAmount.IMonetaryAmount;
-export import IServiceOutput = chevre.service.IServiceOutput;
+export import IServiceOutput = chevre.product.IServiceOutput;
 
 /**
  * 注文アイテムインターフェース

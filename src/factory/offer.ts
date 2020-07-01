@@ -1,10 +1,9 @@
 import * as chevre from '../chevre';
 import * as SeatReservationOfferFactory from './offer/seatReservation';
-import { Identifier as WebAPIIdentifier, IService as IWebAPI } from './service/webAPI';
 
 export import seatReservation = SeatReservationOfferFactory;
 
-export type IOfferedThrough = IWebAPI<WebAPIIdentifier>;
+export type IOfferedThrough = chevre.service.webAPI.IService<chevre.service.webAPI.Identifier>;
 
 /**
  * offer interface
