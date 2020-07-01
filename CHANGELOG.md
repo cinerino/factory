@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- update @chevre/factory\
-- webAPIインターフェースをChevreへ完全移行
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v7.7.0 - 2020-07-01
+
+### Changed
+
+- update @chevre/factory\
+- webAPIインターフェースをChevreへ完全移行
 
 ## v7.6.2 - 2020-06-29
 
