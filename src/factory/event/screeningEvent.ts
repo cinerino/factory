@@ -1,10 +1,9 @@
 import * as chevre from '../../chevre';
 import * as EventFactory from '../event';
-import { Identifier as WebAPIIdentifier, IService as IWebAPI } from '../service/webAPI';
 
 import * as COA from '../../coa';
 
-export type IOfferedThrough = IWebAPI<WebAPIIdentifier>;
+export type IOfferedThrough = chevre.service.webAPI.IService<chevre.service.webAPI.Identifier>;
 
 export import ICOAInfo = chevre.event.screeningEvent.ICOAInfo;
 

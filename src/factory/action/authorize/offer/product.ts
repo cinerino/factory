@@ -9,7 +9,7 @@ import * as chevre from '../../../../chevre';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
-export import IService = chevre.service.IService;
+export import IService = chevre.product.IProduct;
 export type IObject = IAcceptedOffer<IService>[];
 export type IResultAcceptedOffer = IAcceptedOffer<IServiceOutput>[];
 export interface IResult {

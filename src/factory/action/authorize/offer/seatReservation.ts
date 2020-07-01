@@ -4,7 +4,6 @@ import * as SeatReservationOfferFactory from '../../../offer/seatReservation';
 import * as OrderFactory from '../../../order';
 import PriceCurrency from '../../../priceCurrency';
 import { IPropertyValue } from '../../../propertyValue';
-import { Identifier as WebAPIIdentifier, IService as IWebAPI } from '../../../service/webAPI';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
@@ -21,15 +20,15 @@ export enum ObjectType {
     SeatReservation = 'SeatReservation'
 }
 
-export type IInstrument<T extends WebAPIIdentifier> = IWebAPI<T>;
+export type IInstrument<T extends chevre.service.webAPI.Identifier> = chevre.service.webAPI.IService<T>;
 
-export type IRequestBody<T extends WebAPIIdentifier> =
-    T extends WebAPIIdentifier.COA ? COA.services.reserve.IUpdTmpReserveSeatArgs :
+export type IRequestBody<T extends chevre.service.webAPI.Identifier> =
+    T extends chevre.service.webAPI.Identifier.COA ? COA.services.reserve.IUpdTmpReserveSeatArgs :
     // T extends WebAPIIdentifier.Chevre ? chevre.transaction.reserve.ITransaction :
     any;
-export type IResponseBody<T extends WebAPIIdentifier> =
-    T extends WebAPIIdentifier.COA ? COA.services.reserve.IUpdTmpReserveSeatResult :
-    T extends WebAPIIdentifier.Chevre ? chevre.transaction.reserve.ITransaction :
+export type IResponseBody<T extends chevre.service.webAPI.Identifier> =
+    T extends chevre.service.webAPI.Identifier.COA ? COA.services.reserve.IUpdTmpReserveSeatResult :
+    T extends chevre.service.webAPI.Identifier.Chevre ? chevre.transaction.reserve.ITransaction :
     chevre.transaction.reserve.ITransaction;
 
 export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IReservation>;
@@ -37,7 +36,7 @@ export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IRes
 /**
  * 承認アクション結果
  */
-export interface IResult<T extends WebAPIIdentifier> {
+export interface IResult<T extends chevre.service.webAPI.Identifier> {
     /**
      * オファー分の金額
      */
@@ -97,19 +96,19 @@ export interface IObjectWithoutDetail4COA {
     };
 }
 
-export type IAcceptedOffer<T extends WebAPIIdentifier> =
-    T extends WebAPIIdentifier.COA ? IAcceptedOffer4COA :
-    T extends WebAPIIdentifier.Chevre ? IAcceptedOffer4chevre :
+export type IAcceptedOffer<T extends chevre.service.webAPI.Identifier> =
+    T extends chevre.service.webAPI.Identifier.COA ? IAcceptedOffer4COA :
+    T extends chevre.service.webAPI.Identifier.Chevre ? IAcceptedOffer4chevre :
     any;
 
-export type IAcceptedOfferWithoutDetail<T extends WebAPIIdentifier> =
-    T extends WebAPIIdentifier.COA ? IAcceptedOfferWithoutDetail4COA :
-    T extends WebAPIIdentifier.Chevre ? IAcceptedOfferWithoutDetail4chevre :
+export type IAcceptedOfferWithoutDetail<T extends chevre.service.webAPI.Identifier> =
+    T extends chevre.service.webAPI.Identifier.COA ? IAcceptedOfferWithoutDetail4COA :
+    T extends chevre.service.webAPI.Identifier.Chevre ? IAcceptedOfferWithoutDetail4chevre :
     any;
 
-export type IObjectWithoutDetail<T extends WebAPIIdentifier> =
-    T extends WebAPIIdentifier.COA ? IObjectWithoutDetail4COA :
-    T extends WebAPIIdentifier.Chevre ? IObjectWithoutDetail4chevre :
+export type IObjectWithoutDetail<T extends chevre.service.webAPI.Identifier> =
+    T extends chevre.service.webAPI.Identifier.COA ? IObjectWithoutDetail4COA :
+    T extends chevre.service.webAPI.Identifier.Chevre ? IObjectWithoutDetail4chevre :
     any;
 
 export type IPendingTransaction = chevre.transaction.ITransaction<chevre.transactionType.Reserve>;
@@ -117,7 +116,7 @@ export type IPendingTransaction = chevre.transaction.ITransaction<chevre.transac
 /**
  * 承認アクション対象
  */
-export type IObject<T extends WebAPIIdentifier> = {
+export type IObject<T extends chevre.service.webAPI.Identifier> = {
     typeOf: ObjectType;
     event?: chevre.event.screeningEvent.IEvent;
     acceptedOffer: IAcceptedOffer<T>[];
@@ -140,7 +139,8 @@ export type IError = any;
 /**
  * 座席予約承認アクションインターフェース
  */
-export interface IAttributes<T extends WebAPIIdentifier> extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult<T>> {
+export interface IAttributes<T extends chevre.service.webAPI.Identifier>
+    extends AuthorizeActionFactory.IAttributes<IObject<T>, IResult<T>> {
     typeOf: ActionType.AuthorizeAction;
     agent: IAgent;
     recipient: IRecipient;
@@ -149,4 +149,4 @@ export interface IAttributes<T extends WebAPIIdentifier> extends AuthorizeAction
     instrument?: IInstrument<T>;
 }
 
-export type IAction<T extends WebAPIIdentifier> = ActionFactory.IAction<IAttributes<T>>;
+export type IAction<T extends chevre.service.webAPI.Identifier> = ActionFactory.IAction<IAttributes<T>>;
