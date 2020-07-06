@@ -17,10 +17,6 @@ export interface IInformParams {
     };
 }
 
-export interface IChevreSettings {
-    endpoint: string;
-}
-
 export interface ICOASettings {
     endpoint: string;
     refreshToken: string;
@@ -53,10 +49,6 @@ export interface IMvtkReserveSettings {
      * 興行会社コード
      */
     companyCode: string;
-}
-
-export interface IPecorinoSettings {
-    endpoint: string;
 }
 
 export interface ILineNotifySettings {
@@ -94,12 +86,10 @@ export interface IPayment {
  * プロジェクト設定インターフェース
  */
 export interface ISettings {
-    chevre?: IChevreSettings;
     coa?: ICOASettings;
     cognito?: ICognitoSettings;
     gmo?: IGMOSettings;
     mvtkReserve?: IMvtkReserveSettings;
-    pecorino?: IPecorinoSettings;
     lineNotify?: ILineNotifySettings;
     onOrderStatusChanged?: IOnOrderStatusChanged;
     webhook?: IWebhookSettings;
@@ -107,10 +97,8 @@ export interface ISettings {
 
     // ↓その他の設定
     codeExpiresInSeconds?: number;
-    emailInformUpdateProgrammembership?: string;
     sendgridApiKey?: string;
     transactionWebhookUrl?: string;
-    useInMemoryOfferRepo?: boolean;
     useReservationNumberAsConfirmationNumber?: boolean;
     useUsernameAsGMOMemberId?: boolean;
 }

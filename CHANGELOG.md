@@ -14,6 +14,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Removed
 
+- プロジェクト設定からchevreを削除
+- プロジェクト設定からpecorinoを削除
+- プロジェクト設定からemailInformUpdateProgrammembershipを削除
+- プロジェクト設定からuseInMemoryOfferRepoを削除
+
 ### Fixed
 
 ### Security
