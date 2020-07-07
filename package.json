@@ -61,7 +61,7 @@
     "@pecorino/factory": "^4.2.0",
     "@waiter/factory": "^2.1.0",
     "aws-sdk": "^2.447.0",
-    "setprototypeof": "^1.1.1"
+    "setprototypeof": "^1.2.0"
   },
   "repository": {
     "type": "git",

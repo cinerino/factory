@@ -1,6 +1,7 @@
 import { IParentOrganization } from '../organization';
 import OrganizationType from '../organizationType';
 import SortType from '../sortType';
+import { IThing } from '../thing';
 
 /**
  * 通知パラメータ
@@ -99,24 +100,19 @@ export interface ISettings {
     codeExpiresInSeconds?: number;
     sendgridApiKey?: string;
     transactionWebhookUrl?: string;
-    useReservationNumberAsConfirmationNumber?: boolean;
     useUsernameAsGMOMemberId?: boolean;
 }
 
 /**
  * プロジェクトインターフェース
  */
-export interface IProject {
+export interface IProject extends IThing {
     typeOf: OrganizationType.Project;
     id: string;
-    alternateName?: string;
-    description?: string;
     email?: string;
     logo?: string;
-    name?: string;
     parentOrganization?: IParentOrganization;
     telephone?: string;
-    url?: string;
     settings?: ISettings;
 }
 
