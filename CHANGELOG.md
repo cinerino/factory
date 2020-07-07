@@ -18,6 +18,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v8.0.0 - 2020-07-07
+
+### Removed
+
+- プロジェクト設定からchevreを削除
+- プロジェクト設定からpecorinoを削除
+- プロジェクト設定からemailInformUpdateProgrammembershipを削除
+- プロジェクト設定からuseInMemoryOfferRepoを削除
+- プロジェクト設定からuseReservationNumberAsConfirmationNumberを削除
+
 ## v7.7.0 - 2020-07-01
 
 ### Changed

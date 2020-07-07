@@ -1,6 +1,7 @@
 import { IParentOrganization } from '../organization';
 import OrganizationType from '../organizationType';
 import SortType from '../sortType';
+import { IThing } from '../thing';
 
 /**
  * 通知パラメータ
@@ -15,10 +16,6 @@ export interface IInformParams {
         name: string;
         url: string;
     };
-}
-
-export interface IChevreSettings {
-    endpoint: string;
 }
 
 export interface ICOASettings {
@@ -53,10 +50,6 @@ export interface IMvtkReserveSettings {
      * 興行会社コード
      */
     companyCode: string;
-}
-
-export interface IPecorinoSettings {
-    endpoint: string;
 }
 
 export interface ILineNotifySettings {
@@ -94,12 +87,10 @@ export interface IPayment {
  * プロジェクト設定インターフェース
  */
 export interface ISettings {
-    chevre?: IChevreSettings;
     coa?: ICOASettings;
     cognito?: ICognitoSettings;
     gmo?: IGMOSettings;
     mvtkReserve?: IMvtkReserveSettings;
-    pecorino?: IPecorinoSettings;
     lineNotify?: ILineNotifySettings;
     onOrderStatusChanged?: IOnOrderStatusChanged;
     webhook?: IWebhookSettings;
@@ -107,28 +98,21 @@ export interface ISettings {
 
     // ↓その他の設定
     codeExpiresInSeconds?: number;
-    emailInformUpdateProgrammembership?: string;
     sendgridApiKey?: string;
     transactionWebhookUrl?: string;
-    useInMemoryOfferRepo?: boolean;
-    useReservationNumberAsConfirmationNumber?: boolean;
     useUsernameAsGMOMemberId?: boolean;
 }
 
 /**
  * プロジェクトインターフェース
  */
-export interface IProject {
+export interface IProject extends IThing {
     typeOf: OrganizationType.Project;
     id: string;
-    alternateName?: string;
-    description?: string;
     email?: string;
     logo?: string;
-    name?: string;
     parentOrganization?: IParentOrganization;
     telephone?: string;
-    url?: string;
     settings?: ISettings;
 }
 
