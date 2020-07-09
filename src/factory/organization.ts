@@ -109,13 +109,8 @@ export interface IAccountPaymentAccepted {
     accountNumber: string;
 }
 
-export interface IMGTicketPaymentAccepted {
-    paymentMethodType: PaymentMethodType.MGTicket;
-    movieTicketInfo: IMovieTicketInfo;
-}
-
 export interface IMovieTicketPaymentAccepted {
-    paymentMethodType: PaymentMethodType.MovieTicket;
+    paymentMethodType: PaymentMethodType.MovieTicket | PaymentMethodType.MGTicket;
     movieTicketInfo: IMovieTicketInfo;
 }
 
@@ -132,7 +127,7 @@ export type IPaymentAccepted<T extends IAcceptedPaymentMethodType> =
     T extends PaymentMethodType.Cash ? ICashPaymentAccepted :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentAccepted :
     T extends PaymentMethodType.EMoney ? IEMoneyPaymentAccepted :
-    T extends PaymentMethodType.MGTicket ? IMGTicketPaymentAccepted :
+    T extends PaymentMethodType.MGTicket ? IMovieTicketPaymentAccepted :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentAccepted :
     ICommonPaymentAccepted;
 

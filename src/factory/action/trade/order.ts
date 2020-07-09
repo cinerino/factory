@@ -41,7 +41,7 @@ export interface IPotentialActions {
     /**
      * ムビチケ決済アクション
      */
-    payMovieTicket?: IPayActionAttributes<PaymentMethodType.MovieTicket>[];
+    payMovieTicket?: IPayActionAttributes<PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket>[];
     /**
      * ペイメントカード決済アクション
      */

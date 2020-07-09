@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- update @chevre/factory
+- ムビチケ系統決済処理をMGTicketに対応
+
 ### Deprecated
 
 ### Removed

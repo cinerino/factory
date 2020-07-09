@@ -13,7 +13,6 @@ import * as COA from '../../../../coa';
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
-export import IMGTicket = chevre.paymentMethod.paymentCard.mgTicket.IMGTicket;
 export import IMovieTicket = chevre.paymentMethod.paymentCard.movieTicket.IMovieTicket;
 
 export enum ObjectType {
@@ -62,7 +61,7 @@ export interface IResult<T extends chevre.service.webAPI.Identifier> {
     acceptedOffers?: IResultAcceptedOffer[];
 }
 
-export type IAcceptedPaymentMethod = IMGTicket | IMovieTicket;
+export type IAcceptedPaymentMethod = IMovieTicket;
 
 export type IAcceptedOffer4chevre = {
     paymentMethod?: IAcceptedPaymentMethod;

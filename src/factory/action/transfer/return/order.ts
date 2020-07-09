@@ -42,7 +42,7 @@ export interface IPotentialActions {
     /**
      * ムビチケ着券取消アクション
      */
-    refundMovieTicket: IRefundActionAttributes<PaymentMethodType.MovieTicket>[];
+    refundMovieTicket: IRefundActionAttributes<PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket>[];
     /**
      * ポイントインセンティブ返却アクション
      */

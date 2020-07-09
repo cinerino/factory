@@ -21,12 +21,12 @@ export interface IObject4sskts {
 /**
  * 承認対象インターフェース
  */
-export interface IObject extends AuthorizeAnyPaymentFactory.IObject<PaymentMethodType.MovieTicket> {
-    typeOf: PaymentMethodType.MovieTicket;
+export interface IObject extends AuthorizeAnyPaymentFactory.IObject<PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket> {
+    // typeOf: PaymentMethodType.MovieTicket;
     movieTickets: IMovieTicket[];
 }
 
-export interface IResult extends AuthorizeAnyPaymentFactory.IResult<PaymentMethodType.MovieTicket> {
+export interface IResult extends AuthorizeAnyPaymentFactory.IResult<PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket> {
     /**
      * 承認時のムビチケ認証リクエスト
      */
@@ -50,7 +50,7 @@ export type IError = any;
 /**
  * ムビチケ承認アクション属性インターフェース
  */
-export interface IAttributes extends AuthorizeAnyPaymentFactory.IAttributes<PaymentMethodType.MovieTicket> {
+export interface IAttributes extends AuthorizeAnyPaymentFactory.IAttributes<PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket> {
     object: IObject;
     result?: IResult;
     error?: IError;

@@ -4,7 +4,7 @@ import PaymentMethodType from '../paymentMethodType';
 import * as TaskFactory from '../task';
 import TaskName from '../taskName';
 
-export type IData = IRefundActionAttributes<PaymentMethodType.MovieTicket>;
+export type IData = IRefundActionAttributes<PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket>;
 export interface IAttributes extends TaskFactory.IAttributes {
     name: TaskName.RefundMovieTicket;
     data: IData;
