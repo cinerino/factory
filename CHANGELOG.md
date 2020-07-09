@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v8.2.0 - 2020-07-09
+
+### Changed
+
+- update @chevre/factory
+- ムビチケ系統決済処理をMGTicketに対応
+
 ## v8.1.0 - 2020-07-08
 
 ### Changed

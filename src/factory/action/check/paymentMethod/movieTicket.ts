@@ -12,7 +12,7 @@ export import IMovieTicket = chevre.paymentMethod.paymentCard.movieTicket.IMovie
 export type IAgent = ActionFactory.IParticipant;
 export type IPurchaseNumberAuthIn = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
 export type IPurchaseNumberAuthResult = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
-export type ObjectType = PaymentMethodType.MovieTicket;
+export type ObjectType = PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket;
 export type IMovieTicketResult = IMovieTicket;
 export interface IObject {
     typeOf: ObjectType;

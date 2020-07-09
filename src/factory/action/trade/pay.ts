@@ -9,7 +9,6 @@ import { IPendingTransaction } from '../authorize/paymentMethod/account';
 
 import * as chevre from '../../../chevre';
 
-export import IMGTicket = chevre.paymentMethod.paymentCard.mgTicket.IMGTicket;
 export import IMovieTicket = chevre.paymentMethod.paymentCard.movieTicket.IMovieTicket;
 
 export type IAgent = ActionFactory.IParticipant;
@@ -47,21 +46,12 @@ export interface ICreditCardPaymentMethod extends ICommonPaymentMethod<PaymentMe
 export interface IAccountPaymentMethod extends ICommonPaymentMethod<PaymentMethodType.Account> {
     pendingTransaction: IPendingTransaction;
 }
-/**
- * ムビチケ決済の場合のオブジェクトインターフェース
- */
-export interface IMGTicketPaymentMethod
-    extends ICommonPaymentMethod<PaymentMethodType.MGTicket> {
-    /**
-     * MGチケットリスト
-     */
-    mgTickets: IMGTicket[];
-}
+
 /**
  * ムビチケ決済の場合のオブジェクトインターフェース
  */
 export interface IMovieTicketPaymentMethod
-    extends ICommonPaymentMethod<PaymentMethodType.MovieTicket> {
+    extends ICommonPaymentMethod<PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket> {
     /**
      * ムビチケリスト
      */
@@ -74,7 +64,7 @@ export interface IMovieTicketPaymentMethod
 export type IPaymentMethodObject<T> =
     T extends PaymentMethodType.Account ? IAccountPaymentMethod :
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentMethod :
-    T extends PaymentMethodType.MGTicket ? IMGTicketPaymentMethod :
+    T extends PaymentMethodType.MGTicket ? IMovieTicketPaymentMethod :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentMethod :
     any;
 
