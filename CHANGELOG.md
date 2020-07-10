@@ -10,10 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- プロジェクト設定からcoaを削除
-- プロジェクト設定からmvtkReserveを削除
-- プロジェクト設定からlineNotifyを削除
-
 ### Deprecated
 
 ### Removed
@@ -21,6 +17,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v8.3.0 - 2020-07-10
+
+### Changed
+
+- プロジェクト設定からcoaを削除
+- プロジェクト設定からmvtkReserveを削除
+- プロジェクト設定からlineNotifyを削除
 
 ## v8.2.0 - 2020-07-09
 
