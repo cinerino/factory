@@ -18,11 +18,6 @@ export interface IInformParams {
     };
 }
 
-export interface ICOASettings {
-    endpoint: string;
-    refreshToken: string;
-}
-
 export interface ICognitoSettings {
     /**
      * 管理者ユーザープール
@@ -42,19 +37,6 @@ export interface IGMOSettings {
     endpoint: string;
     siteId: string;
     sitePass: string;
-}
-
-export interface IMvtkReserveSettings {
-    endpoint: string;
-    /**
-     * 興行会社コード
-     */
-    companyCode: string;
-}
-
-export interface ILineNotifySettings {
-    accessToken: string;
-    endpoint: string;
 }
 
 /**
@@ -87,11 +69,8 @@ export interface IPayment {
  * プロジェクト設定インターフェース
  */
 export interface ISettings {
-    coa?: ICOASettings;
     cognito?: ICognitoSettings;
     gmo?: IGMOSettings;
-    mvtkReserve?: IMvtkReserveSettings;
-    lineNotify?: ILineNotifySettings;
     onOrderStatusChanged?: IOnOrderStatusChanged;
     webhook?: IWebhookSettings;
     payment?: IPayment;
