@@ -374,7 +374,7 @@ export namespace task {
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IAttributes :
         T extends TaskName.RefundAccount ? RefundAccountTaskFactory.IAttributes :
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IAttributes :
-        T extends TaskName.RefundMGTicket ? RefundMGTicketTaskFactory.IData :
+        T extends TaskName.RefundMGTicket ? RefundMGTicketTaskFactory.IAttributes :
         T extends TaskName.RefundMovieTicket ? RefundMovieTicketTaskFactory.IAttributes :
         T extends TaskName.RefundPaymentCard ? RefundPaymentCardTaskFactory.IAttributes :
         T extends TaskName.RegisterService ? RegisterServiceTaskFactory.IAttributes :

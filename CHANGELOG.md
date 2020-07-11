@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v8.3.1 - 2020-07-11
+
+### Fixed
+
+- タスクインターフェースを修正
+
 ## v8.3.0 - 2020-07-10
 
 ### Changed
