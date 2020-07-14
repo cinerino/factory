@@ -1,10 +1,3 @@
-/**
- * 組織タイプ
- */
-enum OrganizationType {
-    Corporation = 'Corporation',
-    MovieTheater = 'MovieTheater',
-    Project = 'Project'
-}
+import { organizationType as OrganizationType } from '@chevre/factory';
 
 export default OrganizationType;
