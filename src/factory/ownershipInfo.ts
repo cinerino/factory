@@ -2,7 +2,6 @@ import * as pecorino from '@pecorino/factory';
 
 import * as OrganizationFactory from './organization';
 import { IProject } from './organization/project';
-import OrganizationType from './organizationType';
 import { IPerson } from './person';
 import SortType from './sortType';
 
@@ -93,7 +92,7 @@ export type IGoodWithDetail<T extends IGoodType> =
 /**
  * 所有者インターフェース
  */
-export type IOwner = OrganizationFactory.IOrganization<OrganizationFactory.IAttributes<OrganizationType>> | IPerson;
+export type IOwner = OrganizationFactory.ISeller | IPerson;
 
 export type OwnershipInfoType = 'OwnershipInfo';
 

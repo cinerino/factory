@@ -1,7 +1,6 @@
 import { IAcceptedOffer, ICustomer, IOrder } from './order';
-import { IAttributes as IOrganizationAttributes, IOrganization } from './organization';
+import { ISeller } from './organization';
 import { IProject } from './organization/project';
-import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
 import PaymentStatusType from './paymentStatusType';
 import { IIdentifier, IPerson } from './person';
@@ -10,8 +9,8 @@ import SortType from './sortType';
 
 import * as chevre from '../chevre';
 
-export type IBroker = IOrganization<IOrganizationAttributes<OrganizationType>> | IPerson;
-export type IProvider = IOrganization<IOrganizationAttributes<OrganizationType>> | IPerson;
+export type IBroker = ISeller | IPerson;
+export type IProvider = ISeller | IPerson;
 
 export interface IReferenceOrder extends IOrder {
     acceptedOffers: IAcceptedOffer<any>[];
