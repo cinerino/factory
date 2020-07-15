@@ -1,7 +1,7 @@
 import { IParticipant } from './action';
 import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
-import { IOrganization } from './organization';
+import { ISeller as ISellerOrganization } from './organization';
 import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
 import PaymentMethodType from './paymentMethodType';
@@ -96,7 +96,7 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOffer {
 /**
  * 販売者インターフェース
  */
-export type ISeller = IOrganization<any>;
+export type ISeller = ISellerOrganization;
 
 /**
  * カスタマーインターフェース

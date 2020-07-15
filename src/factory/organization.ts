@@ -15,6 +15,5 @@ export import IPaymentAccepted = seller.IPaymentAccepted;
 export import IMakesOffer = seller.IMakesOffer;
 export import IAreaServed = seller.IAreaServed;
 export import IHasMerchantReturnPolicy = seller.IHasMerchantReturnPolicy;
-export import IAttributes = seller.IAttributes;
-export import IOrganization = seller.IOrganization;
+export import ISeller = seller.ISeller;
 export import ISearchConditions = seller.ISearchConditions;
