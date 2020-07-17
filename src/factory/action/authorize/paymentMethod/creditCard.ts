@@ -21,11 +21,6 @@ export type ICreditCard = IUncheckedCardRaw | IUncheckedCardTokenized | IUnautho
 export interface IObject extends AuthorizeAnyPaymentFactory.IObject<PaymentMethodType.CreditCard> {
     typeOf: PaymentMethodType.CreditCard;
     /**
-     * GMOオーダーID
-     * 未指定であれば自動生成されます
-     */
-    orderId?: string;
-    /**
      * 支払い方法
      */
     method: GMO.utils.util.Method;
