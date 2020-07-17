@@ -13,11 +13,6 @@ export type ISeatInfoSyncResult = mvtkapi.mvtk.services.seat.seatInfoSync.ISeatI
 
 export import IMovieTicket = chevre.paymentMethod.paymentCard.movieTicket.IMovieTicket;
 
-export interface IObject4sskts {
-    typeOf: PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket;
-    seatInfoSyncIn: ISeatInfoSyncIn;
-}
-
 /**
  * 承認対象インターフェース
  */
