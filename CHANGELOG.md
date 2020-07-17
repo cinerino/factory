@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- update @chevre/factory
-- クレジットカード承認アクションからオーダーIDの指定を削除
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v8.3.4 - 2020-07-17
+
+### Changed
+
+- update @chevre/factory
+- クレジットカード承認アクションからオーダーIDの指定を削除
 
 ## v8.3.3 - 2020-07-15
 
