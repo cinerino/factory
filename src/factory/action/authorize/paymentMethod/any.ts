@@ -56,7 +56,7 @@ export interface IObject<T extends IAnyPaymentMethod> {
     /**
      * 決済方法タイプ
      */
-    typeOf: T;
+    typeOf: ResultType;
 }
 
 export interface IResult<T extends IAnyPaymentMethod> {
@@ -100,6 +100,19 @@ export interface IPurpose {
     id: string;
 }
 
+export declare enum ServiceIdentifier {
+    Chevre = 'Chevre',
+    GMO = 'GMO',
+    MovieTicket = 'MovieTicket'
+}
+
+export interface IService {
+    typeOf: 'WebAPI';
+    identifier: ServiceIdentifier;
+}
+
+export type IInstrument = IService;
+
 /**
  * 決済方法承認アクション属性インターフェース
  */
@@ -107,6 +120,7 @@ export interface IAttributes<T extends PaymentMethodType> extends AuthorizeActio
     typeOf: ActionType.AuthorizeAction;
     object: IObject<T>;
     agent: IAgent;
+    instrument?: IInstrument;
     recipient: IRecipient;
     purpose: IPurpose;
 }

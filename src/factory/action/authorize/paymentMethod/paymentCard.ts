@@ -32,7 +32,6 @@ export type IToLocation = IPaymentCard;
  * オーソリ対象インターフェース
  */
 export interface IObject extends AuthorizeAnyPaymentFactory.IObject<any> {
-    typeOf: string;
     /**
      * 転送元
      */

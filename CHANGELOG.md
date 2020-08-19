@@ -8,7 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 決済承認アクションのinstrumentを決済サービスとして定義
+
 ### Changed
+
+- 決済承認アクションのobject.typeOfを'Payment'に統一
 
 ### Deprecated
 
