@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 決済承認アクションにresult.typeOfを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v8.5.0 - 2020-08-19
+
+### Added
+
+- 決済承認アクションにresult.typeOfを追加
 
 ## v8.4.0 - 2020-08-19
 
