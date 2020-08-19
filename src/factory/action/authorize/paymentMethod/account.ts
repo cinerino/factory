@@ -39,7 +39,7 @@ export type IToAccount = IAccount;
  * 承認対象インターフェース
  */
 export interface IObject extends AuthorizeAnyPaymentFactory.IObject<PaymentMethodType.Account> {
-    typeOf: PaymentMethodType.Account;
+    // typeOf: PaymentMethodType.Account;
     /**
      * 転送元口座
      * 出金取引、転送取引の場合指定

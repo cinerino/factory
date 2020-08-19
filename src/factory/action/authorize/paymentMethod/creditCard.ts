@@ -19,7 +19,7 @@ export type ICreditCard = IUncheckedCardRaw | IUncheckedCardTokenized | IUnautho
  * クレジットカード決済承認対象インターフェース
  */
 export interface IObject extends AuthorizeAnyPaymentFactory.IObject<PaymentMethodType.CreditCard> {
-    typeOf: PaymentMethodType.CreditCard;
+    // typeOf: PaymentMethodType.CreditCard;
     /**
      * 支払い方法
      */
