@@ -42,6 +42,10 @@ export interface IObject<T extends IAnyPaymentMethod> {
      */
     name?: string;
     /**
+     * 決済方法
+     */
+    paymentMethod: T;
+    /**
      * 決済ID
      */
     paymentMethodId?: string;
