@@ -11,6 +11,10 @@ import * as chevre from '../../../../chevre';
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
+export enum ResultType {
+    Payment = 'Payment'
+}
+
 /**
  * 汎用決済方法タイプ
  */
@@ -88,6 +92,7 @@ export interface IResult<T extends IAnyPaymentMethod> {
      * 追加特性
      */
     additionalProperty?: IPropertyValue<string>[];
+    typeOf: ResultType;
 }
 
 export interface IPurpose {
