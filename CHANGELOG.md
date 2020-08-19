@@ -8,11 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 決済承認アクションのinstrumentを決済サービスとして定義
-
 ### Changed
-
-- 決済承認アクションのobject.typeOfを'Payment'に統一
 
 ### Deprecated
 
@@ -21,6 +17,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v8.6.0 - 2020-08-19
+
+### Added
+
+- 決済承認アクションのinstrumentを決済サービスとして定義
+
+### Changed
+
+- 決済承認アクションのobject.typeOfを'Payment'に統一
 
 ## v8.5.0 - 2020-08-19
 
