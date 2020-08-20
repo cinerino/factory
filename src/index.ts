@@ -85,6 +85,7 @@ import * as DeleteMemberTaskFactory from './factory/task/deleteMember';
 import * as GivePointAwardTaskFactory from './factory/task/givePointAward';
 import * as MoneyTransferTaskFactory from './factory/task/moneyTransfer';
 import * as OrderProgramMembershipTaskFactory from './factory/task/orderProgramMembership';
+import * as PayTaskFactory from './factory/task/pay';
 import * as PayAccountTaskFactory from './factory/task/payAccount';
 import * as PayCreditCardTaskFactory from './factory/task/payCreditCard';
 import * as PayMGTicketTaskFactory from './factory/task/payMGTicket';
@@ -348,6 +349,7 @@ export namespace task {
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IData :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IData :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IData :
+        T extends TaskName.Pay ? PayTaskFactory.IData :
         T extends TaskName.PayAccount ? PayAccountTaskFactory.IData :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IData :
         T extends TaskName.PayMGTicket ? PayMGTicketTaskFactory.IData :
@@ -382,6 +384,7 @@ export namespace task {
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IAttributes :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IAttributes :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IAttributes :
+        T extends TaskName.Pay ? PayTaskFactory.IAttributes :
         T extends TaskName.PayAccount ? PayAccountTaskFactory.IAttributes :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IAttributes :
         T extends TaskName.PayMGTicket ? PayMGTicketTaskFactory.IAttributes :
@@ -416,6 +419,7 @@ export namespace task {
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.ITask :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.ITask :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.ITask :
+        T extends TaskName.Pay ? PayTaskFactory.ITask :
         T extends TaskName.PayAccount ? PayAccountTaskFactory.ITask :
         T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.ITask :
         T extends TaskName.PayMGTicket ? PayMGTicketTaskFactory.ITask :
