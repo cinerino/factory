@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 汎用決済タスクを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v8.7.0 - 2020-08-20
+
+### Added
+
+- 汎用決済タスクを追加
 
 ## v8.6.1 - 2020-08-20
 
