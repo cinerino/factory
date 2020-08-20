@@ -100,7 +100,7 @@ export interface IPurpose {
     id: string;
 }
 
-export declare enum ServiceIdentifier {
+export enum ServiceIdentifier {
     Chevre = 'Chevre',
     GMO = 'GMO',
     MovieTicket = 'MovieTicket'
