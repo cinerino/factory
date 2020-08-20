@@ -6,7 +6,7 @@ import TaskName from '../taskName';
 
 export type IData = IPayActionAttributes<PaymentMethodType | string>;
 export interface IAttributes extends TaskFactory.IAttributes {
-    name: TaskName.PayCreditCard;
+    name: TaskName.Pay;
     data: IData;
 }
 /**
