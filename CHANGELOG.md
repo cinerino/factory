@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v8.8.1 - 2020-08-20
+
+### Added
+
+- 汎用決済タスクを追加
+
 ## v8.8.0 - 2020-08-20
 
 ### Added
