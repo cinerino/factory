@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v8.6.1 - 2020-08-20
+
+### Added
+
+- 決済承認アクションのinstrumentを決済サービスとして定義
+
 ## v8.6.0 - 2020-08-19
 
 ### Added
