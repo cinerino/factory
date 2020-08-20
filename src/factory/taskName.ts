@@ -47,6 +47,10 @@ enum TaskName {
      */
     OrderProgramMembership = 'orderProgramMembership',
     /**
+     * 決済
+     */
+    Pay = 'pay',
+    /**
      * 口座支払
      */
     PayAccount = 'payAccount',
