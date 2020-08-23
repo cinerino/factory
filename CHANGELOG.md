@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v8.10.0 - 2020-08-23
+
+### Added
+
+- 汎用返金タスクを追加
+
 ## v8.9.0 - 2020-08-23
 
 ### Added

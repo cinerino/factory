@@ -75,6 +75,10 @@ enum TaskName {
      */
     PlaceOrder = 'placeOrder',
     /**
+     * 返金
+     */
+    Refund = 'refund',
+    /**
      * 口座返金
      */
     RefundAccount = 'refundAccount',

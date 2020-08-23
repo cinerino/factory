@@ -92,6 +92,7 @@ import * as PayMGTicketTaskFactory from './factory/task/payMGTicket';
 import * as PayMovieTicketTaskFactory from './factory/task/payMovieTicket';
 import * as PayPaymentCardTaskFactory from './factory/task/payPaymentCard';
 import * as PlaceOrderTaskFactory from './factory/task/placeOrder';
+import * as RefundTaskFactory from './factory/task/refund';
 import * as RefundAccountTaskFactory from './factory/task/refundAccount';
 import * as RefundCreditCardTaskFactory from './factory/task/refundCreditCard';
 import * as RefundMGTicketTaskFactory from './factory/task/refundMGTicket';
@@ -340,6 +341,7 @@ export namespace task {
         T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.IData :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IData :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IData :
+        T extends TaskName.Refund ? RefundTaskFactory.IData :
         T extends TaskName.RefundAccount ? RefundAccountTaskFactory.IData :
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IData :
         T extends TaskName.RefundMGTicket ? RefundMGTicketTaskFactory.IData :
@@ -376,6 +378,7 @@ export namespace task {
         T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.IAttributes :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IAttributes :
+        T extends TaskName.Refund ? RefundTaskFactory.IAttributes :
         T extends TaskName.RefundAccount ? RefundAccountTaskFactory.IAttributes :
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IAttributes :
         T extends TaskName.RefundMGTicket ? RefundMGTicketTaskFactory.IAttributes :
@@ -412,6 +415,7 @@ export namespace task {
         T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.ITask :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.ITask :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.ITask :
+        T extends TaskName.Refund ? RefundTaskFactory.ITask :
         T extends TaskName.RefundAccount ? RefundAccountTaskFactory.ITask :
         T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.ITask :
         T extends TaskName.RefundMGTicket ? RefundMGTicketTaskFactory.ITask :
