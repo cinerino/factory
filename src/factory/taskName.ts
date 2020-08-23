@@ -131,6 +131,10 @@ enum TaskName {
      */
     VoidMoneyTransfer = 'voidMoneyTransfer',
     /**
+     * 決済中止
+     */
+    VoidPayment = 'voidPayment',
+    /**
      * サービス登録中止
      */
     VoidRegisterService = 'voidRegisterService'

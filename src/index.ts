@@ -105,6 +105,7 @@ import * as SendOrderTaskFactory from './factory/task/sendOrder';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
 import * as UnRegisterProgramMembershipTaskFactory from './factory/task/unRegisterProgramMembership';
 import * as VoidMoneyTransferTaskFactory from './factory/task/voidMoneyTransfer';
+import * as VoidPaymentTaskFactory from './factory/task/voidPayment';
 import * as VoidRegisterServiceTaskFactory from './factory/task/voidRegisterService';
 
 import * as TaskFactory from './factory/task';
@@ -358,6 +359,7 @@ export namespace task {
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IData :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IData :
+        T extends TaskName.VoidPayment ? VoidPaymentTaskFactory.IData :
         T extends TaskName.VoidRegisterService ? VoidRegisterServiceTaskFactory.IData :
         TaskFactory.IData;
 
@@ -393,6 +395,7 @@ export namespace task {
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IAttributes :
+        T extends TaskName.VoidPayment ? VoidPaymentTaskFactory.IAttributes :
         T extends TaskName.VoidRegisterService ? VoidRegisterServiceTaskFactory.IAttributes :
         TaskFactory.IAttributes;
 
@@ -428,6 +431,7 @@ export namespace task {
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.ITask :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.ITask :
+        T extends TaskName.VoidPayment ? VoidPaymentTaskFactory.ITask :
         T extends TaskName.VoidRegisterService ? VoidRegisterServiceTaskFactory.ITask :
         TaskFactory.ITask;
 
