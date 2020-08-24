@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v8.11.0 - 2020-08-24
+
+### Changed
+
+- 注文後アクションに汎用決済アクションを追加
+
 ## v8.10.0 - 2020-08-23
 
 ### Added
