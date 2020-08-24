@@ -28,21 +28,21 @@ export interface IPotentialActions {
      */
     informOrder?: IInformActionAttributes<any, any>[];
     /**
+     * 返金アクション
+     */
+    refund: IRefundActionAttributes<PaymentMethodType | string>[];
+    /**
      * クレジットカード返金アクション
      */
-    refundCreditCard: IRefundActionAttributes<PaymentMethodType.CreditCard>[];
+    refundCreditCard?: IRefundActionAttributes<PaymentMethodType.CreditCard>[];
     /**
      * 口座返金アクション
      */
-    refundAccount: IRefundActionAttributes<PaymentMethodType.Account>[];
-    /**
-     * MGチケット着券取消アクション
-     */
-    refundMGTicket: IRefundActionAttributes<PaymentMethodType.MGTicket>[];
+    refundAccount?: IRefundActionAttributes<PaymentMethodType.Account>[];
     /**
      * ムビチケ着券取消アクション
      */
-    refundMovieTicket: IRefundActionAttributes<PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket>[];
+    refundMovieTicket?: IRefundActionAttributes<PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket>[];
     /**
      * ポイントインセンティブ返却アクション
      */

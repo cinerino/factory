@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 注文返品後アクションに汎用返金アクションを追加
+
 ### Deprecated
 
 ### Removed
