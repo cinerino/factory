@@ -27,6 +27,10 @@ export interface IPotentialActions {
      */
     informOrder?: IInformActionAttributes<any, any>[];
     /**
+     * 決済アクションリスト
+     */
+    pay?: IPayActionAttributes<PaymentMethodType | string>[];
+    /**
      * 口座決済実行アクションリスト
      */
     payAccount?: IPayActionAttributes<PaymentMethodType.Account>[];
@@ -34,10 +38,6 @@ export interface IPotentialActions {
      * クレジットカード決済アクション
      */
     payCreditCard?: IPayActionAttributes<PaymentMethodType.CreditCard>[];
-    /**
-     * MGチケット決済アクション
-     */
-    payMGTicket?: IPayActionAttributes<PaymentMethodType.MGTicket>[];
     /**
      * ムビチケ決済アクション
      */
