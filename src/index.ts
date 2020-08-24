@@ -75,9 +75,6 @@ import { UnitCode } from './factory/unitCode';
 
 import SortType from './factory/sortType';
 import * as AggregateEventReservationsTaskFactory from './factory/task/aggregateEventReservations';
-import * as CancelAccountTaskFactory from './factory/task/cancelAccount';
-import * as CancelCreditCardTaskFactory from './factory/task/cancelCreditCard';
-import * as CancelPaymentCardTaskFactory from './factory/task/cancelPaymentCard';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
 import * as CancelSeatReservationTaskFactory from './factory/task/cancelSeatReservation';
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
@@ -86,18 +83,8 @@ import * as GivePointAwardTaskFactory from './factory/task/givePointAward';
 import * as MoneyTransferTaskFactory from './factory/task/moneyTransfer';
 import * as OrderProgramMembershipTaskFactory from './factory/task/orderProgramMembership';
 import * as PayTaskFactory from './factory/task/pay';
-import * as PayAccountTaskFactory from './factory/task/payAccount';
-import * as PayCreditCardTaskFactory from './factory/task/payCreditCard';
-import * as PayMGTicketTaskFactory from './factory/task/payMGTicket';
-import * as PayMovieTicketTaskFactory from './factory/task/payMovieTicket';
-import * as PayPaymentCardTaskFactory from './factory/task/payPaymentCard';
 import * as PlaceOrderTaskFactory from './factory/task/placeOrder';
 import * as RefundTaskFactory from './factory/task/refund';
-import * as RefundAccountTaskFactory from './factory/task/refundAccount';
-import * as RefundCreditCardTaskFactory from './factory/task/refundCreditCard';
-import * as RefundMGTicketTaskFactory from './factory/task/refundMGTicket';
-import * as RefundMovieTicketTaskFactory from './factory/task/refundMovieTicket';
-import * as RefundPaymentCardTaskFactory from './factory/task/refundPaymentCard';
 import * as RegisterServiceTaskFactory from './factory/task/registerService';
 import * as ReturnOrderTaskFactory from './factory/task/returnOrder';
 import * as ReturnPointAwardTaskFactory from './factory/task/returnPointAward';
@@ -330,9 +317,6 @@ export import sortType = SortType;
 export namespace task {
     export type IData<T extends TaskName | string> =
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.IData :
-        T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IData :
-        T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IData :
-        T extends TaskName.CancelPaymentCard ? CancelPaymentCardTaskFactory.IData :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IData :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.IData :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
@@ -342,22 +326,12 @@ export namespace task {
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IData :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IData :
         T extends TaskName.Refund ? RefundTaskFactory.IData :
-        T extends TaskName.RefundAccount ? RefundAccountTaskFactory.IData :
-        T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IData :
-        T extends TaskName.RefundMGTicket ? RefundMGTicketTaskFactory.IData :
-        T extends TaskName.RefundMovieTicket ? RefundMovieTicketTaskFactory.IData :
-        T extends TaskName.RefundPaymentCard ? RefundPaymentCardTaskFactory.IData :
         T extends TaskName.RegisterService ? RegisterServiceTaskFactory.IData :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IData :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IData :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IData :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IData :
         T extends TaskName.Pay ? PayTaskFactory.IData :
-        T extends TaskName.PayAccount ? PayAccountTaskFactory.IData :
-        T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IData :
-        T extends TaskName.PayMGTicket ? PayMGTicketTaskFactory.IData :
-        T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IData :
-        T extends TaskName.PayPaymentCard ? PayPaymentCardTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IData :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IData :
@@ -367,9 +341,6 @@ export namespace task {
 
     export type IAttributes<T extends TaskName | string> =
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.IAttributes :
-        T extends TaskName.CancelAccount ? CancelAccountTaskFactory.IAttributes :
-        T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.IAttributes :
-        T extends TaskName.CancelPaymentCard ? CancelPaymentCardTaskFactory.IAttributes :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IAttributes :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.IAttributes :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
@@ -379,22 +350,12 @@ export namespace task {
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IAttributes :
         T extends TaskName.Refund ? RefundTaskFactory.IAttributes :
-        T extends TaskName.RefundAccount ? RefundAccountTaskFactory.IAttributes :
-        T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.IAttributes :
-        T extends TaskName.RefundMGTicket ? RefundMGTicketTaskFactory.IAttributes :
-        T extends TaskName.RefundMovieTicket ? RefundMovieTicketTaskFactory.IAttributes :
-        T extends TaskName.RefundPaymentCard ? RefundPaymentCardTaskFactory.IAttributes :
         T extends TaskName.RegisterService ? RegisterServiceTaskFactory.IAttributes :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IAttributes :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IAttributes :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IAttributes :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IAttributes :
         T extends TaskName.Pay ? PayTaskFactory.IAttributes :
-        T extends TaskName.PayAccount ? PayAccountTaskFactory.IAttributes :
-        T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.IAttributes :
-        T extends TaskName.PayMGTicket ? PayMGTicketTaskFactory.IAttributes :
-        T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.IAttributes :
-        T extends TaskName.PayPaymentCard ? PayPaymentCardTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IAttributes :
@@ -404,9 +365,6 @@ export namespace task {
 
     export type ITask<T extends TaskName | string> =
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.ITask :
-        T extends TaskName.CancelAccount ? CancelAccountTaskFactory.ITask :
-        T extends TaskName.CancelCreditCard ? CancelCreditCardTaskFactory.ITask :
-        T extends TaskName.CancelPaymentCard ? CancelPaymentCardTaskFactory.ITask :
         T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.ITask :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.ITask :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
@@ -416,22 +374,12 @@ export namespace task {
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.ITask :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.ITask :
         T extends TaskName.Refund ? RefundTaskFactory.ITask :
-        T extends TaskName.RefundAccount ? RefundAccountTaskFactory.ITask :
-        T extends TaskName.RefundCreditCard ? RefundCreditCardTaskFactory.ITask :
-        T extends TaskName.RefundMGTicket ? RefundMGTicketTaskFactory.ITask :
-        T extends TaskName.RefundMovieTicket ? RefundMovieTicketTaskFactory.ITask :
-        T extends TaskName.RefundPaymentCard ? RefundPaymentCardTaskFactory.ITask :
         T extends TaskName.RegisterService ? RegisterServiceTaskFactory.ITask :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.ITask :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.ITask :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.ITask :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.ITask :
         T extends TaskName.Pay ? PayTaskFactory.ITask :
-        T extends TaskName.PayAccount ? PayAccountTaskFactory.ITask :
-        T extends TaskName.PayCreditCard ? PayCreditCardTaskFactory.ITask :
-        T extends TaskName.PayMGTicket ? PayMGTicketTaskFactory.ITask :
-        T extends TaskName.PayMovieTicket ? PayMovieTicketTaskFactory.ITask :
-        T extends TaskName.PayPaymentCard ? PayPaymentCardTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.ITask :
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.ITask :

@@ -7,18 +7,6 @@ enum TaskName {
      */
     AggregateEventReservations = 'aggregateEventReservations',
     /**
-     * 口座承認アクション取消
-     */
-    CancelAccount = 'cancelAccount',
-    /**
-     * クレジットカード承認アクション取消
-     */
-    CancelCreditCard = 'cancelCreditCard',
-    /**
-     * ペイメントカード決済承認アクション取消
-     */
-    CancelPaymentCard = 'cancelPaymentCard',
-    /**
      * 予約取消
      */
     CancelReservation = 'cancelReservation',
@@ -51,26 +39,6 @@ enum TaskName {
      */
     Pay = 'pay',
     /**
-     * 口座支払
-     */
-    PayAccount = 'payAccount',
-    /**
-     * クレジットカード支払
-     */
-    PayCreditCard = 'payCreditCard',
-    /**
-     * MGチケット決済
-     */
-    PayMGTicket = 'payMGTicket',
-    /**
-     * ムビチケ支払
-     */
-    PayMovieTicket = 'payMovieTicket',
-    /**
-     * ペイメントカード決済
-     */
-    PayPaymentCard = 'payPaymentCard',
-    /**
      * 注文受付
      */
     PlaceOrder = 'placeOrder',
@@ -78,26 +46,6 @@ enum TaskName {
      * 返金
      */
     Refund = 'refund',
-    /**
-     * 口座返金
-     */
-    RefundAccount = 'refundAccount',
-    /**
-     * クレジットカード返金
-     */
-    RefundCreditCard = 'refundCreditCard',
-    /**
-     * MGチケット着券取消
-     */
-    RefundMGTicket = 'refundMGTicket',
-    /**
-     * ムビチケ着券取消
-     */
-    RefundMovieTicket = 'refundMovieTicket',
-    /**
-     * ペイメントカード返金
-     */
-    RefundPaymentCard = 'refundPaymentCard',
     /**
      * メンバーシップ登録
      */
