@@ -18,6 +18,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.0.0 - 2020-08-25
+
+### Changed
+
+- 注文後の個別決済アクションを削除
+- 返品後の個別返金アクションを削除
+
+### Removed
+
+- 個別決済タスクを削除
+- 個別決済中止タスクを削除
+- 個別返金タスクを削除
+
 ## v8.12.0 - 2020-08-24
 
 ### Changed
