@@ -32,18 +32,6 @@ export interface IPotentialActions {
      */
     refund: IRefundActionAttributes<PaymentMethodType | string>[];
     /**
-     * クレジットカード返金アクション
-     */
-    refundCreditCard?: IRefundActionAttributes<PaymentMethodType.CreditCard>[];
-    /**
-     * 口座返金アクション
-     */
-    refundAccount?: IRefundActionAttributes<PaymentMethodType.Account>[];
-    /**
-     * ムビチケ着券取消アクション
-     */
-    refundMovieTicket?: IRefundActionAttributes<PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket>[];
-    /**
      * ポイントインセンティブ返却アクション
      */
     returnPointAward: ReturnPointAwardActionFactory.IAttributes[];

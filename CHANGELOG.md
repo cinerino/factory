@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 注文後の個別決済アクションを削除
+- 返品後の個別返金アクションを削除
+
 ### Deprecated
 
 ### Removed

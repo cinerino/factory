@@ -31,22 +31,6 @@ export interface IPotentialActions {
      */
     pay?: IPayActionAttributes<PaymentMethodType | string>[];
     /**
-     * 口座決済実行アクションリスト
-     */
-    payAccount?: IPayActionAttributes<PaymentMethodType.Account>[];
-    /**
-     * クレジットカード決済アクション
-     */
-    payCreditCard?: IPayActionAttributes<PaymentMethodType.CreditCard>[];
-    /**
-     * ムビチケ決済アクション
-     */
-    payMovieTicket?: IPayActionAttributes<PaymentMethodType.MGTicket | PaymentMethodType.MovieTicket>[];
-    /**
-     * ペイメントカード決済アクション
-     */
-    payPaymentCard?: IPayActionAttributes<string>[];
-    /**
      * 注文配送アクション
      */
     sendOrder?: ISendOrderActionAttributes;
