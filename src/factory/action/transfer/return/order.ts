@@ -1,6 +1,5 @@
 import * as ActionFactory from '../../../action';
 import { ISimpleOrder } from '../../../order';
-import PaymentMethodType from '../../../paymentMethodType';
 import { IAttributes as IInformActionAttributes } from '../../interact/inform';
 import { IAttributes as ICancelActionAttributes } from '../../organize/cancel';
 import { IAttributes as IRefundActionAttributes } from '../../trade/refund';
@@ -30,7 +29,7 @@ export interface IPotentialActions {
     /**
      * 返金アクション
      */
-    refund: IRefundActionAttributes<PaymentMethodType | string>[];
+    refund: IRefundActionAttributes[];
     /**
      * ポイントインセンティブ返却アクション
      */
