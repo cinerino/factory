@@ -1,7 +1,6 @@
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-import { IPaymentMethod, ISimpleOrder } from '../../order';
-import PaymentMethodType from '../../paymentMethodType';
+import { AvailablePaymentMethodType, IPaymentMethod, ISimpleOrder } from '../../order';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../transfer/send/message/email';
 
@@ -10,7 +9,7 @@ export type IRecipient = ActionFactory.IParticipant;
 /**
  * 返却対象は決済方法
  */
-export type IObject<T extends PaymentMethodType | string> = IPaymentMethod<T>;
+export type IObject = IPaymentMethod<AvailablePaymentMethodType>;
 
 export type IResult = any;
 
@@ -27,8 +26,7 @@ export interface IPotentialActions {
 
 export type IPurpose = ISimpleOrder;
 
-export interface IAttributes<T extends PaymentMethodType | string>
-    extends ActionFactory.IAttributes<ActionType.RefundAction, IObject<T>, IResult> {
+export interface IAttributes extends ActionFactory.IAttributes<ActionType.RefundAction, IObject, IResult> {
     recipient: IRecipient;
     purpose: IPurpose;
     potentialActions?: IPotentialActions;
@@ -37,4 +35,4 @@ export interface IAttributes<T extends PaymentMethodType | string>
 /**
  * 返金アクションインターフェース
  */
-export type IAction<T extends PaymentMethodType> = ActionFactory.IAction<IAttributes<T>>;
+export type IAction = ActionFactory.IAction<IAttributes>;

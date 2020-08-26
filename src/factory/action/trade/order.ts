@@ -1,7 +1,6 @@
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IAcceptedOffer, IOrder } from '../../order';
-import PaymentMethodType from '../../paymentMethodType';
 import TransactionType from '../../transactionType';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 import { IAttributes as IGivePointAwardActionAttributes } from '../transfer/give/pointAward';
@@ -29,7 +28,7 @@ export interface IPotentialActions {
     /**
      * 決済アクションリスト
      */
-    pay?: IPayActionAttributes<PaymentMethodType | string>[];
+    pay?: IPayActionAttributes[];
     /**
      * 注文配送アクション
      */
