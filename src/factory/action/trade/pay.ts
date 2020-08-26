@@ -3,7 +3,7 @@ import * as GMO from '@motionpicture/gmo-service';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { AvailablePaymentMethodType, IPaymentMethod, ISimpleOrder } from '../../order';
-import { IPendingTransaction } from '../authorize/paymentMethod/account';
+import { IPendingTransaction } from '../authorize/paymentMethod/any';
 
 import * as chevre from '../../../chevre';
 
