@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.3.0 - 2020-08-26
+
+### Changed
+
+- 決済承認アクションの汎用性拡張
+
 ## v9.2.0 - 2020-08-26
 
 ### Changed

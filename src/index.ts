@@ -13,11 +13,7 @@ import * as PointAwardAuthorizeActionFactory from './factory/action/authorize/aw
 import * as AuthorizeMonetaryAmountOfferActionFactory from './factory/action/authorize/offer/monetaryAmount';
 import * as AuthorizeProductOfferActionFactory from './factory/action/authorize/offer/product';
 import * as AuthorizeSeatReservationOfferActionFactory from './factory/action/authorize/offer/seatReservation';
-import * as AuthorizeAccountPaymentActionFactory from './factory/action/authorize/paymentMethod/account';
 import * as AuthorizeAnyPaymentActionFactory from './factory/action/authorize/paymentMethod/any';
-import * as AuthorizeCreditCardPaymentActionFactory from './factory/action/authorize/paymentMethod/creditCard';
-import * as AuthorizeMovieTicketPaymentActionFactory from './factory/action/authorize/paymentMethod/movieTicket';
-import * as AuthorizePaymentCardPaymentActionFactory from './factory/action/authorize/paymentMethod/paymentCard';
 import * as CheckMovieTicketActionFactory from './factory/action/check/paymentMethod/movieTicket';
 import * as CheckTokenActionFactory from './factory/action/check/token';
 import * as ConfirmReservationActionFactory from './factory/action/interact/confirm/reservation';
@@ -139,16 +135,10 @@ export namespace action {
         // tslint:disable-next-line:no-shadowed-variable
         export import IAttributes = AuthorizeActionFactory.IAttributes;
         export namespace award {
-            // tslint:disable-next-line:no-shadowed-variable
             export import point = PointAwardAuthorizeActionFactory;
         }
-        // tslint:disable-next-line:no-shadowed-variable
         export namespace paymentMethod {
-            export import account = AuthorizeAccountPaymentActionFactory;
             export import any = AuthorizeAnyPaymentActionFactory;
-            export import creditCard = AuthorizeCreditCardPaymentActionFactory;
-            export import movieTicket = AuthorizeMovieTicketPaymentActionFactory;
-            export import paymentCard = AuthorizePaymentCardPaymentActionFactory;
         }
         export namespace discount {
         }

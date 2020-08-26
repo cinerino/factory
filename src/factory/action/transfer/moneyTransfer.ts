@@ -6,7 +6,7 @@ import { ISimpleOrder } from '../../order';
 import PaymentMethodType from '../../paymentMethodType';
 import { IPropertyValue } from '../../propertyValue';
 import TransactionType from '../../transactionType';
-import { IPendingTransaction as IPaymentCardTransaction } from '../authorize/paymentMethod/paymentCard';
+import { IPendingTransaction as IPaymentCardTransaction } from '../authorize/paymentMethod/any';
 
 import * as chevre from '../../../chevre';
 
