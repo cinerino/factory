@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.4.0 - 2020-08-26
+
+### Changed
+
+- 決済方法タイプに依存するジェネリック型を削除
+
 ## v9.3.0 - 2020-08-26
 
 ### Changed

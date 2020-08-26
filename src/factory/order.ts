@@ -4,7 +4,6 @@ import OrderStatus from './orderStatus';
 import { ISeller as ISellerOrganization } from './organization';
 import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
-import PaymentMethodType from './paymentMethodType';
 import { IIdentifier as IPersonIdentifier, IPerson } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
@@ -14,13 +13,16 @@ import { IThing } from './thing';
 
 import * as chevre from '../chevre';
 
-export type TypeOf = 'Order';
-export type AvailablePaymentMethodType = PaymentMethodType | string;
+export enum OrderType {
+    Order = 'Order'
+}
+
+export type AvailablePaymentMethodType = string;
 
 /**
  * 決済方法インターフェース
  */
-export interface IPaymentMethod<T extends AvailablePaymentMethodType> {
+export interface IPaymentMethod {
     /**
      * The identifier for the account the payment will be applied to.
      */
@@ -28,7 +30,7 @@ export interface IPaymentMethod<T extends AvailablePaymentMethodType> {
     /**
      * 決済方法タイプ
      */
-    typeOf: T;
+    typeOf: AvailablePaymentMethodType;
     /**
      * 決済方法名称
      */
@@ -115,7 +117,7 @@ export interface ISimpleOrder extends IThing {
     /**
      * object type
      */
-    typeOf: TypeOf;
+    typeOf: OrderType;
     /**
      * The party taking the order (e.g. Amazon.com is a merchant for many sellers). Also accepts a string (e.g. "Amazon.com").
      */
@@ -180,7 +182,7 @@ export interface IOrder extends ISimpleOrder {
     /**
      * payment methods
      */
-    paymentMethods: IPaymentMethod<AvailablePaymentMethodType>[];
+    paymentMethods: IPaymentMethod[];
     /**
      * Returner
      */
@@ -197,8 +199,6 @@ export interface IOrder extends ISimpleOrder {
  */
 export interface ISortOrder {
     orderDate?: SortType;
-    // orderNumber?: SortType;
-    // price?: SortType;
 }
 
 /**

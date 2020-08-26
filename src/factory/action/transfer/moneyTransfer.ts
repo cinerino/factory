@@ -3,7 +3,6 @@ import * as pecorino from '@pecorino/factory';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { ISimpleOrder } from '../../order';
-import PaymentMethodType from '../../paymentMethodType';
 import { IPropertyValue } from '../../propertyValue';
 import TransactionType from '../../transactionType';
 import { IPendingTransaction as IPaymentCardTransaction } from '../authorize/paymentMethod/any';
@@ -20,12 +19,12 @@ export type IPendingTransaction = IPaymentCardTransaction;
  */
 export import IAnonymousLocation = pecorino.action.transfer.moneyTransfer.IAnonymousLocation;
 
-export type AvailablePaymentMethodType = PaymentMethodType | string;
+export type AvailablePaymentMethodType = string;
 
 /**
  * クレジットカード場所インターフェース
  */
-export interface IPaymentMethodLocation<T extends AvailablePaymentMethodType> {
+export interface IPaymentMethodLocation {
     /**
      * The identifier for the account the payment will be applied to.
      */
@@ -33,7 +32,7 @@ export interface IPaymentMethodLocation<T extends AvailablePaymentMethodType> {
     /**
      * 決済方法タイプ
      */
-    typeOf: T;
+    typeOf: AvailablePaymentMethodType;
     /**
      * 決済方法名
      */
@@ -64,7 +63,7 @@ export interface IPaymentCard {
 /**
  * 転送元あるいは転送先の場所インターフェース
  */
-export type ILocation = IAnonymousLocation | IPaymentMethodLocation<AvailablePaymentMethodType> | IPaymentCard;
+export type ILocation = IAnonymousLocation | IPaymentMethodLocation | IPaymentCard;
 
 export interface IObject {
     pendingTransaction: IPendingTransaction;
