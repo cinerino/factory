@@ -4,7 +4,6 @@ import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IPaymentMethod, ISimpleOrder } from '../../order';
 import PaymentMethodType from '../../paymentMethodType';
-import PriceCurrency from '../../priceCurrency';
 import { IPendingTransaction } from '../authorize/paymentMethod/account';
 
 import * as chevre from '../../../chevre';
@@ -16,30 +15,26 @@ export type IRecipient = ActionFactory.IParticipant;
 
 export type IPurpose = ISimpleOrder;
 
-export type TypeOfObject = 'PaymentMethod';
+export enum ObjectType {
+    PaymentMethod = 'PaymentMethod'
+}
 
-export interface ICommonPaymentMethod<T extends PaymentMethodType> {
-    typeOf: TypeOfObject;
+export interface ICommonPaymentMethod<T extends PaymentMethodType | string> {
+    typeOf: ObjectType;
     /**
      * 決済方法
      */
     paymentMethod: IPaymentMethod<T>;
 }
+
 /**
  * クレジットカード決済の場合のオブジェクトインターフェース
  */
 export interface ICreditCardPaymentMethod extends ICommonPaymentMethod<PaymentMethodType.CreditCard> {
-    /**
-     * 金額
-     */
-    price: number;
-    /**
-     * 通貨
-     */
-    priceCurrency: PriceCurrency;
     entryTranArgs: GMO.services.credit.IEntryTranArgs;
     execTranArgs: GMO.services.credit.IExecTranArgs;
 }
+
 /**
  * 口座決済の場合のオブジェクトインターフェース
  */
@@ -66,7 +61,7 @@ export type IPaymentMethodObject<T> =
     T extends PaymentMethodType.CreditCard ? ICreditCardPaymentMethod :
     T extends PaymentMethodType.MGTicket ? IMovieTicketPaymentMethod :
     T extends PaymentMethodType.MovieTicket ? IMovieTicketPaymentMethod :
-    any;
+    ICommonPaymentMethod<string>;
 
 export type IObject<T extends PaymentMethodType | string> = IPaymentMethodObject<T>[];
 
