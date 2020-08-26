@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 決済アクションの汎用性拡張
-- 返金アクションの汎用性拡張
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.2.0 - 2020-08-26
+
+### Changed
+
+- 決済アクションの汎用性拡張
+- 返金アクションの汎用性拡張
 
 ## v9.1.0 - 2020-08-26
 
