@@ -2,7 +2,7 @@ import * as GMO from '@motionpicture/gmo-service';
 
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-import { AvailablePaymentMethodType, IPaymentMethod, ISimpleOrder } from '../../order';
+import { IPaymentMethod, ISimpleOrder } from '../../order';
 import { IPendingTransaction } from '../authorize/paymentMethod/any';
 
 import * as chevre from '../../../chevre';
@@ -23,7 +23,7 @@ export interface IPaymentService {
     /**
      * 決済方法
      */
-    paymentMethod: IPaymentMethod<AvailablePaymentMethodType>;
+    paymentMethod: IPaymentMethod;
     entryTranArgs?: GMO.services.credit.IEntryTranArgs;
     execTranArgs?: GMO.services.credit.IExecTranArgs;
     pendingTransaction?: IPendingTransaction;
@@ -36,7 +36,7 @@ export interface IPaymentService {
 export type IObject = IPaymentService[];
 
 /**
- * クレジットカード決済の場合の結果インターフェース
+ * 決済結果
  */
 export interface IResult {
     /**

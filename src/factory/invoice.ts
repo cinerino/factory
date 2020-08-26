@@ -1,7 +1,6 @@
 import { IAcceptedOffer, ICustomer, IOrder } from './order';
 import { ISeller } from './organization';
 import { IProject } from './organization/project';
-import PaymentMethodType from './paymentMethodType';
 import PaymentStatusType from './paymentStatusType';
 import { IIdentifier, IPerson } from './person';
 import PersonType from './personType';
@@ -60,7 +59,7 @@ export interface IInvoice {
     /**
      * The name of the credit card or other method of payment for the order.
      */
-    paymentMethod: PaymentMethodType;
+    paymentMethod: string;
     /**
      * An identifier for the method of payment used (e.g. the last 4 digits of the credit card).
      */
@@ -136,7 +135,7 @@ export interface ISearchConditions {
     accountIds?: string[];
     confirmationNumbers?: string[];
     customer?: ICustomerSearchConditions;
-    paymentMethods?: PaymentMethodType[];
+    paymentMethods?: string[];
     paymentMethodIds?: string[];
     paymentStatuses?: PaymentStatusType[];
     referencesOrder?: IReferencesOrderSearchConditions;

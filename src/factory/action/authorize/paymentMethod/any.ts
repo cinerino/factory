@@ -3,7 +3,6 @@ import * as mvtkapi from '@movieticket/reserve-api-nodejs-client';
 
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-import PaymentMethodType from '../../../paymentMethodType';
 import PaymentStatusType from '../../../paymentStatusType';
 import { IPropertyValue } from '../../../propertyValue';
 import TransactionType from '../../../transactionType';
@@ -21,7 +20,7 @@ export enum ResultType {
 /**
  * 汎用決済方法タイプ
  */
-export type IAnyPaymentMethod = PaymentMethodType | string;
+export type IAnyPaymentMethod = string;
 
 /**
  * 進行中取引インターフェース

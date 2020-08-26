@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- 決済方法タイプに依存するジェネリック型を削除
+
 ### Deprecated
 
 ### Removed

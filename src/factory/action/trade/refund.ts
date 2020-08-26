@@ -1,15 +1,12 @@
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-import { AvailablePaymentMethodType, IPaymentMethod, ISimpleOrder } from '../../order';
+import { IPaymentMethod, ISimpleOrder } from '../../order';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../transfer/send/message/email';
 
 export type IRecipient = ActionFactory.IParticipant;
 
-/**
- * 返却対象は決済方法
- */
-export type IObject = IPaymentMethod<AvailablePaymentMethodType>;
+export type IObject = IPaymentMethod;
 
 export type IResult = any;
 
