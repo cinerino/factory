@@ -70,10 +70,7 @@ export type IFromLocation = IPaymentCard | ITokenizedPaymentCard;
  */
 export type IToLocation = IPaymentCard;
 
-export type IPurchaseNumberAuthIn = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
 export type IPurchaseNumberAuthResult = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
-export type ISeatInfoSyncIn = mvtkapi.mvtk.services.seat.seatInfoSync.ISeatInfoSyncIn;
-export type ISeatInfoSyncResult = mvtkapi.mvtk.services.seat.seatInfoSync.ISeatInfoSyncResult;
 
 export import IUnauthorizedCardOfMember = chevre.paymentMethod.paymentCard.creditCard.IUnauthorizedCardOfMember;
 export import IUncheckedCardRaw = chevre.paymentMethod.paymentCard.creditCard.IUncheckedCardRaw;
@@ -224,32 +221,20 @@ export interface IResult {
     /**
      * CreditCard決済の場合
      */
-    entryTranResult?: GMO.services.credit.IEntryTranResult;
+    // entryTranResult?: GMO.services.credit.IEntryTranResult;
     /**
      * CreditCard決済の場合
      */
-    execTranArgs?: GMO.services.credit.IExecTranArgs;
+    // execTranArgs?: GMO.services.credit.IExecTranArgs;
     /**
      * CreditCard決済の場合
      */
     execTranResult?: GMO.services.credit.IExecTranResult;
 
     /**
-     * 承認時のムビチケ認証リクエスト(MovieTicket決済)
-     */
-    purchaseNumberAuthIn?: IPurchaseNumberAuthIn;
-    /**
      * 承認時のムビチケ認証レスポンス(MovieTicket決済)
      */
     purchaseNumberAuthResult?: IPurchaseNumberAuthResult;
-    /**
-     * 着券済での承認時のムビチケ着券リクエスト(MovieTicket決済)
-     */
-    seatInfoSyncIn?: ISeatInfoSyncIn;
-    /**
-     * 着券済での承認時のムビチケ着券レスポンス(MovieTicket決済)
-     */
-    seatInfoSyncResult?: ISeatInfoSyncResult;
 }
 
 export interface IPurpose {
