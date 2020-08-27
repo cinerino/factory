@@ -24,8 +24,6 @@ export interface IPaymentService {
      * 決済方法
      */
     paymentMethod: IPaymentMethod;
-    entryTranArgs?: GMO.services.credit.IEntryTranArgs;
-    execTranArgs?: GMO.services.credit.IExecTranArgs;
     pendingTransaction?: IPendingTransaction;
     /**
      * ムビチケリスト
