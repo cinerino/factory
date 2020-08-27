@@ -33,12 +33,6 @@ export interface ICognitoSettings {
     };
 }
 
-export interface IGMOSettings {
-    endpoint: string;
-    siteId: string;
-    sitePass: string;
-}
-
 /**
  * 注文ステータス変更時イベントインターフェース
  */
@@ -70,7 +64,6 @@ export interface IPayment {
  */
 export interface ISettings {
     cognito?: ICognitoSettings;
-    gmo?: IGMOSettings;
     onOrderStatusChanged?: IOnOrderStatusChanged;
     webhook?: IWebhookSettings;
     payment?: IPayment;
