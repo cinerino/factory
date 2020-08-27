@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 決済承認アクションを最適化
-- 決済アクションを最適化
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.6.0 - 2020-08-27
+
+### Changed
+
+- 決済承認アクションを最適化
+- 決済アクションを最適化
 
 ## v9.5.0 - 2020-08-27
 
