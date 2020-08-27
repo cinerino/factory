@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- プロジェクト設定からGMO情報を削除
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.5.0 - 2020-08-27
+
+### Changed
+
+- プロジェクト設定からGMO情報を削除
 
 ## v9.4.0 - 2020-08-26
 
