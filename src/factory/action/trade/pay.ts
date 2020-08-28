@@ -3,7 +3,7 @@ import * as GMO from '@motionpicture/gmo-service';
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IPaymentMethod, ISimpleOrder } from '../../order';
-import { IPendingTransaction } from '../authorize/paymentMethod/any';
+import { IInstrument, IPendingTransaction } from '../authorize/paymentMethod/any';
 
 import * as chevre from '../../../chevre';
 
@@ -46,6 +46,7 @@ export interface IResult {
 }
 
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.PayAction, IObject, IResult> {
+    instrument?: IInstrument;
     purpose: IPurpose;
 }
 
