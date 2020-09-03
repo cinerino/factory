@@ -1,5 +1,4 @@
 import { IAcceptedOffer, ICustomer, IOrder } from './order';
-import { ISeller } from './organization';
 import { IProject } from './organization/project';
 import PaymentStatusType from './paymentStatusType';
 import { IIdentifier, IPerson } from './person';
@@ -8,8 +7,8 @@ import SortType from './sortType';
 
 import * as chevre from '../chevre';
 
-export type IBroker = ISeller | IPerson;
-export type IProvider = ISeller | IPerson;
+export type IBroker = chevre.seller.ISeller | IPerson;
+export type IProvider = chevre.seller.ISeller | IPerson;
 
 export interface IReferenceOrder extends IOrder {
     acceptedOffers: IAcceptedOffer<any>[];

@@ -1,7 +1,6 @@
 import { IParticipant } from './action';
 import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
-import { ISeller as ISellerOrganization } from './organization';
 import { IProject } from './organization/project';
 import OrganizationType from './organizationType';
 import { IIdentifier as IPersonIdentifier, IPerson } from './person';
@@ -98,7 +97,7 @@ export interface IAcceptedOffer<T extends IItemOffered> extends IOffer {
 /**
  * 販売者インターフェース
  */
-export type ISeller = ISellerOrganization;
+export type ISeller = chevre.seller.ISeller;
 
 /**
  * カスタマーインターフェース

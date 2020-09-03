@@ -1,7 +1,8 @@
-import { IParentOrganization } from '../organization';
 import OrganizationType from '../organizationType';
 import SortType from '../sortType';
 import { IThing } from '../thing';
+
+import { organization } from '../../chevre';
 
 /**
  * 通知パラメータ
@@ -83,7 +84,7 @@ export interface IProject extends IThing {
     id: string;
     email?: string;
     logo?: string;
-    parentOrganization?: IParentOrganization;
+    parentOrganization?: organization.IOrganization;
     telephone?: string;
     settings?: ISettings;
 }

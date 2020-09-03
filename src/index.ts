@@ -55,7 +55,6 @@ import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
 import * as OrderFactory from './factory/order';
 import OrderStatus from './factory/orderStatus';
-import * as OrganizationFactory from './factory/organization';
 import * as ProjectFactory from './factory/organization/project';
 import OrganizationType from './factory/organizationType';
 import * as OwnershipInfoFactory from './factory/ownershipInfo';
@@ -300,7 +299,7 @@ export import project = ProjectFactory;
 export import propertyValue = PropertyValueFactory;
 export import quantitativeValue = QuantitativeValueFactory;
 export import service = chevre.service;
-export import seller = OrganizationFactory;
+export import seller = chevre.seller;
 export import sortType = SortType;
 
 export namespace task {
