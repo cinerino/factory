@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- プロジェクトごとの管理者ユーザープール管理を統合
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.12.0 - 2020-09-08
+
+### Changed
+
+- プロジェクトごとの管理者ユーザープール管理を統合
 
 ## v9.11.0 - 2020-09-07
 
