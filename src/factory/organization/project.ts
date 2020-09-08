@@ -21,12 +21,6 @@ export interface IInformParams {
 
 export interface ICognitoSettings {
     /**
-     * 管理者ユーザープール
-     */
-    adminUserPool: {
-        id: string;
-    };
-    /**
      * 顧客ユーザープール
      */
     customerUserPool: {
