@@ -2,7 +2,6 @@ import { IParticipant } from './action';
 import { IOffer } from './offer';
 import OrderStatus from './orderStatus';
 import { IProject } from './organization/project';
-import OrganizationType from './organizationType';
 import { IIdentifier as IPersonIdentifier, IPerson } from './person';
 import PersonType from './personType';
 import PriceCurrency from './priceCurrency';
@@ -253,7 +252,7 @@ export interface IReservationForSearchConditions {
 }
 
 export interface ISellerSearchConditions {
-    typeOf?: OrganizationType;
+    typeOf?: string;
     /**
      * 販売者IDリスト
      */

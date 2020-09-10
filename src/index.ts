@@ -37,26 +37,22 @@ import * as SendEmailMessageActionFactory from './factory/action/transfer/send/m
 import * as SendOrderActionFactory from './factory/action/transfer/send/order';
 import * as DeleteActionFactory from './factory/action/update/delete';
 import * as DeleteMemberActionFactory from './factory/action/update/delete/member';
-import ActionStatusType from './factory/actionStatusType';
+import { ActionStatusType } from './factory/actionStatusType';
 import ActionType from './factory/actionType';
 
 import { AccountType } from './factory/accountType';
 import * as AuthorizationFactory from './factory/authorization';
-import * as ClientUserFactory from './factory/clientUser';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
 import * as WebApplicationFactory from './factory/creativeWork/softwareApplication/webApplication';
-import CreativeWorkType from './factory/creativeWorkType';
 import * as EncodingFormat from './factory/encodingFormat';
 import * as EventFactory from './factory/event';
 import * as ScreeningEventFactory from './factory/event/screeningEvent';
 import * as ScreeningEventSeriesFactory from './factory/event/screeningEventSeries';
 import * as InvoiceFactory from './factory/invoice';
-import IMultilingualString from './factory/multilingualString';
 import * as OfferFactory from './factory/offer';
 import * as OrderFactory from './factory/order';
 import OrderStatus from './factory/orderStatus';
 import * as ProjectFactory from './factory/organization/project';
-import OrganizationType from './factory/organizationType';
 import * as OwnershipInfoFactory from './factory/ownershipInfo';
 import PaymentStatusType from './factory/paymentStatusType';
 import * as PersonFactory from './factory/person';
@@ -65,7 +61,6 @@ import PriceCurrency from './factory/priceCurrency';
 import * as ProgramMembershipFactory from './factory/programMembership';
 import * as PropertyValueFactory from './factory/propertyValue';
 import * as QuantitativeValueFactory from './factory/quantitativeValue';
-import { UnitCode } from './factory/unitCode';
 
 import SortType from './factory/sortType';
 import * as AggregateEventReservationsTaskFactory from './factory/task/aggregateEventReservations';
@@ -250,8 +245,6 @@ export import authorization = AuthorizationFactory;
 
 export import encodingFormat = EncodingFormat;
 
-export import clientUser = ClientUserFactory;
-
 export namespace creativeWork {
     export namespace message {
         export import email = EmailMessageFactory;
@@ -260,8 +253,6 @@ export namespace creativeWork {
         export import webApplication = WebApplicationFactory;
     }
 }
-
-export import creativeWorkType = CreativeWorkType;
 
 export namespace event {
     export type IAttributes<T extends chevre.eventType> =
@@ -283,11 +274,9 @@ export namespace event {
     export import screeningEventSeries = ScreeningEventSeriesFactory;
 }
 export import invoice = InvoiceFactory;
-export type multilingualString = IMultilingualString;
 export import offer = OfferFactory;
 export import order = OrderFactory;
 export import orderStatus = OrderStatus;
-export import organizationType = OrganizationType;
 export import ownershipInfo = OwnershipInfoFactory;
 export import priceCurrency = PriceCurrency;
 export import paymentMethodType = chevre.paymentMethodType;
@@ -425,4 +414,3 @@ export namespace transaction {
 export import transactionStatusType = TransactionStatusType;
 export import transactionTasksExportationStatus = TransactionTasksExportationStatus;
 export import transactionType = TransactionType;
-export import unitCode = UnitCode;

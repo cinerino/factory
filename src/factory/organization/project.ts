@@ -1,8 +1,7 @@
-import OrganizationType from '../organizationType';
 import SortType from '../sortType';
 import { IThing } from '../thing';
 
-import { organization } from '../../chevre';
+import { organization, organizationType } from '../../chevre';
 
 /**
  * 通知パラメータ
@@ -74,7 +73,7 @@ export interface ISettings {
  * プロジェクトインターフェース
  */
 export interface IProject extends IThing {
-    typeOf: OrganizationType.Project;
+    typeOf: organizationType.Project;
     id: string;
     email?: string;
     logo?: string;
