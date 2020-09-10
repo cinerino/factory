@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.15.0 - 2020-09-10
+
+### Changed
+
+- @chevre/factoryと重複するインターフェースを最適化
+
 ## v9.14.0 - 2020-09-10
 
 ### Removed

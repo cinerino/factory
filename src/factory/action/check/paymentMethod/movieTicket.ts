@@ -1,7 +1,6 @@
 import * as mvtkapi from '@movieticket/reserve-api-nodejs-client';
 
 import * as ActionFactory from '../../../action';
-import OrganizationType from '../../../organizationType';
 import * as CheckActionFactory from '../../check';
 
 import * as chevre from '../../../../chevre';
@@ -19,7 +18,7 @@ export interface IObject {
     /**
      * 販売者
      */
-    seller: { typeOf: OrganizationType; id: string };
+    seller: { typeOf: chevre.organizationType; id: string };
 }
 export interface IResult {
     purchaseNumberAuthIn: IPurchaseNumberAuthIn;
