@@ -47,10 +47,6 @@ enum TaskName {
      */
     Refund = 'refund',
     /**
-     * メンバーシップ登録
-     */
-    RegisterProgramMembership = 'registerProgramMembership',
-    /**
      * サービス登録
      */
     RegisterService = 'registerService',

@@ -160,7 +160,7 @@ export interface IPotentialActionsParams {
                 potentialActions?: {
                     confirmReservation?: IConfirmReservationParams[];
                     informOrder?: IInformOrderParams[];
-                    registerProgramMembership?: IRegisterProgramMembershipParams[];
+                    // registerProgramMembership?: IRegisterProgramMembershipParams[];
                     sendEmailMessage?: ISendEmailMessageParams[];
                 };
             };
