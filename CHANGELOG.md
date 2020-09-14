@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.16.0 - 2020-09-14
+
+### Changed
+
+- 所有権インターフェースの汎用性拡張
+
 ## v9.15.0 - 2020-09-10
 
 ### Changed
