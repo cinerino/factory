@@ -9,20 +9,10 @@ import * as chevre from '../chevre';
 export type IBookingService = chevre.service.webAPI.IService<chevre.service.webAPI.Identifier>;
 
 /**
- * 口座タイプ
- */
-export enum AccountGoodType {
-    /**
-     * 口座
-     */
-    Account = 'Account'
-}
-
-/**
  * 口座インターフェース
  */
 export interface IAccount {
-    typeOf: AccountGoodType.Account;
+    typeOf: string;
     /**
      * 口座タイプ
      */
@@ -37,8 +27,8 @@ export interface IAccount {
 /**
  * 予約インターフェース
  */
-export interface IReservation<T extends chevre.reservationType> {
-    typeOf: T;
+export interface IReservation {
+    typeOf: chevre.reservationType;
     /**
      * 予約ID
      */
@@ -53,40 +43,19 @@ export interface IReservation<T extends chevre.reservationType> {
     bookingService?: IBookingService;
 }
 
-export type IReservationWithDetail<T extends chevre.reservationType> = IReservation<T> & chevre.reservation.IReservation<T>;
+export type IReservationWithDetail = IReservation & chevre.reservation.IReservation<chevre.reservationType>;
 
-/**
- * 所有対象物のタイプ
- */
-export type IGoodType = string;
+export type IServiceOutput = chevre.product.IServiceOutput;
 
 /**
  * 所有対象物インターフェース (Product or Service)
  */
-export type IGood<T extends IGoodType> =
-    /**
-     * 口座タイプの場合
-     */
-    T extends AccountGoodType ? IAccount :
-    /**
-     * 予約タイプの場合
-     */
-    T extends chevre.reservationType ? IReservation<T> :
-    any;
+export type IGood = IReservation | IAccount | IServiceOutput;
 
 /**
  * 所有対象物インターフェース(対象物詳細有)
  */
-export type IGoodWithDetail<T extends IGoodType> =
-    /**
-     * 口座タイプの場合
-     */
-    T extends AccountGoodType ? pecorino.account.IAccount :
-    /**
-     * 予約タイプの場合
-     */
-    T extends chevre.reservationType ? IReservationWithDetail<T> :
-    any;
+export type IGoodWithDetail = IReservationWithDetail | pecorino.account.IAccount | IServiceOutput;
 
 /**
  * 所有者インターフェース
@@ -98,7 +67,7 @@ export type OwnershipInfoType = 'OwnershipInfo';
 /**
  * 所有権インターフェース
  */
-export interface IOwnershipInfo<T extends IGood<IGoodType> | IGoodWithDetail<IGoodType>> {
+export interface IOwnershipInfo<T extends IGood | IGoodWithDetail> {
     project: IProject;
     /**
      * object type

@@ -1,6 +1,6 @@
 import * as ActionFactory from '../../../action';
 import { IOrder } from '../../../order';
-import { IGood, IGoodType, IOwnershipInfo } from '../../../ownershipInfo';
+import { IGood, IOwnershipInfo } from '../../../ownershipInfo';
 import { IAttributes as IConfirmReservationActionAttributes } from '../../interact/confirm/reservation';
 import { IAttributes as IInformActionAttributes } from '../../interact/inform';
 import { IAttributes as IRegisterServiceAttributes } from '../../interact/register/service';
@@ -17,7 +17,7 @@ export type IObject = IOrder;
 /**
  * 注文配送結果としての所有権
  */
-export type IResult = IOwnershipInfo<IGood<IGoodType>>[];
+export type IResult = IOwnershipInfo<IGood>[];
 
 export interface IPotentialActions {
     /**

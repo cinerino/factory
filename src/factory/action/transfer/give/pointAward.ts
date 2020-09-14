@@ -11,6 +11,7 @@ export interface IObject {
     typeOf: ObjectType;
     amount: number;
     toLocation: {
+        typeOf: string;
         accountType: string;
         accountNumber: string;
     };
