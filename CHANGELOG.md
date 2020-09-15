@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- CancelSeatReservationタスクをVoidReserveタスクに変更
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.17.0 - 2020-09-15
+
+### Changed
+
+- CancelSeatReservationタスクをVoidReserveタスクに変更
 
 ## v9.16.0 - 2020-09-14
 
