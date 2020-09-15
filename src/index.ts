@@ -65,7 +65,6 @@ import * as QuantitativeValueFactory from './factory/quantitativeValue';
 import SortType from './factory/sortType';
 import * as AggregateEventReservationsTaskFactory from './factory/task/aggregateEventReservations';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
-import * as CancelSeatReservationTaskFactory from './factory/task/cancelSeatReservation';
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
 import * as DeleteMemberTaskFactory from './factory/task/deleteMember';
 import * as GivePointAwardTaskFactory from './factory/task/givePointAward';
@@ -84,6 +83,7 @@ import * as UnRegisterProgramMembershipTaskFactory from './factory/task/unRegist
 import * as VoidMoneyTransferTaskFactory from './factory/task/voidMoneyTransfer';
 import * as VoidPaymentTaskFactory from './factory/task/voidPayment';
 import * as VoidRegisterServiceTaskFactory from './factory/task/voidRegisterService';
+import * as VoidReserveTaskFactory from './factory/task/voidReserve';
 
 import * as TaskFactory from './factory/task';
 import TaskName from './factory/taskName';
@@ -294,7 +294,6 @@ export import sortType = SortType;
 export namespace task {
     export type IData<T extends TaskName | string> =
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.IData :
-        T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IData :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.IData :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IData :
@@ -314,11 +313,11 @@ export namespace task {
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IData :
         T extends TaskName.VoidPayment ? VoidPaymentTaskFactory.IData :
         T extends TaskName.VoidRegisterService ? VoidRegisterServiceTaskFactory.IData :
+        T extends TaskName.VoidReserve ? VoidReserveTaskFactory.IData :
         TaskFactory.IData;
 
     export type IAttributes<T extends TaskName | string> =
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.IAttributes :
-        T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.IAttributes :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.IAttributes :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IAttributes :
@@ -338,11 +337,11 @@ export namespace task {
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IAttributes :
         T extends TaskName.VoidPayment ? VoidPaymentTaskFactory.IAttributes :
         T extends TaskName.VoidRegisterService ? VoidRegisterServiceTaskFactory.IAttributes :
+        T extends TaskName.VoidReserve ? VoidReserveTaskFactory.IAttributes :
         TaskFactory.IAttributes;
 
     export type ITask<T extends TaskName | string> =
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.ITask :
-        T extends TaskName.CancelSeatReservation ? CancelSeatReservationTaskFactory.ITask :
         T extends TaskName.CancelReservation ? CancelReservationTaskFactory.ITask :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.ITask :
@@ -362,6 +361,7 @@ export namespace task {
         T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.ITask :
         T extends TaskName.VoidPayment ? VoidPaymentTaskFactory.ITask :
         T extends TaskName.VoidRegisterService ? VoidRegisterServiceTaskFactory.ITask :
+        T extends TaskName.VoidReserve ? VoidReserveTaskFactory.ITask :
         TaskFactory.ITask;
 
     export import ISearchConditions = TaskFactory.ISearchConditions;

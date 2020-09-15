@@ -15,11 +15,11 @@ export interface IData {
 }
 
 export interface IAttributes extends TaskFactory.IAttributes {
-    name: TaskName.CancelSeatReservation;
+    name: TaskName.VoidReserve;
     data: IData;
 }
 
 /**
- * 座席予約承認取消タスクインターフェース
+ * 予約承認取消タスクインターフェース
  */
 export type ITask = IExtendId<IAttributes>;
