@@ -11,10 +11,6 @@ enum TaskName {
      */
     CancelReservation = 'cancelReservation',
     /**
-     * 座席予約承認アクション取消
-     */
-    CancelSeatReservation = 'cancelSeatReservation',
-    /**
      * 予約確定
      */
     ConfirmReservation = 'confirmReservation',
@@ -85,7 +81,11 @@ enum TaskName {
     /**
      * サービス登録中止
      */
-    VoidRegisterService = 'voidRegisterService'
+    VoidRegisterService = 'voidRegisterService',
+    /**
+     * 予約中止
+     */
+    VoidReserve = 'voidReserve'
 }
 
 export default TaskName;

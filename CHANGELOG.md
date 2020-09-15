@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.17.0 - 2020-09-15
+
+### Changed
+
+- CancelSeatReservationタスクをVoidReserveタスクに変更
+
 ## v9.16.0 - 2020-09-14
 
 ### Changed
