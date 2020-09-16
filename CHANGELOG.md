@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.18.0 - 2020-09-16
+
+### Changed
+
+- update @chevre/factory
+- update @pecorino/factory
+
 ## v9.17.0 - 2020-09-15
 
 ### Changed

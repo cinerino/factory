@@ -1,5 +1,3 @@
-import * as GMO from '@motionpicture/gmo-service';
-
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import { IPaymentMethod, ISimpleOrder } from '../../order';
@@ -40,7 +38,7 @@ export interface IResult {
     /**
      * クレジットカード売上結果
      */
-    creditCardSales?: GMO.services.credit.IAlterTranResult[];
+    creditCardSales?: chevre.action.trade.pay.ICreditCardSales[];
     seatInfoSyncIn?: any;
     seatInfoSyncResult?: any;
 }
