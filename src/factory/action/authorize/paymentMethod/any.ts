@@ -1,6 +1,3 @@
-import * as GMO from '@motionpicture/gmo-service';
-import * as mvtkapi from '@movieticket/reserve-api-nodejs-client';
-
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import PaymentStatusType from '../../../paymentStatusType';
@@ -70,7 +67,7 @@ export type IFromLocation = IPaymentCard | ITokenizedPaymentCard;
  */
 export type IToLocation = IPaymentCard;
 
-export type IPurchaseNumberAuthResult = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
+export import IPurchaseNumberAuthResult = chevre.action.check.paymentMethod.movieTicket.IPurchaseNumberAuthResult;
 
 export import IUnauthorizedCardOfMember = chevre.paymentMethod.paymentCard.creditCard.IUnauthorizedCardOfMember;
 export import IUncheckedCardRaw = chevre.paymentMethod.paymentCard.creditCard.IUncheckedCardRaw;
@@ -145,7 +142,7 @@ export interface IObject {
     /**
      * 支払い方法(CreditCard決済)
      */
-    method?: GMO.utils.util.Method;
+    method?: chevre.transaction.pay.CreditCardMethod;
     /**
      * クレジットカード情報(CreditCard決済)
      */
@@ -217,19 +214,11 @@ export interface IResult {
     /**
      * CreditCard決済の場合
      */
-    entryTranArgs?: GMO.services.credit.IEntryTranArgs;
+    entryTranArgs?: chevre.transaction.pay.IEntryTranArgs;
     /**
      * CreditCard決済の場合
      */
-    // entryTranResult?: GMO.services.credit.IEntryTranResult;
-    /**
-     * CreditCard決済の場合
-     */
-    // execTranArgs?: GMO.services.credit.IExecTranArgs;
-    /**
-     * CreditCard決済の場合
-     */
-    execTranResult?: GMO.services.credit.IExecTranResult;
+    execTranResult?: chevre.transaction.pay.IExecTranResult;
 
     /**
      * 承認時のムビチケ認証レスポンス(MovieTicket決済)

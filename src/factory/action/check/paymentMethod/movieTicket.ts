@@ -1,5 +1,3 @@
-import * as mvtkapi from '@movieticket/reserve-api-nodejs-client';
-
 import * as ActionFactory from '../../../action';
 import * as CheckActionFactory from '../../check';
 
@@ -8,8 +6,8 @@ import * as chevre from '../../../../chevre';
 export import IMovieTicket = chevre.paymentMethod.paymentCard.movieTicket.IMovieTicket;
 
 export type IAgent = ActionFactory.IParticipant;
-export type IPurchaseNumberAuthIn = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthIn;
-export type IPurchaseNumberAuthResult = mvtkapi.mvtk.services.auth.purchaseNumberAuth.IPurchaseNumberAuthResult;
+export import IPurchaseNumberAuthIn = chevre.action.check.paymentMethod.movieTicket.IPurchaseNumberAuthIn;
+export import IPurchaseNumberAuthResult = chevre.action.check.paymentMethod.movieTicket.IPurchaseNumberAuthResult;
 export type ObjectType = string;
 export type IMovieTicketResult = IMovieTicket;
 export interface IObject {
