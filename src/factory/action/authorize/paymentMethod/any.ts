@@ -142,7 +142,7 @@ export interface IObject {
     /**
      * 支払い方法(CreditCard決済)
      */
-    method?: chevre.transaction.pay.CreditCardMethod;
+    method?: string;
     /**
      * クレジットカード情報(CreditCard決済)
      */
