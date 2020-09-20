@@ -10,7 +10,7 @@ export import ICOAInfo = chevre.event.screeningEvent.ICOAInfo;
 /**
  * COA券種情報インターフェース
  */
-export type ICOAOffer = COA.services.reserve.IUpdReserveTicket & {
+export type ICOAOffer = COA.factory.reserve.IUpdReserveTicket & {
     /**
      * チケット名
      */
