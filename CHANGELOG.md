@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- update @motionpicture/coa-service
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.20.0 - 2020-09-20
+
+### Changed
+
+- update @motionpicture/coa-service
 
 ## v9.19.0 - 2020-09-18
 
