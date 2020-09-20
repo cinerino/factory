@@ -6,7 +6,7 @@ import * as COA from '../../../../coa';
 
 export type IAgent = ActionFactory.IParticipant;
 
-export type IObject4COA = COA.services.reserve.IUpdReserveArgs;
+export type IObject4COA = COA.factory.reserve.IUpdReserveArgs;
 
 export type IObject4Chevre = chevre.transaction.reserve.IConfirmParams & {
     typeOf: chevre.transactionType.Reserve;

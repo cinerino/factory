@@ -22,11 +22,11 @@ export enum ObjectType {
 export type IInstrument<T extends chevre.service.webAPI.Identifier> = chevre.service.webAPI.IService<T>;
 
 export type IRequestBody<T extends chevre.service.webAPI.Identifier> =
-    T extends chevre.service.webAPI.Identifier.COA ? COA.services.reserve.IUpdTmpReserveSeatArgs :
+    T extends chevre.service.webAPI.Identifier.COA ? COA.factory.reserve.IUpdTmpReserveSeatArgs :
     // T extends WebAPIIdentifier.Chevre ? chevre.transaction.reserve.ITransaction :
     any;
 export type IResponseBody<T extends chevre.service.webAPI.Identifier> =
-    T extends chevre.service.webAPI.Identifier.COA ? COA.services.reserve.IUpdTmpReserveSeatResult :
+    T extends chevre.service.webAPI.Identifier.COA ? COA.factory.reserve.IUpdTmpReserveSeatResult :
     T extends chevre.service.webAPI.Identifier.Chevre ? chevre.transaction.reserve.ITransaction :
     chevre.transaction.reserve.ITransaction;
 

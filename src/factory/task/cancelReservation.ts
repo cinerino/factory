@@ -6,7 +6,7 @@ import TaskName from '../taskName';
 import * as chevre from '../../chevre';
 import * as COA from '../../coa';
 
-export type IObject4COA = COA.services.reserve.IStateReserveArgs;
+export type IObject4COA = COA.factory.reserve.IStateReserveArgs;
 
 export interface IObject4Chevre {
     typeOf: chevre.transactionType.Reserve;
