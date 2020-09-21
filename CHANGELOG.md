@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- COA予約オファーをMGチケットに対応
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.21.0 - 2020-09-21
+
+### Changed
+
+- COA予約オファーをMGチケットに対応
 
 ## v9.20.0 - 2020-09-20
 
