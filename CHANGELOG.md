@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.21.0 - 2020-09-21
+
+### Changed
+
+- COA予約オファーをMGチケットに対応
+
 ## v9.20.0 - 2020-09-20
 
 ### Changed
