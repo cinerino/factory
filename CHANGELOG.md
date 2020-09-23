@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.22.0 - 2020-09-23
+
+### Changed
+
+- update @motionpicture/coa-service
+
 ## v9.21.0 - 2020-09-21
 
 ### Changed
