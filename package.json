@@ -54,9 +54,9 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
-    "@chevre/factory": "^4.50.0",
+    "@chevre/factory": "^4.51.0",
     "@motionpicture/coa-service": "^9.0.0",
-    "@pecorino/factory": "^4.3.0",
+    "@pecorino/factory": "^4.5.0",
     "@waiter/factory": "^2.1.0",
     "aws-sdk": "^2.447.0",
     "setprototypeof": "^1.2.0"
