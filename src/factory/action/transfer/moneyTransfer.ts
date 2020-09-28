@@ -5,14 +5,13 @@ import ActionType from '../../actionType';
 import { ISimpleOrder } from '../../order';
 import { IPropertyValue } from '../../propertyValue';
 import TransactionType from '../../transactionType';
-import { IPendingTransaction as IPaymentCardTransaction } from '../authorize/paymentMethod/any';
 
 import * as chevre from '../../../chevre';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
-export type IPendingTransaction = IPaymentCardTransaction;
+export type IPendingTransaction = chevre.transaction.moneyTransfer.ITransaction;
 
 /**
  * 匿名ロケーションインターフェース

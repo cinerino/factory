@@ -22,6 +22,12 @@ export type IAnyPaymentMethod = string;
 /**
  * 進行中取引インターフェース
  */
+export interface IObjectPendingTransaction {
+    typeOf: chevre.transactionType.MoneyTransfer;
+    id?: string;
+    transactionNumber?: string;
+}
+
 export type IPendingTransaction = chevre.transaction.moneyTransfer.ITransaction;
 
 export interface IAccount {
@@ -129,6 +135,10 @@ export interface IObject {
      * 取引説明(Account決済)
      */
     notes?: string;
+    /**
+     * 進行中取引(Account決済)
+     */
+    pendingTransaction?: IObjectPendingTransaction;
 
     /**
      * 転送元(PaymentCard決済)
