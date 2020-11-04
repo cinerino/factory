@@ -43,6 +43,8 @@
   "devDependencies": {
     "@types/mocha": "^5.2.6",
     "@types/node": "^10.14.6",
+    "@types/request": "^2.48.5",
+    "@types/request-promise-native": "^1.0.17",
     "@types/sinon": "^4.3.3",
     "coveralls": "^3.0.3",
     "mocha": "^5.2.0",
@@ -54,9 +56,9 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
-    "@chevre/factory": "^4.57.0",
+    "@chevre/factory": "^4.58.1",
     "@motionpicture/coa-service": "^9.0.0",
-    "@pecorino/factory": "^4.5.0",
+    "@pecorino/factory": "^4.6.0",
     "@waiter/factory": "^2.1.0",
     "aws-sdk": "^2.447.0",
     "setprototypeof": "^1.2.0"
