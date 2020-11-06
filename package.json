@@ -58,7 +58,7 @@
   "dependencies": {
     "@chevre/factory": "^4.58.1",
     "@motionpicture/coa-service": "^9.0.0",
-    "@pecorino/factory": "^4.6.0",
+    "@pecorino/factory": "^4.7.1",
     "@waiter/factory": "^2.1.0",
     "aws-sdk": "^2.447.0",
     "setprototypeof": "^1.2.0"
