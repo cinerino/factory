@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 注文取引のobjectにconfirmationNumberを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.27.0 - 2020-11-11
+
+### Added
+
+- 注文取引のobjectにconfirmationNumberを追加
 
 ## v9.26.4 - 2020-11-11
 
