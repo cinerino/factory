@@ -41,6 +41,7 @@ export interface IPassportBeforeStart {
 }
 
 export interface IObject {
+    confirmationNumber?: string;
     /**
      * WAITER許可証トークン
      */
