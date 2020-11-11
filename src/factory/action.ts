@@ -112,6 +112,8 @@ export interface ISortOrder {
     // endDate?: SortType;
 }
 
+export type IObjectPaymentMethodSearchConditions = { paymentMethodId?: { $in?: string[] } } | { $eq?: string };
+
 /**
  * 検索条件インターフェース
  */
@@ -145,10 +147,9 @@ export interface ISearchConditions<T extends ActionType> {
         orderNumber?: {
             $in?: string[];
         };
-        paymentMethod?: {
-            paymentMethodId?: {
-                $in?: string[];
-            };
+        paymentMethod?: IObjectPaymentMethodSearchConditions;
+        paymentMethodId?: {
+            $eq?: string;
         };
         event?: {
             id?: {
