@@ -106,13 +106,16 @@ export type IAction<TAttributes extends IAttributes<ActionType, any, any>> = IEx
  * ソート条件インターフェース
  */
 export interface ISortOrder {
-    // typeOf?: SortType;
-    // actionStatus?: SortType;
     startDate?: SortType;
-    // endDate?: SortType;
 }
 
-export type IObjectPaymentMethodSearchConditions = { paymentMethodId?: { $in?: string[] } } | { $eq?: string };
+export interface IObjectPaymentMethodSearchConditions {
+    /**
+     * @deprecated 最新のデータに対しては無効です
+     */
+    paymentMethodId?: { $in?: string[] };
+    $eq?: string;
+}
 
 /**
  * 検索条件インターフェース
