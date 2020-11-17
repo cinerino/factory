@@ -1,6 +1,6 @@
 {
   "name": "@cinerino/factory",
-  "version": "9.28.2",
+  "version": "9.29.0",
   "description": "Cinerino Factory Library for Javascript",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
