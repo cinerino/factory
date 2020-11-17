@@ -117,29 +117,33 @@ export interface ISortOrder {
  * 所有対象物検索条件インターフェース
  */
 export interface ITypeOfGoodSearchConditions {
-    typeOf: string;
+    typeOf?: string | {
+        $eq?: string;
+        $in?: string[];
+    };
     identifier?: {
         $eq?: string;
     };
-    id?: string;
-    ids?: string[];
+    id?: {
+        $eq?: string;
+        $in?: string[];
+    };
     issuedThrough?: {
         id?: {
             $eq?: string;
         };
+        typeOf?: {
+            $eq?: string;
+        };
+    };
+    accountNumber?: {
+        $eq?: string;
+        $in?: string[];
     };
     /**
      * 口座タイプ
      */
     accountType?: string;
-    /**
-     * 口座番号
-     */
-    accountNumber?: string;
-    /**
-     * 口座番号
-     */
-    accountNumbers?: string[];
 }
 
 /**
