@@ -56,7 +56,7 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
-    "@chevre/factory": "4.62.1",
+    "@chevre/factory": "4.68.0",
     "@motionpicture/coa-service": "^9.0.0",
     "@pecorino/factory": "4.8.0",
     "@waiter/factory": "^2.1.0",
