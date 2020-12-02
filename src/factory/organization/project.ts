@@ -63,7 +63,6 @@ export interface ISettings {
     payment?: IPayment;
 
     // ↓その他の設定
-    codeExpiresInSeconds?: number;
     sendgridApiKey?: string;
     transactionWebhookUrl?: string;
     useUsernameAsGMOMemberId?: boolean;

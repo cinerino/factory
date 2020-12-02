@@ -72,7 +72,6 @@ export interface IStartParamsWithoutDetail {
     expires: Date;
     agent: IAgent;
     seller: {
-        typeOf: chevre.organizationType;
         id: string;
     };
     object: {
