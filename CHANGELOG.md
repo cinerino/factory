@@ -18,6 +18,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.30.0 - 2020-12-02
+
+### Changed
+
+- プロジェクト設定からcodeExpiresInSecondsを削除
+- 注文取引開始パラメータからseller.typeOfを削除
+- update @chevre/factory
+
 ## v9.29.4 - 2020-11-26
 
 ### Changed
