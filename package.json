@@ -1,6 +1,6 @@
 {
   "name": "@cinerino/factory",
-  "version": "9.30.0",
+  "version": "9.30.1",
   "description": "Cinerino Factory Library for Javascript",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -56,9 +56,9 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
-    "@chevre/factory": "4.70.0",
+    "@chevre/factory": "4.70.1",
     "@motionpicture/coa-service": "^9.0.0",
-    "@pecorino/factory": "4.8.0",
+    "@pecorino/factory": "4.9.0",
     "@waiter/factory": "^2.1.0",
     "aws-sdk": "^2.447.0",
     "setprototypeof": "^1.2.0"
