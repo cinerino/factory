@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.31.0 - 2020-12-09
+
+### Added
+
+- 注文取引objectに注文番号を追加
+
 ## v9.30.2 - 2020-12-08
 
 ### Changed
