@@ -41,7 +41,18 @@ export interface IPassportBeforeStart {
 }
 
 export interface IObject {
+    /**
+     * 確認番号
+     */
     confirmationNumber?: string;
+    /**
+     * 注文番号
+     */
+    orderNumber?: string;
+    /**
+     * 注文名称
+     */
+    name?: string;
     /**
      * WAITER許可証トークン
      */
@@ -61,10 +72,6 @@ export interface IObject {
     potentialActions?: {
         givePointAward?: IGivePointAwardParams[];
     };
-    /**
-     * 注文名称
-     */
-    name?: string;
 }
 
 export interface IStartParamsWithoutDetail {

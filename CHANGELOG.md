@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 注文取引objectに注文番号を追加
+
 ### Changed
 
 ### Deprecated
