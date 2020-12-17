@@ -44,7 +44,6 @@ import { AccountType } from './factory/accountType';
 import * as AuthorizationFactory from './factory/authorization';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
 import * as WebApplicationFactory from './factory/creativeWork/softwareApplication/webApplication';
-import * as EncodingFormat from './factory/encodingFormat';
 import * as EventFactory from './factory/event';
 import * as ScreeningEventFactory from './factory/event/screeningEvent';
 import * as ScreeningEventSeriesFactory from './factory/event/screeningEventSeries';
@@ -242,8 +241,6 @@ export namespace action {
 }
 
 export import authorization = AuthorizationFactory;
-
-export import encodingFormat = EncodingFormat;
 
 export namespace creativeWork {
     export namespace message {
