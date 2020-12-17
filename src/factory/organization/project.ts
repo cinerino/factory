@@ -65,6 +65,8 @@ export interface ISettings {
     // ↓その他の設定
     sendgridApiKey?: string;
     transactionWebhookUrl?: string;
+    useMyCreditCards?: boolean;
+    useTransactionClientUser?: boolean;
     useUsernameAsGMOMemberId?: boolean;
 }
 
