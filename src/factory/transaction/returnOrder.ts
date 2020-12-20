@@ -55,7 +55,6 @@ export interface IStartParamsWithoutDetail {
         onOrderStatusChanged?: IOnOrderStatusChanged;
     };
     seller: {
-        typeOf: chevre.organizationType;
         id: string;
     };
 }
