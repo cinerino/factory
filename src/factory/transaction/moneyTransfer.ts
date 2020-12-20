@@ -30,6 +30,13 @@ export type IFromLocation = IPaymentCard;
 // export type IToLocation = IPaymentCard | IAnonymousLocation;
 export type IToLocation = IPaymentCard;
 
+export interface IObjectPendingTransaction {
+    typeOf?: chevre.transactionType.MoneyTransfer;
+    id?: string;
+    transactionNumber?: string;
+    identifier?: string;
+}
+
 export interface IStartParamsWithoutDetail {
     project: IProject;
     /**
@@ -67,6 +74,7 @@ export interface IStartParamsWithoutDetail {
          * 取引説明
          */
         description?: string;
+        pendingTransaction?: IObjectPendingTransaction;
     };
 }
 
@@ -111,6 +119,7 @@ export interface IObject {
      * 取引説明
      */
     description?: string;
+    pendingTransaction?: IObjectPendingTransaction;
     /**
      * 承認アクションリスト
      */
