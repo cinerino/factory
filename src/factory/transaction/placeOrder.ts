@@ -246,7 +246,6 @@ export interface IAttributes extends TransactionFactory.IAttributes<IStartParams
 
 export interface ISearchConditions extends TransactionFactory.ISearchConditions<TransactionType.PlaceOrder> {
     seller?: {
-        typeOf?: string;
         ids?: string[];
     };
     object?: {
