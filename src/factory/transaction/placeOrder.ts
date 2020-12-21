@@ -41,6 +41,7 @@ export interface IPassportBeforeStart {
 }
 
 export interface IObject {
+    identifier?: IOrderIdentifier;
     /**
      * 確認番号
      */
