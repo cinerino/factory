@@ -131,7 +131,7 @@ export interface IRegisterProgramMembershipParams {
     };
 }
 
-export type ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
+type ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
 
 /**
  * インセンティブ付与パラメータ

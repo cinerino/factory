@@ -88,7 +88,7 @@ export interface ICancelReservationParams {
     potentialActions?: ICancelReservationPotentialActions;
 }
 
-export type ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
+type ISendEmailMessageParams = TransactionFactory.ISendEmailMessageParams;
 
 /**
  * クレジットカード返金パラメータ
