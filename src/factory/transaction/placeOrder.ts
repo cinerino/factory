@@ -25,21 +25,6 @@ export import ISeller = TransactionFactory.ISeller;
  */
 export type IAgent = IPerson;
 
-export interface IPassportBeforeStart {
-    /**
-     * WAITER許可証発行者
-     */
-    issuer: string;
-    /**
-     * WAITER許可証トークン
-     */
-    token: waiter.passport.IEncodedPassport;
-    /**
-     * WAITER許可証トークンシークレット
-     */
-    secret: string;
-}
-
 export interface IObject {
     identifier?: IOrderIdentifier;
     /**
@@ -83,7 +68,7 @@ export interface IStartParamsWithoutDetail {
         id: string;
     };
     object: {
-        passport?: IPassportBeforeStart;
+        passport?: TransactionFactory.IPassportBeforeStart;
         /**
          * 注文ステータス変更時イベント
          */
