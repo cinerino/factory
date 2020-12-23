@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 通貨転送取引objectを拡張
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.35.0 - 2020-12-23
+
+### Changed
+
+- 通貨転送取引objectを拡張
 
 ## v9.34.0 - 2020-12-21
 
