@@ -103,6 +103,8 @@ export type ISeller = chevre.seller.ISeller;
  */
 export type ICustomer = IPerson;
 
+export type IBroker = IPerson;
+
 /**
  * 返品者インターフェース
  */
@@ -156,6 +158,11 @@ export interface IOrder extends ISimpleOrder {
      * The offers included in the order.Also accepts an array of objects.
      */
     acceptedOffers: IAcceptedOffer<IItemOffered>[];
+    /**
+     * An entity that arranges for an exchange between a buyer and a seller.
+     * In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.
+     */
+    broker?: IBroker;
     /**
      * Date order was returned.
      */
