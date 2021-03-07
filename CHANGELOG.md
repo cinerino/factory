@@ -8,8 +8,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- 注文にbrokerを追加
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.36.0 - 2021-03-07
+
+### Added
+
+- 注文にbrokerを追加
 
 ## v9.35.5 - 2021-03-01
 
