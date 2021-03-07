@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
+- 注文にbrokerを追加
+
 ### Changed
 
 ### Deprecated
