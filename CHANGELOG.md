@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 注文取引でcustomerを指定できるように調整
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.37.0 - 2021-03-07
+
+### Changed
+
+- 注文取引でcustomerを指定できるように調整
 
 ## v9.36.0 - 2021-03-07
 
