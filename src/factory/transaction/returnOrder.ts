@@ -108,7 +108,7 @@ export interface IRefundCreditCardParams {
         /**
          * 注文通知アクション
          */
-        informOrder?: IInformOrderParams[];
+        // informOrder?: IInformOrderParams[];
         /**
          * 返金メールカスタマイズ
          */
@@ -175,14 +175,8 @@ export interface IConfirmParams {
  */
 export interface IObject {
     order: IReturnableOrder[];
-    /**
-     * キャンセル手数料
-     */
-    cancellationFee: number;
-    /**
-     * 返品理由
-     */
     reason: Reason;
+    returnPolicy: chevre.merchantReturnPolicy.IMerchantReturnPolicy;
     /**
      * 注文ステータス変更時イベント
      */

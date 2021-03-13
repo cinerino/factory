@@ -61,6 +61,7 @@ export interface ISettings {
     onOrderStatusChanged?: IOnOrderStatusChanged;
     webhook?: IWebhookSettings;
     payment?: IPayment;
+    returnFee?: number;
 
     // ↓その他の設定
     sendgridApiKey?: string;
