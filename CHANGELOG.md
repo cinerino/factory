@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 返金後の注文通知アクション指定を廃止
-- プロジェクトに返品手数料設定を追加
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.38.1 - 2021-03-13
+
+### Changed
+
+- 返金後の注文通知アクション指定を廃止
+- プロジェクトに返品手数料設定を追加
 
 ## v9.37.1 - 2021-03-11
 

@@ -47,7 +47,6 @@ export interface IStartParamsWithoutDetail {
     agent: IAgent;
     object: {
         order: IReturnableOrder | IReturnableOrder[];
-        cancellationFee: number;
         reason: Reason;
         /**
          * 注文ステータス変更時イベント
