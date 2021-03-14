@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- 注文取引確定時の注文通知指定を削除
-- 返品取引確定時の注文通知指定を削除
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.39.0 - 2021-03-14
+
+### Changed
+
+- 注文取引確定時の注文通知指定を削除
+- 返品取引確定時の注文通知指定を削除
 
 ## v9.38.1 - 2021-03-13
 
