@@ -145,11 +145,9 @@ export interface IPotentialActionsParams {
     order?: {
         potentialActions?: {
             givePointAward?: IGivePointAwardParams[];
-            informOrder?: IInformOrderParams[];
             sendOrder?: {
                 potentialActions?: {
                     confirmReservation?: IConfirmReservationParams[];
-                    informOrder?: IInformOrderParams[];
                     // registerProgramMembership?: IRegisterProgramMembershipParams[];
                     sendEmailMessage?: ISendEmailMessageParams[];
                 };

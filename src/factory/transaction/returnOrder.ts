@@ -105,10 +105,6 @@ export interface IRefundCreditCardParams {
     };
     potentialActions?: {
         /**
-         * 注文通知アクション
-         */
-        // informOrder?: IInformOrderParams[];
-        /**
          * 返金メールカスタマイズ
          */
         sendEmailMessage?: ISendEmailMessageParams;
@@ -130,10 +126,6 @@ export interface IReturnOrderActionParams {
          * 予約取消アクション
          */
         cancelReservation?: ICancelReservationParams[];
-        /**
-         * 注文通知アクション
-         */
-        informOrder?: IInformOrderParams[];
         /**
          * クレジットカード返金アクションについてカスタマイズする場合に指定
          */
