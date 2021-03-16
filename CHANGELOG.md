@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.40.0 - 2021-03-16
+
+### Changed
+
+- プロジェクトの返金時設定を削除
+
 ## v9.39.0 - 2021-03-14
 
 ### Changed
