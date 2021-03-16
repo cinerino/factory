@@ -49,10 +49,6 @@ export interface IOnRefunded {
     informOrder?: IInformParams[];
 }
 
-export interface IPayment {
-    onRefunded?: IOnRefunded;
-}
-
 /**
  * プロジェクト設定インターフェース
  */
@@ -60,7 +56,6 @@ export interface ISettings {
     cognito?: ICognitoSettings;
     onOrderStatusChanged?: IOnOrderStatusChanged;
     webhook?: IWebhookSettings;
-    payment?: IPayment;
     returnFee?: number;
 
     // ↓その他の設定
