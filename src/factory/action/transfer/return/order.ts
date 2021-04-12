@@ -1,5 +1,4 @@
 import * as ActionFactory from '../../../action';
-import { ISimpleOrder } from '../../../order';
 import { IAttributes as IInformActionAttributes } from '../../interact/inform';
 import { IAttributes as ICancelActionAttributes } from '../../organize/cancel';
 import { IAttributes as IRefundActionAttributes } from '../../trade/refund';
@@ -7,13 +6,15 @@ import * as ReturnActionFactory from '../return';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../send/message/email';
 import * as ReturnPointAwardActionFactory from './pointAward';
 
+import * as chevre from '../../../../chevre';
+
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
 /**
  * 返却対象は注文
  */
-export type IObject = ISimpleOrder;
+export type IObject = chevre.order.ISimpleOrder;
 
 export type IResult = any;
 

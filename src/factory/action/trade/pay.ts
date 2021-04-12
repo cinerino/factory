@@ -1,6 +1,5 @@
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-import { IPaymentMethod, ISimpleOrder } from '../../order';
 import { IInstrument, IPendingTransaction } from '../authorize/paymentMethod/any';
 
 import * as chevre from '../../../chevre';
@@ -10,7 +9,7 @@ export import IMovieTicket = chevre.paymentMethod.paymentCard.movieTicket.IMovie
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
-export type IPurpose = ISimpleOrder;
+export type IPurpose = chevre.order.ISimpleOrder;
 
 export enum ObjectType {
     PaymentMethod = 'PaymentMethod'
@@ -21,7 +20,7 @@ export interface IPaymentService {
     /**
      * 決済方法
      */
-    paymentMethod: IPaymentMethod;
+    paymentMethod: chevre.order.IPaymentMethod;
     pendingTransaction?: IPendingTransaction;
     /**
      * ムビチケリスト

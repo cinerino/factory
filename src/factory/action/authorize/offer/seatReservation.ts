@@ -1,7 +1,6 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import * as SeatReservationOfferFactory from '../../../offer/seatReservation';
-import * as OrderFactory from '../../../order';
 import PriceCurrency from '../../../priceCurrency';
 import { IPropertyValue } from '../../../propertyValue';
 import TransactionType from '../../../transactionType';
@@ -30,7 +29,7 @@ export type IResponseBody<T extends chevre.service.webAPI.Identifier> =
     T extends chevre.service.webAPI.Identifier.Chevre ? chevre.transaction.reserve.ITransaction :
     chevre.transaction.reserve.ITransaction;
 
-export type IResultAcceptedOffer = OrderFactory.IAcceptedOffer<OrderFactory.IReservation>;
+export type IResultAcceptedOffer = chevre.order.IAcceptedOffer<chevre.order.IReservation>;
 
 /**
  * 承認アクション結果

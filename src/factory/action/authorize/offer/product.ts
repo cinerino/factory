@@ -1,6 +1,5 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-import { IAcceptedOffer, IServiceOutput } from '../../../order';
 import PriceCurrency from '../../../priceCurrency';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
@@ -10,8 +9,8 @@ import * as chevre from '../../../../chevre';
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 export import IService = chevre.product.IProduct;
-export type IObject = IAcceptedOffer<IService>[];
-export type IResultAcceptedOffer = IAcceptedOffer<IServiceOutput>[];
+export type IObject = chevre.order.IAcceptedOffer<IService>[];
+export type IResultAcceptedOffer = chevre.order.IAcceptedOffer<chevre.order.IServiceOutput>[];
 export interface IResult {
     price: number;
     priceCurrency: PriceCurrency;

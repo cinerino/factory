@@ -1,8 +1,9 @@
-import { IPerson } from '../../../person';
 import { IAttributes as IUnRegisterProgramMembershipActionAttributes } from '../../interact/unRegister/programMembership';
 import * as DeleteActionFactory from '../delete';
 
-export type IObject = IPerson;
+import * as chevre from '../../../../chevre';
+
+export type IObject = chevre.person.IPerson;
 export type IResult = any;
 
 export interface IPotentialActions {

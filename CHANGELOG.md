@@ -18,6 +18,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.41.0 - 2021-04-12
+
+### Changed
+
+- update @chevre/factory
+- インボイスインターフェースをchevreへ移行
+
 ## v9.40.1 - 2021-03-16
 
 ### Changed

@@ -1,6 +1,5 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-import PaymentStatusType from '../../../paymentStatusType';
 import { IPropertyValue } from '../../../propertyValue';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
@@ -184,7 +183,7 @@ export interface IResult {
     /**
      * 決済ステータス
      */
-    paymentStatus: PaymentStatusType;
+    paymentStatus: chevre.paymentStatusType;
     /**
      * 決済方法名称
      */

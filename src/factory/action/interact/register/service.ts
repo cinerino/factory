@@ -1,7 +1,8 @@
-import { IAcceptedOffer as IOrderAcceptedOffer } from '../../../order';
 import * as RegisterActionFactory from '../register';
 
-export type IAcceptedOffer = IOrderAcceptedOffer<any>;
+import * as chevre from '../../../../chevre';
+
+export type IAcceptedOffer = chevre.order.IAcceptedOffer<any>;
 export type IObject = any;
 export type IResult = any;
 

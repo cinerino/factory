@@ -2,7 +2,6 @@ import * as pecorino from '@pecorino/factory';
 
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-import { ISimpleOrder } from '../../order';
 import { IPropertyValue } from '../../propertyValue';
 import TransactionType from '../../transactionType';
 
@@ -77,7 +76,7 @@ export interface ITransactionPurpose {
     id: string;
 }
 
-export type IPurpose = ITransactionPurpose | ISimpleOrder;
+export type IPurpose = ITransactionPurpose | chevre.order.ISimpleOrder;
 
 export interface IAttributes
     extends ActionFactory.IAttributes<ActionType.MoneyTransfer, IObject, IResult> {

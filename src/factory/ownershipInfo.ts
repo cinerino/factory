@@ -1,7 +1,6 @@
 import * as pecorino from '@pecorino/factory';
 
 import { IProject } from './organization/project';
-import { IPerson } from './person';
 import SortType from './sortType';
 
 import * as chevre from '../chevre';
@@ -60,7 +59,7 @@ export type IGoodWithDetail = IReservationWithDetail | pecorino.account.IAccount
 /**
  * 所有者インターフェース
  */
-export type IOwner = chevre.seller.ISeller | IPerson;
+export type IOwner = chevre.seller.ISeller | chevre.person.IPerson;
 
 export type OwnershipInfoType = 'OwnershipInfo';
 

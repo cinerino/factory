@@ -1,12 +1,13 @@
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-import { IPaymentMethod, ISimpleOrder } from '../../order';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../transfer/send/message/email';
 
+import * as chevre from '../../../chevre';
+
 export type IRecipient = ActionFactory.IParticipant;
 
-export type IObject = IPaymentMethod;
+export type IObject = chevre.order.IPaymentMethod;
 
 export type IResult = any;
 
@@ -21,7 +22,7 @@ export interface IPotentialActions {
     sendEmailMessage?: ISendEmailMessageActionAttributes[];
 }
 
-export type IPurpose = ISimpleOrder;
+export type IPurpose = chevre.order.ISimpleOrder;
 
 export interface IAttributes extends ActionFactory.IAttributes<ActionType.RefundAction, IObject, IResult> {
     recipient: IRecipient;
