@@ -47,15 +47,9 @@ import * as WebApplicationFactory from './factory/creativeWork/softwareApplicati
 import * as EventFactory from './factory/event';
 import * as ScreeningEventFactory from './factory/event/screeningEvent';
 import * as ScreeningEventSeriesFactory from './factory/event/screeningEventSeries';
-import * as InvoiceFactory from './factory/invoice';
 import * as OfferFactory from './factory/offer';
-import * as OrderFactory from './factory/order';
-import OrderStatus from './factory/orderStatus';
 import * as ProjectFactory from './factory/organization/project';
 import * as OwnershipInfoFactory from './factory/ownershipInfo';
-import PaymentStatusType from './factory/paymentStatusType';
-import * as PersonFactory from './factory/person';
-import PersonType from './factory/personType';
 import PriceCurrency from './factory/priceCurrency';
 import * as ProgramMembershipFactory from './factory/programMembership';
 import * as PropertyValueFactory from './factory/propertyValue';
@@ -270,16 +264,15 @@ export namespace event {
     export import screeningEvent = ScreeningEventFactory;
     export import screeningEventSeries = ScreeningEventSeriesFactory;
 }
-export import invoice = InvoiceFactory;
 export import offer = OfferFactory;
-export import order = OrderFactory;
-export import orderStatus = OrderStatus;
+export import order = chevre.order;
+export import orderStatus = chevre.orderStatus;
 export import ownershipInfo = OwnershipInfoFactory;
 export import priceCurrency = PriceCurrency;
 export import paymentMethodType = chevre.paymentMethodType;
-export import paymentStatusType = PaymentStatusType;
-export import person = PersonFactory;
-export import personType = PersonType;
+export import paymentStatusType = chevre.paymentStatusType;
+export import person = chevre.person;
+export import personType = chevre.personType;
 export import programMembership = ProgramMembershipFactory;
 export import project = ProjectFactory;
 export import propertyValue = PropertyValueFactory;

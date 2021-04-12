@@ -1,6 +1,5 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-import * as OrderFactory from '../../../order';
 import PriceCurrency from '../../../priceCurrency';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
@@ -21,7 +20,7 @@ export interface IResult {
     responseBody: IResponseBody;
 }
 
-export type IObject = OrderFactory.IAcceptedOffer<chevre.monetaryAmount.IMonetaryAmount> & {
+export type IObject = chevre.order.IAcceptedOffer<chevre.monetaryAmount.IMonetaryAmount> & {
     toLocation: IPaymentCard;
     pendingTransaction?: IPendingTransaction;
 };

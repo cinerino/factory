@@ -1,16 +1,17 @@
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-import { IAcceptedOffer, IOrder } from '../../order';
 import TransactionType from '../../transactionType';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 import { IAttributes as IGivePointAwardActionAttributes } from '../transfer/give/pointAward';
 import { IAttributes as ISendOrderActionAttributes } from '../transfer/send/order';
 import { IAttributes as IPayActionAttributes } from './pay';
 
+import * as chevre from '../../../chevre';
+
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
-export interface IObject extends IOrder {
-    acceptedOffers: IAcceptedOffer<any>[];
+export interface IObject extends chevre.order.IOrder {
+    acceptedOffers: chevre.order.IAcceptedOffer<any>[];
 }
 
 export type IResult = any;

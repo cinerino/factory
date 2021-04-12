@@ -1,5 +1,4 @@
 import * as ActionFactory from '../../../action';
-import { IOrder } from '../../../order';
 import { IGood, IOwnershipInfo } from '../../../ownershipInfo';
 import { IAttributes as IConfirmReservationActionAttributes } from '../../interact/confirm/reservation';
 import { IAttributes as IInformActionAttributes } from '../../interact/inform';
@@ -12,7 +11,7 @@ import * as chevre from '../../../../chevre';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
-export type IObject = IOrder;
+export type IObject = chevre.order.IOrder;
 
 /**
  * 注文配送結果としての所有権

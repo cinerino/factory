@@ -1,10 +1,11 @@
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-import { ISimpleOrder } from '../../order';
+
+import * as chevre from '../../../chevre';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IObject = any;
-export type IPurpose = ISimpleOrder;
+export type IPurpose = chevre.order.ISimpleOrder;
 export type IResult = any;
 // tslint:disable-next-line:no-empty-interface
 export interface IPotentialActions {
