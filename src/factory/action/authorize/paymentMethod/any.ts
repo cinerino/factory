@@ -1,6 +1,5 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-import { IPropertyValue } from '../../../propertyValue';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
@@ -96,7 +95,7 @@ export interface IObject {
     /**
      * 追加特性
      */
-    additionalProperty?: IPropertyValue<string>[];
+    additionalProperty?: chevre.propertyValue.IPropertyValue<string>[];
     /**
      * The amount of money.
      */
@@ -195,7 +194,7 @@ export interface IResult {
     /**
      * 追加特性
      */
-    additionalProperty?: IPropertyValue<string>[];
+    additionalProperty?: chevre.propertyValue.IPropertyValue<string>[];
     typeOf: ResultType;
 
     /**

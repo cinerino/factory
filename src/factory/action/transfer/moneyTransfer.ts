@@ -2,7 +2,6 @@ import * as pecorino from '@pecorino/factory';
 
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
-import { IPropertyValue } from '../../propertyValue';
 import TransactionType from '../../transactionType';
 
 import * as chevre from '../../../chevre';
@@ -46,7 +45,7 @@ export interface IPaymentMethodLocation {
     /**
      * 追加特性
      */
-    additionalProperty: IPropertyValue<string>[];
+    additionalProperty: chevre.propertyValue.IPropertyValue<string>[];
 }
 
 /**

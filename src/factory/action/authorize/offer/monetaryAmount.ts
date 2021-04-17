@@ -1,6 +1,5 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-import PriceCurrency from '../../../priceCurrency';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 import { IPaymentCard, IPendingTransaction } from '../../transfer/moneyTransfer';
@@ -15,7 +14,7 @@ export type IResponseBody = IPendingTransaction;
 
 export interface IResult {
     price: number;
-    priceCurrency: PriceCurrency;
+    priceCurrency: chevre.priceCurrency;
     requestBody?: IRequestBody;
     responseBody: IResponseBody;
 }
