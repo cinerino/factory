@@ -10,10 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- update @chevre/factory
-- 承認インターフェースをchevreへ移行
-- 所有権インターフェースをchevreへ移行
-
 ### Deprecated
 
 ### Removed
@@ -21,6 +17,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.42.0 - 2021-04-17
+
+### Changed
+
+- update @chevre/factory
+- 承認インターフェースをchevreへ移行
+- 所有権インターフェースをchevreへ移行
 
 ## v9.41.0 - 2021-04-12
 
