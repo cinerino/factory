@@ -1,8 +1,5 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-import * as SeatReservationOfferFactory from '../../../offer/seatReservation';
-import PriceCurrency from '../../../priceCurrency';
-import { IPropertyValue } from '../../../propertyValue';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
@@ -39,7 +36,7 @@ export interface IResult<T extends chevre.service.webAPI.Identifier> {
      * オファー分の金額
      */
     price: number;
-    priceCurrency: PriceCurrency;
+    priceCurrency: chevre.priceCurrency;
     /**
      * オファーに対して必要な金額
      * currencyを口座タイプとして扱う
@@ -64,12 +61,12 @@ export type IAcceptedPaymentMethod = IMovieTicket;
 
 export type IAcceptedOffer4chevre = {
     paymentMethod?: IAcceptedPaymentMethod;
-    additionalProperty: IPropertyValue<string>[];
+    additionalProperty: chevre.propertyValue.IPropertyValue<string>[];
 } & chevre.event.screeningEvent.IAcceptedTicketOffer;
 
 export type IAcceptedOfferWithoutDetail4chevre = {
     paymentMethod?: IAcceptedPaymentMethod;
-    additionalProperty: IPropertyValue<string>[];
+    additionalProperty: chevre.propertyValue.IPropertyValue<string>[];
 } & chevre.event.screeningEvent.IAcceptedTicketOfferWithoutDetail;
 
 export type IObjectWithoutDetail4chevre = {
@@ -78,14 +75,14 @@ export type IObjectWithoutDetail4chevre = {
 
 export type IAcceptedOffer4COA = {
     paymentMethod?: IAcceptedPaymentMethod;
-    additionalProperty: IPropertyValue<string>[];
+    additionalProperty: chevre.propertyValue.IPropertyValue<string>[];
 } & chevre.event.screeningEvent.IAcceptedTicketOfferWithoutDetail
-    & SeatReservationOfferFactory.IOfferWithDetails;
+    & chevre.offer.seatReservation.IOfferWithDetails;
 
 export type IAcceptedOfferWithoutDetail4COA = {
     paymentMethod?: IAcceptedPaymentMethod;
-    additionalProperty: IPropertyValue<string>[];
-} & SeatReservationOfferFactory.IOffer;
+    additionalProperty: chevre.propertyValue.IPropertyValue<string>[];
+} & chevre.offer.seatReservation.IOffer;
 
 export interface IObjectWithoutDetail4COA {
     acceptedOffer: IAcceptedOfferWithoutDetail4COA[];

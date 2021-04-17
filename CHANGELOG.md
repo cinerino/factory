@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- update @chevre/factory
+- 承認インターフェースをchevreへ移行
+- 所有権インターフェースをchevreへ移行
+
 ### Deprecated
 
 ### Removed

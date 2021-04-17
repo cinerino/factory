@@ -37,25 +37,16 @@ import * as SendEmailMessageActionFactory from './factory/action/transfer/send/m
 import * as SendOrderActionFactory from './factory/action/transfer/send/order';
 import * as DeleteActionFactory from './factory/action/update/delete';
 import * as DeleteMemberActionFactory from './factory/action/update/delete/member';
-import { ActionStatusType } from './factory/actionStatusType';
-import ActionType from './factory/actionType';
 
 import { AccountType } from './factory/accountType';
-import * as AuthorizationFactory from './factory/authorization';
 import * as EmailMessageFactory from './factory/creativeWork/message/email';
 import * as WebApplicationFactory from './factory/creativeWork/softwareApplication/webApplication';
 import * as EventFactory from './factory/event';
 import * as ScreeningEventFactory from './factory/event/screeningEvent';
 import * as ScreeningEventSeriesFactory from './factory/event/screeningEventSeries';
-import * as OfferFactory from './factory/offer';
 import * as ProjectFactory from './factory/organization/project';
-import * as OwnershipInfoFactory from './factory/ownershipInfo';
-import PriceCurrency from './factory/priceCurrency';
 import * as ProgramMembershipFactory from './factory/programMembership';
-import * as PropertyValueFactory from './factory/propertyValue';
-import * as QuantitativeValueFactory from './factory/quantitativeValue';
 
-import SortType from './factory/sortType';
 import * as AggregateEventReservationsTaskFactory from './factory/task/aggregateEventReservations';
 import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
@@ -80,12 +71,10 @@ import * as VoidReserveTaskFactory from './factory/task/voidReserve';
 
 import * as TaskFactory from './factory/task';
 import TaskName from './factory/taskName';
-import TaskStatus from './factory/taskStatus';
 import * as TransactionFactory from './factory/transaction';
 import * as MoneyTransferTransactionFactory from './factory/transaction/moneyTransfer';
 import * as PlaceOrderTransactionFactory from './factory/transaction/placeOrder';
 import * as ReturnOrderTransactionFactory from './factory/transaction/returnOrder';
-import TransactionStatusType from './factory/transactionStatusType';
 import TransactionTasksExportationStatus from './factory/transactionTasksExportationStatus';
 import TransactionType from './factory/transactionType';
 
@@ -101,10 +90,8 @@ export import errors = errors;
 export import errorCode = ErrorCode;
 
 export import accountType = AccountType;
-
-export import actionStatusType = ActionStatusType;
-export import actionType = ActionType;
-
+export import actionStatusType = chevre.actionStatusType;
+export import actionType = chevre.actionType;
 export namespace action {
     export import IAction = ActionFactory.IAction;
     export import IAdditionalProperty = ActionFactory.IAdditionalProperty;
@@ -233,9 +220,7 @@ export namespace action {
         }
     }
 }
-
-export import authorization = AuthorizationFactory;
-
+export import authorization = chevre.authorization;
 export namespace creativeWork {
     export namespace message {
         export import email = EmailMessageFactory;
@@ -264,22 +249,22 @@ export namespace event {
     export import screeningEvent = ScreeningEventFactory;
     export import screeningEventSeries = ScreeningEventSeriesFactory;
 }
-export import offer = OfferFactory;
+export import offer = chevre.offer;
 export import order = chevre.order;
 export import orderStatus = chevre.orderStatus;
-export import ownershipInfo = OwnershipInfoFactory;
-export import priceCurrency = PriceCurrency;
+export import ownershipInfo = chevre.ownershipInfo;
+export import priceCurrency = chevre.priceCurrency;
 export import paymentMethodType = chevre.paymentMethodType;
 export import paymentStatusType = chevre.paymentStatusType;
 export import person = chevre.person;
 export import personType = chevre.personType;
 export import programMembership = ProgramMembershipFactory;
 export import project = ProjectFactory;
-export import propertyValue = PropertyValueFactory;
-export import quantitativeValue = QuantitativeValueFactory;
+export import propertyValue = chevre.propertyValue;
+export import quantitativeValue = chevre.quantitativeValue;
 export import service = chevre.service;
 export import seller = chevre.seller;
-export import sortType = SortType;
+export import sortType = chevre.sortType;
 
 export namespace task {
     export type IData<T extends TaskName | string> =
@@ -360,10 +345,8 @@ export namespace task {
 
     export import orderProgramMembership = OrderProgramMembershipTaskFactory;
 }
-
 export import taskName = TaskName;
-
-export import taskStatus = TaskStatus;
+export import taskStatus = chevre.taskStatus;
 
 export namespace transaction {
     export import IPassportBeforeStart = TransactionFactory.IPassportBeforeStart;
@@ -403,6 +386,6 @@ export namespace transaction {
     export import placeOrder = PlaceOrderTransactionFactory;
     export import returnOrder = ReturnOrderTransactionFactory;
 }
-export import transactionStatusType = TransactionStatusType;
+export import transactionStatusType = chevre.transactionStatusType;
 export import transactionTasksExportationStatus = TransactionTasksExportationStatus;
 export import transactionType = TransactionType;

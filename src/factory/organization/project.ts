@@ -1,7 +1,4 @@
-import SortType from '../sortType';
-import { IThing } from '../thing';
-
-import { organization, organizationType } from '../../chevre';
+import { organization, organizationType, sortType, thing } from '../../chevre';
 
 /**
  * 通知パラメータ
@@ -69,7 +66,7 @@ export interface ISettings {
 /**
  * プロジェクトインターフェース
  */
-export interface IProject extends IThing {
+export interface IProject extends thing.IThing {
     typeOf: organizationType.Project;
     id: string;
     email?: string;
@@ -83,7 +80,7 @@ export interface IProject extends IThing {
  * ソート条件インターフェース
  */
 export interface ISortOrder {
-    _id?: SortType;
+    _id?: sortType;
 }
 
 /**

@@ -1,6 +1,5 @@
 import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
-import PriceCurrency from '../../../priceCurrency';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
 
@@ -13,7 +12,7 @@ export type IObject = chevre.order.IAcceptedOffer<IService>[];
 export type IResultAcceptedOffer = chevre.order.IAcceptedOffer<chevre.order.IServiceOutput>[];
 export interface IResult {
     price: number;
-    priceCurrency: PriceCurrency;
+    priceCurrency: chevre.priceCurrency;
     acceptedOffers: IResultAcceptedOffer;
     requestBody?: any;
     responseBody: any;
