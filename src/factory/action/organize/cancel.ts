@@ -7,7 +7,7 @@ export type IPurpose = any;
 export type IResult = any;
 export type IPotentialActions = any;
 
-export interface IAttributes<TObject, TResult> extends ActionFactory.IAttributes<ActionType.CancelAction, TObject, TResult> {
+export interface IAttributes<TObject, TResult> extends ActionFactory.IAttributes<ActionType.ReturnAction, TObject, TResult> {
     potentialActions?: IPotentialActions;
     purpose?: IPurpose;
 }
