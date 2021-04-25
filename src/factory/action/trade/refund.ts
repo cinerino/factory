@@ -24,7 +24,7 @@ export interface IPotentialActions {
 
 export type IPurpose = chevre.order.ISimpleOrder;
 
-export interface IAttributes extends ActionFactory.IAttributes<ActionType.RefundAction, IObject, IResult> {
+export interface IAttributes extends ActionFactory.IAttributes<ActionType.ReturnAction, IObject, IResult> {
     recipient: IRecipient;
     purpose: IPurpose;
     potentialActions?: IPotentialActions;

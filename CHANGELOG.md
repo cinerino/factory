@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
+- PayAction -> ConfirmActionとして再構築
+- RefundAction -> ReturnActionとして再構築
+
 ### Deprecated
 
 ### Removed
