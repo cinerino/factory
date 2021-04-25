@@ -10,9 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- PayAction -> ConfirmActionとして再構築
-- RefundAction -> ReturnActionとして再構築
-
 ### Deprecated
 
 ### Removed
@@ -20,6 +17,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.43.0 - 2021-04-25
+
+### Changed
+
+- PayAction -> ConfirmActionとして再構築
+- RefundAction -> ReturnActionとして再構築
 
 ## v9.42.0 - 2021-04-17
 
