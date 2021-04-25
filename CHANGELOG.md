@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- CancelAction -> ReturnActionとして再構築
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.46.0 - 2021-04-25
+
+### Changed
+
+- CancelAction -> ReturnActionとして再構築
 
 ## v9.45.0 - 2021-04-25
 
