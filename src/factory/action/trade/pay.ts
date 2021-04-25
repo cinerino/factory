@@ -42,7 +42,7 @@ export interface IResult {
     seatInfoSyncResult?: any;
 }
 
-export interface IAttributes extends ActionFactory.IAttributes<ActionType.PayAction, IObject, IResult> {
+export interface IAttributes extends ActionFactory.IAttributes<ActionType.ConfirmAction, IObject, IResult> {
     instrument?: IInstrument;
     purpose: IPurpose;
 }
