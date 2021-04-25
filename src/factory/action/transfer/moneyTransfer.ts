@@ -78,8 +78,8 @@ export interface ITransactionPurpose {
 export type IPurpose = ITransactionPurpose | chevre.order.ISimpleOrder;
 
 export interface IAttributes
-    extends ActionFactory.IAttributes<ActionType.MoneyTransfer, IObject, IResult> {
-    typeOf: ActionType.MoneyTransfer;
+    extends ActionFactory.IAttributes<ActionType.ConfirmAction, IObject, IResult> {
+    typeOf: ActionType.ConfirmAction;
     purpose: IPurpose;
     /**
      * 金額
