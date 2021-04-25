@@ -1,4 +1,5 @@
-import * as RegisterActionFactory from '../register';
+import * as ActionFactory from '../../../action';
+import ActionType from '../../../actionType';
 
 import * as chevre from '../../../../chevre';
 
@@ -8,11 +9,11 @@ export type IResult = any;
 
 export type IPotentialActions = any;
 
-export interface IAttributes extends RegisterActionFactory.IAttributes<IObject, IResult> {
+export interface IAttributes extends ActionFactory.IAttributes<ActionType.ConfirmAction, IObject, IResult> {
     potentialActions?: IPotentialActions;
 }
 
 /**
  * サービス登録アクションインターフェース
  */
-export type IAction = RegisterActionFactory.IAction<IAttributes>;
+export type IAction = ActionFactory.IAction<IAttributes>;

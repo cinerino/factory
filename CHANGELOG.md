@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.44.0 - 2021-04-25
+
+### Changed
+
+- RegisterAction -> ConfirmActionとして再構築
+
 ## v9.43.0 - 2021-04-25
 
 ### Changed
