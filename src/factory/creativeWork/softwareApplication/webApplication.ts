@@ -1,4 +1,4 @@
-import { IProject } from '../../organization/project';
+import { IProject } from '../../project';
 
 import * as chevre from '../../../chevre';
 
