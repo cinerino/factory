@@ -43,7 +43,6 @@ import * as WebApplicationFactory from './factory/creativeWork/softwareApplicati
 import * as EventFactory from './factory/event';
 import * as ScreeningEventFactory from './factory/event/screeningEvent';
 import * as ScreeningEventSeriesFactory from './factory/event/screeningEventSeries';
-import * as ProjectFactory from './factory/organization/project';
 import * as ProgramMembershipFactory from './factory/programMembership';
 
 import * as AggregateEventReservationsTaskFactory from './factory/task/aggregateEventReservations';
@@ -258,7 +257,7 @@ export import paymentStatusType = chevre.paymentStatusType;
 export import person = chevre.person;
 export import personType = chevre.personType;
 export import programMembership = ProgramMembershipFactory;
-export import project = ProjectFactory;
+export import project = chevre.project;
 export import propertyValue = chevre.propertyValue;
 export import quantitativeValue = chevre.quantitativeValue;
 export import service = chevre.service;
