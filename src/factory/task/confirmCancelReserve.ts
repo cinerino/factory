@@ -25,7 +25,7 @@ export type IData = ICancelActionAttributes<IObject<chevre.service.webAPI.Identi
 };
 
 export interface IAttributes extends TaskFactory.IAttributes {
-    name: TaskName.CancelReservation;
+    name: TaskName.ConfirmCancelReserve;
     data: IData;
 }
 

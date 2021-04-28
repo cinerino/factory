@@ -5,7 +5,7 @@ import TaskName from '../taskName';
 
 export type IData = IMoneyTransferActionAttributes;
 export interface IAttributes extends TaskFactory.IAttributes {
-    name: TaskName.MoneyTransfer;
+    name: TaskName.ConfirmMoneyTransfer;
     data: IData;
 }
 
