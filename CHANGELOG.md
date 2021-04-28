@@ -10,8 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- chevreと重複するタスク名をrename
-
 ### Deprecated
 
 ### Removed
@@ -19,6 +17,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Fixed
 
 ### Security
+
+## v9.48.0 - 2021-04-28
+
+### Changed
+
+- chevreと重複するタスク名をrename
 
 ## v9.47.0 - 2021-04-27
 
