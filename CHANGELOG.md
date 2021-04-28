@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Security
 
+## v9.48.0 - 2021-04-28
+
+### Changed
+
+- chevreと重複するタスク名をrename
+
 ## v9.47.0 - 2021-04-27
 
 ### Changed

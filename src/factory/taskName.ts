@@ -9,11 +9,27 @@ enum TaskName {
     /**
      * 予約取消
      */
-    CancelReservation = 'cancelReservation',
+    ConfirmCancelReserve = 'confirmCancelReserve',
     /**
      * 予約確定
      */
     ConfirmReservation = 'confirmReservation',
+    /**
+     * 通貨転送
+     */
+    ConfirmMoneyTransfer = 'confirmMoneyTransfer',
+    /**
+     * 決済
+     */
+    ConfirmPay = 'confirmPay',
+    /**
+     * 返金
+     */
+    ConfirmRefund = 'confirmRefund',
+    /**
+     * サービス登録
+     */
+    ConfirmRegisterService = 'confirmRegisterService',
     /**
      * 会員削除
      */
@@ -23,29 +39,13 @@ enum TaskName {
      */
     GivePointAward = 'givePointAward',
     /**
-     * 通貨転送
-     */
-    MoneyTransfer = 'moneyTransfer',
-    /**
      * メンバーシップ注文
      */
     OrderProgramMembership = 'orderProgramMembership',
     /**
-     * 決済
-     */
-    Pay = 'pay',
-    /**
      * 注文受付
      */
     PlaceOrder = 'placeOrder',
-    /**
-     * 返金
-     */
-    Refund = 'refund',
-    /**
-     * サービス登録
-     */
-    RegisterService = 'registerService',
     /**
      * 注文返品
      */
@@ -73,19 +73,19 @@ enum TaskName {
     /**
      * 通貨転送中止
      */
-    VoidMoneyTransfer = 'voidMoneyTransfer',
+    VoidMoneyTransferTransaction = 'voidMoneyTransferTransaction',
     /**
      * 決済中止
      */
-    VoidPayment = 'voidPayment',
+    VoidPayTransaction = 'voidPayTransaction',
     /**
      * サービス登録中止
      */
-    VoidRegisterService = 'voidRegisterService',
+    VoidRegisterServiceTransaction = 'voidRegisterServiceTransaction',
     /**
      * 予約中止
      */
-    VoidReserve = 'voidReserve'
+    VoidReserveTransaction = 'voidReserveTransaction'
 }
 
 export default TaskName;

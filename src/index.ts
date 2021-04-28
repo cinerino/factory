@@ -46,26 +46,26 @@ import * as ScreeningEventSeriesFactory from './factory/event/screeningEventSeri
 import * as ProgramMembershipFactory from './factory/programMembership';
 
 import * as AggregateEventReservationsTaskFactory from './factory/task/aggregateEventReservations';
-import * as CancelReservationTaskFactory from './factory/task/cancelReservation';
+import * as ConfirmCancelReserveTaskFactory from './factory/task/confirmCancelReserve';
+import * as ConfirmMoneyTransferTaskFactory from './factory/task/confirmMoneyTransfer';
+import * as ConfirmPayTaskFactory from './factory/task/confirmPay';
+import * as ConfirmRefundTaskFactory from './factory/task/confirmRefund';
+import * as ConfirmRegisterServiceTaskFactory from './factory/task/confirmRegisterService';
 import * as ConfirmReservationTaskFactory from './factory/task/confirmReservation';
 import * as DeleteMemberTaskFactory from './factory/task/deleteMember';
 import * as GivePointAwardTaskFactory from './factory/task/givePointAward';
-import * as MoneyTransferTaskFactory from './factory/task/moneyTransfer';
 import * as OrderProgramMembershipTaskFactory from './factory/task/orderProgramMembership';
-import * as PayTaskFactory from './factory/task/pay';
 import * as PlaceOrderTaskFactory from './factory/task/placeOrder';
-import * as RefundTaskFactory from './factory/task/refund';
-import * as RegisterServiceTaskFactory from './factory/task/registerService';
 import * as ReturnOrderTaskFactory from './factory/task/returnOrder';
 import * as ReturnPointAwardTaskFactory from './factory/task/returnPointAward';
 import * as SendEmailMessageTaskFactory from './factory/task/sendEmailMessage';
 import * as SendOrderTaskFactory from './factory/task/sendOrder';
 import * as TriggerWebhookTaskFactory from './factory/task/triggerWebhook';
 import * as UnRegisterProgramMembershipTaskFactory from './factory/task/unRegisterProgramMembership';
-import * as VoidMoneyTransferTaskFactory from './factory/task/voidMoneyTransfer';
-import * as VoidPaymentTaskFactory from './factory/task/voidPayment';
-import * as VoidRegisterServiceTaskFactory from './factory/task/voidRegisterService';
-import * as VoidReserveTaskFactory from './factory/task/voidReserve';
+import * as VoidMoneyTransferTransactionTaskFactory from './factory/task/voidMoneyTransferTransaction';
+import * as VoidPayTransactionTaskFactory from './factory/task/voidPayTransaction';
+import * as VoidRegisterServiceTransactionTaskFactory from './factory/task/voidRegisterServiceTransaction';
+import * as VoidReserveTransactionTaskFactory from './factory/task/voidReserveTransaction';
 
 import * as TaskFactory from './factory/task';
 import TaskName from './factory/taskName';
@@ -267,74 +267,74 @@ export import sortType = chevre.sortType;
 export namespace task {
     export type IData<T extends TaskName | string> =
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.IData :
-        T extends TaskName.CancelReservation ? CancelReservationTaskFactory.IData :
+        T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.IData :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IData :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IData :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IData :
-        T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.IData :
+        T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IData :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IData :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IData :
-        T extends TaskName.Refund ? RefundTaskFactory.IData :
-        T extends TaskName.RegisterService ? RegisterServiceTaskFactory.IData :
+        T extends TaskName.ConfirmRefund ? ConfirmRefundTaskFactory.IData :
+        T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.IData :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IData :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IData :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IData :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IData :
-        T extends TaskName.Pay ? PayTaskFactory.IData :
+        T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.IData :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IData :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IData :
-        T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IData :
-        T extends TaskName.VoidPayment ? VoidPaymentTaskFactory.IData :
-        T extends TaskName.VoidRegisterService ? VoidRegisterServiceTaskFactory.IData :
-        T extends TaskName.VoidReserve ? VoidReserveTaskFactory.IData :
+        T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.IData :
+        T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.IData :
+        T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.IData :
+        T extends TaskName.VoidReserveTransaction ? VoidReserveTransactionTaskFactory.IData :
         TaskFactory.IData;
 
     export type IAttributes<T extends TaskName | string> =
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.IAttributes :
-        T extends TaskName.CancelReservation ? CancelReservationTaskFactory.IAttributes :
+        T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.IAttributes :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.IAttributes :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.IAttributes :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.IAttributes :
-        T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.IAttributes :
+        T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.IAttributes :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.IAttributes :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.IAttributes :
-        T extends TaskName.Refund ? RefundTaskFactory.IAttributes :
-        T extends TaskName.RegisterService ? RegisterServiceTaskFactory.IAttributes :
+        T extends TaskName.ConfirmRefund ? ConfirmRefundTaskFactory.IAttributes :
+        T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.IAttributes :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.IAttributes :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.IAttributes :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.IAttributes :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.IAttributes :
-        T extends TaskName.Pay ? PayTaskFactory.IAttributes :
+        T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.IAttributes :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.IAttributes :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.IAttributes :
-        T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.IAttributes :
-        T extends TaskName.VoidPayment ? VoidPaymentTaskFactory.IAttributes :
-        T extends TaskName.VoidRegisterService ? VoidRegisterServiceTaskFactory.IAttributes :
-        T extends TaskName.VoidReserve ? VoidReserveTaskFactory.IAttributes :
+        T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.IAttributes :
+        T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.IAttributes :
+        T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.IAttributes :
+        T extends TaskName.VoidReserveTransaction ? VoidReserveTransactionTaskFactory.IAttributes :
         TaskFactory.IAttributes;
 
     export type ITask<T extends TaskName | string> =
         T extends TaskName.AggregateEventReservations ? AggregateEventReservationsTaskFactory.ITask :
-        T extends TaskName.CancelReservation ? CancelReservationTaskFactory.ITask :
+        T extends TaskName.ConfirmCancelReserve ? ConfirmCancelReserveTaskFactory.ITask :
         T extends TaskName.ConfirmReservation ? ConfirmReservationTaskFactory.ITask :
         T extends TaskName.DeleteMember ? DeleteMemberTaskFactory.ITask :
         T extends TaskName.GivePointAward ? GivePointAwardTaskFactory.ITask :
-        T extends TaskName.MoneyTransfer ? MoneyTransferTaskFactory.ITask :
+        T extends TaskName.ConfirmMoneyTransfer ? ConfirmMoneyTransferTaskFactory.ITask :
         T extends TaskName.OrderProgramMembership ? OrderProgramMembershipTaskFactory.ITask :
         T extends TaskName.PlaceOrder ? PlaceOrderTaskFactory.ITask :
-        T extends TaskName.Refund ? RefundTaskFactory.ITask :
-        T extends TaskName.RegisterService ? RegisterServiceTaskFactory.ITask :
+        T extends TaskName.ConfirmRefund ? ConfirmRefundTaskFactory.ITask :
+        T extends TaskName.ConfirmRegisterService ? ConfirmRegisterServiceTaskFactory.ITask :
         T extends TaskName.ReturnOrder ? ReturnOrderTaskFactory.ITask :
         T extends TaskName.ReturnPointAward ? ReturnPointAwardTaskFactory.ITask :
         T extends TaskName.SendEmailMessage ? SendEmailMessageTaskFactory.ITask :
         T extends TaskName.SendOrder ? SendOrderTaskFactory.ITask :
-        T extends TaskName.Pay ? PayTaskFactory.ITask :
+        T extends TaskName.ConfirmPay ? ConfirmPayTaskFactory.ITask :
         T extends TaskName.TriggerWebhook ? TriggerWebhookTaskFactory.ITask :
         T extends TaskName.UnRegisterProgramMembership ? UnRegisterProgramMembershipTaskFactory.ITask :
-        T extends TaskName.VoidMoneyTransfer ? VoidMoneyTransferTaskFactory.ITask :
-        T extends TaskName.VoidPayment ? VoidPaymentTaskFactory.ITask :
-        T extends TaskName.VoidRegisterService ? VoidRegisterServiceTaskFactory.ITask :
-        T extends TaskName.VoidReserve ? VoidReserveTaskFactory.ITask :
+        T extends TaskName.VoidMoneyTransferTransaction ? VoidMoneyTransferTransactionTaskFactory.ITask :
+        T extends TaskName.VoidPayTransaction ? VoidPayTransactionTaskFactory.ITask :
+        T extends TaskName.VoidRegisterServiceTransaction ? VoidRegisterServiceTransactionTaskFactory.ITask :
+        T extends TaskName.VoidReserveTransaction ? VoidReserveTransactionTaskFactory.ITask :
         TaskFactory.ITask;
 
     export import ISearchConditions = TaskFactory.ISearchConditions;
