@@ -38,8 +38,6 @@ import * as DeleteActionFactory from './factory/action/update/delete';
 import * as DeleteMemberActionFactory from './factory/action/update/delete/member';
 
 import { AccountType } from './factory/accountType';
-import * as EmailMessageFactory from './factory/creativeWork/message/email';
-import * as WebApplicationFactory from './factory/creativeWork/softwareApplication/webApplication';
 import * as EventFactory from './factory/event';
 import * as ScreeningEventFactory from './factory/event/screeningEvent';
 import * as ScreeningEventSeriesFactory from './factory/event/screeningEventSeries';
@@ -76,16 +74,13 @@ import * as ReturnOrderTransactionFactory from './factory/transaction/returnOrde
 import TransactionTasksExportationStatus from './factory/transactionTasksExportationStatus';
 import TransactionType from './factory/transactionType';
 
-import ErrorCode from './factory/errorCode';
-import * as errors from './factory/errors';
-
 export import cognito = cognito;
 export import chevre = chevre;
 export import pecorino = pecorino;
 export import waiter = waiter;
 
-export import errors = errors;
-export import errorCode = ErrorCode;
+export import errors = chevre.errors;
+export import errorCode = chevre.errorCode;
 
 export import accountType = AccountType;
 export import actionStatusType = chevre.actionStatusType;
@@ -219,15 +214,7 @@ export namespace action {
     }
 }
 export import authorization = chevre.authorization;
-export namespace creativeWork {
-    export namespace message {
-        export import email = EmailMessageFactory;
-    }
-    export namespace softwareApplication {
-        export import webApplication = WebApplicationFactory;
-    }
-}
-
+export import creativeWork = chevre.creativeWork;
 export namespace event {
     export type IAttributes<T extends chevre.eventType> =
         T extends chevre.eventType.ScreeningEvent ? ScreeningEventFactory.IAttributes :
