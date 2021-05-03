@@ -1,15 +1,15 @@
 import * as pecorino from '@pecorino/factory';
 
-import * as ActionFactory from '../../action';
-import ActionType from '../../actionType';
-import TransactionType from '../../transactionType';
+import * as ActionFactory from '../../../action';
+import ActionType from '../../../actionType';
+import TransactionType from '../../../transactionType';
 
-import * as chevre from '../../../chevre';
+import * as chevre from '../../../../chevre';
 
 export type IAgent = ActionFactory.IParticipant;
 export type IRecipient = ActionFactory.IParticipant;
 
-export type IPendingTransaction = chevre.transaction.moneyTransfer.ITransaction;
+export type IPendingTransaction = chevre.assetTransaction.moneyTransfer.ITransaction;
 
 /**
  * 匿名ロケーションインターフェース

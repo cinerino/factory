@@ -2,7 +2,7 @@ import * as ActionFactory from '../../../action';
 import ActionType from '../../../actionType';
 import TransactionType from '../../../transactionType';
 import * as AuthorizeActionFactory from '../../authorize';
-import { IPaymentCard, IPendingTransaction } from '../../transfer/moneyTransfer';
+import { IPaymentCard, IPendingTransaction } from '../../interact/confirm/moneyTransfer';
 
 import * as chevre from '../../../../chevre';
 

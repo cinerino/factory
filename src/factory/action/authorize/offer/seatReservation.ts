@@ -23,8 +23,8 @@ export type IRequestBody<T extends chevre.service.webAPI.Identifier> =
     any;
 export type IResponseBody<T extends chevre.service.webAPI.Identifier> =
     T extends chevre.service.webAPI.Identifier.COA ? COA.factory.reserve.IUpdTmpReserveSeatResult :
-    T extends chevre.service.webAPI.Identifier.Chevre ? chevre.transaction.reserve.ITransaction :
-    chevre.transaction.reserve.ITransaction;
+    T extends chevre.service.webAPI.Identifier.Chevre ? chevre.assetTransaction.reserve.ITransaction :
+    chevre.assetTransaction.reserve.ITransaction;
 
 export type IResultAcceptedOffer = chevre.order.IAcceptedOffer<chevre.order.IReservation>;
 
@@ -71,7 +71,7 @@ export type IAcceptedOfferWithoutDetail4chevre = {
 
 export type IObjectWithoutDetail4chevre = {
     acceptedOffer: IAcceptedOfferWithoutDetail4chevre[];
-} & chevre.transaction.reserve.IObjectWithoutDetail;
+} & chevre.assetTransaction.reserve.IObjectWithoutDetail;
 
 export type IAcceptedOffer4COA = {
     paymentMethod?: IAcceptedPaymentMethod;
@@ -106,7 +106,7 @@ export type IObjectWithoutDetail<T extends chevre.service.webAPI.Identifier> =
     T extends chevre.service.webAPI.Identifier.Chevre ? IObjectWithoutDetail4chevre :
     any;
 
-export type IPendingTransaction = chevre.transaction.ITransaction<chevre.transactionType.Reserve>;
+export type IPendingTransaction = chevre.assetTransaction.ITransaction<chevre.assetTransactionType.Reserve>;
 
 /**
  * 承認アクション対象

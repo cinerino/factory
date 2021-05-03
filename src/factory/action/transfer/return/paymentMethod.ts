@@ -1,9 +1,9 @@
-import * as ActionFactory from '../../action';
-import ActionType from '../../actionType';
-import { IAttributes as IInformActionAttributes } from '../interact/inform';
-import { IAttributes as ISendEmailMessageActionAttributes } from '../transfer/send/message/email';
+import * as ActionFactory from '../../../action';
+import ActionType from '../../../actionType';
+import { IAttributes as IInformActionAttributes } from '../../interact/inform';
+import { IAttributes as ISendEmailMessageActionAttributes } from '../../transfer/send/message/email';
 
-import * as chevre from '../../../chevre';
+import * as chevre from '../../../../chevre';
 
 export type IRecipient = ActionFactory.IParticipant;
 

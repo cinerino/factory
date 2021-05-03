@@ -1,7 +1,7 @@
 import * as ActionFactory from '../../../action';
 import { IAttributes as IInformActionAttributes } from '../../interact/inform';
-import { IAttributes as ICancelActionAttributes } from '../../organize/cancel';
-import { IAttributes as IRefundActionAttributes } from '../../trade/refund';
+import { IAttributes as IRefundActionAttributes } from '../../transfer/return/paymentMethod';
+import { IAttributes as ICancelActionAttributes } from '../../transfer/return/reservation';
 import * as ReturnActionFactory from '../return';
 import { IAttributes as ISendEmailMessageActionAttributes } from '../send/message/email';
 import * as ReturnPointAwardActionFactory from './pointAward';
