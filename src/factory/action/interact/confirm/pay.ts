@@ -1,8 +1,8 @@
-import * as ActionFactory from '../../action';
-import ActionType from '../../actionType';
-import { IInstrument, IPendingTransaction } from '../authorize/paymentMethod/any';
+import * as ActionFactory from '../../../action';
+import ActionType from '../../../actionType';
+import { IInstrument, IPendingTransaction } from '../../authorize/paymentMethod/any';
 
-import * as chevre from '../../../chevre';
+import * as chevre from '../../../../chevre';
 
 export import IMovieTicket = chevre.paymentMethod.paymentCard.movieTicket.IMovieTicket;
 

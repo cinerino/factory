@@ -1,10 +1,10 @@
 import * as ActionFactory from '../../action';
 import ActionType from '../../actionType';
 import TransactionType from '../../transactionType';
+import { IAttributes as IPayActionAttributes } from '../interact/confirm/pay';
 import { IAttributes as IInformActionAttributes } from '../interact/inform';
 import { IAttributes as IGivePointAwardActionAttributes } from '../transfer/give/pointAward';
 import { IAttributes as ISendOrderActionAttributes } from '../transfer/send/order';
-import { IAttributes as IPayActionAttributes } from './pay';
 
 import * as chevre from '../../../chevre';
 

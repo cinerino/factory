@@ -8,8 +8,8 @@ export type IAgent = ActionFactory.IParticipant;
 
 export type IObject4COA = COA.factory.reserve.IUpdReserveArgs;
 
-export type IObject4Chevre = chevre.transaction.reserve.IConfirmParams & {
-    typeOf: chevre.transactionType.Reserve;
+export type IObject4Chevre = chevre.assetTransaction.reserve.IConfirmParams & {
+    typeOf: chevre.assetTransactionType.Reserve;
 };
 
 export type IObject<T extends chevre.service.webAPI.Identifier> =

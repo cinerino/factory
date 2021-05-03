@@ -16,22 +16,22 @@ import * as AuthorizeSeatReservationOfferActionFactory from './factory/action/au
 import * as AuthorizeAnyPaymentActionFactory from './factory/action/authorize/paymentMethod/any';
 import * as CheckMovieTicketActionFactory from './factory/action/check/paymentMethod/movieTicket';
 import * as CheckTokenActionFactory from './factory/action/check/token';
+import * as ConfirmMoneyTransferActionFactory from './factory/action/interact/confirm/moneyTransfer';
+import * as ConfirmPayActionFactory from './factory/action/interact/confirm/pay';
+import * as ConfirmRegisterServiceActionFactory from './factory/action/interact/confirm/registerService';
 import * as ConfirmReservationActionFactory from './factory/action/interact/confirm/reservation';
 import * as InformActionFactory from './factory/action/interact/inform';
-import * as RegisterServiceActionFactory from './factory/action/interact/register/service';
 import * as UnRegisterActionFactory from './factory/action/interact/unRegister';
 import * as UnRegisterProgramMembershipActionFactory from './factory/action/interact/unRegister/programMembership';
-import * as CancelActionFactory from './factory/action/organize/cancel';
 import * as OrderActionFactory from './factory/action/trade/order';
-import * as PayActionFactory from './factory/action/trade/pay';
-import * as RefundActionFactory from './factory/action/trade/refund';
 import * as GiveActionFactory from './factory/action/transfer/give';
 import * as GivePointAwardActionFactory from './factory/action/transfer/give/pointAward';
-import * as MoneyTransferActionFactory from './factory/action/transfer/moneyTransfer';
 import * as PrintActionFactory from './factory/action/transfer/print';
 import * as PrintTicketActionFactory from './factory/action/transfer/print/ticket';
 import * as ReturnOrderActionFactory from './factory/action/transfer/return/order';
+import * as ReturnPaymentMethodActionFactory from './factory/action/transfer/return/paymentMethod';
 import * as ReturnPointAwardActionFactory from './factory/action/transfer/return/pointAward';
+import * as ReturnReservationActionFactory from './factory/action/transfer/return/reservation';
 import * as SendEmailMessageActionFactory from './factory/action/transfer/send/message/email';
 import * as SendOrderActionFactory from './factory/action/transfer/send/order';
 import * as DeleteActionFactory from './factory/action/update/delete';
@@ -124,24 +124,14 @@ export namespace action {
         export import token = CheckTokenActionFactory;
     }
 
-    export namespace consume {
-        export namespace use {
-        }
-    }
-
     export namespace interact {
         export namespace confirm {
+            export import moneyTransfer = ConfirmMoneyTransferActionFactory;
+            export import registerService = ConfirmRegisterServiceActionFactory;
+            export import pay = ConfirmPayActionFactory;
             export import reservation = ConfirmReservationActionFactory;
         }
         export import inform = InformActionFactory;
-        export namespace register {
-            // tslint:disable-next-line:no-shadowed-variable
-            // export import IAction = RegisterActionFactory.IAction;
-            // tslint:disable-next-line:no-shadowed-variable
-            // export import IAttributes = RegisterActionFactory.IAttributes;
-            // tslint:disable-next-line:no-shadowed-variable
-            export import service = RegisterServiceActionFactory;
-        }
         export namespace unRegister {
             // tslint:disable-next-line:no-shadowed-variable
             export import IAction = UnRegisterActionFactory.IAction;
@@ -152,15 +142,9 @@ export namespace action {
         }
     }
 
-    export namespace organize {
-        export import cancel = CancelActionFactory;
-    }
-
     export namespace trade {
         // tslint:disable-next-line:no-shadowed-variable
         export import order = OrderActionFactory;
-        export import pay = PayActionFactory;
-        export import refund = RefundActionFactory;
     }
 
     export namespace transfer {
@@ -172,8 +156,6 @@ export namespace action {
             // tslint:disable-next-line:no-shadowed-variable
             export import pointAward = GivePointAwardActionFactory;
         }
-
-        export import moneyTransfer = MoneyTransferActionFactory;
 
         export namespace print {
             // tslint:disable-next-line:no-shadowed-variable
@@ -191,7 +173,9 @@ export namespace action {
         export namespace returnAction {
             // tslint:disable-next-line:no-shadowed-variable
             export import order = ReturnOrderActionFactory;
+            export import paymentMethod = ReturnPaymentMethodActionFactory;
             export import pointAward = ReturnPointAwardActionFactory;
+            export import reservation = ReturnReservationActionFactory;
         }
 
         export namespace send {

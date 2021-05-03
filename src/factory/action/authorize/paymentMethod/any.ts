@@ -21,12 +21,12 @@ export type IAnyPaymentMethod = string;
  * 進行中取引インターフェース
  */
 export interface IObjectPendingTransaction {
-    typeOf: chevre.transactionType.MoneyTransfer;
+    typeOf: chevre.assetTransactionType.MoneyTransfer;
     id?: string;
     transactionNumber?: string;
 }
 
-export type IPendingTransaction = chevre.transaction.moneyTransfer.ITransaction;
+export type IPendingTransaction = chevre.assetTransaction.moneyTransfer.ITransaction;
 
 export interface IAccount {
     /**
@@ -222,11 +222,11 @@ export interface IResult {
     /**
      * CreditCard決済の場合
      */
-    entryTranArgs?: chevre.transaction.pay.IEntryTranArgs;
+    entryTranArgs?: chevre.assetTransaction.pay.IEntryTranArgs;
     /**
      * CreditCard決済の場合
      */
-    execTranResult?: chevre.transaction.pay.IExecTranResult;
+    execTranResult?: chevre.assetTransaction.pay.IExecTranResult;
 
     /**
      * 承認時のムビチケ認証レスポンス(MovieTicket決済)
