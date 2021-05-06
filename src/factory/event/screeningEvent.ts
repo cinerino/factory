@@ -1,7 +1,7 @@
+import * as COA from '@motionpicture/coa-service';
+
 import * as chevre from '../../chevre';
 import * as EventFactory from '../event';
-
-import * as COA from '../../coa';
 
 export type IOfferedThrough = chevre.service.webAPI.IService<chevre.service.webAPI.Identifier>;
 
